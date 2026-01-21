@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Logos from "@public/icon.svg";
-import { Menu, X, Linkedin } from "lucide-react";
+import { Menu, X, Linkedin, Github, GithubIcon } from "lucide-react";
 import { ShimmerButton } from "./ui/shimmer-button";
 import Link from "next/link";
+import { Instagram } from "lucide-react";
+
 
 export function Header({}) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -77,15 +79,35 @@ export function Header({}) {
                   Probar demo
                 </ShimmerButton>
               </Link>*/}
-                            <a href="https://www.linkedin.com/company/bylogos/">
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="text-muted-foreground hover:text-foreground"
+                                    className=" text-muted-foreground hover:text-foreground"
                                 >
+                            <a href="https://www.linkedin.com/company/bylogos/">
                                     <Linkedin />
-                                </Button>
                             </a>
+                                </Button>
+
+                                <Button variant="ghost" size="sm" className=" text-muted-foreground hover:text-foreground">
+                                <a
+                                    href={"https://www.instagram.com/bylogos.io/"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Instagram  />
+                                </a>
+                            </Button>
+
+                            <Button variant="ghost" size="sm" className=" text-muted-foreground hover:text-foreground">
+                                <a
+                                    href={"https://github.com/bylogos-io"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <GithubIcon  />
+                                </a>
+                            </Button>
                         </div>
                         {/* Mobile Menu Button */}
                         <Button

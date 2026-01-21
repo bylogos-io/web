@@ -165,7 +165,7 @@ export function Newsletter() {
                     )}
                   </div>
 
-                  <Button type="submit" disabled={isLoading} className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50">
+                  <Button type="submit" disabled={isLoading} className="cursor-pointer w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50">
                     {isLoading ? (
                       <div className="flex items-center space-x-2">
                         <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
@@ -265,7 +265,7 @@ export function Newsletter() {
       {/* Technical support info */}
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} viewport={{ once: true }} className="text-center">
         <p className="mt-16 text-sm text-muted-foreground">
-          O escribe un correo a <span className="text-primary">contact@bylogos.io</span>
+          O escribe un correo a <a href="mailto:contact@bylogos.io" className="text-primary">contact@bylogos.io</a>
         </p>
       </motion.div>
     </section>
