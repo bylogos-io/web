@@ -31,7 +31,7 @@ export default function Home() {
                     <Newsletter />
                 </div>
             </div>
-            <div className="h-80 -z-60 pointer-events-none select-none"></div>
+            <div className="h-90 -z-60 pointer-events-none select-none"></div>
             <div className="fixed bottom-0 left-0 right-0 z-1 pointer-events-auto">
                 <Footer />
             </div>
