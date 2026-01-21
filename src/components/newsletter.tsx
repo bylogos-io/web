@@ -64,7 +64,7 @@ export function Newsletter() {
       if (!response.ok) {
         throw new Error("Error al suscribirse");
       }
-    } catch (err) {
+    } catch {
       setError("Hubo un problema al procesar tu suscripción. Inténtalo de nuevo.");
       setIsLoading(false);
       return;
