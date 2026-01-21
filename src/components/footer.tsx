@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
-import { /*ExternalLink, FileText,*/ Mail, /*Phone, Github,*/ Linkedin, Instagram } from "lucide-react";
+import { /*ExternalLink, FileText,*/ Mail, /*Phone, Github,*/ Linkedin, Instagram, GithubIcon } from "lucide-react";
 import Link from "next/link";
 import logoImage from "../../public/logos.svg";
 
@@ -64,6 +64,18 @@ export function Footer() {
                                     <Instagram className="h-4 w-4" />
                                 </a>
                             </Button>
+
+                            <Button variant="ghost" size="sm" className="p-2">
+                                <a
+                                    href={"https://github.com/bylogos-io"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <GithubIcon  />
+                                </a>
+                            </Button>
+
+                            
                         </div>
                     </motion.div>
 
@@ -123,7 +135,9 @@ export function Footer() {
                                     <contact.icon className="h-4 w-4 text-primary mt-0.5" />
                                     <div>
                                         <div className="text-xs text-muted-foreground">{contact.label}</div>
-                                        <div className="text-sm text-foreground">{contact.value}</div>
+                                        <a href={`mailto:${contact.value}`} target="_blank" rel="noopener noreferrer">
+                                            <div className="text-sm text-foreground">{contact.value}</div>
+                                        </a>
                                     </div>
                                 </div>
                             ))}
@@ -133,7 +147,7 @@ export function Footer() {
                         <div className="mt-6">
                             <a href={"mailto:contact@bylogos.io"}>
                                 <Button
-                                    className="bg-primary hover:bg-primary/90 text-primary-foreground w-full"
+                                    className="cursor-pointer bg-primary hover:bg-primary/90 text-primary-foreground w-full"
                                     size="sm"
                                 >
                                     <Mail className="mr-2 h-4 w-4" />
