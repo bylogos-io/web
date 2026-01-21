@@ -10,6 +10,11 @@
 !.yarn/releases
 !.yarn/versions
 
+# lock files (generated locally, avoid merge conflicts)
+package-lock.json
+pnpm-lock.yaml
+bun.lock
+
 # testing
 /coverage
 
