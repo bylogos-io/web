@@ -78,30 +78,10 @@ jobs:
       - name: Build production
         run: pnpm run build
 
-      - name: Start server
-        run: pnpm run start &
+      - name: Run Lighthouse
+        run: npx start-server-and-test start http://localhost:3000 'npx lhci autorun'
         env:
           PORT: 3000
-
-      - name: Wait for server
-        run: |
-          for i in {1..30}; do
-            if curl -f http://localhost:3000 > /dev/null 2>&1; then
-              echo "Server is ready"
-              exit 0
-            fi
-            echo "Waiting for server... ($i/30)"
-            sleep 1
-          done
-          echo "Server failed to start"
-          exit 1
-
-      - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v10
-        with:
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-        env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
