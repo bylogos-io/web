@@ -153,4 +153,39 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Base typography */
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      @apply text-4xl font-medium leading-tight -tracking-tight;
+    }
+
+    h2 {
+      @apply text-3xl font-medium leading-snug -tracking-tight;
+    }
+
+    h3 {
+      @apply text-2xl font-medium leading-normal;
+    }
+
+    h4 {
+      @apply text-xl font-medium leading-normal;
+    }
+
+    p {
+      @apply text-base font-normal leading-relaxed text-muted-foreground;
+    }
+
+    label {
+      @apply text-sm font-medium leading-normal;
+    }
+
+    button {
+      @apply text-sm font-medium leading-normal;
+    }
+
+    input {
+      @apply text-sm font-normal leading-normal;
+    }
+  }
 }
