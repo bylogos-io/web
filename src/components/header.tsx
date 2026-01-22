@@ -10,7 +10,7 @@ import Link from "next/link";
 import { Instagram } from "lucide-react";
 
 
-export function Header({}) {
+export function Header({ }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -45,9 +45,8 @@ export function Header({}) {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                    isScrolled ? "bg-background/60 backdrop-blur-sm border-b border-border" : "bg-transparent"
-                }`}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/60 backdrop-blur-sm border-b border-border" : "bg-transparent"
+                    }`}
             >
                 <div className="container mx-auto px-6">
                     <div className="flex items-center justify-between h-16">
