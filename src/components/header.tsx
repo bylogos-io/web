@@ -54,7 +54,7 @@ export function Header({ }) {
                         <div className="flex-1 flex justify-start">
                             <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-3">
                                 <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-[#e16e0920] border-1 p-1">
-                                    <Image src={Logos} alt="Logos Logo" />
+                                    <Image src={Logos} alt="Logos Logo" unoptimized />
                                 </div>
                             </motion.div>
                         </div>
