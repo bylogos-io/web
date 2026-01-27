@@ -2,7 +2,6 @@
 [![CI Develop](https://img.shields.io/github/actions/workflow/status/bylogos-io/web/ci-develop.yml?label=CI%20Develop&style=for-the-badge&logo=github&logoColor=white&labelColor=171717)](https://github.com/bylogos-io/web/actions/workflows/ci-develop.yml)
 [![CI Full](https://img.shields.io/github/actions/workflow/status/bylogos-io/web/ci-full.yml?label=CI%20Full&style=for-the-badge&logo=github&logoColor=white&labelColor=171717)](https://github.com/bylogos-io/web/actions/workflows/ci-full.yml)
 [![Last Release](https://img.shields.io/github/v/release/bylogos-io/web?style=for-the-badge&logo=github&logoColor=white&labelColor=171717&color=E16E09&label=Last%20Release)](https://github.com/bylogos-io/web/releases)
-[![Repo Size](https://img.shields.io/github/repo-size/bylogos-io/web?style=for-the-badge&color=E16E09&labelColor=171717)](https://github.com/bylogos-io/web)
 
 # LogOS Web
 
