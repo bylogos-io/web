@@ -1,39 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fwww.bylogos.io%2F&up_message=online&down_message=offline&down_color=E34646&style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=171717)](https://www.bylogos.io/)
+[![CI Develop](https://img.shields.io/github/actions/workflow/status/bylogos-io/web/ci-develop.yml?label=CI%20Develop&style=for-the-badge&logo=github&logoColor=white&labelColor=171717)](https://github.com/bylogos-io/web/actions/workflows/ci-develop.yml)
+[![CI Full](https://img.shields.io/github/actions/workflow/status/bylogos-io/web/ci-full.yml?label=CI%20Full&style=for-the-badge&logo=github&logoColor=white&labelColor=171717)](https://github.com/bylogos-io/web/actions/workflows/ci-full.yml)
+[![Last Release](https://img.shields.io/github/v/release/bylogos-io/web?style=for-the-badge&logo=github&logoColor=white&labelColor=171717&color=E16E09&label=Last%20Release)](https://github.com/bylogos-io/web/releases)
+[![Repo Size](https://img.shields.io/github/repo-size/bylogos-io/web?style=for-the-badge&color=E16E09&labelColor=171717)](https://github.com/bylogos-io/web)
 
-## Getting Started
+# LogOS Web
 
-First, run the development server:
+**LogOS** es una plataforma IIoT diseñada para el monitoreo y control en tiempo real. Este repositorio contiene el código fuente de la aplicación web construida con [Next.js](https://nextjs.org).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> [!CAUTION]
+> **PROYECTO PRIVADO**: Este proyecto no es Open Source. El código se proporciona únicamente para fines de desarrollo interno. **No aceptamos pull requests ni contribuciones externas.**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requisitos Previos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js (versión LTS recomendada)
+- [pnpm](https://pnpm.io/) (Gestionador de paquetes obligatorio)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalación y Ejecución Local
 
-## Learn More
+Para levantar el proyecto en tu máquina local, sigue estos pasos:
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Instalar dependencias**:
+    ```bash
+    pnpm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2.  **Iniciar el servidor de desarrollo**:
+    ```bash
+    pnpm dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-lololol
+3.  Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
