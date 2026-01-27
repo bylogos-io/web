@@ -9,7 +9,8 @@
 **LogOS** es una plataforma IIoT diseñada para el monitoreo y control en tiempo real. Este repositorio contiene el código fuente de la aplicación web construida con [Next.js](https://nextjs.org).
 
 > [!CAUTION]
-> **PROYECTO PRIVADO**: Este proyecto no es Open Source. El código se proporciona únicamente para fines de desarrollo interno. **No aceptamos pull requests ni contribuciones externas.**
+> PROYECTO PRIVADO: Este proyecto no es Open Source, el código se proporciona únicamente para fines de desarrollo interno.
+> No aceptamos pull requests ni contribuciones externas.
 
 ## Requisitos Previos
 
