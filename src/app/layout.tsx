@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
+import { ChatWidget } from "@/components/chat-widget";
 //import { CustomCursor } from "@/components/ui/custom-cursor";
 
 import type { Metadata } from "next";
@@ -78,6 +79,7 @@ export default function RootLayout({
           {/*
           <CustomCursor />*/}
           {children}
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>
