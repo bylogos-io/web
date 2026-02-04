@@ -1,23 +1,29 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useChat } from "@ai-sdk/react";
+import { useChatContext } from "@/components/chat-provider";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Maximize2, Send, MessageCircle, X } from "lucide-react";
+import { Maximize2, Send, MessageCircle, X, User } from "lucide-react";
 import Image from "next/image";
 import Logos from "@public/icon.svg";
 import ReactMarkdown from "react-markdown";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { CopyButton } from "@/components/copy-button";
 
 export function ChatWidget() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status } = useChatContext();
   const isLoading = status === "streaming" || status === "submitted";
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  // No mostrar el widget si estamos en la página de chat (se comprueba en el render)
+  const isChatPage = pathname === "/chat" || pathname === "/chat/";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,6 +51,8 @@ export function ChatWidget() {
     }
   };
 
+  if (isChatPage) return null;
+
   return (
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
       <AnimatePresence>
@@ -69,15 +77,13 @@ export function ChatWidget() {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm leading-tight">LogOS</h3>
-                  <p className="text-[10px] text-muted-foreground leading-tight text-green-500 font-medium">
-                    ● En línea
-                  </p>
+                  <p className=" text-green-500 text-[10px]">● En línea</p>
                 </div>
               </div>
 
               {/* Derecha: Botones de Acción */}
               <div className="flex items-center gap-1">
-                <Link href="/chat" target="_blank">
+                <Link href="/chat">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -107,7 +113,8 @@ export function ChatWidget() {
                     ¡Hola! Soy el asistente virtual de LogOS.
                   </p>
                   <p className="text-xs mt-1">
-                    Pregúntame sobre hardware, protocolos o monitoreo.
+                    Pregúntame sobre LogOS, funcionalidades,protocolos o
+                    monitoreo.
                   </p>
                 </div>
               ) : (
@@ -115,10 +122,19 @@ export function ChatWidget() {
                   {messages.map((message: any, index: number) => (
                     <div
                       key={index}
-                      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                      className={`flex gap-2 ${message.role === "user" ? "justify-end" : "justify-start"}`}
                     >
+                      {message.role !== "user" && (
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center bg-[#e16e0920] border border-border p-0.5 shrink-0 overflow-hidden relative self-start mt-1">
+                          <Image
+                            src={Logos}
+                            alt="LogOS"
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
                       <div
-                        className={`max-w-[85%] rounded-2xl px-4 py-2 text-sm ${
+                        className={`max-w-[80%] rounded-2xl px-4 py-2 text-sm ${
                           message.role === "user"
                             ? "bg-primary text-primary-foreground"
                             : "bg-secondary text-secondary-foreground"
@@ -190,7 +206,28 @@ export function ChatWidget() {
                                 .join("")
                             : message.content}
                         </ReactMarkdown>
+                        {message.role !== "user" && (
+                          <div className="flex justify-start mt-1 border-t border-border/10 pt-1">
+                            <CopyButton
+                              text={
+                                message.parts
+                                  ? message.parts
+                                      .map((part: any) =>
+                                        part.type === "text" ? part.text : "",
+                                      )
+                                      .join("")
+                                  : message.content
+                              }
+                            />
+                          </div>
+                        )}
                       </div>
+
+                      {message.role === "user" && (
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center bg-primary/10 border border-primary/20 shrink-0 text-primary self-start mt-1">
+                          <User className="w-4 h-4" />
+                        </div>
+                      )}
                     </div>
                   ))}
                   {isLoading && (

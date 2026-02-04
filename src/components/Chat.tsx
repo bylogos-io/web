@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 //import { toast } from '@/hooks/use-toast';
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, LogOut, ArrowLeft } from "lucide-react";
+import { Send, LogOut, ArrowLeft, User } from "lucide-react";
 //import Logo from './ui/logo';
 import ReactMarkdown from "react-markdown";
-import { useChat } from "@ai-sdk/react";
+import { useChatContext } from "@/components/chat-provider";
 import Link from "next/link";
 import Image from "next/image";
 import Logos from "@public/icon.svg";
 import { motion } from "framer-motion";
+import { CopyButton } from "@/components/copy-button";
 
 // type Message = {
 //   role: 'user' | 'assistant';
@@ -20,9 +21,11 @@ import { motion } from "framer-motion";
 
 const Chat = () => {
   const [input, setInput] = useState<string>("");
-  //const [messages, setMessages] = useState<Message[]>([])
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status } = useChatContext();
+  console.log("🚀 ~ Chat ~ messages:", messages);
+  console.log("🚀 ~ Chat ~ status:", status);
   const isLoading = status === "streaming" || status === "submitted";
+  console.log("🚀 ~ Chat ~ isLoading:", isLoading);
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
@@ -68,10 +71,10 @@ const Chat = () => {
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
+
         <div className="border-b border-border p-4">
           <div className="flex items-center justify-between">
-            {/* <Logo mode='dark' /> */}
-            <Link rel="icon" href="/" className="self-start">
+            <Link rel="icon" href="/">
               <div className="flex items-center gap-2 justify-center hover:text-primary transition-all duration-200">
                 <ArrowLeft className="w-5 h-5" />
                 Volver al inicio
@@ -80,32 +83,28 @@ const Chat = () => {
             <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-[#e16e0920] border-1 p-1">
               <Image src={Logos} alt="Logos Logo" />
             </div>
-            {/* <a
-              href='/auth/logout'
-              className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-secondary h-10 w-10 text-secondary-foreground hover:bg-secondary/80'
-            >
-              <LogOut className='w-5 h-5' />
-            </a> */}
           </div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl mb-6">
-            <span className="bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent text-disabled">
-              Chatbot
-            </span>{" "}
-            <span className="text-primary text-disabled">de logOS</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-disabled">
-            ¡Pregunta lo que desees saber sobre logOS!
-          </p>
-        </motion.div>
 
+        {messages.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl mb-2 mt-4">
+              <span className="bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent text-disabled">
+                Chatbot
+              </span>{" "}
+              <span className="text-primary text-disabled">de logOS</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-disabled">
+              ¡Pregunta lo que desees saber sobre logOS!
+            </p>
+          </motion.div>
+        )}
         {/* Messages */}
         <ScrollArea className="flex-1 p-4">
           <div className="max-w-3xl mx-auto space-y-6">
@@ -118,12 +117,17 @@ const Chat = () => {
                     : "flex justify-start gap-4"
                 }
               >
-                <div className="flex space-y-2">
+                {message.role !== "user" && (
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-[#e16e0920] border border-border p-1 shrink-0 overflow-hidden self-start mt-1">
+                    <Image src={Logos} alt="LogOS" width={24} height={24} />
+                  </div>
+                )}
+                <div className="flex flex-col space-y-2 max-w-[80%]">
                   <div
                     className={
                       message.role === "user"
-                        ? "bg-primary px-6 py-2 rounded-[25px] w-fit text-white text-right"
-                        : "px-6 py-2 rounded-[25px] w-fit text-left"
+                        ? "bg-primary px-6 py-2 rounded-[25px] w-fit text-white text-right ml-auto"
+                        : "bg-secondary px-6 py-2 rounded-[25px] w-fit text-left mr-auto"
                     }
                   >
                     <ReactMarkdown
@@ -178,20 +182,36 @@ const Chat = () => {
                         .join("")}
                     </ReactMarkdown>
                   </div>
+                  {message.role !== "user" && (
+                    <div className="flex justify-start mt-1">
+                      <CopyButton
+                        text={message.parts
+                          .map((part: any) =>
+                            part.type === "text" ? part.text : "",
+                          )
+                          .join("")}
+                      />
+                    </div>
+                  )}
                 </div>
+                {message.role === "user" && (
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center bg-primary/10 border border-primary/20 shrink-0 text-primary self-start mt-1">
+                    <User className="w-5 h-5" />
+                  </div>
+                )}
               </div>
             ))}
             {isLoading && (
               <div className="flex justify-start gap-4">
                 <div className="flex gap-1 p-3 bg-secondary/30 rounded-[20px] w-fit">
-                  {[0, 1, 2].map((i) => (
+                  {[0, 1, 2].map((item) => (
                     <motion.div
-                      key={i}
+                      key={item}
                       animate={{ opacity: [0.4, 1, 0.4], y: [0, -2, 0] }}
                       transition={{
                         repeat: Infinity,
                         duration: 1.2,
-                        delay: i * 0.15,
+                        delay: item * 0.15,
                       }}
                       className="w-1.5 h-1.5 bg-primary rounded-full"
                     />

@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { ChatWidget } from "@/components/chat-widget";
+import { ChatProvider } from "@/components/chat-provider";
 //import { CustomCursor } from "@/components/ui/custom-cursor";
 
 import type { Metadata } from "next";
@@ -18,7 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Logos",
-  description: "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AIIoT",
+  description:
+    "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AIIoT",
   applicationName: "Logos",
   keywords: [
     "SCADA",
@@ -62,7 +64,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  authors: [{ name: "Logos", url: "https://www.linkedin.com/company/bylogos/" }],
+  authors: [
+    { name: "Logos", url: "https://www.linkedin.com/company/bylogos/" },
+  ],
   creator: "Javier Vargas",
   metadataBase: new URL("https://bylogos.io"),
 };
@@ -74,12 +78,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {/*
-          <CustomCursor />*/}
-          {children}
-          <ChatWidget />
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ChatProvider>
+            {/*
+            <CustomCursor />*/}
+            {children}
+            <ChatWidget />
+          </ChatProvider>
         </ThemeProvider>
       </body>
     </html>
