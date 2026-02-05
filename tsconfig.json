@@ -28,6 +28,9 @@
       ],
       "@public/*": [
         "./public/*"
+      ],
+      "@/velite": [
+        "./.velite"
       ]
     }
   },
@@ -36,7 +39,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".velite"
   ],
   "exclude": [
     "node_modules"
