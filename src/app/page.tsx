@@ -4,7 +4,6 @@ import { Box, useTheme } from "@mui/material";
 import { Header } from "@/sections/landing/Header";
 import { Hero } from "@/sections/landing/Hero";
 import { Features } from "@/sections/landing/Features";
-import { Arch } from "@/sections/landing/Arch";
 import { HardwareAlternatives } from "@/sections/landing/HardwareAlternatives";
 import { Stack } from "@/sections/landing/Stack";
 import { Testimonials } from "@/sections/landing/Testimonials";
@@ -29,7 +28,6 @@ export default function Home() {
           <Header />
           <Hero />
           <Features />
-          {/* <Arch /> */}
           <HardwareAlternatives />
           <Stack />
           <Testimonials />
