@@ -1,4 +1,4 @@
-import { getAgent } from "@/lib/rag.agent";
+import { getAgent } from "@/services/RagAgent";
 //import { LangChainAdapter } from "ai";
 import { toBaseMessages, toUIMessageStream } from "@ai-sdk/langchain";
 import { createUIMessageStreamResponse, UIMessage } from "ai";

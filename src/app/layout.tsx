@@ -1,8 +1,4 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { ChatWidget } from "@/components/chat-widget";
-import { ChatProvider } from "@/components/chat-provider";
-//import { CustomCursor } from "@/components/ui/custom-cursor";
-
+import { MuiRootProvider } from "@/providers/MuiRootProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -18,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Logos",
+  title: "LogOS",
   description:
     "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AIIoT",
-  applicationName: "Logos",
+  applicationName: "LogOS",
   keywords: [
     "SCADA",
     "industrial",
@@ -65,7 +61,7 @@ export const metadata: Metadata = {
     },
   },
   authors: [
-    { name: "Logos", url: "https://www.linkedin.com/company/bylogos/" },
+    { name: "LogOS", url: "https://www.linkedin.com/company/bylogos/" },
   ],
   creator: "Javier Vargas",
   metadataBase: new URL("https://bylogos.io"),
@@ -81,19 +77,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ChatProvider>
-            {/*
-            <CustomCursor />*/}
-            {children}
-            <ChatWidget />
-          </ChatProvider>
-        </ThemeProvider>
+        <MuiRootProvider>{children}</MuiRootProvider>
       </body>
     </html>
   );

@@ -1,40 +1,63 @@
 "use client";
 
-import { Hero } from "@/components/hero";
-import { Features } from "@/components/features";
-import { HardwareAlternatives } from "@/components/hardware-alternatives";
-//import { Testimonials } from "@/components/testimonials";
-import { Stack } from "@/components/stack";
-import { Newsletter } from "@/components/newsletter";
-import { Footer } from "@/components/footer";
-
-import { Header } from "@/components/header";
+import { Box, useTheme } from "@mui/material";
+import { Header } from "@/sections/landing/Header";
+import { Hero } from "@/sections/landing/Hero";
+import { Features } from "@/sections/landing/Features";
+import { Arch } from "@/sections/landing/Arch";
+import { HardwareAlternatives } from "@/sections/landing/HardwareAlternatives";
+import { Stack } from "@/sections/landing/Stack";
+import { Testimonials } from "@/sections/landing/Testimonials";
+import { Newsletter } from "@/sections/landing/Newsletter";
+import { Footer } from "@/sections/landing/Footer";
 
 import "./page.css";
-//import { Arch } from "@/components/arch";
 
 export default function Home() {
-    return (
-        <div>
-            <div className="relative z-10">
-                <div className="bg-black">
-                    <div>
-                        <Header />
-                        <Hero />
-                    </div>
-                    <Features />
-                    {
-                        //<Arch />
-                    }
-                    <HardwareAlternatives />
-                    <Stack />
-                    <Newsletter />
-                </div>
-            </div>
-            <div className="h-90 -z-60 pointer-events-none select-none"></div>
-            <div className="fixed bottom-0 left-0 right-0 z-1 pointer-events-auto">
-                <Footer />
-            </div>
-        </div>
-    );
+  const theme = useTheme();
+
+  return (
+    <Box
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: "background.default",
+        color: "text.primary",
+      }}
+    >
+      <Box sx={{ position: "relative", zIndex: 10 }}>
+        <Box sx={{ backgroundColor: "background.default" }}>
+          <Header />
+          <Hero />
+          <Features />
+          {/* <Arch /> */}
+          <HardwareAlternatives />
+          <Stack />
+          <Testimonials />
+          <Newsletter />
+        </Box>
+      </Box>
+
+      {/* Spacer for fixed footer if needed, or matched exactly to original logic */}
+      <Box
+        sx={{
+          height: { xs: 360, md: 360 },
+          visibility: "hidden",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Box
+        sx={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1,
+          pointerEvents: "auto",
+        }}
+      >
+        <Footer />
+      </Box>
+    </Box>
+  );
 }

@@ -1,0 +1,35 @@
+
+> logos@1.5.0 build
+> velite build && next build
+
+[VELITE] issues:
+content/docs/funcionalidades.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+content/docs/introduccion.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+content/docs/logos.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+ÔÜá 3 warnings 
+[32m[VELITE][0m build finished in 417.90ms
+Ôû▓ Next.js 16.1.5 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 9.2s
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/features.tailwind.tsx:4:22
+Type error: Cannot find module './ui/card' or its corresponding type declarations.
+
+  2 |
+  3 | import { motion } from "framer-motion";
+> 4 | import { Card } from "./ui/card";
+    |                      ^
+  5 | import { Activity, Zap, Database, AlertTriangle, Bot, Cloud, ScanFace, NotepadText, Box } from "lucide-react";
+  6 |
+  7 | const features = [
+Next.js build worker exited with code: 1 and signal: null

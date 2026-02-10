@@ -1,21 +1,36 @@
-import { docs } from '@/velite';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { DocsSidebar } from '@/components/docs-sidebar';
+import { DocsSidebar } from "@/sections/docs/DocsSidebar";
+import { docs } from "@/velite";
+import { Box } from "@mui/material";
 
-export default function DocsLayout({ children }: { children: React.ReactNode }) {
+export default function DocsLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex h-screen bg-background">
+    <Box
+      sx={{
+        display: "flex",
+        height: "100vh",
+        bgcolor: "background.default",
+      }}
+    >
       {/* Sidebar */}
       <DocsSidebar docs={docs} />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <ScrollArea className="flex-1 p-6 md:p-12">
-          <div className="max-w-3xl mx-auto">
-            {children}
-          </div>
-        </ScrollArea>
-      </div>
-    </div>
+      <Box
+        sx={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
+        }}
+      >
+        <Box sx={{ flex: 1, p: { xs: 3, md: 6 }, overflowY: "auto" }}>
+          <Box sx={{ maxWidth: 800, mx: "auto" }}>{children}</Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }
