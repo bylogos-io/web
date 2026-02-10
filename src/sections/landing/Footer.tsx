@@ -38,10 +38,10 @@ export function Footer() {
       sx={{
         backgroundColor: theme.palette.background.paper,
         borderTop: `1px solid ${theme.palette.divider}`,
-        py: 8,
+        py: 2,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ pt: 10 }}>
         <Grid container spacing={4}>
           {/* Brand */}
           <Grid size={{ xs: 12, md: 6, lg: 4 }}>

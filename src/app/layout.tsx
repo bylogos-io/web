@@ -1,6 +1,7 @@
 import { MuiRootProvider } from "@/providers/MuiRootProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -77,6 +78,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <InitColorSchemeScript attribute="class" defaultMode="dark" />
         <MuiRootProvider>{children}</MuiRootProvider>
       </body>
     </html>
