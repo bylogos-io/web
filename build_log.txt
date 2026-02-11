@@ -1,0 +1,191 @@
+
+> logos@1.5.0 build
+> velite build && next build
+
+[VELITE] issues:
+content/docs/funcionalidades.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+content/docs/introduccion.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+content/docs/logos.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+ÔÜá 3 warnings 
+[32m[VELITE][0m build finished in 529.30ms
+Ôû▓ Next.js 16.1.5 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 6 errors:
+./src/components/hero.tsx:8:1
+Module not found: Can't resolve './ui/blur-fade'
+   6 | import { Safari } from "./ui/safari";
+   7 | import demoImage from "@public/demo.png";
+>  8 | import { BlurFade } from "./ui/blur-fade";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   9 |
+  10 | export function Hero() {
+  11 |   const theme = useTheme();
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/hero.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/hero.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/components/hero.tsx:5:1
+Module not found: Can't resolve './ui/border-beam'
+  3 | import { motion } from "framer-motion";
+  4 | import { Box, Container, Typography, useTheme, alpha } from "@mui/material";
+> 5 | import { BorderBeam } from "./ui/border-beam";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { Safari } from "./ui/safari";
+  7 | import demoImage from "@public/demo.png";
+  8 | import { BlurFade } from "./ui/blur-fade";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/hero.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/hero.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/components/hardware-alternatives.tsx:6:1
+Module not found: Can't resolve './ui/button'
+  4 | import Link from "next/link";
+  5 | import { Card } from "./ui/card";
+> 6 | import { Button } from "./ui/button";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | // import { Badge } from "./ui/badge";
+  8 | import {
+  9 |   Monitor,
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/hardware-alternatives.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/hardware-alternatives.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/components/hardware-alternatives.tsx:5:1
+Module not found: Can't resolve './ui/card'
+  3 | import { motion } from "framer-motion";
+  4 | import Link from "next/link";
+> 5 | import { Card } from "./ui/card";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import { Button } from "./ui/button";
+  7 | // import { Badge } from "./ui/badge";
+  8 | import {
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/hardware-alternatives.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/hardware-alternatives.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/components/stack.tsx:4:1
+Module not found: Can't resolve './ui/card'
+  2 |
+  3 | import { motion } from "framer-motion";
+> 4 | import { Card } from "./ui/card";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | // import { Badge } from "./ui/badge";
+  6 | import { Plus } from "lucide-react";
+  7 | import { siRaspberrypi } from "simple-icons";
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/stack.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/stack.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/components/hero.tsx:6:1
+Module not found: Can't resolve './ui/safari'
+  4 | import { Box, Container, Typography, useTheme, alpha } from "@mui/material";
+  5 | import { BorderBeam } from "./ui/border-beam";
+> 6 | import { Safari } from "./ui/safari";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  7 | import demoImage from "@public/demo.png";
+  8 | import { BlurFade } from "./ui/blur-fade";
+  9 |
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/components/hero.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/hero.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./src/components/hero.tsx:8:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/components/hero.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/components/hardware-alternatives.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/components/hardware-alternatives.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/components/stack.tsx:4:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/components/hero.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)

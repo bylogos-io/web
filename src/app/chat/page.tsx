@@ -1,6 +1,5 @@
-import Chat from "@/components/chat";
-
+import Chat from "@/sections/chat/Chat";
 
 export default async function Index() {
-  return <Chat />
+  return <Chat />;
 }
