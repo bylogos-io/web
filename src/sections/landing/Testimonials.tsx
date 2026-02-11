@@ -64,7 +64,7 @@ export function Testimonials() {
       id="testimonials"
       sx={{
         py: 12,
-        backgroundColor: alpha(theme.palette.secondary.main, 0.2),
+        //backgroundColor: alpha(theme.palette.secondary.main, 0.2),
       }}
     >
       <Container maxWidth="lg">
