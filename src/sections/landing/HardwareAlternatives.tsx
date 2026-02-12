@@ -13,8 +13,8 @@ import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 
-import reterminalImage from "@public/hardware-alternatives/reterminal.png";
-import recomputerImage from "@public/hardware-alternatives/recomputer.png";
+import reterminalImage from "@public/assets/hardware-alternatives/reterminal.png";
+import recomputerImage from "@public/assets/hardware-alternatives/recomputer.png";
 import seeed from "@public/seeed.png";
 import {
   Box,
@@ -96,8 +96,9 @@ export function HardwareAlternatives() {
             variant="h2"
             sx={{
               fontSize: { xs: "2.5rem", md: "3.5rem" },
-              mb: 2,
+              mb: 3,
               fontWeight: 800,
+              lineHeight: 1.2,
             }}
           >
             <Box
@@ -122,7 +123,8 @@ export function HardwareAlternatives() {
               maxWidth: 800,
               mx: "auto",
               fontWeight: 400,
-              fontSize: "1.25rem",
+              fontSize: "1.125rem",
+              lineHeight: 1.6,
             }}
           >
             Soluciones de hardware especializadas de Seeed Studio, optimizadas

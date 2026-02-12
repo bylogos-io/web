@@ -5,12 +5,10 @@ import Image from "next/image";
 // import { Button } from "./ui/button";
 import Link from "next/link";
 import logoImage from "@public/logos.svg";
-import {
-  MailOutline as MailIcon,
-  LinkedIn as LinkedinIcon,
-  Instagram as InstagramIcon,
-  GitHub as GithubIcon,
-} from "@mui/icons-material";
+import { MailOutline as MailIcon } from "@mui/icons-material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   Box,
   Container,
@@ -21,7 +19,14 @@ import {
   useTheme,
   alpha,
   Button,
+  IconButton,
 } from "@mui/material";
+
+const socialLinks = [
+  { icon: LinkedInIcon, href: "https://www.linkedin.com/company/bylogos/" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/bylogos.io/" },
+  { icon: GitHubIcon, href: "https://github.com/bylogos-io" },
+];
 
 export function Footer() {
   const theme = useTheme();
@@ -65,7 +70,28 @@ export function Footer() {
                 integrada.
               </Typography>
               <Stack direction="row" spacing={1}>
-                <Button
+                {socialLinks.map((social, idx) => (
+                  <IconButton
+                    key={idx}
+                    component="a"
+                    href={social.href}
+                    target="_blank"
+                    sx={{
+                      color: "text.secondary",
+                      backgroundColor: alpha(
+                        theme.palette.secondary.main,
+                        0.05,
+                      ),
+                      "&:hover": {
+                        color: "primary.main",
+                        backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                      },
+                    }}
+                  >
+                    <social.icon sx={{ fontSize: 22 }} />
+                  </IconButton>
+                ))}
+                {/* <Button
                   variant="ghost"
                   size="icon"
                   component="a"
@@ -106,7 +132,7 @@ export function Footer() {
                   }}
                 >
                   <GithubIcon sx={{ fontSize: 18 }} />
-                </Button>
+                </Button> */}
               </Stack>
             </Box>
           </Grid>
