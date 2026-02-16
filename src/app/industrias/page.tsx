@@ -6,7 +6,7 @@ import { IndustryFooter } from "@/sections/industries/IndustryFooter";
 
 export default function Industrias() {
   return (
-    <Box component="main" sx={{ pt: { xs: 15, md: 20 } }}>
+    <Box component="main">
       <IndustryTitle />
       <IndustrySlider />
       <IndustryCards />

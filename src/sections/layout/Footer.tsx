@@ -58,7 +58,13 @@ export function Footer() {
               viewport={{ once: true }}
             >
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                <Image src={logoImage} alt="LogOS" width={64} height={32} />
+                <Image
+                  src={logoImage}
+                  alt="LogOS"
+                  width={64}
+                  height={32}
+                  unoptimized
+                />
               </Box>
               <Typography
                 variant="body2"

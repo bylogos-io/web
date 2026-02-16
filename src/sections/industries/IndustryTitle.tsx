@@ -6,59 +6,74 @@ export function IndustryTitle() {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="lg" sx={{ mb: 8, textAlign: "center" }}>
-      <Typography
-        variant="overline"
-        sx={{
-          color: "primary.main",
-          fontWeight: 900,
-          letterSpacing: 2,
-          mb: 2,
-          display: "block",
-        }}
+    <Box
+      sx={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "background.default",
+        overflow: "hidden",
+      }}
+    >
+      <Container
+        maxWidth="lg"
+        sx={{ position: "relative", zIndex: 20, mt: 15, textAlign: "center" }}
       >
-        SECTORES ESTRATÉGICOS
-      </Typography>
-      <Typography
-        variant="h1"
-        fontWeight={900}
-        sx={{
-          fontSize: { xs: "2.5rem", md: "4.5rem" },
-          letterSpacing: "-0.02em",
-          mb: 3,
-        }}
-      >
-        <Box
-          component="span"
+        <Typography
+          variant="overline"
           sx={{
-            background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            color: "transparent",
+            color: "primary.main",
+            fontWeight: 900,
+            letterSpacing: 2,
+            mb: 2,
+            display: "block",
           }}
         >
-          Industrias{" "}
-        </Box>
-        <Box component="span" sx={{ color: "primary.main" }}>
-          Inteligentes
-        </Box>
-      </Typography>
+          SECTORES ESTRATÉGICOS
+        </Typography>
+        <Typography
+          variant="h1"
+          fontWeight={900}
+          sx={{
+            fontSize: { xs: "2.5rem", md: "4.5rem" },
+            letterSpacing: "-0.02em",
+            mb: 3,
+          }}
+        >
+          <Box
+            component="span"
+            sx={{
+              background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            Industrias{" "}
+          </Box>
+          <Box component="span" sx={{ color: "primary.main" }}>
+            Inteligentes
+          </Box>
+        </Typography>
 
-      <Typography
-        variant="h5"
-        sx={{
-          color: "text.secondary",
-          maxWidth: 800,
-          mx: "auto",
-          lineHeight: 1.6,
-          fontWeight: 400,
-        }}
-      >
-        LogOS se adapta a los entornos más exigentes, transformando datos
-        industriales complejos en decisiones estratégicas mediante nuestra
-        infraestructura de hardware robusta y software de telemetría de última
-        generación.
-      </Typography>
-    </Container>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "text.secondary",
+            maxWidth: 800,
+            mx: "auto",
+            lineHeight: 1.6,
+            fontWeight: 400,
+          }}
+        >
+          LogOS se adapta a los entornos más exigentes, transformando datos
+          industriales complejos en decisiones estratégicas mediante nuestra
+          infraestructura de hardware robusta y software de telemetría de última
+          generación.
+        </Typography>
+      </Container>
+    </Box>
   );
 }
