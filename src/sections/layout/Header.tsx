@@ -180,6 +180,7 @@ export function Header() {
           sx={{
             background: "none",
             border: "none",
+            textDecoration: "none",
             cursor: "pointer",
             color: isOpen ? "primary.main" : "text.secondary",
             fontSize: "0.9375rem",

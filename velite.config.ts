@@ -14,9 +14,24 @@ const docs = defineCollection({
   }),
 });
 
+const news = defineCollection({
+  name: "News",
+  pattern: "news/**/*.mdx",
+  schema: s.object({
+    title: s.string().max(99),
+    slug: s.path(),
+    date: s.isodate(),
+    description: s.string(),
+    cover: s.string().optional(),
+    tags: s.array(s.string()).optional(),
+    content: s.mdx(),
+  }),
+});
+
 export default defineConfig({
   root: "content",
   collections: {
     docs,
+    news,
   },
 });
