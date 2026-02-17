@@ -80,14 +80,14 @@ export function Testimonials() {
             variant="subtitle2"
             sx={{
               color: "primary.main",
-              fontWeight: 600,
-              mb: 2,
-              textTransform: "uppercase",
+              fontWeight: 500,
+              userSelect: "none",
+              pointerEvents: "none",
               letterSpacing: 2,
-              display: "block",
+              mb: 2,
             }}
           >
-            Casos de Éxito
+            CASOS DE ÉXITO
           </Typography>
           <Typography
             variant="h2"
@@ -209,7 +209,6 @@ export function Testimonials() {
                       <Box
                         sx={{
                           p: 1.5,
-                          borderRadius: 2,
                           backgroundColor: alpha(
                             theme.palette.primary.main,
                             0.1,

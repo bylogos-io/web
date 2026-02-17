@@ -89,7 +89,7 @@ const Chat = () => {
             sx={{
               width: 40,
               height: 40,
-              borderRadius: "8px",
+              borderRadius: "50%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -200,7 +200,7 @@ const Chat = () => {
                             : "text.primary",
                         px: 3,
                         py: 1.5,
-                        borderRadius: "20px",
+                        borderRadius: 2,
                         border:
                           message.role === "user"
                             ? "none"
@@ -337,7 +337,7 @@ const Chat = () => {
                       gap: 0.5,
                       p: 2,
                       bgcolor: alpha(theme.palette.action.hover, 0.05),
-                      borderRadius: "16px",
+                      borderRadius: 2,
                       width: "fit-content",
                     }}
                   >
@@ -389,7 +389,6 @@ const Chat = () => {
               disabled={isLoading}
               slotProps={{
                 input: {
-                  sx: { borderRadius: "12px" },
                   endAdornment: (
                     <IconButton
                       onClick={handleSend}

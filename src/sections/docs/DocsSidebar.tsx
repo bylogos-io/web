@@ -56,7 +56,7 @@ export function DocsSidebar({ docs }: { docs: Doc[] }) {
             sx={{
               width: 36,
               height: 36,
-              borderRadius: 1.5,
+              borderRadius: "50%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -66,7 +66,7 @@ export function DocsSidebar({ docs }: { docs: Doc[] }) {
               p: 0.75,
             }}
           >
-            <Image src={Logos} alt="Logos Logo" />
+            <Image src={Logos} alt="Logos Logo" width={24} height={24} />
           </Box>
           <Typography variant="subtitle1" fontWeight="bold">
             Documentación
@@ -97,7 +97,7 @@ export function DocsSidebar({ docs }: { docs: Doc[] }) {
                   sx={{
                     px: 2,
                     py: 1.25,
-                    borderRadius: 2,
+                    borderRadius: 1.5,
                     fontSize: "0.875rem",
                     transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
                     bgcolor: isActive

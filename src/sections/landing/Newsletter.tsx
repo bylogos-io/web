@@ -122,7 +122,6 @@ export function Newsletter() {
               sx={{
                 p: 8,
                 textAlign: "center",
-                borderRadius: 4,
                 borderColor: alpha(theme.palette.primary.main, 0.4),
                 boxShadow: theme.shadows[10],
               }}
@@ -158,7 +157,7 @@ export function Newsletter() {
               <Button
                 variant="outlined"
                 onClick={() => setIsSubmitted(false)}
-                sx={{ borderRadius: 2, px: 4, py: 1.25, fontWeight: 700 }}
+                sx={{ px: 4, py: 1.25, fontWeight: 700 }}
               >
                 Suscribir otro correo
               </Button>
@@ -194,11 +193,11 @@ export function Newsletter() {
             variant="subtitle2"
             sx={{
               color: "primary.main",
-              fontWeight: 600,
-              mb: 2,
-              textTransform: "uppercase",
+              fontWeight: 500,
+              userSelect: "none",
+              pointerEvents: "none",
               letterSpacing: 2,
-              display: "block",
+              mb: 2,
             }}
           >
             CONTACTO
@@ -272,7 +271,6 @@ export function Newsletter() {
                     <Box
                       sx={{
                         p: 2,
-                        borderRadius: 2.5,
                         backgroundColor: alpha(
                           theme.palette.background.paper,
                           1,
@@ -324,7 +322,6 @@ export function Newsletter() {
               <Card
                 sx={{
                   p: { xs: 4, md: 8 },
-                  borderRadius: 5,
                   boxShadow: `0 30px 60px ${alpha(theme.palette.common.black, 0.1)}`,
                   border: "1px solid",
                   borderColor: alpha(theme.palette.divider, 0.5),
@@ -371,7 +368,6 @@ export function Newsletter() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    sx={{ "& .MuiOutlinedInput-root": { borderRadius: 2.5 } }}
                   />
                   <TextField
                     fullWidth
@@ -381,7 +377,6 @@ export function Newsletter() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    sx={{ "& .MuiOutlinedInput-root": { borderRadius: 2.5 } }}
                   />
 
                   {error && (
@@ -389,7 +384,7 @@ export function Newsletter() {
                       severity="error"
                       variant="outlined"
                       icon={<ErrorOutlineOutlinedIcon />}
-                      sx={{ borderRadius: 2.5, fontSize: "0.875rem" }}
+                      sx={{ fontSize: "0.875rem" }}
                     >
                       {error}
                     </Alert>
@@ -402,7 +397,6 @@ export function Newsletter() {
                     sx={{
                       height: 56,
                       mt: 2,
-                      borderRadius: 2.5,
                       fontWeight: 700,
                       fontSize: "1rem",
                       boxShadow: `0 8px 24px ${alpha(theme.palette.primary.main, 0.3)}`,

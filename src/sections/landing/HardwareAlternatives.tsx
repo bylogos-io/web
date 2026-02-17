@@ -292,7 +292,7 @@ export function HardwareAlternatives() {
                                   0.1,
                                 ),
                                 p: 0.75,
-                                borderRadius: 1,
+                                borderRadius: 1.5,
                               }}
                             >
                               <feature.icon sx={{ fontSize: 18 }} />
@@ -353,7 +353,6 @@ export function HardwareAlternatives() {
                     <Box
                       sx={{
                         p: 2.5,
-                        borderRadius: 2,
                         backgroundColor: alpha(
                           theme.palette.secondary.main,
                           0.08,
@@ -382,7 +381,6 @@ export function HardwareAlternatives() {
                           sx={{
                             py: 1.5,
                             fontWeight: 700,
-                            borderRadius: 2,
                             boxShadow: `0 8px 16px ${alpha(theme.palette.primary.main, 0.2)}`,
                           }}
                         >
@@ -410,7 +408,6 @@ export function HardwareAlternatives() {
             sx={{
               backgroundColor: alpha(theme.palette.background.paper, 0.5),
               border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 4,
               p: 5,
               textAlign: "center",
               maxWidth: 900,

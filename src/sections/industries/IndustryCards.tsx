@@ -105,11 +105,11 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
         height: { xs: "auto", md: 320 },
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
-        borderRadius: 4,
         overflow: "hidden",
         backgroundColor: alpha(theme.palette.background.paper, 0.4),
         backdropFilter: "blur(10px)",
         border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+        borderRadius: 2,
         transition: "border-color 0.3s ease",
         "&:hover": {
           borderColor: alpha(theme.palette.primary.main, 0.3),
@@ -274,7 +274,6 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
                 flex: 1,
                 position: "relative",
                 m: 2,
-                borderRadius: 3,
                 overflow: "hidden",
               }}
             >
@@ -305,7 +304,7 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
                     py: 1,
                     backgroundColor: alpha(theme.palette.common.black, 0.6),
                     backdropFilter: "blur(10px)",
-                    borderRadius: 2,
+                    borderRadius: 1.5,
                     border: `1px solid ${alpha(theme.palette.primary.main, 0.3)}`,
                   }}
                 >

@@ -22,13 +22,14 @@ export function IndustryTitle() {
         sx={{ position: "relative", zIndex: 20, mt: 15, textAlign: "center" }}
       >
         <Typography
-          variant="overline"
+          variant="subtitle2"
           sx={{
             color: "primary.main",
-            fontWeight: 900,
+            fontWeight: 500,
+            userSelect: "none",
+            pointerEvents: "none",
             letterSpacing: 2,
             mb: 2,
-            display: "block",
           }}
         >
           SECTORES ESTRATÉGICOS

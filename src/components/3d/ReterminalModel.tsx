@@ -26,12 +26,28 @@ type GLTFResult = GLTF & {
  * ---------------------------------------------------------------------------------
  */
 const ANIM_CONFIG = {
-  finalScale: 0.04, // 🎯 ESCALA FINAL: Es el tamaño donde queremos que se detenga.
-  overshootScale: 0.1, // 🚀 REBOTE: Tamaño máximo que alcanza al entrar antes de regresar a la final.
-  initialZ: -15, // 🌑 FONDO: Desde qué profundidad aparece (Z negativa es el fondo).
-  initialRotation: -Math.PI, // 🔄 GIRO: Giro inicial (Math.PI es media vuelta, Math.PI * 2 es una completa).
-  lerpSpeed: 0.04, // 🌊 SUAVIDAD: Qué tan rápido o lento responde la animación (0.01 lento, 0.1 rápido).
-  floatIntensity: 0.5, // ☁️ FLOTACIÓN: Qué tanto se mueve arriba/abajo cuando está quieto.
+  finalScale: 0.04, // 🎯 ESCALA FINAL: Tamaño del objeto.
+  overshootScale: 0.1, // 🚀 REBOTE: Tamaño máximo al entrar.
+
+  // 📍 AJUSTE DE POSICIÓN FINAL (PROFUNDIDAD Z)
+  // 0 = Centro.
+  // Valor Positivo (ej. 5) = Más cerca de la pantalla.
+  // Valor Negativo (ej. -5) = Más lejos (hacia el fondo).
+  finalZ: 0,
+
+  initialZ: -15, // 🌑 FONDO: Desde donde aparece.
+
+  // 📐 AJUSTE DE ROTACIÓN FINAL (EJE Y)
+  // 0 = Totalmente de frente.
+  // Valores pequeños para girarlo un poco:
+  //  0.5  = Giro leve a la izquierda.
+  // -0.5  = Giro leve a la derecha.
+  // Math.PI / 4 = 45 grados.
+  finalRotationY: 0.7,
+
+  initialRotation: -Math.PI, // 🔄 GIRO INICIAL: Media vuelta.
+  lerpSpeed: 0.04, // 🌊 VELOCIDAD: Suavidad de la animación.
+  floatIntensity: 0.5, // ☁️ FLOTACIÓN: Intensidad.
 };
 
 /**
@@ -59,40 +75,26 @@ export function ReterminalModel(props: any) {
 
     /**
      * 1. LÓGICA DE ESCALA CON REBOTE (OVERSHOOT)
-     * ----------------------------------------
-     * Mientras el modelo está entrando (active), primero apuntamos a un tamaño mayor (overshoot)
-     * y conforme se acerca al objetivo, cambiamos el foco al tamaño final.
      */
     let targetScale = active ? ANIM_CONFIG.finalScale : 0;
 
-    // Si está en pleno proceso de entrada (escala menor al 90% de la final), apuntamos al rebote
     if (active && group.current.scale.x < ANIM_CONFIG.finalScale * 0.9) {
       targetScale = ANIM_CONFIG.overshootScale;
     }
 
-    // Aplicamos Lerp (Interpolación lineal) para un movimiento suave
-    group.current.scale.x = THREE.MathUtils.lerp(
-      group.current.scale.x,
-      targetScale,
-      ANIM_CONFIG.lerpSpeed,
-    );
-    group.current.scale.y = THREE.MathUtils.lerp(
-      group.current.scale.y,
-      targetScale,
-      ANIM_CONFIG.lerpSpeed,
-    );
-    group.current.scale.z = THREE.MathUtils.lerp(
-      group.current.scale.z,
-      targetScale,
-      ANIM_CONFIG.lerpSpeed,
+    group.current.scale.setScalar(
+      THREE.MathUtils.lerp(
+        group.current.scale.x,
+        targetScale,
+        ANIM_CONFIG.lerpSpeed,
+      ),
     );
 
     /**
-     * 2. LÓGICA DE POSICIÓN (DEL FONDO HACIA ADELANTE)
-     * ----------------------------------------------
-     * El modelo viaja desde initialZ hasta la posición 0 en el eje Z.
+     * 2. LÓGICA DE POSICIÓN
      */
-    const targetZ = active ? 0 : ANIM_CONFIG.initialZ;
+    // Usa la configuración finalZ cuando está activo
+    const targetZ = active ? ANIM_CONFIG.finalZ : ANIM_CONFIG.initialZ;
     group.current.position.z = THREE.MathUtils.lerp(
       group.current.position.z,
       targetZ,
@@ -100,17 +102,18 @@ export function ReterminalModel(props: any) {
     );
 
     /**
-     * 3. LÓGICA DE GIRO (MEDIA VUELTA HASTA POSICIÓN FRONTAL)
-     * ----------------------------------------------------
-     * Combinamos un giro de entrada con una oscilación sutil "Idle" una vez que entra.
+     * 3. LÓGICA DE GIRO
      */
-    const baseRotationY = active ? 0 : ANIM_CONFIG.initialRotation;
-    const idleOscillation = active ? Math.sin(t / 2) / 4 : 0; // Oscilación Y continua
+    // Usa la configuración finalRotationY cuando está activo
+    const baseRotationY = active
+      ? ANIM_CONFIG.finalRotationY
+      : ANIM_CONFIG.initialRotation;
+    const idleOscillation = active ? Math.sin(t / 2) / 4 : 0;
 
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
       baseRotationY + idleOscillation,
-      0.08, // Velocidad de giro
+      0.08,
     );
   });
 
@@ -122,10 +125,12 @@ export function ReterminalModel(props: any) {
         floatIntensity={ANIM_CONFIG.floatIntensity}
       >
         <group
-          // rotation: Ajusta la orientación base si el modelo aparece al revés.
+          // 📐 ROTACIÓN BASE (Estatica)
+          // [-Math.PI / 2, 0, 0] endereza el modelo si viene acostado en el archivo original.
           rotation={[-Math.PI / 2, 0, 0]}
-          // position: Ajusta si necesitas desplazar el modelo internamente [X, Y, Z].
-          // Nota: El componente <Center> en el padre ya ayuda a centrarlo automáticamente.
+          // 📍 POSICIÓN BASE (Estatica)
+          // Ajusta esto (X, Y, Z) para centrar el modelo vertical u horizontalmente dentro de su contenedor.
+          // Si lo ves muy arriba, baja el segundo valor (Y) (ej: -100).
           position={[0, -90, 0]}
         >
           <mesh

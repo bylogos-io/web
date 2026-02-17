@@ -226,7 +226,7 @@ export function Header() {
                   width: 250,
                   backgroundColor: alpha(theme.palette.background.default, 0.9),
                   backdropFilter: "blur(20px)",
-                  borderRadius: 3,
+                  borderRadius: 2,
                   border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
                   boxShadow: `0 20px 40px ${alpha(theme.palette.common.black, 0.4)}`,
                   overflow: "hidden",
@@ -350,7 +350,7 @@ export function Header() {
                   sx={{
                     width: 44,
                     height: 44,
-                    borderRadius: 2.5,
+                    borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -446,7 +446,6 @@ export function Header() {
                   }}
                   sx={{
                     fontWeight: 700,
-                    borderRadius: 2,
                     textTransform: "none",
                     px: 3,
                   }}
@@ -530,7 +529,7 @@ export function Header() {
                       }
                     }}
                     sx={{
-                      borderRadius: 2.5,
+                      borderRadius: 1.5,
                       py: 1.5,
                       display: "flex",
                       justifyContent: "space-between",

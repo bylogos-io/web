@@ -38,15 +38,12 @@ export function Hero() {
             <Typography
               variant="subtitle2"
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: 1,
                 color: "primary.main",
                 fontWeight: 500,
-                mb: 2,
                 userSelect: "none",
                 pointerEvents: "none",
+                letterSpacing: 2,
+                mb: 2,
               }}
             >
               PROCESOS INTELLIGENTES, INDUSTRIA EFICIENTE.

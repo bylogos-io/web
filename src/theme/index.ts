@@ -204,7 +204,7 @@ export const theme = createTheme(getDesignTokens(), {
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: 100, // Logos rounded style
+          borderRadius: 12, // Standardized to 12px for buttons
           fontWeight: 500,
           transition: 'all 0.2s ease-in-out',
           fontFamily: 'inherit',
@@ -221,7 +221,7 @@ export const theme = createTheme(getDesignTokens(), {
     MuiCard: {
       styleOverrides: {
         root: ({ theme }: { theme: any }) => ({
-          borderRadius: 16,
+          borderRadius: 16, // Standardized to 16px for cards
           border: `1px solid ${theme.palette.divider}`,
           backgroundImage: 'none',
           backgroundColor: alpha(theme.palette.background.paper, 0.4),
@@ -257,7 +257,7 @@ export const theme = createTheme(getDesignTokens(), {
     MuiInputBase: {
       styleOverrides: {
         root: ({ theme }: { theme: any }) => ({
-          borderRadius: 8,
+          borderRadius: 12, // Standardized to 12px for inputs
           backgroundColor: alpha(theme.palette.background.paper, 0.5),
           border: `1px solid ${theme.palette.divider}`,
           transition: theme.transitions.create(['border-color', 'box-shadow']),

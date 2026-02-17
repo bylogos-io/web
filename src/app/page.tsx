@@ -33,7 +33,7 @@ export default function Home() {
       {/* Spacer para el efecto de revelación del footer */}
       <Box
         sx={{
-          height: { xs: 360, md: 360 },
+          height: { xs: 700, md: 360 },
           visibility: "hidden",
           pointerEvents: "none",
         }}

@@ -90,7 +90,7 @@ export function NewsSlider({
             position: "relative",
             height: { xs: 400, md: 500, lg: 600 },
             width: "100%",
-            borderRadius: 6,
+            borderRadius: 2,
             overflow: "hidden",
             backgroundColor: "background.paper",
             boxShadow: `0 24px 48px ${alpha(theme.palette.common.black, 0.4)}`,
@@ -204,7 +204,6 @@ export function NewsSlider({
                     variant="contained"
                     size="large"
                     sx={{
-                      borderRadius: 4,
                       textTransform: "none",
                       px: 4,
                       fontWeight: 700,

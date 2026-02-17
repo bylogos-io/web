@@ -61,7 +61,7 @@ export function NewsPosts({ posts }: NewsPostsProps) {
               <Card
                 sx={{
                   height: "100%",
-                  borderRadius: 4,
+
                   backgroundColor: alpha(theme.palette.background.paper, 0.5),
                   backdropFilter: "blur(10px)",
                   border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
