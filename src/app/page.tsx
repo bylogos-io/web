@@ -8,8 +8,6 @@ import { Stack } from "@/sections/landing/Stack";
 import { Testimonials } from "@/sections/landing/Testimonials";
 import { Newsletter } from "@/sections/landing/Newsletter";
 
-import "./page.css";
-
 export default function Home() {
   const theme = useTheme();
 
