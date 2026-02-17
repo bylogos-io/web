@@ -84,15 +84,17 @@ export function Stack() {
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "2.5rem", md: "3rem" },
-              mb: 2,
-              fontWeight: 700,
+              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              mb: 3,
+              fontWeight: 800,
+              lineHeight: 1.2,
             }}
           >
             <Box
               component="span"
               sx={{
                 background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
+                backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
               }}
@@ -106,7 +108,13 @@ export function Stack() {
           <Typography
             variant="h5"
             color="text.secondary"
-            sx={{ maxWidth: 800, mx: "auto", fontWeight: 400 }}
+            sx={{
+              maxWidth: 800,
+              mx: "auto",
+              fontWeight: 400,
+              fontSize: "1.125rem",
+              lineHeight: 1.6,
+            }}
           >
             Hardware verificado y optimizado para LogOS. Plataformas
             industriales probadas que garantizan máximo rendimiento y

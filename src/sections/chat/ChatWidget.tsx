@@ -89,7 +89,7 @@ export function ChatWidget() {
               height: 600,
               bgcolor: "background.paper",
               border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 3,
+              borderRadius: 2,
               boxShadow: theme.shadows[20],
               display: "flex",
               flexDirection: "column",
@@ -418,7 +418,6 @@ export function ChatWidget() {
                 disabled={isLoading}
                 slotProps={{
                   input: {
-                    sx: { borderRadius: 2 },
                     endAdornment: (
                       <IconButton
                         onClick={handleSend}

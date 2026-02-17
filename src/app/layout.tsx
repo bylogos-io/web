@@ -2,8 +2,6 @@ import { MuiRootProvider } from "@/providers/MuiRootProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
-import "./globals.css";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -68,6 +66,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://bylogos.io"),
 };
 
+import { ConditionalHeader } from "@/sections/layout/ConditionalHeader";
+import { ConditionalFooter } from "@/sections/layout/ConditionalFooter";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -79,7 +80,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <InitColorSchemeScript attribute="class" defaultMode="dark" />
-        <MuiRootProvider>{children}</MuiRootProvider>
+        <MuiRootProvider>
+          <ConditionalHeader />
+          {children}
+          <ConditionalFooter />
+        </MuiRootProvider>
       </body>
     </html>
   );

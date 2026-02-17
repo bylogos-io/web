@@ -13,8 +13,8 @@ import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
 
-import reterminalImage from "@public/hardware-alternatives/reterminal.png";
-import recomputerImage from "@public/hardware-alternatives/recomputer.png";
+import reterminalImage from "@public/assets/hardware-alternatives/reterminal.png";
+import recomputerImage from "@public/assets/hardware-alternatives/recomputer.png";
 import seeed from "@public/seeed.png";
 import {
   Box,
@@ -96,8 +96,9 @@ export function HardwareAlternatives() {
             variant="h2"
             sx={{
               fontSize: { xs: "2.5rem", md: "3.5rem" },
-              mb: 2,
+              mb: 3,
               fontWeight: 800,
+              lineHeight: 1.2,
             }}
           >
             <Box
@@ -122,7 +123,8 @@ export function HardwareAlternatives() {
               maxWidth: 800,
               mx: "auto",
               fontWeight: 400,
-              fontSize: "1.25rem",
+              fontSize: "1.125rem",
+              lineHeight: 1.6,
             }}
           >
             Soluciones de hardware especializadas de Seeed Studio, optimizadas
@@ -290,7 +292,7 @@ export function HardwareAlternatives() {
                                   0.1,
                                 ),
                                 p: 0.75,
-                                borderRadius: 1,
+                                borderRadius: 1.5,
                               }}
                             >
                               <feature.icon sx={{ fontSize: 18 }} />
@@ -351,7 +353,6 @@ export function HardwareAlternatives() {
                     <Box
                       sx={{
                         p: 2.5,
-                        borderRadius: 2,
                         backgroundColor: alpha(
                           theme.palette.secondary.main,
                           0.08,
@@ -380,7 +381,6 @@ export function HardwareAlternatives() {
                           sx={{
                             py: 1.5,
                             fontWeight: 700,
-                            borderRadius: 2,
                             boxShadow: `0 8px 16px ${alpha(theme.palette.primary.main, 0.2)}`,
                           }}
                         >
@@ -408,7 +408,6 @@ export function HardwareAlternatives() {
             sx={{
               backgroundColor: alpha(theme.palette.background.paper, 0.5),
               border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 4,
               p: 5,
               textAlign: "center",
               maxWidth: 900,

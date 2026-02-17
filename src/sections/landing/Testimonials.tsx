@@ -76,23 +76,53 @@ export function Testimonials() {
           viewport={{ once: true }}
           sx={{ textAlign: "center", mb: 8 }}
         >
-          <Chip
-            label="Casos de Éxito"
-            color="primary"
-            variant="outlined"
-            sx={{ mb: 2 }}
-          />
-          <Typography variant="h2" sx={{ mb: 4, fontWeight: "bold" }}>
-            Resultados que{" "}
-            <Box component="span" sx={{ color: "primary.main" }}>
-              hablan
+          <Typography
+            variant="subtitle2"
+            sx={{
+              color: "primary.main",
+              fontWeight: 500,
+              userSelect: "none",
+              pointerEvents: "none",
+              letterSpacing: 2,
+              mb: 2,
+            }}
+          >
+            CASOS DE ÉXITO
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              mb: 3,
+              fontWeight: 800,
+              lineHeight: 1.2,
+            }}
+          >
+            <Box
+              component="span"
+              sx={{
+                background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              Resultados que hablan
             </Box>{" "}
-            por sí mismos
+            <Box component="span" sx={{ color: "primary.main" }}>
+              por sí mismos
+            </Box>
           </Typography>
           <Typography
             variant="h5"
             color="text.secondary"
-            sx={{ maxWidth: 800, mx: "auto", fontWeight: 400 }}
+            sx={{
+              maxWidth: 800,
+              mx: "auto",
+              fontWeight: 400,
+              fontSize: "1.125rem",
+              lineHeight: 1.6,
+            }}
           >
             Empresas líderes confían en LogOS para gestionar sus
             infraestructuras eléctricas más críticas.
@@ -179,7 +209,6 @@ export function Testimonials() {
                       <Box
                         sx={{
                           p: 1.5,
-                          borderRadius: 2,
                           backgroundColor: alpha(
                             theme.palette.primary.main,
                             0.1,
