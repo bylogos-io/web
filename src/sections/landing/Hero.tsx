@@ -1,34 +1,30 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Box, Container, Typography, useTheme, alpha } from "@mui/material";
-import Image from "next/image";
-import demoImage from "@public/demo.png";
-import { ReterminalScene } from "@/components/3d/ReterminalScene";
+import { motion } from 'framer-motion';
+import { Box, Container, Typography, alpha } from '@mui/material';
+import { ReterminalScene } from '@/components/3d/ReterminalScene';
 
 export function Hero() {
-  const theme = useTheme();
-
   return (
     <Box
-      component="section"
-      id="hero"
+      component='section'
+      id='hero'
       sx={{
-        position: "relative",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "background.default",
-        overflow: "hidden",
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'background.default',
+        overflow: 'hidden',
       }}
     >
       <Container
-        maxWidth="lg"
-        sx={{ position: "relative", zIndex: 20, mt: 15 }}
+        maxWidth='lg'
+        sx={{ position: 'relative', zIndex: 20, mt: 15 }}
       >
-        <Box sx={{ textAlign: "center", maxWidth: "lg", mx: "auto" }}>
+        <Box sx={{ textAlign: 'center', maxWidth: 'lg', mx: 'auto' }}>
           {/* Main title */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -36,12 +32,12 @@ export function Hero() {
             viewport={{ once: true }}
           >
             <Typography
-              variant="subtitle2"
+              variant='subtitle2'
               sx={{
-                color: "primary.main",
+                color: 'primary.main',
                 fontWeight: 500,
-                userSelect: "none",
-                pointerEvents: "none",
+                userSelect: 'none',
+                pointerEvents: 'none',
                 letterSpacing: 2,
                 mb: 2,
               }}
@@ -57,27 +53,27 @@ export function Hero() {
             transition={{ delay: 0.2 }}
           >
             <Typography
-              variant="h1"
+              variant='h1'
               sx={{
-                fontSize: { xs: "3rem", md: "4.5rem", lg: "5rem" },
+                fontSize: { xs: '3rem', md: '4.5rem', lg: '5rem' },
                 mb: 3,
                 lineHeight: 1.1,
-                userSelect: "none",
-                pointerEvents: "none",
+                userSelect: 'none',
+                pointerEvents: 'none',
               }}
             >
               <Box
-                component="span"
-                sx={{
+                component='span'
+                sx={(theme) => ({
                   background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-                  backgroundClip: "text",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                }}
+                  backgroundClip: 'text',
+                  WebkitBackgroundClip: 'text',
+                  color: 'transparent',
+                })}
               >
-                LogOS es la nueva manera de eficiencia{" "}
+                LogOS es la nueva manera de eficiencia{' '}
               </Box>
-              <Box component="span" sx={{ color: "primary.main" }}>
+              <Box component='span' sx={{ color: 'primary.main' }}>
                 industrial
               </Box>
             </Typography>
@@ -90,22 +86,22 @@ export function Hero() {
             transition={{ delay: 0.4 }}
           >
             <Typography
-              variant="h5"
-              color="text.secondary"
+              variant='h5'
+              color='text.secondary'
               sx={{
                 mb: 5,
                 maxWidth: 768,
-                mx: "auto",
+                mx: 'auto',
                 lineHeight: 1.6,
                 fontWeight: 400,
-                userSelect: "none",
-                pointerEvents: "none",
+                userSelect: 'none',
+                pointerEvents: 'none',
               }}
             >
-              La mejor integración{" "}
-              <Box component="strong" sx={{ color: "primary.main" }}>
+              La mejor integración{' '}
+              <Box component='strong' sx={{ color: 'primary.main' }}>
                 AIIoT
-              </Box>{" "}
+              </Box>{' '}
               para optimización de procesos industriales.
             </Typography>
           </motion.div>
@@ -113,10 +109,10 @@ export function Hero() {
       </Container>
 
       <Container
-        maxWidth="lg"
-        sx={{ position: "relative", zIndex: 20, mt: { xs: 0, md: 2 } }}
+        maxWidth='lg'
+        sx={{ position: 'relative', zIndex: 20, mt: { xs: 0, md: 2 } }}
       >
-        <Box sx={{ position: "relative", py: 0 }}>
+        <Box sx={{ position: 'relative', py: 0 }}>
           <ReterminalScene />
         </Box>
       </Container>

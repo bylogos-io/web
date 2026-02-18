@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 // MUI Icons - Outlined version
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
-import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
-import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
-import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
-import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
-import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
+import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
+import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 
 import {
   Box,
@@ -18,85 +18,82 @@ import {
   Grid2 as Grid,
   Typography,
   Stack,
-  useTheme,
   alpha,
   CircularProgress,
   Alert,
   TextField,
-  Chip,
   Card,
   Button,
-} from "@mui/material";
+} from '@mui/material';
 
 export function Newsletter() {
-  const theme = useTheme();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const benefits = [
     {
       icon: DescriptionOutlinedIcon,
-      title: "Actualizaciones técnicas",
+      title: 'Actualizaciones técnicas',
       description:
-        "Nuevas funcionalidades, protocolos soportados y mejoras de rendimiento de LogOS.",
+        'Nuevas funcionalidades, protocolos soportados y mejoras de rendimiento de LogOS.',
     },
     {
       icon: ElectricBoltOutlinedIcon,
-      title: "Casos de uso industriales",
+      title: 'Casos de uso industriales',
       description:
-        "Implementaciones reales, configuraciones optimizadas y mejores prácticas de campo.",
+        'Implementaciones reales, configuraciones optimizadas y mejores prácticas de campo.',
     },
     {
       icon: TrendingUpOutlinedIcon,
-      title: "Tendencias del sector",
+      title: 'Tendencias del sector',
       description:
-        "Análisis de mercado, nuevos estándares IEC y evolución tecnológica del Sector Eléctrico.",
+        'Análisis de mercado, nuevos estándares IEC y evolución tecnológica del Sector Eléctrico.',
     },
     {
       icon: ShieldOutlinedIcon,
-      title: "Alertas de seguridad",
+      title: 'Alertas de seguridad',
       description:
-        "Vulnerabilidades, parches críticos y recomendaciones proactivas de ciberseguridad industrial.",
+        'Vulnerabilidades, parches críticos y recomendaciones proactivas de ciberseguridad industrial.',
     },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+    setError('');
     setIsLoading(true);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError("Por favor, introduce un email válido");
+      setError('Por favor, introduce un email válido');
       setIsLoading(false);
       return;
     }
 
     try {
       const response = await fetch(
-        "https://cloud.bylogos.com/webhook/email-catcher",
+        'https://cloud.bylogos.com/webhook/email-catcher',
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ name, email }),
         },
       );
 
       if (!response.ok) {
-        throw new Error("Error al suscribirse");
+        throw new Error('Error al suscribirse');
       }
 
       setIsSubmitted(true);
-      setEmail("");
-      setName("");
+      setEmail('');
+      setName('');
     } catch (err) {
       setError(
-        "Hubo un problema al procesar tu suscripción. Inténtalo de nuevo.",
+        'Hubo un problema al procesar tu suscripción. Inténtalo de nuevo.',
       );
     } finally {
       setIsLoading(false);
@@ -106,56 +103,56 @@ export function Newsletter() {
   if (isSubmitted) {
     return (
       <Box
-        component="section"
-        sx={{
+        component='section'
+        sx={(theme) => ({
           py: 16,
           background: `linear-gradient(to bottom right, ${alpha(theme.palette.primary.main, 0.08)}, ${theme.palette.background.default})`,
-        }}
+        })}
       >
-        <Container maxWidth="sm">
+        <Container maxWidth='sm'>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, type: "spring", damping: 12 }}
+            transition={{ duration: 0.6, type: 'spring', damping: 12 }}
           >
             <Card
-              sx={{
+              sx={(theme) => ({
                 p: 8,
-                textAlign: "center",
+                textAlign: 'center',
                 borderColor: alpha(theme.palette.primary.main, 0.4),
                 boxShadow: theme.shadows[10],
-              }}
+              })}
             >
-              <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
                 <Box
-                  sx={{
+                  sx={(theme) => ({
                     p: 3,
-                    borderRadius: "50%",
+                    borderRadius: '50%',
                     backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  })}
                 >
                   <CheckCircleOutlineOutlinedIcon
-                    sx={{ fontSize: 64, color: theme.palette.primary.main }}
+                    sx={{ fontSize: 64, color: 'primary.main' }}
                   />
                 </Box>
               </Box>
-              <Typography variant="h3" sx={{ mb: 3, fontWeight: 800 }}>
+              <Typography variant='h3' sx={{ mb: 3, fontWeight: 800 }}>
                 ¡Bienvenido!
               </Typography>
               <Typography
-                variant="body1"
-                color="text.secondary"
-                sx={{ mb: 6, fontSize: "1.125rem", lineHeight: 1.6 }}
+                variant='body1'
+                color='text.secondary'
+                sx={{ mb: 6, fontSize: '1.125rem', lineHeight: 1.6 }}
               >
                 Tu suscripción ha sido confirmada correctamente. Pronto
                 recibirás nuestras actualizaciones técnicas y novedades
                 industriales.
               </Typography>
               <Button
-                variant="outlined"
+                variant='outlined'
                 onClick={() => setIsSubmitted(false)}
                 sx={{ px: 4, py: 1.25, fontWeight: 700 }}
               >
@@ -170,32 +167,32 @@ export function Newsletter() {
 
   return (
     <Box
-      component="section"
-      id="newsletter"
-      sx={{
+      component='section'
+      id='newsletter'
+      sx={(theme) => ({
         py: 16,
         background: `linear-gradient(to bottom right, ${alpha(theme.palette.primary.main, 0.05)}, ${theme.palette.background.default})`,
         borderBottom: `1px solid ${theme.palette.divider}`,
-        position: "relative",
-        overflow: "hidden",
-      }}
+        position: 'relative',
+        overflow: 'hidden',
+      })}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth='lg'>
         <Box
           component={motion.div}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          sx={{ textAlign: "center", mb: 12 }}
+          sx={{ textAlign: 'center', mb: 12 }}
         >
           <Typography
-            variant="subtitle2"
+            variant='subtitle2'
             sx={{
-              color: "primary.main",
+              color: 'primary.main',
               fontWeight: 500,
-              userSelect: "none",
-              pointerEvents: "none",
+              userSelect: 'none',
+              pointerEvents: 'none',
               letterSpacing: 2,
               mb: 2,
             }}
@@ -203,37 +200,37 @@ export function Newsletter() {
             CONTACTO
           </Typography>
           <Typography
-            variant="h2"
+            variant='h2'
             sx={{
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
               mb: 3,
               fontWeight: 800,
               lineHeight: 1.2,
             }}
           >
             <Box
-              component="span"
-              sx={{
+              component='span'
+              sx={(theme) => ({
                 background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+              })}
             >
               Expertiz Técnica
-            </Box>{" "}
-            <Box component="span" sx={{ color: "primary.main" }}>
+            </Box>{' '}
+            <Box component='span' sx={{ color: 'primary.main' }}>
               con nosotros
             </Box>
           </Typography>
           <Typography
-            variant="h5"
-            color="text.secondary"
+            variant='h5'
+            color='text.secondary'
             sx={{
               maxWidth: 800,
-              mx: "auto",
+              mx: 'auto',
               fontWeight: 400,
-              fontSize: "1.125rem",
+              fontSize: '1.125rem',
               lineHeight: 1.6,
             }}
           >
@@ -243,7 +240,7 @@ export function Newsletter() {
           </Typography>
         </Box>
 
-        <Grid container spacing={10} alignItems="center">
+        <Grid container spacing={10} alignItems='center'>
           {/* Benefits */}
           <Grid size={{ xs: 12, lg: 6 }}>
             <Box
@@ -253,7 +250,7 @@ export function Newsletter() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Typography variant="h4" sx={{ mb: 6, fontWeight: 800 }}>
+              <Typography variant='h4' sx={{ mb: 6, fontWeight: 800 }}>
                 Valor exclusivo para ti
               </Typography>
 
@@ -266,40 +263,40 @@ export function Newsletter() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 * index }}
                     viewport={{ once: true }}
-                    sx={{ display: "flex", gap: 3 }}
+                    sx={{ display: 'flex', gap: 3 }}
                   >
                     <Box
-                      sx={{
+                      sx={(theme) => ({
                         p: 2,
                         backgroundColor: alpha(
                           theme.palette.background.paper,
                           1,
                         ),
-                        border: "1px solid",
+                        border: '1px solid',
                         borderColor: alpha(theme.palette.primary.main, 0.2),
-                        height: "fit-content",
+                        height: 'fit-content',
                         boxShadow: `0 4px 12px ${alpha(theme.palette.common.black, 0.05)}`,
-                      }}
+                      })}
                     >
                       <benefit.icon
                         sx={{
                           fontSize: 24,
-                          color: theme.palette.primary.main,
-                          display: "block",
+                          color: 'primary.main',
+                          display: 'block',
                         }}
                       />
                     </Box>
                     <Box>
                       <Typography
-                        variant="h6"
-                        sx={{ fontWeight: 700, mb: 1, fontSize: "1.125rem" }}
+                        variant='h6'
+                        sx={{ fontWeight: 700, mb: 1, fontSize: '1.125rem' }}
                       >
                         {benefit.title}
                       </Typography>
                       <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        sx={{ lineHeight: 1.7, fontSize: "0.975rem" }}
+                        variant='body1'
+                        color='text.secondary'
+                        sx={{ lineHeight: 1.7, fontSize: '0.975rem' }}
                       >
                         {benefit.description}
                       </Typography>
@@ -320,36 +317,36 @@ export function Newsletter() {
               viewport={{ once: true }}
             >
               <Card
-                sx={{
+                sx={(theme) => ({
                   p: { xs: 4, md: 8 },
                   boxShadow: `0 30px 60px ${alpha(theme.palette.common.black, 0.1)}`,
-                  border: "1px solid",
+                  border: '1px solid',
                   borderColor: alpha(theme.palette.divider, 0.5),
-                }}
+                })}
               >
-                <Box sx={{ textAlign: "center", mb: 6 }}>
+                <Box sx={{ textAlign: 'center', mb: 6 }}>
                   <Box
-                    sx={{
-                      display: "inline-flex",
+                    sx={(theme) => ({
+                      display: 'inline-flex',
                       width: 80,
                       height: 80,
                       backgroundColor: alpha(theme.palette.primary.main, 0.1),
-                      borderRadius: "50%",
-                      alignItems: "center",
-                      justifyContent: "center",
+                      borderRadius: '50%',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       mb: 3,
-                    }}
+                    })}
                   >
                     <MailOutlineIcon
-                      sx={{ fontSize: 40, color: theme.palette.primary.main }}
+                      sx={{ fontSize: 40, color: 'primary.main' }}
                     />
                   </Box>
-                  <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>
+                  <Typography variant='h4' sx={{ fontWeight: 800, mb: 1.5 }}>
                     Suscríbete ahora
                   </Typography>
                   <Typography
-                    variant="body1"
-                    color="text.secondary"
+                    variant='body1'
+                    color='text.secondary'
                     sx={{ fontWeight: 500 }}
                   >
                     Mantente a la vanguardia industrial
@@ -357,23 +354,23 @@ export function Newsletter() {
                 </Box>
 
                 <Box
-                  component="form"
+                  component='form'
                   onSubmit={handleSubmit}
-                  sx={{ display: "flex", flexDirection: "column", gap: 3 }}
+                  sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}
                 >
                   <TextField
                     fullWidth
-                    label="Nombre y Apellido"
-                    variant="outlined"
+                    label='Nombre y Apellido'
+                    variant='outlined'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
                   />
                   <TextField
                     fullWidth
-                    label="email@empresa.com"
-                    type="email"
-                    variant="outlined"
+                    label='email@empresa.com'
+                    type='email'
+                    variant='outlined'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -381,42 +378,42 @@ export function Newsletter() {
 
                   {error && (
                     <Alert
-                      severity="error"
-                      variant="outlined"
+                      severity='error'
+                      variant='outlined'
                       icon={<ErrorOutlineOutlinedIcon />}
-                      sx={{ fontSize: "0.875rem" }}
+                      sx={{ fontSize: '0.875rem' }}
                     >
                       {error}
                     </Alert>
                   )}
 
                   <Button
-                    variant="contained"
-                    type="submit"
+                    variant='contained'
+                    type='submit'
                     disabled={isLoading}
-                    sx={{
+                    sx={(theme) => ({
                       height: 56,
                       mt: 2,
                       fontWeight: 700,
-                      fontSize: "1rem",
+                      fontSize: '1rem',
                       boxShadow: `0 8px 24px ${alpha(theme.palette.primary.main, 0.3)}`,
-                    }}
+                    })}
                   >
                     {isLoading ? (
-                      <Stack direction="row" spacing={2} alignItems="center">
+                      <Stack direction='row' spacing={2} alignItems='center'>
                         <CircularProgress
                           size={24}
                           thickness={5}
-                          sx={{ color: "inherit" }}
+                          sx={{ color: 'inherit' }}
                         />
-                        <Typography variant="button">
+                        <Typography variant='button'>
                           SUSCRIBIENDO...
                         </Typography>
                       </Stack>
                     ) : (
-                      <Stack direction="row" spacing={1.5} alignItems="center">
+                      <Stack direction='row' spacing={1.5} alignItems='center'>
                         <MailOutlineIcon />
-                        <Typography variant="button" sx={{ letterSpacing: 1 }}>
+                        <Typography variant='button' sx={{ letterSpacing: 1 }}>
                           SUSCRIBIRSE GRATIS
                         </Typography>
                       </Stack>
@@ -425,11 +422,11 @@ export function Newsletter() {
                 </Box>
 
                 <Typography
-                  variant="caption"
-                  color="text.disabled"
+                  variant='caption'
+                  color='text.disabled'
                   sx={{
-                    display: "block",
-                    textAlign: "center",
+                    display: 'block',
+                    textAlign: 'center',
                     mt: 4,
                     fontWeight: 500,
                   }}
