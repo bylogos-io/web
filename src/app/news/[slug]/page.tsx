@@ -1,42 +1,44 @@
-import { news } from "@/velite";
-import { notFound } from "next/navigation";
-import { Metadata } from "next";
-import { NewsPost } from "@/sections/news/NewsPost";
+import { news } from '@/velite';
+import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+import { NewsPost } from '@/sections/news/NewsPost';
 
 interface PageProps {
-  params: Promise<{ slug: string }>;
+	params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return news.map((post) => ({
-    slug: post.slug.split("/").pop(), // "news/my-post" -> "my-post"
-  }));
+	return news.map((post) => ({
+		slug: post.slug.split('/').pop(), // "news/my-post" -> "my-post"
+	}));
 }
 
 export async function generateMetadata({
-  params,
+	params,
 }: PageProps): Promise<Metadata> {
-  const resolvedParams = await params;
-  // Velite slug is "news/slug", params.slug is "slug"
-  const post = news.find((p) => p.slug === `news/${resolvedParams.slug}`);
+	const resolvedParams = await params;
+	// Velite slug is 'news/slug', params.slug is 'slug'
+	const post = news.find((p) => p.slug === `news/${resolvedParams.slug}`);
 
-  if (!post) {
-    return {};
-  }
+	if (!post) {
+		return {
+			title: 'Noticia no encontrada',
+		};
+	}
 
-  return {
-    title: `${post.title} | Logos News`,
-    description: post.description,
-  };
+	return {
+		title: post.title,
+		description: post.description,
+	};
 }
 
 export default async function NewsPostPage({ params }: PageProps) {
-  const resolvedParams = await params;
-  const post = news.find((p) => p.slug === `news/${resolvedParams.slug}`);
+	const resolvedParams = await params;
+	const post = news.find((p) => p.slug === `news/${resolvedParams.slug}`);
 
-  if (!post) {
-    notFound();
-  }
+	if (!post) {
+		notFound();
+	}
 
-  return <NewsPost post={post} />;
+	return <NewsPost post={post} />;
 }

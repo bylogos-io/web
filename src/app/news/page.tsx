@@ -1,9 +1,10 @@
-import { news } from "@/velite"; // Using alias
-import { Box } from "@mui/material";
-import { NewsTitle } from "@/sections/news/NewsTitle";
-import { NewsSlider } from "@/sections/news/NewsSlider";
-import { NewsPosts } from "@/sections/news/NewsPosts";
-import { IndustryFooter } from "@/sections/industries/IndustryFooter"; // Reusing footer as requested ('mismo footer') - actually prompt said "same header and footer as most sections" which usually means global layout, but Industry page has IndustryFooter.
+import { news } from '@/velite'; // Using alias
+import { Box } from '@mui/material';
+import { NewsTitle } from '@/sections/news/NewsTitle';
+import { NewsSlider } from '@/sections/news/NewsSlider';
+import { NewsPosts } from '@/sections/news/NewsPosts';
+import { IndustryFooter } from '@/sections/industries/IndustryFooter'; // Reusing footer as requested ('mismo footer') - actually prompt said "same header and footer as most sections" which usually means global layout, but Industry page has IndustryFooter.
+import { Metadata } from 'next';
 // User said: "usará mismo header y footer que la mayoria de las secciones del website"
 // Industry page uses `IndustryFooter`. Global layout likely handles Header/Footer if not overridden.
 // Industries page explicitly imports `IndustryFooter`. I will check if I should use that or default.
@@ -52,26 +53,26 @@ export default function Industrias() {
 // Better yet, I'll just write the page without footer first, as that's safer for "most sections".
 // But I need to sort the news.
 
-export const metadata = {
-  title: "Noticias y Novedades | Logos",
-  description:
-    "Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT.",
+export const metadata: Metadata = {
+	title: 'Noticias y Blog',
+	description:
+		'Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT de la mano de LogOS.',
 };
 
 export default function NewsPage() {
-  // Sort posts by date descending (newest first)
-  const sortedPosts = news.sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+	// Sort posts by date descending (newest first)
+	const sortedPosts = news.sort((a, b) => {
+		return new Date(b.date).getTime() - new Date(a.date).getTime();
+	});
 
-  // Top 5 for slider
-  const sliderPosts = sortedPosts.slice(0, 5);
+	// Top 5 for slider
+	const sliderPosts = sortedPosts.slice(0, 5);
 
-  return (
-    <Box component="main">
-      <NewsTitle />
-      <NewsSlider posts={sliderPosts} />
-      <NewsPosts posts={sortedPosts} />
-    </Box>
-  );
+	return (
+		<Box component='main'>
+			<NewsTitle />
+			<NewsSlider posts={sliderPosts} />
+			<NewsPosts posts={sortedPosts} />
+		</Box>
+	);
 }

@@ -1,43 +1,14 @@
-"use client";
+import type { Metadata } from 'next';
+import { LandingPage } from '@/components/layout/LandingPage';
 
-import { Box, useTheme } from "@mui/material";
-import { Hero } from "@/sections/landing/Hero";
-import { Features } from "@/sections/landing/Features";
-import { HardwareAlternatives } from "@/sections/landing/HardwareAlternatives";
-import { Stack } from "@/sections/landing/Stack";
-import { Testimonials } from "@/sections/landing/Testimonials";
-import { Newsletter } from "@/sections/landing/Newsletter";
+export const metadata: Metadata = {
+	title: {
+		absolute: 'LogOS | Inteligencia Industrial SCADA, BMS, AIIoT',
+	},
+	description:
+		'Sistema de gestión inteligente LogOS. Soluciones avanzadas de SCADA, BMS y AIIoT para mejorar la eficiencia operacional en industrias y ciudades inteligentes.',
+};
 
 export default function Home() {
-  const theme = useTheme();
-
-  return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        backgroundColor: "background.default",
-        color: "text.primary",
-      }}
-    >
-      <Box sx={{ position: "relative", zIndex: 10 }}>
-        <Box sx={{ backgroundColor: "background.default" }}>
-          <Hero />
-          <Features />
-          <HardwareAlternatives />
-          <Stack />
-          <Testimonials />
-          <Newsletter />
-        </Box>
-      </Box>
-
-      {/* Spacer para el efecto de revelación del footer */}
-      <Box
-        sx={{
-          height: { xs: 700, md: 360 },
-          visibility: "hidden",
-          pointerEvents: "none",
-        }}
-      />
-    </Box>
-  );
+	return <LandingPage />;
 }
