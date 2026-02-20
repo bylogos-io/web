@@ -391,6 +391,7 @@ const Chat = () => {
                 input: {
                   endAdornment: (
                     <IconButton
+                      aria-label='Enviar mensaje'
                       onClick={handleSend}
                       disabled={!input.trim() || isLoading}
                       color='primary'

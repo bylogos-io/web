@@ -85,6 +85,8 @@ export function Header() {
           {...(item.href && !item.href.startsWith('#')
             ? { href: item.href }
             : {})}
+          aria-haspopup={item.submenu ? 'true' : undefined}
+          aria-expanded={item.submenu ? isOpen : undefined}
           whileHover={{ y: -2 }}
           onClick={() => item.href && handleNavigation(item.href as string)}
           sx={{
@@ -244,6 +246,7 @@ export function Header() {
               <Box
                 component={motion(Link)}
                 href='/'
+                aria-label='Inicio'
                 whileHover={{ scale: 1.05 }}
                 sx={{
                   display: 'flex',
@@ -348,6 +351,9 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <IconButton
+              aria-label='Abrir menú de navegación'
+              aria-expanded={isMobileMenuOpen}
+              aria-controls='mobile-menu-drawer'
               sx={(theme) => ({
                 display: { lg: 'none' },
                 color: 'text.primary',
@@ -363,6 +369,7 @@ export function Header() {
 
       {/* Mobile Menu Drawer */}
       <Drawer
+        id='mobile-menu-drawer'
         anchor='right'
         open={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
@@ -388,6 +395,7 @@ export function Header() {
             Menú
           </Typography>
           <IconButton
+            aria-label='Cerrar menú'
             onClick={() => setIsMobileMenuOpen(false)}
             sx={{ color: 'text.primary' }}
           >
@@ -566,6 +574,7 @@ export function Header() {
                 component='a'
                 href={social.href}
                 target='_blank'
+                aria-label='Visitar red social'
                 sx={(theme) => ({
                   color: 'text.secondary',
                   backgroundColor: alpha(theme.palette.secondary.main, 0.05),

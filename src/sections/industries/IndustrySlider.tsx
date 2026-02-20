@@ -154,6 +154,7 @@ export function IndustrySlider({
 
           {/* Navigation Arrows */}
           <IconButton
+            aria-label='Industria anterior'
             onClick={(e) => {
               e.stopPropagation();
               handlePrev();
@@ -176,6 +177,7 @@ export function IndustrySlider({
           </IconButton>
 
           <IconButton
+            aria-label='Siguiente industria'
             onClick={(e) => {
               e.stopPropagation();
               handleNext();

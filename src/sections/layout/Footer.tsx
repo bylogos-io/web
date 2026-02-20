@@ -70,6 +70,7 @@ export function Footer() {
                     component='a'
                     href={social.href}
                     target='_blank'
+                    aria-label='Visitar red social'
                     sx={(theme) => ({
                       color: 'text.secondary',
                       backgroundColor: alpha(

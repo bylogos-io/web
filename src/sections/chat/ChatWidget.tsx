@@ -142,12 +142,17 @@ export function ChatWidget() {
 
               <Box sx={{ display: 'flex', gap: 0.5 }}>
                 <Link href='/chat'>
-                  <IconButton size='small' title='Pantalla completa'>
+                  <IconButton
+                    size='small'
+                    aria-label='Pantalla completa'
+                    title='Pantalla completa'
+                  >
                     <OpenInFullOutlinedIcon sx={{ fontSize: 18 }} />
                   </IconButton>
                 </Link>
                 <IconButton
                   size='small'
+                  aria-label='Cerrar chat'
                   onClick={() => setIsOpen(false)}
                   sx={(theme) => ({
                     '&:hover': {
@@ -413,6 +418,7 @@ export function ChatWidget() {
                   input: {
                     endAdornment: (
                       <IconButton
+                        aria-label='Enviar mensaje'
                         onClick={handleSend}
                         disabled={!input.trim() || isLoading}
                         color='primary'
@@ -446,6 +452,7 @@ export function ChatWidget() {
         {!isOpen && (
           <Box
             component={motion.button}
+            aria-label='Abrir chat de asistencia'
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}

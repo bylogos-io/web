@@ -216,6 +216,7 @@ export function NewsSlider({
 
           {/* Navigation Arrows */}
           <IconButton
+            aria-label='Noticia anterior'
             onClick={(e) => {
               e.stopPropagation();
               handlePrev();
@@ -238,6 +239,7 @@ export function NewsSlider({
           </IconButton>
 
           <IconButton
+            aria-label='Siguiente noticia'
             onClick={(e) => {
               e.stopPropagation();
               handleNext();
