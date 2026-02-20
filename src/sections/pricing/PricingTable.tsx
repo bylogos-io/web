@@ -15,58 +15,9 @@ import {
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { PRICING_FEATURES } from '@/data/pricing';
 
-const features = [
-  {
-    name: 'Monitoreo en Tiempo Real',
-    edge: true,
-    cloud: true,
-    enterprise: true,
-  },
-  {
-    name: 'Diagramas Unilineales Interactivos',
-    edge: true,
-    cloud: true,
-    enterprise: true,
-  },
-  {
-    name: 'Registro de Datos (Historian)',
-    edge: true,
-    cloud: true,
-    enterprise: true,
-  },
-  {
-    name: 'Alarmas Inteligentes',
-    edge: 'Básico',
-    cloud: 'Avanzado',
-    enterprise: 'Predictivo',
-  },
-  {
-    name: 'Autenticación Biométrica',
-    edge: false,
-    cloud: true,
-    enterprise: true,
-  },
-  { name: 'Reportes Automáticos', edge: false, cloud: true, enterprise: true },
-  {
-    name: 'Asistente de IA (Copilot)',
-    edge: false,
-    cloud: 'Básico',
-    enterprise: 'Full',
-  },
-  {
-    name: 'Gemelo Digital (Digital Twin)',
-    edge: false,
-    cloud: false,
-    enterprise: true,
-  },
-  {
-    name: 'Respaldo en la Nube',
-    edge: 'Opcional',
-    cloud: true,
-    enterprise: true,
-  },
-];
+const features = PRICING_FEATURES;
 
 export function PricingTable() {
   return (

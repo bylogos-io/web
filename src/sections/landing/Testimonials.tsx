@@ -12,47 +12,11 @@ import {
 } from '@mui/material';
 
 // MUI Icons replacements
+import { TESTIMONIALS_DATA, STATS, CERTIFICATIONS } from '@/data/landing';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import BusinessIcon from '@mui/icons-material/Business';
-import FactoryIcon from '@mui/icons-material/Factory';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 
-const testimonials = [
-  {
-    company: 'Red Salud',
-    industry: 'Médicina',
-    quote:
-      'Logos nos ha permitido reducir el tiempo de respuesta ante incidencias en un 70%. La integración con nuestros sistemas legacy fue perfecta.',
-    metrics: '70% reducción MTTR',
-    icon: BusinessIcon,
-    installations: '45+ subestaciones',
-  },
-  {
-    company: 'Arcelor Mittal',
-    industry: 'Siderurgia',
-    quote:
-      'El módulo de IA predictiva identificó 3 fallos críticos antes de que ocurrieran. ROI del 340% en el primer año.',
-    metrics: '340% ROI primer año',
-    icon: FactoryIcon,
-    installations: '12 plantas industriales',
-  },
-  {
-    company: 'Iberdrola Renovables',
-    industry: 'Energía Renovable',
-    quote:
-      'Monitoreo en tiempo real de 150+ parques eólicos desde una sola plataforma. Eficiencia operativa sin precedentes.',
-    metrics: '150+ parques monitorizados',
-    icon: ElectricBoltIcon,
-    installations: '2.3 GW bajo gestión',
-  },
-];
-
-const stats = [
-  { value: '300+', label: 'Instalaciones activas' },
-  { value: '99.9%', label: 'Disponibilidad SLA' },
-  { value: '15M+', label: 'Puntos de datos/día' },
-  { value: '24/7', label: 'Soporte técnico' },
-];
+const testimonials = TESTIMONIALS_DATA;
+const stats = STATS;
 
 export function Testimonials() {
   return (
@@ -194,6 +158,12 @@ export function Testimonials() {
                         color: 'primary.main',
                       }}
                     >
+                      {/* FormatQuoteIcon was used here, removed as it's not in the data but maybe should be? 
+                          Actually let's check if I need to re-import it or if I can use it from data.
+                          Wait, FormatQuoteIcon is a visual element, not part of the data. 
+                          I should probably keep it imported or add it to constants if I want to be strict.
+                          For now, I'll re-import it as it's a UI element.
+                       */}
                       <FormatQuoteIcon sx={{ fontSize: 40 }} />
                     </Box>
 
@@ -299,12 +269,7 @@ export function Testimonials() {
               gap: { xs: 3, md: 5 },
             }}
           >
-            {[
-              'ISO 27001 - Seguridad de la información',
-              'IEC 61850 - Automatización subestaciones',
-              'NERC CIP - Seguridad cibernética',
-              'IEC 62351 - Seguridad comunicaciones',
-            ].map((cert, idx) => (
+            {CERTIFICATIONS.map((cert, idx) => (
               <Stack
                 key={idx}
                 direction='row'

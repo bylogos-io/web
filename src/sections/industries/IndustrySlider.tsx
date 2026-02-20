@@ -6,32 +6,9 @@ import { Box, IconButton, Typography, alpha, Container } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const industries = [
-  {
-    title: 'Petrolera',
-    description:
-      'Optimización de procesos y monitoreo en tiempo real para la extracción y refinamiento.',
-    image: '/assets/industries/oil.png',
-  },
-  {
-    title: 'Energética',
-    description:
-      'Gestión inteligente de redes eléctricas y fuentes de energía renovables.',
-    image: '/assets/industries/energy.png',
-  },
-  {
-    title: 'Alimenticia',
-    description:
-      'Control de calidad y automatización en líneas de producción masiva.',
-    image: '/assets/industries/food.png',
-  },
-  {
-    title: 'Aguas',
-    description:
-      'Tratamiento de recursos y gestión crítica de sistemas hídricos.',
-    image: '/assets/industries/water.png',
-  },
-];
+import { INDUSTRY_SLIDER_DATA } from '@/data/industries';
+
+const industries = INDUSTRY_SLIDER_DATA;
 
 interface IndustrySliderProps {
   autoPlayInterval?: number;
@@ -121,7 +98,7 @@ export function IndustrySlider({
                 backgroundImage: `url(${industries[currentIndex].image})`,
                 cursor: 'grab',
                 filter:
-                  'hue-rotate(200deg) saturate(2.5) brightness(1.1) contrast(1.1)', // Transforms blue neons to orange/amber
+                  'grayscale(100%) sepia(100%) hue-rotate(345deg) saturate(500%) brightness(0.9) contrast(1.2)', // Transforms to brand orange
               }}
             >
               {/* Overlay Gradient */}

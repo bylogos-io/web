@@ -4,13 +4,12 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 // MUI Icons - Outlined version
+// MUI Icons - Outlined version
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
-import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
-import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
+
+import { NEWSLETTER_BENEFITS } from '@/data/landing';
 
 import {
   Box,
@@ -33,32 +32,7 @@ export function Newsletter() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const benefits = [
-    {
-      icon: DescriptionOutlinedIcon,
-      title: 'Actualizaciones técnicas',
-      description:
-        'Nuevas funcionalidades, protocolos soportados y mejoras de rendimiento de LogOS.',
-    },
-    {
-      icon: ElectricBoltOutlinedIcon,
-      title: 'Casos de uso industriales',
-      description:
-        'Implementaciones reales, configuraciones optimizadas y mejores prácticas de campo.',
-    },
-    {
-      icon: TrendingUpOutlinedIcon,
-      title: 'Tendencias del sector',
-      description:
-        'Análisis de mercado, nuevos estándares IEC y evolución tecnológica del Sector Eléctrico.',
-    },
-    {
-      icon: ShieldOutlinedIcon,
-      title: 'Alertas de seguridad',
-      description:
-        'Vulnerabilidades, parches críticos y recomendaciones proactivas de ciberseguridad industrial.',
-    },
-  ];
+  const benefits = NEWSLETTER_BENEFITS;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

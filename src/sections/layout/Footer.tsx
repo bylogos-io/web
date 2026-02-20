@@ -5,10 +5,7 @@ import Image from 'next/image';
 // import { Button } from "./ui/button";
 import Link from 'next/link';
 import logoImage from '@public/logos.svg';
-import { MailOutline as MailIcon } from '@mui/icons-material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { SOCIAL_LINKS, CONTACT_INFO, FOOTER_PROTOCOLS } from '@/data/layout';
 import {
   Box,
   Container,
@@ -20,20 +17,12 @@ import {
   Button,
   IconButton,
 } from '@mui/material';
-
-const socialLinks = [
-  { icon: LinkedInIcon, href: 'https://www.linkedin.com/company/bylogos/' },
-  { icon: InstagramIcon, href: 'https://www.instagram.com/bylogos.io/' },
-  { icon: GitHubIcon, href: 'https://github.com/bylogos-io' },
-];
+import MailIcon from '@mui/icons-material/Mail';
 
 export function Footer() {
-  //const theme = useTheme();
   const currentYear = new Date().getFullYear();
-
-  const contactInfo = [
-    { label: 'Email técnico', value: 'contact@bylogos.io', icon: MailIcon },
-  ];
+  const contactInfo = CONTACT_INFO;
+  const socialLinks = SOCIAL_LINKS;
 
   return (
     <Box
@@ -159,15 +148,11 @@ export function Footer() {
                 Protocolos soportados
               </Typography>
               <Stack spacing={1}>
-                <Typography variant='body2' color='text.secondary'>
-                  • Modbus RTU/TCP
-                </Typography>
-                <Typography variant='body2' color='text.secondary'>
-                  • OPC UA (DA, AC, HDA)
-                </Typography>
-                <Typography variant='body2' color='text.secondary'>
-                  • MQTT / MQTT-SN
-                </Typography>
+                {FOOTER_PROTOCOLS.map((protocol, idx) => (
+                  <Typography key={idx} variant='body2' color='text.secondary'>
+                    • {protocol}
+                  </Typography>
+                ))}
               </Stack>
             </Box>
           </Grid>

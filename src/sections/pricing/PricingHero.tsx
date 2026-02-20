@@ -12,41 +12,9 @@ import {
   Stack,
 } from '@mui/material';
 import Link from 'next/link';
-import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
-import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
-import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
+import { PRICING_PLANS } from '@/data/pricing';
 
-const pricingPlans = [
-  {
-    title: 'EDGE',
-    price: 'Desde 15 UF',
-    description: 'Solución local para control crítico.',
-    features: [
-      'Protocolos Industriales',
-      'Hardware Optimizado',
-      'Baja Latencia',
-    ],
-    icon: SettingsInputComponentOutlinedIcon,
-    color: 'primary.main',
-  },
-  {
-    title: 'CLOUD',
-    price: 'Desde 8 UF/mes',
-    description: 'Escalabilidad e inteligencia en la nube.',
-    features: ['Respaldo Híbrido', 'IA Copilot', 'Dashboards Web'],
-    icon: CloudOutlinedIcon,
-    color: 'secondary.main',
-  },
-  {
-    title: 'CONTACTANOS',
-    price: 'Custom',
-    description: '¿Necesitas una solución a medida?',
-    features: ['Soporte 24/7', 'Integraciones Custom', 'Enterprise Grade'],
-    icon: ContactSupportOutlinedIcon,
-    color: 'text.primary',
-    isContact: true,
-  },
-];
+const pricingPlans = PRICING_PLANS;
 
 export function PricingHero() {
   return (

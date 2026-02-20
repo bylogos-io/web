@@ -6,56 +6,9 @@ import { Box, Typography, Container, alpha, Stack, Chip } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
-const industryDetails = [
-  {
-    tag: 'Refinería 4.0',
-    title: 'Petrolera',
-    description:
-      'Monitoreo de activos críticos y detección temprana de fallas en entornos de alta presión.',
-    points: [
-      'SCADA en la nube',
-      'IA de mantenimiento predictivo',
-      'Control de fugas',
-    ],
-    image: '/assets/industries/oil.png',
-  },
-  {
-    tag: 'Smart Grid',
-    title: 'Energética',
-    description:
-      'Distribución eficiente y almacenamiento optimizado para plantas de energía renovable.',
-    points: [
-      'Balance de carga real',
-      'Integración FV e Hidro',
-      'Monitoreo térmico',
-    ],
-    image: '/assets/industries/energy.png',
-  },
-  {
-    tag: 'Safe Food',
-    title: 'Alimenticia',
-    description:
-      'Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.',
-    points: [
-      'Control de frío 24/7',
-      'Cumplimiento ISO 22000',
-      'Dashboards KPI',
-    ],
-    image: '/assets/industries/food.png',
-  },
-  {
-    tag: 'Water Tech',
-    title: 'Aguas',
-    description:
-      'Gestión inteligente del ciclo del agua para plantas de tratamiento y desalinización.',
-    points: [
-      'Control de pH y químicos',
-      'Optimización de bombeo',
-      'Alertas hidrológicas',
-    ],
-    image: '/assets/industries/water.png',
-  },
-];
+import { INDUSTRY_CARDS_DATA } from '@/data/industries';
+
+const industryDetails = INDUSTRY_CARDS_DATA;
 
 export function IndustryCards() {
   return (
@@ -122,7 +75,7 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter:
-              'hue-rotate(200deg) saturate(2.5) brightness(1.1) contrast(1.1)',
+              'grayscale(100%) sepia(100%) hue-rotate(345deg) saturate(500%) brightness(0.9) contrast(1.2)',
             transition: 'transform 0.5s ease',
             transform: isHovered ? 'scale(1.1)' : 'scale(1)',
           }}
@@ -274,7 +227,7 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   filter:
-                    'hue-rotate(200deg) saturate(2.5) grayscale(0.5) brightness(0.8)',
+                    'grayscale(100%) sepia(100%) hue-rotate(345deg) saturate(500%) grayscale(0.5) brightness(0.8)',
                 }}
               />
               <Box

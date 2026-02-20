@@ -4,18 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// MUI Icons - Outlined version
-import MonitorOutlinedIcon from '@mui/icons-material/MonitorOutlined';
-import DnsOutlinedIcon from '@mui/icons-material/DnsOutlined';
-import WifiOutlinedIcon from '@mui/icons-material/WifiOutlined';
-import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
-import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
-import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
-import MemoryOutlinedIcon from '@mui/icons-material/MemoryOutlined';
-
-import reterminalImage from '@public/assets/hardware-alternatives/reterminal.png';
-import recomputerImage from '@public/assets/hardware-alternatives/recomputer.png';
 import seeed from '@public/seeed.png';
+import { HARDWARE_OPTIONS } from '@/data/landing';
 import {
   Box,
   Container,
@@ -28,54 +18,7 @@ import {
   Button,
 } from '@mui/material';
 
-const hardwareOptions = [
-  {
-    name: 'ReTerminalDM',
-    subtitle: 'Panel de Control Interactivo',
-    image: reterminalImage.src,
-    description:
-      'Terminal industrial con pantalla táctil integrada para control directo y visualización en tiempo real con sistema LogOS pre-instalado.',
-    features: [
-      { icon: MonitorOutlinedIcon, text: 'Pantalla táctil 10.1"' },
-      { icon: VideocamOutlinedIcon, text: 'Cámara integrada' },
-      { icon: WifiOutlinedIcon, text: 'WiFi 6 + Bluetooth 5.0' },
-      { icon: ElectricBoltOutlinedIcon, text: 'PoE+ alimentación' },
-    ],
-    specs: [
-      'Resolución 1280x800',
-      'IP65 clasificación',
-      'Serial RS485',
-      'IEC 61850 compatible',
-    ],
-    useCase:
-      'Ideal para salas de control, cabinas de operador y puntos de supervisión local.',
-    price: 'Desde UF 18,5',
-    highlight: 'Interactividad Local',
-  },
-  {
-    name: 'ReComputer',
-    subtitle: 'Servidor Edge Industrial',
-    image: recomputerImage.src,
-    description:
-      'Computadora industrial compacta optimizada para ejecutar LogOS como servidor web local y gateway de comunicaciones de alto rendimiento.',
-    features: [
-      { icon: DnsOutlinedIcon, text: 'Server-grade performance' },
-      { icon: StorageOutlinedIcon, text: 'SSD NVMe 256GB' },
-      { icon: WifiOutlinedIcon, text: 'Ethernet Gigabit x2' },
-      { icon: MemoryOutlinedIcon, text: 'ARM Cortex-A72 Quad-core' },
-    ],
-    specs: [
-      '8GB RAM DDR4',
-      'Ventilación silenciosa',
-      'Riel DIN para montaje',
-      'Temperaturas críticas',
-    ],
-    useCase:
-      'Perfecto para despliegues centralizados, edge computing y servidores locales de alta disponibilidad.',
-    price: 'Desde UF 8,3',
-    highlight: 'Edge Computing',
-  },
-];
+const hardwareOptions = HARDWARE_OPTIONS;
 
 export function HardwareAlternatives() {
   return (
