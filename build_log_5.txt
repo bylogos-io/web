@@ -1,0 +1,35 @@
+
+> logos@1.5.0 build
+> velite build && next build
+
+[VELITE] issues:
+content/docs/funcionalidades.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+content/docs/introduccion.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+content/docs/logos.mdx
+ warning `s.path()` schema will resolve the flattening path based on the file path  slug
+
+ÔÜá 3 warnings 
+[32m[VELITE][0m build finished in 428.29ms
+Ôû▓ Next.js 16.1.5 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 13.0s
+  Running TypeScript ...
+Failed to compile.
+
+./src/components/stack.tsx:287:18
+Type error: Cannot find name 'Badge'.
+
+  285 |                 sx={{ gap: 2 }}
+  286 |               >
+> 287 |                 <Badge variant="outline" sx={{ px: 2, py: 0.75 }}>
+      |                  ^
+  288 |                   2GB RAM m├¡nimo
+  289 |                 </Badge>
+  290 |                 <Badge variant="outline" sx={{ px: 2, py: 0.75 }}>
+Next.js build worker exited with code: 1 and signal: null
