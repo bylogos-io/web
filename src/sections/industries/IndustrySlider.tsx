@@ -26,7 +26,7 @@ const industries = [
     subtitle: "Data Centers",
     description:
       "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
-    image: "/assets/industries/datacenter.png",
+    image: "/assets/industries/oil.png", // TODO: reemplazar con /assets/industries/datacenter.png cuando esté disponible
   },
   {
     title: "Aguas",
@@ -94,10 +94,15 @@ export function IndustrySlider({
   }, []);
 
   useEffect(() => {
-    let timer: ReturnType<typeof setInterval>;
+    let timer: ReturnType<typeof setInterval> | null = null;
 
-    const start = () => { timer = setInterval(handleNext, autoPlayInterval); };
-    const stop = () => clearInterval(timer);
+    const stop = () => {
+      if (timer) { clearInterval(timer); timer = null; }
+    };
+    const start = () => {
+      stop();
+      timer = setInterval(handleNext, autoPlayInterval);
+    };
 
     const handleVisibility = () => {
       if (document.hidden) stop();
@@ -182,6 +187,7 @@ export function IndustrySlider({
 
         {/* Left arrow */}
         <IconButton
+          aria-label="Anterior"
           onClick={(e) => { e.stopPropagation(); handlePrev(); }}
           sx={{ ...arrowSx, left: { xs: 12, md: 40 } }}
         >
@@ -190,6 +196,7 @@ export function IndustrySlider({
 
         {/* Right arrow */}
         <IconButton
+          aria-label="Siguiente"
           onClick={(e) => { e.stopPropagation(); handleNext(); }}
           sx={{ ...arrowSx, right: { xs: 12, md: 40 } }}
         >

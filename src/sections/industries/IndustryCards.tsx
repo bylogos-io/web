@@ -14,6 +14,11 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
+const HEADER_HEIGHT = 96;
+
+const toSlug = (title: string) =>
+  title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
 const industryDetails = [
   {
     tag: "Oil & Gas",
@@ -37,7 +42,7 @@ const industryDetails = [
       "Monitorización de cooling y PUE",
       "Alertas de uptime en tiempo real",
     ],
-    image: "/assets/industries/datacenter.png",
+    image: "/assets/industries/oil.png", // TODO: reemplazar con /assets/industries/datacenter.png cuando esté disponible
   },
   {
     tag: "Water",
@@ -94,8 +99,8 @@ export function IndustryCards() {
       {industryDetails.map((industry, index) => (
         <Box
           key={index}
-          id={industry.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}
-          sx={{ scrollMarginTop: "96px" }}
+          id={toSlug(industry.title)}
+          sx={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
         >
           <IndustryCard industry={industry} index={index} />
         </Box>
