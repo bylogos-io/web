@@ -80,7 +80,13 @@ export function IndustryCards() {
       </Box>
 
       {industryDetails.map((industry, index) => (
-        <IndustryCard key={index} industry={industry} index={index} />
+        <Box
+          key={index}
+          id={industry.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}
+          sx={{ scrollMarginTop: "96px" }}
+        >
+          <IndustryCard industry={industry} index={index} />
+        </Box>
       ))}
     </Container>
   );

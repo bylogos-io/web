@@ -95,22 +95,22 @@ export function Header() {
       submenu: [
         {
           label: "Petrolera",
-          href: "/industrias",
+          href: "/industrias#petrolera",
           description: "Energía fósil",
         },
         {
           label: "Energética",
-          href: "/industrias",
+          href: "/industrias#energetica",
           description: "Redes eléctricas",
         },
         {
           label: "Alimenticia",
-          href: "/industrias",
+          href: "/industrias#alimenticia",
           description: "Producción masiva",
         },
         {
           label: "Aguas",
-          href: "/industrias",
+          href: "/industrias#aguas",
           description: "Gestión de recursos",
         },
       ],
