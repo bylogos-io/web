@@ -166,7 +166,7 @@ export function IndustrySlider({
               backgroundPosition: "center",
               backgroundImage: `url(${industries[currentIndex].image})`,
               filter:
-                "hue-rotate(200deg) saturate(2.5) brightness(1.1) contrast(1.1)",
+                "hue-rotate(200deg) saturate(2.5) brightness(1.0) contrast(1.1)",
             }}
           />
         </AnimatePresence>
