@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 // Eliminados imports de ./ui/*
 import {
   HomeOutlined as HomeIcon,
@@ -10,77 +10,74 @@ import {
   QueryStatsOutlined as ActivityIcon,
   SearchOutlined as SearchIcon,
   MailOutlineOutlined as MailIcon,
-} from "@mui/icons-material";
-import Image from "next/image";
-import logoImage from "@public/logos.svg";
+} from '@mui/icons-material';
+import Image from 'next/image';
+import logoImage from '@public/logos.svg';
 import {
   Box,
   Container,
   Typography,
   Stack,
   Grid2 as Grid,
-  useTheme,
   alpha,
   Chip,
   Card,
   Button,
-} from "@mui/material";
+} from '@mui/material';
 
 export default function ERR404() {
-  const theme = useTheme();
-
   const diagnostics = [
-    { label: "HTTP Status", value: "404", status: "error" },
-    { label: "Connection", value: "Active", status: "success" },
-    { label: "Protocol", value: "HTTPS", status: "success" },
-    { label: "Response Time", value: "45ms", status: "success" },
+    { label: 'HTTP Status', value: '404', status: 'error' },
+    { label: 'Connection', value: 'Active', status: 'success' },
+    { label: 'Protocol', value: 'HTTPS', status: 'success' },
+    { label: 'Response Time', value: '45ms', status: 'success' },
   ];
 
   const suggestions = [
     {
       icon: HomeIcon,
-      title: "Volver al inicio",
-      description: "Regresa a la página principal de LogOS.",
-      action: "Ir a inicio",
-      href: "/",
+      title: 'Volver al inicio',
+      description: 'Regresa a la página principal de LogOS.',
+      action: 'Ir a inicio',
+      href: '/',
     },
     {
       icon: SearchIcon,
-      title: "Revisar la URL",
-      description: "Revisa la dirección que estás buscando.",
-      action: "Revisar",
+      title: 'Revisar la URL',
+      description: 'Revisa la dirección que estás buscando.',
+      action: 'Revisar',
     },
     {
       icon: MailIcon,
-      title: "Newsletter",
+      title: 'Newsletter',
       description:
-        "Suscríbete a nuestra bandeja de entrada y entérate de todo.",
-      action: "Suscribir",
-      href: "#newsletter",
+        'Suscríbete a nuestra bandeja de entrada y entérate de todo.',
+      action: 'Suscribir',
+      href: '#newsletter',
     },
   ];
 
   return (
     <Box
       sx={{
-        minHeight: "100vh",
-        backgroundColor: "background.default",
-        color: "text.primary",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        overflow: "hidden",
+        minHeight: '100vh',
+        backgroundColor: 'background.default',
+        color: 'text.primary',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
       {/* Background pattern */}
       <Box
         sx={{
-          position: "absolute",
+          position: 'absolute',
           inset: 0,
-          backgroundImage: `linear-gradient(${alpha("#fff", 0.02)} 1px, transparent 1px), linear-gradient(90deg, ${alpha("#fff", 0.02)} 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
-          pointerEvents: "none",
+          backgroundImage: `linear-gradient(${alpha('#fff', 0.02)} 1px, transparent 1px), linear-gradient(90deg, ${alpha('#fff', 0.02)} 1px, transparent 1px)`,
+          backgroundSize: '50px 50px',
+          pointerEvents: 'none',
         }}
       />
 
@@ -94,18 +91,18 @@ export default function ERR404() {
         transition={{
           duration: 4,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
-        sx={{
-          position: "absolute",
-          top: "25%",
-          left: "25%",
+        sx={(theme) => ({
+          position: 'absolute',
+          top: '25%',
+          left: '25%',
           width: 256,
           height: 256,
           backgroundColor: alpha(theme.palette.primary.main, 0.05),
-          borderRadius: "50%",
-          filter: "blur(48px)",
-        }}
+          borderRadius: '50%',
+          filter: 'blur(48px)',
+        })}
       />
       <Box
         component={motion.div}
@@ -116,56 +113,56 @@ export default function ERR404() {
         transition={{
           duration: 4,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: 'easeInOut',
           delay: 1,
         }}
-        sx={{
-          position: "absolute",
-          bottom: "25%",
-          right: "25%",
+        sx={(theme) => ({
+          position: 'absolute',
+          bottom: '25%',
+          right: '25%',
           width: 384,
           height: 384,
           backgroundColor: alpha(theme.palette.error.main, 0.05),
-          borderRadius: "50%",
-          filter: "blur(48px)",
-        }}
+          borderRadius: '50%',
+          filter: 'blur(48px)',
+        })}
       />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 10 }}>
-        <Box sx={{ maxWidth: 900, mx: "auto" }}>
+      <Container maxWidth='lg' sx={{ position: 'relative', zIndex: 10 }}>
+        <Box sx={{ maxWidth: 900, mx: 'auto' }}>
           {/* Header with logo */}
           <Box
             component={motion.div}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            sx={{ textAlign: "center", mb: 8 }}
+            sx={{ textAlign: 'center', mb: 8 }}
           >
             <Image
               src={logoImage}
-              alt="LogOS Logo"
+              alt='LogOS Logo'
               width={150}
               height={48}
               style={{
-                height: "auto",
-                margin: "0 auto 16px",
+                height: 'auto',
+                margin: '0 auto 16px',
                 opacity: 0.5,
               }}
             />
             <Chip
-              label="Página no encontrada"
-              color="error"
-              variant="outlined"
-              sx={{
+              label='Página no encontrada'
+              color='error'
+              variant='outlined'
+              sx={(theme) => ({
                 backgroundColor: alpha(theme.palette.error.main, 0.1),
                 border: `1px solid ${alpha(theme.palette.error.main, 0.3)}`,
                 opacity: 0.7,
                 fontWeight: 600,
-              }}
+              })}
             />
           </Box>
 
-          <Grid container spacing={8} alignItems="center">
+          <Grid container spacing={8} alignItems='center'>
             {/* Error display */}
             <Grid
               size={{ xs: 12, md: 6 }}
@@ -174,36 +171,36 @@ export default function ERR404() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Box sx={{ textAlign: { xs: "center", md: "left" }, mb: 4 }}>
+              <Box sx={{ textAlign: { xs: 'center', md: 'left' }, mb: 4 }}>
                 <Typography
-                  variant="h1"
-                  sx={{
-                    fontSize: { xs: "5rem", md: "8rem" },
+                  variant='h1'
+                  sx={(theme) => ({
+                    fontSize: { xs: '5rem', md: '8rem' },
                     color: alpha(theme.palette.primary.main, 0.3),
                     fontWeight: 700,
                     lineHeight: 1,
                     mb: 2,
-                    userSelect: "none",
-                  }}
+                    userSelect: 'none',
+                  })}
                 >
                   404
                 </Typography>
                 <Typography
-                  variant="h2"
+                  variant='h2'
                   sx={{
-                    fontSize: { xs: "2.5rem", md: "3rem" },
+                    fontSize: { xs: '2.5rem', md: '3rem' },
                     fontWeight: 700,
                     mb: 2,
                   }}
                 >
-                  Página{" "}
-                  <Box component="span" sx={{ color: "error.main" }}>
+                  Página{' '}
+                  <Box component='span' sx={{ color: 'error.main' }}>
                     no encontrada
                   </Box>
                 </Typography>
                 <Typography
-                  variant="h5"
-                  color="text.secondary"
+                  variant='h5'
+                  color='text.secondary'
                   sx={{ mb: 4, fontWeight: 400, lineHeight: 1.6 }}
                 >
                   La ruta solicitada no existe. Verifica la URL o utiliza los
@@ -214,15 +211,13 @@ export default function ERR404() {
               {/* System diagnostics */}
               <Card sx={{ p: 4 }}>
                 <Stack
-                  direction="row"
+                  direction='row'
                   spacing={1.5}
-                  alignItems="center"
+                  alignItems='center'
                   sx={{ mb: 3 }}
                 >
-                  <ActivityIcon
-                    sx={{ color: theme.palette.primary.main, fontSize: 20 }}
-                  />
-                  <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                  <ActivityIcon sx={{ color: 'primary.main', fontSize: 20 }} />
+                  <Typography variant='h6' sx={{ fontWeight: 600 }}>
                     Diagnóstico del sistema
                   </Typography>
                 </Stack>
@@ -232,22 +227,22 @@ export default function ERR404() {
                     <Grid key={index} size={6}>
                       <Box
                         sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
                         }}
                       >
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography variant='caption' color='text.secondary'>
                           {diag.label}:
                         </Typography>
-                        <Stack direction="row" spacing={1} alignItems="center">
+                        <Stack direction='row' spacing={1} alignItems='center'>
                           <Typography
-                            variant="caption"
+                            variant='caption'
                             sx={{
                               color:
-                                diag.status === "error"
-                                  ? "error.main"
-                                  : "primary.main",
+                                diag.status === 'error'
+                                  ? 'error.main'
+                                  : 'primary.main',
                               fontWeight: 600,
                             }}
                           >
@@ -257,11 +252,11 @@ export default function ERR404() {
                             sx={{
                               width: 8,
                               height: 8,
-                              borderRadius: "50%",
+                              borderRadius: '50%',
                               backgroundColor:
-                                diag.status === "error"
-                                  ? "error.main"
-                                  : "primary.main",
+                                diag.status === 'error'
+                                  ? 'error.main'
+                                  : 'primary.main',
                             }}
                           />
                         </Stack>
@@ -280,22 +275,22 @@ export default function ERR404() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Box sx={{ textAlign: { xs: "center", md: "left" }, mb: 4 }}>
+              <Box sx={{ textAlign: { xs: 'center', md: 'left' }, mb: 4 }}>
                 <Stack
-                  direction="row"
+                  direction='row'
                   spacing={1.5}
-                  alignItems="center"
-                  justifyContent={{ xs: "center", md: "flex-start" }}
+                  alignItems='center'
+                  justifyContent={{ xs: 'center', md: 'flex-start' }}
                   sx={{ mb: 2 }}
                 >
                   <AlertTriangleIcon
-                    sx={{ color: theme.palette.primary.main, fontSize: 24 }}
+                    sx={{ color: 'primary.main', fontSize: 24 }}
                   />
-                  <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                  <Typography variant='h5' sx={{ fontWeight: 700 }}>
                     Recuperación
                   </Typography>
                 </Stack>
-                <Typography color="text.secondary">
+                <Typography color='text.secondary'>
                   Selecciona una de las siguientes opciones para continuar
                   navegando.
                 </Typography>
@@ -312,71 +307,71 @@ export default function ERR404() {
                     transition={{ duration: 0.6, delay: 0.2 * index }}
                   >
                     <Card
-                      sx={{
+                      sx={(theme) => ({
                         p: 2,
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
                           borderColor: alpha(theme.palette.primary.main, 0.5),
                           backgroundColor: alpha(
                             theme.palette.background.paper,
                             0.6,
                           ),
-                          "& .suggestion-icon": {
+                          '& .suggestion-icon': {
                             backgroundColor: alpha(
                               theme.palette.primary.main,
                               0.2,
                             ),
                           },
-                          "& .suggestion-button": {
+                          '& .suggestion-button': {
                             opacity: 1,
                           },
                         },
-                      }}
+                      })}
                       onClick={() =>
                         suggestion.href &&
                         (window.location.href = suggestion.href)
                       }
                     >
-                      <Stack direction="row" spacing={2} alignItems="center">
+                      <Stack direction='row' spacing={2} alignItems='center'>
                         <Box
-                          className="suggestion-icon"
-                          sx={{
+                          className='suggestion-icon'
+                          sx={(theme) => ({
                             p: 1.5,
                             borderRadius: 2,
                             backgroundColor: alpha(
                               theme.palette.primary.main,
                               0.1,
                             ),
-                            transition: "all 0.3s ease",
-                          }}
+                            transition: 'all 0.3s ease',
+                          })}
                         >
                           <suggestion.icon
                             sx={{
-                              color: theme.palette.primary.main,
+                              color: 'primary.main',
                               fontSize: 20,
                             }}
                           />
                         </Box>
                         <Box sx={{ flex: 1 }}>
                           <Typography
-                            variant="subtitle2"
+                            variant='subtitle2'
                             sx={{ fontWeight: 600 }}
                           >
                             {suggestion.title}
                           </Typography>
-                          <Typography variant="caption" color="text.secondary">
+                          <Typography variant='caption' color='text.secondary'>
                             {suggestion.description}
                           </Typography>
                         </Box>
                         <Button
-                          variant="outline"
-                          size="sm"
-                          className="suggestion-button"
+                          variant='outlined'
+                          size='small'
+                          className='suggestion-button'
                           sx={{
                             opacity: 0,
-                            transition: "opacity 0.3s ease",
-                            display: { xs: "none", sm: "flex" },
+                            transition: 'opacity 0.3s ease',
+                            display: { xs: 'none', sm: 'flex' },
                           }}
                         >
                           {suggestion.action}
@@ -389,7 +384,7 @@ export default function ERR404() {
 
               {/* Primary actions */}
               <Stack
-                direction={{ xs: "column", sm: "row" }}
+                direction={{ xs: 'column', sm: 'row' }}
                 spacing={2}
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
@@ -397,15 +392,15 @@ export default function ERR404() {
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
                 <Button
-                  variant="default"
+                  variant='contained'
                   sx={{ flex: 1, height: 48 }}
-                  onClick={() => (window.location.href = "/")}
+                  onClick={() => (window.location.href = '/')}
                 >
                   <HomeIcon sx={{ fontSize: 18, mr: 1 }} />
                   Volver al inicio
                 </Button>
                 <Button
-                  variant="outline"
+                  variant='outlined'
                   sx={{ flex: 1, height: 48 }}
                   onClick={() => window.history.back()}
                 >
@@ -422,40 +417,38 @@ export default function ERR404() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            sx={{ mt: 10, textAlign: "center" }}
+            sx={{ mt: 10, textAlign: 'center' }}
           >
             <Card
-              sx={{
+              sx={(theme) => ({
                 p: 3,
                 backgroundColor: alpha(theme.palette.secondary.main, 0.1),
-              }}
+              })}
             >
               <Stack
-                direction={{ xs: "column", md: "row" }}
+                direction={{ xs: 'column', md: 'row' }}
                 spacing={4}
-                alignItems="center"
-                justifyContent="space-between"
+                alignItems='center'
+                justifyContent='space-between'
               >
-                <Stack direction="row" spacing={2} alignItems="center">
-                  <ZapIcon
-                    sx={{ color: theme.palette.primary.main, fontSize: 20 }}
-                  />
-                  <Box sx={{ textAlign: "left" }}>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                <Stack direction='row' spacing={2} alignItems='center'>
+                  <ZapIcon sx={{ color: 'primary.main', fontSize: 20 }} />
+                  <Box sx={{ textAlign: 'left' }}>
+                    <Typography variant='subtitle2' sx={{ fontWeight: 600 }}>
                       LogOS v1.1.0
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant='caption' color='text.secondary'>
                       Plataforma • Tiempo de actividad: 99.9%
                     </Typography>
                   </Box>
                 </Stack>
 
                 <Stack
-                  direction="row"
+                  direction='row'
                   spacing={4}
-                  sx={{ display: { xs: "none", sm: "flex" } }}
+                  sx={{ display: { xs: 'none', sm: 'flex' } }}
                 >
-                  <Stack direction="row" spacing={1} alignItems="center">
+                  <Stack direction='row' spacing={1} alignItems='center'>
                     <Box
                       component={motion.div}
                       animate={{ opacity: [1, 0.5, 1] }}
@@ -463,24 +456,24 @@ export default function ERR404() {
                       sx={{
                         width: 8,
                         height: 8,
-                        bgcolor: "primary.main",
-                        borderRadius: "50%",
+                        bgcolor: 'primary.main',
+                        borderRadius: '50%',
                       }}
                     />
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant='caption' color='text.secondary'>
                       Servicios activos
                     </Typography>
                   </Stack>
-                  <Stack direction="row" spacing={1} alignItems="center">
+                  <Stack direction='row' spacing={1} alignItems='center'>
                     <Box
                       sx={{
                         width: 8,
                         height: 8,
-                        bgcolor: "primary.main",
-                        borderRadius: "50%",
+                        bgcolor: 'primary.main',
+                        borderRadius: '50%',
                       }}
                     />
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant='caption' color='text.secondary'>
                       Conectado a edge
                     </Typography>
                   </Stack>
@@ -489,12 +482,12 @@ export default function ERR404() {
             </Card>
 
             <Typography
-              variant="caption"
-              color="text.secondary"
-              sx={{ display: "block", mt: 3 }}
+              variant='caption'
+              color='text.secondary'
+              sx={{ display: 'block', mt: 3 }}
             >
-              Error ID: ERR-404 • Soporte técnico:{" "}
-              <Box component="span" sx={{ color: "primary.main" }}>
+              Error ID: ERR-404 • Soporte técnico:{' '}
+              <Box component='span' sx={{ color: 'primary.main' }}>
                 soporte@bylogos.cl
               </Box>
             </Typography>

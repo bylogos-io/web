@@ -1,28 +1,25 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation";
-import Image from "next/image";
-import LogosIcon from "@public/icon.svg";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter, usePathname } from 'next/navigation';
+import Image from 'next/image';
+import LogosIcon from '@public/icon.svg';
 
 // MUI Icons
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import Link from "next/link";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import Link from 'next/link';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AddIcon from '@mui/icons-material/Add';
+
+import { NAVIGATION_ITEMS, SOCIAL_LINKS } from '@/data/layout';
 
 import {
   Box,
   Container,
   Stack,
   Typography,
-  useTheme,
   alpha,
   IconButton,
   Button,
@@ -30,16 +27,14 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemText,
   Divider,
   Collapse,
-} from "@mui/material";
+} from '@mui/material';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
-  const theme = useTheme();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -48,110 +43,21 @@ export function Header() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigationItems = [
-    {
-      label: "Inicio",
-      href: "/",
-      submenu: [
-        {
-          label: "Características",
-          href: "#features",
-          description: "Potencia tu sistema",
-        },
-        {
-          label: "Hardware",
-          href: "#hardware",
-          description: "Equipos industriales",
-        },
-        {
-          label: "Compatibilidad",
-          href: "#stack",
-          description: "Integración total",
-        },
-        { label: "Contacto", href: "#newsletter", description: "Hablemos hoy" },
-      ],
-    },
-    {
-      label: "Soluciones",
-      href: "/soluciones",
-      submenu: [
-        {
-          label: "Edge",
-          href: "/soluciones",
-          description: "Procesamiento local",
-        },
-        {
-          label: "Cloud",
-          href: "/soluciones",
-          description: "Infraestructura en la nube",
-        },
-      ],
-    },
-    {
-      label: "Industrias",
-      href: "/industrias",
-      submenu: [
-        {
-          label: "Petróleo",
-          href: "/industrias#petroleo",
-          description: "(Oil & Gas)",
-        },
-        {
-          label: "Datos",
-          href: "/industrias#datos",
-          description: "(Data Centers)",
-        },
-        {
-          label: "Aguas",
-          href: "/industrias#aguas",
-          description: "(Water)",
-        },
-        {
-          label: "Energía",
-          href: "/industrias#energia",
-          description: "(Power)",
-        },
-        {
-          label: "Producción",
-          href: "/industrias#produccion",
-          description: "(Food & Beverage)",
-        },
-      ],
-    },
-    {
-      label: "Precios",
-      href: "/precios",
-      submenu: [
-        { label: "Edge", href: "/precios", description: "Desde $XXX/mes" },
-        {
-          label: "Cloud",
-          href: "/precios",
-          description: "Desde $XXX/mes",
-        },
-        {
-          label: "Custom",
-          href: "/precios",
-          description: "Consúltanos",
-        },
-      ],
-    },
-    { label: "Nosotros", href: "/nosotros" },
-    { label: "News", href: "/news" },
-  ];
+  const navigationItems = NAVIGATION_ITEMS;
 
   const handleNavigation = (href: string) => {
-    if (href.startsWith("#")) {
-      if (pathname === "/") {
+    if (href.startsWith('#')) {
+      if (pathname === '/') {
         const element = document.querySelector(href);
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          element.scrollIntoView({ behavior: 'smooth' });
         }
       } else {
-        router.push("/" + href);
+        router.push('/' + href);
       }
     } else {
       router.push(href);
@@ -159,11 +65,7 @@ export function Header() {
     setIsMobileMenuOpen(false);
   };
 
-  const socialLinks = [
-    { icon: LinkedInIcon, href: "https://www.linkedin.com/company/bylogos/" },
-    { icon: InstagramIcon, href: "https://www.instagram.com/bylogos.io/" },
-    { icon: GitHubIcon, href: "https://github.com/bylogos-io" },
-  ];
+  const socialLinks = SOCIAL_LINKS;
 
   function NavDropdown({ item }: { item: any }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -172,32 +74,34 @@ export function Header() {
       <Box
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        sx={{ position: "relative" }}
+        sx={{ position: 'relative' }}
       >
         <Box
           component={
-            item.href && !item.href.startsWith("#")
+            item.href && !item.href.startsWith('#')
               ? motion(Link)
               : motion.button
           }
-          {...(item.href && !item.href.startsWith("#")
+          {...(item.href && !item.href.startsWith('#')
             ? { href: item.href }
             : {})}
+          aria-haspopup={item.submenu ? 'true' : undefined}
+          aria-expanded={item.submenu ? isOpen : undefined}
           whileHover={{ y: -2 }}
           onClick={() => item.href && handleNavigation(item.href as string)}
           sx={{
-            background: "none",
-            border: "none",
-            textDecoration: "none",
-            cursor: "pointer",
-            color: isOpen ? "primary.main" : "text.secondary",
-            fontSize: "0.9375rem",
+            background: 'none',
+            border: 'none',
+            textDecoration: 'none',
+            cursor: 'pointer',
+            color: isOpen ? 'primary.main' : 'text.secondary',
+            fontSize: '0.9375rem',
             fontWeight: 600,
-            display: "flex",
-            alignItems: "center",
+            display: 'flex',
+            alignItems: 'center',
             gap: 0.5,
-            transition: "all 0.2s",
-            "&:hover": { color: "primary.main" },
+            transition: 'all 0.2s',
+            '&:hover': { color: 'primary.main' },
           }}
         >
           {item.label}
@@ -205,8 +109,8 @@ export function Header() {
             <ExpandMoreIcon
               sx={{
                 fontSize: 16,
-                transition: "transform 0.3s",
-                transform: isOpen ? "rotate(180deg)" : "rotate(0)",
+                transition: 'transform 0.3s',
+                transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
               }}
             />
           )}
@@ -219,61 +123,61 @@ export function Header() {
               initial={{ opacity: 0, y: 15, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
               sx={{
-                position: "absolute",
-                top: "100%",
-                left: "50%",
-                transform: "translateX(-50%) !important",
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%) !important',
                 pt: 2,
                 zIndex: 1200,
               }}
             >
               <Box
-                sx={{
+                sx={(theme) => ({
                   width: 250,
                   backgroundColor: alpha(theme.palette.background.default, 0.9),
-                  backdropFilter: "blur(20px)",
+                  backdropFilter: 'blur(20px)',
                   borderRadius: 2,
                   border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
                   boxShadow: `0 20px 40px ${alpha(theme.palette.common.black, 0.4)}`,
-                  overflow: "hidden",
+                  overflow: 'hidden',
                   p: 1,
-                }}
+                })}
               >
                 {item.submenu.map((sub: any, idx: number) => (
                   <Box
                     key={idx}
-                    component={sub.href.startsWith("#") ? "button" : Link}
-                    href={sub.href.startsWith("#") ? undefined : sub.href}
+                    component={sub.href.startsWith('#') ? 'button' : Link}
+                    href={sub.href.startsWith('#') ? undefined : sub.href}
                     onClick={() =>
-                      sub.href.startsWith("#") &&
+                      sub.href.startsWith('#') &&
                       handleNavigation(sub.href as string)
                     }
-                    sx={{
-                      display: "block",
-                      width: "100%",
-                      textAlign: "left",
-                      textDecoration: "none",
-                      background: "none",
-                      border: "none",
+                    sx={(theme) => ({
+                      display: 'block',
+                      width: '100%',
+                      textAlign: 'left',
+                      textDecoration: 'none',
+                      background: 'none',
+                      border: 'none',
                       p: 1.5,
                       borderRadius: 2,
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                      "&:hover": {
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      '&:hover': {
                         backgroundColor: alpha(
                           theme.palette.primary.main,
                           0.08,
                         ),
                       },
-                    }}
+                    })}
                   >
                     <Typography
-                      variant="body2"
+                      variant='body2'
                       sx={{
                         fontWeight: 700,
-                        color: "text.primary",
+                        color: 'text.primary',
                         mb: 0.5,
                       }}
                     >
@@ -281,11 +185,12 @@ export function Header() {
                     </Typography>
                     {sub.description && (
                       <Typography
-                        variant="caption"
+                        variant='caption'
                         sx={{
-                          color: "text.secondary",
-                          display: "block",
+                          color: 'text.secondary',
+                          display: 'block',
                           lineHeight: 1.2,
+                          fontSize: '0.85rem',
                         }}
                       >
                         {sub.description}
@@ -308,83 +213,84 @@ export function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        sx={{
-          position: "fixed",
+        sx={(theme) => ({
+          position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
           zIndex: 1100,
-          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
           backgroundColor: isScrolled
             ? alpha(theme.palette.background.default, 0.8)
-            : "transparent",
-          backdropFilter: isScrolled ? "blur(12px)" : "none",
+            : 'transparent',
+          backdropFilter: isScrolled ? 'blur(12px)' : 'none',
           borderBottom: isScrolled
             ? `1px solid ${theme.palette.divider}`
-            : "1px solid transparent",
+            : '1px solid transparent',
           py: isScrolled ? 1 : 2,
-        }}
+        })}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth='lg'>
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
               height: 64,
             }}
           >
             {/* Logo */}
             <Box
-              sx={{ flex: 1, display: "flex", justifyContent: "flex-start" }}
+              sx={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}
             >
               <Box
                 component={motion(Link)}
-                href="/"
+                href='/'
+                aria-label='Inicio'
                 whileHover={{ scale: 1.05 }}
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  textDecoration: "none",
-                  color: "inherit",
+                  display: 'flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  color: 'inherit',
                 }}
                 onClick={(e: React.MouseEvent) => {
                   e.preventDefault();
-                  handleNavigation("#hero");
+                  handleNavigation('#hero');
                 }}
               >
                 <Box
-                  sx={{
+                  sx={(theme) => ({
                     width: 44,
                     height: 44,
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     backgroundColor: alpha(theme.palette.primary.main, 0.12),
                     border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
                     p: 0.75,
                     boxShadow: isScrolled
-                      ? "none"
+                      ? 'none'
                       : `0 4px 12px ${alpha(theme.palette.primary.main, 0.1)}`,
-                  }}
+                  })}
                 >
                   <Image
                     src={LogosIcon}
-                    alt="Logos Logo"
+                    alt='Logos Logo'
                     width={32}
                     height={32}
                     unoptimized
                   />
                 </Box>
                 <Typography
-                  variant="h6"
+                  variant='h6'
                   sx={{
                     ml: 1.5,
                     fontWeight: 800,
                     letterSpacing: -0.5,
-                    display: { xs: "none", sm: "block" },
+                    display: { xs: 'none', sm: 'block' },
                   }}
                 >
                   LogOS
@@ -394,10 +300,10 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <Box
-              component="nav"
+              component='nav'
               sx={{
-                display: { xs: "none", lg: "flex" },
-                alignItems: "center",
+                display: { xs: 'none', lg: 'flex' },
+                alignItems: 'center',
                 gap: 5,
               }}
             >
@@ -409,52 +315,32 @@ export function Header() {
             {/* Desktop Actions */}
             <Box
               sx={{
-                display: { xs: "none", lg: "flex" },
+                display: { xs: 'none', lg: 'flex' },
                 flex: 1,
-                alignItems: "center",
-                justifyContent: "flex-end",
+                alignItems: 'center',
+                justifyContent: 'flex-end',
                 gap: 1.5,
               }}
             >
-              {/* {socialLinks.map((social, idx) => (
-                <IconButton
-                  key={idx}
-                  component="a"
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="small"
-                  sx={{
-                    color: "text.secondary",
-                    transition: "all 0.2s",
-                    "&:hover": {
-                      color: "primary.main",
-                      backgroundColor: alpha(theme.palette.primary.main, 0.08),
-                    },
-                  }}
-                >
-                  <social.icon sx={{ fontSize: 20 }} />
-                </IconButton>
-              ))} */}
               <Box
-                sx={{
+                sx={(theme) => ({
                   ml: 2,
                   borderLeft: `1px solid ${theme.palette.divider}`,
                   pl: 2,
-                }}
+                })}
               >
                 <Button
                   component={Link}
-                  href="#newsletter"
-                  variant="contained"
-                  size="small"
+                  href='#newsletter'
+                  variant='contained'
+                  size='small'
                   onClick={(e: React.MouseEvent) => {
                     e.preventDefault();
-                    handleNavigation("#newsletter");
+                    handleNavigation('#newsletter');
                   }}
                   sx={{
                     fontWeight: 700,
-                    textTransform: "none",
+                    textTransform: 'none',
                     px: 3,
                   }}
                 >
@@ -465,11 +351,14 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <IconButton
-              sx={{
-                display: { lg: "none" },
-                color: "text.primary",
+              aria-label='Abrir menú de navegación'
+              aria-expanded={isMobileMenuOpen}
+              aria-controls='mobile-menu-drawer'
+              sx={(theme) => ({
+                display: { lg: 'none' },
+                color: 'text.primary',
                 backgroundColor: alpha(theme.palette.action.hover, 0.05),
-              }}
+              })}
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <MenuIcon />
@@ -480,33 +369,35 @@ export function Header() {
 
       {/* Mobile Menu Drawer */}
       <Drawer
-        anchor="right"
+        id='mobile-menu-drawer'
+        anchor='right'
         open={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
         PaperProps={{
-          sx: {
-            width: "300px",
+          sx: (theme) => ({
+            width: '300px',
             backgroundColor: alpha(theme.palette.background.default, 1),
-            backgroundImage: "none",
+            backgroundImage: 'none',
             borderLeft: `1px solid ${theme.palette.divider}`,
             boxShadow: -10,
-          },
+          }),
         }}
       >
         <Box
           sx={{
             p: 3,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
-          <Typography variant="h6" fontWeight={800}>
+          <Typography variant='h6' fontWeight={800}>
             Menú
           </Typography>
           <IconButton
+            aria-label='Cerrar menú'
             onClick={() => setIsMobileMenuOpen(false)}
-            sx={{ color: "text.primary" }}
+            sx={{ color: 'text.primary' }}
           >
             <CloseIcon />
           </IconButton>
@@ -522,10 +413,10 @@ export function Header() {
                 <ListItem disablePadding>
                   <ListItemButton
                     component={
-                      item.href && !item.href.startsWith("#") ? Link : "div"
+                      item.href && !item.href.startsWith('#') ? Link : 'div'
                     }
                     href={
-                      item.href && !item.href.startsWith("#")
+                      item.href && !item.href.startsWith('#')
                         ? item.href
                         : undefined
                     }
@@ -536,46 +427,46 @@ export function Header() {
                         handleNavigation(item.href);
                       }
                     }}
-                    sx={{
+                    sx={(theme) => ({
                       borderRadius: 1.5,
                       py: 1.5,
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
                       backgroundColor: isExpanded
                         ? alpha(theme.palette.primary.main, 0.08)
-                        : "transparent",
-                      "&:hover": {
+                        : 'transparent',
+                      '&:hover': {
                         backgroundColor: alpha(
                           theme.palette.primary.main,
                           0.12,
                         ),
                       },
-                    }}
+                    })}
                   >
                     <Typography
                       sx={{
                         fontWeight: 800,
-                        fontSize: "1.25rem",
-                        color: isExpanded ? "primary.main" : "text.primary",
+                        fontSize: '1.25rem',
+                        color: isExpanded ? 'primary.main' : 'text.primary',
                       }}
                     >
                       {item.label}
                     </Typography>
                     {hasSubmenu && (
-                      <Box sx={{ color: "text.secondary", display: "flex" }}>
+                      <Box sx={{ color: 'text.secondary', display: 'flex' }}>
                         {isExpanded ? (
                           <ExpandMoreIcon
                             sx={{
-                              transform: "rotate(180deg)",
-                              transition: "transform 0.3s",
+                              transform: 'rotate(180deg)',
+                              transition: 'transform 0.3s',
                             }}
                           />
                         ) : (
                           <ExpandMoreIcon
                             sx={{
-                              transform: "rotate(0deg)",
-                              transition: "transform 0.3s",
+                              transform: 'rotate(0deg)',
+                              transition: 'transform 0.3s',
                             }}
                           />
                         )}
@@ -585,53 +476,53 @@ export function Header() {
                 </ListItem>
 
                 {item.submenu && (
-                  <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding sx={{ mt: 1 }}>
+                  <Collapse in={isExpanded} timeout='auto' unmountOnExit>
+                    <List component='div' disablePadding sx={{ mt: 1 }}>
                       {item.submenu.map((sub: any) => (
                         <ListItem key={sub.label} disablePadding>
                           <ListItemButton
-                            component={!sub.href.startsWith("#") ? Link : "div"}
+                            component={!sub.href.startsWith('#') ? Link : 'div'}
                             href={
-                              !sub.href.startsWith("#") ? sub.href : undefined
+                              !sub.href.startsWith('#') ? sub.href : undefined
                             }
                             onClick={() =>
-                              sub.href.startsWith("#")
+                              sub.href.startsWith('#')
                                 ? handleNavigation(sub.href as string)
                                 : handleNavigation(sub.href)
                             }
-                            sx={{
+                            sx={(theme) => ({
                               borderRadius: 2,
                               py: 1.5,
                               pl: 3,
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                              "&:hover": {
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                              '&:hover': {
                                 backgroundColor: alpha(
                                   theme.palette.primary.main,
                                   0.05,
                                 ),
                               },
-                            }}
+                            })}
                           >
                             <Box sx={{ flex: 1 }}>
                               <Typography
                                 sx={{
                                   fontWeight: 700,
-                                  fontSize: "1rem",
-                                  color: "text.primary",
+                                  fontSize: '1rem',
+                                  color: 'text.primary',
                                 }}
                               >
                                 {sub.label}
                               </Typography>
                               {sub.description && (
                                 <Typography
-                                  variant="caption"
+                                  variant='caption'
                                   sx={{
-                                    color: "text.secondary",
-                                    display: "block",
+                                    color: 'text.secondary',
+                                    display: 'block',
                                     lineHeight: 1.4,
-                                    fontSize: "0.85rem",
+                                    fontSize: '0.85rem',
                                   }}
                                 >
                                   {sub.description}
@@ -641,7 +532,7 @@ export function Header() {
                             <AddIcon
                               sx={{
                                 fontSize: 18,
-                                color: "text.disabled",
+                                color: 'text.disabled',
                                 opacity: 0.5,
                               }}
                             />
@@ -656,41 +547,42 @@ export function Header() {
           })}
         </List>
         <Box
-          sx={{
-            mt: "auto",
+          sx={(theme) => ({
+            mt: 'auto',
             p: 4,
             borderTop: `1px solid ${theme.palette.divider}`,
             backgroundColor: alpha(theme.palette.secondary.main, 0.02),
-          }}
+          })}
         >
           <Typography
-            variant="caption"
+            variant='caption'
             sx={{
-              display: "block",
-              textAlign: "center",
+              display: 'block',
+              textAlign: 'center',
               mb: 3,
               fontWeight: 700,
-              color: "text.disabled",
+              color: 'text.disabled',
               letterSpacing: 1,
             }}
           >
             SÍGUENOS
           </Typography>
-          <Stack direction="row" spacing={3} justifyContent="center">
+          <Stack direction='row' spacing={3} justifyContent='center'>
             {socialLinks.map((social, idx) => (
               <IconButton
                 key={idx}
-                component="a"
+                component='a'
                 href={social.href}
-                target="_blank"
-                sx={{
-                  color: "text.secondary",
+                target='_blank'
+                aria-label='Visitar red social'
+                sx={(theme) => ({
+                  color: 'text.secondary',
                   backgroundColor: alpha(theme.palette.secondary.main, 0.05),
-                  "&:hover": {
-                    color: "primary.main",
+                  '&:hover': {
+                    color: 'primary.main',
                     backgroundColor: alpha(theme.palette.primary.main, 0.1),
                   },
-                }}
+                })}
               >
                 <social.icon sx={{ fontSize: 22 }} />
               </IconButton>

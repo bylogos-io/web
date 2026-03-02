@@ -1,33 +1,31 @@
-"use client";
+'use client';
 
-import { Box, Typography, Container, useTheme, alpha } from "@mui/material";
+import { Box, Typography, Container, alpha } from '@mui/material';
 
 export function IndustryTitle() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "background.default",
-        overflow: "hidden",
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'background.default',
+        overflow: 'hidden',
       }}
     >
       <Container
-        maxWidth="lg"
-        sx={{ position: "relative", zIndex: 20, mt: 6, textAlign: "center" }}
+        maxWidth='lg'
+        sx={{ position: 'relative', zIndex: 20, mt: 6, textAlign: 'center' }}
       >
         <Typography
-          variant="subtitle2"
+          variant='subtitle2'
           sx={{
-            color: "primary.main",
+            color: 'primary.main',
             fontWeight: 500,
-            userSelect: "none",
-            pointerEvents: "none",
+            userSelect: 'none',
+            pointerEvents: 'none',
             letterSpacing: 2,
             mb: 2,
           }}
@@ -35,36 +33,36 @@ export function IndustryTitle() {
           SECTORES ESTRATÉGICOS
         </Typography>
         <Typography
-          variant="h1"
+          variant='h1'
           fontWeight={900}
           sx={{
-            fontSize: { xs: "2.5rem", md: "4.5rem" },
-            letterSpacing: "-0.02em",
+            fontSize: { xs: '2.5rem', md: '4.5rem' },
+            letterSpacing: '-0.02em',
             mb: 3,
           }}
         >
           <Box
-            component="span"
-            sx={{
+            component='span'
+            sx={(theme) => ({
               background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-            }}
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+            })}
           >
-            Industrias{" "}
+            Industrias{' '}
           </Box>
-          <Box component="span" sx={{ color: "primary.main" }}>
+          <Box component='span' sx={{ color: 'primary.main' }}>
             Inteligentes
           </Box>
         </Typography>
 
         <Typography
-          variant="h5"
+          variant='h5'
           sx={{
-            color: "text.secondary",
+            color: 'text.secondary',
             maxWidth: 800,
-            mx: "auto",
+            mx: 'auto',
             lineHeight: 1.6,
             fontWeight: 400,
           }}

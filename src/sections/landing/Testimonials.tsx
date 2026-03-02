@@ -1,88 +1,49 @@
-"use client";
-import * as React from "react";
-import { motion } from "framer-motion";
+'use client';
+import * as React from 'react';
+import { motion } from 'framer-motion';
 import {
   alpha,
   Box,
   Typography,
   Card,
-  Chip,
   Grid2 as Grid,
-  useTheme,
   Container,
   Stack,
-} from "@mui/material";
+} from '@mui/material';
 
 // MUI Icons replacements
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import BusinessIcon from "@mui/icons-material/Business";
-import FactoryIcon from "@mui/icons-material/Factory";
-import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
+import { TESTIMONIALS_DATA, STATS, CERTIFICATIONS } from '@/data/landing';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
-const testimonials = [
-  {
-    company: "Red Salud",
-    industry: "Médicina",
-    quote:
-      "Logos nos ha permitido reducir el tiempo de respuesta ante incidencias en un 70%. La integración con nuestros sistemas legacy fue perfecta.",
-    metrics: "70% reducción MTTR",
-    icon: BusinessIcon,
-    installations: "45+ subestaciones",
-  },
-  {
-    company: "Arcelor Mittal",
-    industry: "Siderurgia",
-    quote:
-      "El módulo de IA predictiva identificó 3 fallos críticos antes de que ocurrieran. ROI del 340% en el primer año.",
-    metrics: "340% ROI primer año",
-    icon: FactoryIcon,
-    installations: "12 plantas industriales",
-  },
-  {
-    company: "Iberdrola Renovables",
-    industry: "Energía Renovable",
-    quote:
-      "Monitoreo en tiempo real de 150+ parques eólicos desde una sola plataforma. Eficiencia operativa sin precedentes.",
-    metrics: "150+ parques monitorizados",
-    icon: ElectricBoltIcon,
-    installations: "2.3 GW bajo gestión",
-  },
-];
-
-const stats = [
-  { value: "300+", label: "Instalaciones activas" },
-  { value: "99.9%", label: "Disponibilidad SLA" },
-  { value: "15M+", label: "Puntos de datos/día" },
-  { value: "24/7", label: "Soporte técnico" },
-];
+const testimonials = TESTIMONIALS_DATA;
+const stats = STATS;
 
 export function Testimonials() {
-  const theme = useTheme();
   return (
     <Box
-      component="section"
-      id="testimonials"
+      component='section'
+      id='testimonials'
       sx={{
         py: 12,
-        //backgroundColor: alpha(theme.palette.secondary.main, 0.2),
+        //backgroundColor: (theme) => alpha(theme.palette.secondary.main, 0.2),
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth='lg'>
         <Box
           component={motion.div}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          sx={{ textAlign: "center", mb: 8 }}
+          sx={{ textAlign: 'center', mb: 8 }}
         >
           <Typography
-            variant="subtitle2"
+            variant='subtitle2'
             sx={{
-              color: "primary.main",
+              color: 'primary.main',
               fontWeight: 500,
-              userSelect: "none",
-              pointerEvents: "none",
+              userSelect: 'none',
+              pointerEvents: 'none',
               letterSpacing: 2,
               mb: 2,
             }}
@@ -90,37 +51,37 @@ export function Testimonials() {
             CASOS DE ÉXITO
           </Typography>
           <Typography
-            variant="h2"
+            variant='h2'
             sx={{
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
               mb: 3,
               fontWeight: 800,
               lineHeight: 1.2,
             }}
           >
             <Box
-              component="span"
-              sx={{
+              component='span'
+              sx={(theme) => ({
                 background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-              }}
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+              })}
             >
               Resultados que hablan
-            </Box>{" "}
-            <Box component="span" sx={{ color: "primary.main" }}>
+            </Box>{' '}
+            <Box component='span' sx={{ color: 'primary.main' }}>
               por sí mismos
             </Box>
           </Typography>
           <Typography
-            variant="h5"
-            color="text.secondary"
+            variant='h5'
+            color='text.secondary'
             sx={{
               maxWidth: 800,
-              mx: "auto",
+              mx: 'auto',
               fontWeight: 400,
-              fontSize: "1.125rem",
+              fontSize: '1.125rem',
               lineHeight: 1.6,
             }}
           >
@@ -138,17 +99,17 @@ export function Testimonials() {
           viewport={{ once: true }}
           sx={{ mb: 8 }}
         >
-          <Grid container spacing={4} sx={{ textAlign: "center" }}>
+          <Grid container spacing={4} sx={{ textAlign: 'center' }}>
             {stats.map((stat, index) => (
               <Grid key={index} size={{ xs: 6, md: 3 }}>
                 <Typography
-                  variant="h3"
-                  color="primary"
+                  variant='h3'
+                  color='primary'
                   sx={{ mb: 1, fontWeight: 700 }}
                 >
                   {stat.value}
                 </Typography>
-                <Typography color="text.secondary">{stat.label}</Typography>
+                <Typography color='text.secondary'>{stat.label}</Typography>
               </Grid>
             ))}
           </Grid>
@@ -162,7 +123,7 @@ export function Testimonials() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <Grid container spacing={4} justifyContent="center">
+          <Grid container spacing={4} justifyContent='center'>
             {testimonials.map((testimonial, index) => (
               <Grid key={index} size={{ xs: 12, lg: 4 }}>
                 <Box
@@ -171,63 +132,69 @@ export function Testimonials() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  sx={{ height: "100%" }}
+                  sx={{ height: '100%' }}
                 >
                   <Card
-                    sx={{
+                    sx={(theme) => ({
                       p: 4,
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      position: "relative",
-                      bgcolor: "background.paper",
-                      border: "1px solid",
-                      borderColor: "divider",
-                      transition: "all 0.3s",
-                      "&:hover": {
-                        borderColor: "primary.main",
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      position: 'relative',
+                      bgcolor: 'background.paper',
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      transition: 'all 0.3s',
+                      '&:hover': {
+                        borderColor: 'primary.main',
                         boxShadow: `0 0 20px ${alpha(theme.palette.primary.main, 0.1)}`,
                       },
-                    }}
+                    })}
                   >
                     <Box
                       sx={{
-                        position: "absolute",
+                        position: 'absolute',
                         top: 16,
                         right: 16,
                         opacity: 0.2,
-                        color: "primary.main",
+                        color: 'primary.main',
                       }}
                     >
+                      {/* FormatQuoteIcon was used here, removed as it's not in the data but maybe should be? 
+                          Actually let's check if I need to re-import it or if I can use it from data.
+                          Wait, FormatQuoteIcon is a visual element, not part of the data. 
+                          I should probably keep it imported or add it to constants if I want to be strict.
+                          For now, I'll re-import it as it's a UI element.
+                       */}
                       <FormatQuoteIcon sx={{ fontSize: 40 }} />
                     </Box>
 
                     <Stack
-                      direction="row"
+                      direction='row'
                       spacing={2}
-                      alignItems="center"
+                      alignItems='center'
                       sx={{ mb: 3 }}
                     >
                       <Box
-                        sx={{
+                        sx={(theme) => ({
                           p: 1.5,
                           backgroundColor: alpha(
                             theme.palette.primary.main,
                             0.1,
                           ),
-                          display: "flex",
-                        }}
+                          display: 'flex',
+                        })}
                       >
-                        <testimonial.icon sx={{ color: "primary.main" }} />
+                        <testimonial.icon sx={{ color: 'primary.main' }} />
                       </Box>
                       <Box>
-                        <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                        <Typography variant='body1' sx={{ fontWeight: 600 }}>
                           {testimonial.company}
                         </Typography>
                         <Typography
-                          variant="caption"
-                          color="text.secondary"
-                          sx={{ display: "block" }}
+                          variant='caption'
+                          color='text.secondary'
+                          sx={{ display: 'block' }}
                         >
                           {testimonial.industry}
                         </Typography>
@@ -235,44 +202,44 @@ export function Testimonials() {
                     </Stack>
 
                     <Typography
-                      variant="body1"
-                      component="blockquote"
+                      variant='body1'
+                      component='blockquote'
                       sx={{
-                        color: "text.primary",
+                        color: 'text.primary',
                         mb: 4,
                         lineHeight: 1.6,
-                        fontStyle: "italic",
+                        fontStyle: 'italic',
                       }}
                     >
                       {'"' + testimonial.quote + '"'}
                     </Typography>
 
-                    <Stack spacing={1.5} sx={{ mt: "auto" }}>
+                    <Stack spacing={1.5} sx={{ mt: 'auto' }}>
                       <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
+                        direction='row'
+                        justifyContent='space-between'
+                        alignItems='flex-start'
                       >
-                        <Typography variant="caption" color="text.secondary" sx={{ flexShrink: 0, mr: 1 }}>
+                        <Typography variant='caption' color='text.secondary' sx={{ flexShrink: 0, mr: 1 }}>
                           Resultado clave:
                         </Typography>
                         <Typography
-                          variant="caption"
-                          color="primary.main"
-                          sx={{ fontWeight: 600, textAlign: "right" }}
+                          variant='caption'
+                          color='primary.main'
+                          sx={{ fontWeight: 600, textAlign: 'right' }}
                         >
                           {testimonial.metrics}
                         </Typography>
                       </Stack>
                       <Stack
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="flex-start"
+                        direction='row'
+                        justifyContent='space-between'
+                        alignItems='flex-start'
                       >
-                        <Typography variant="caption" color="text.secondary" sx={{ flexShrink: 0, mr: 1 }}>
+                        <Typography variant='caption' color='text.secondary' sx={{ flexShrink: 0, mr: 1 }}>
                           Instalaciones:
                         </Typography>
-                        <Typography variant="caption" color="text.primary" sx={{ textAlign: "right" }}>
+                        <Typography variant='caption' color='text.primary' sx={{ textAlign: 'right' }}>
                           {testimonial.installations}
                         </Typography>
                       </Stack>
@@ -291,30 +258,25 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          sx={{ mt: 10, textAlign: "center" }}
+          sx={{ mt: 10, textAlign: 'center' }}
         >
-          <Typography color="text.secondary" sx={{ mb: 4 }}>
+          <Typography color='text.secondary' sx={{ mb: 4 }}>
             Certificaciones y estándares cumplidos:
           </Typography>
-          <Grid container spacing={3} sx={{ maxWidth: 800, mx: "auto" }}>
-            {[
-              "ISO 27001 - Seguridad de la información",
-              "IEC 61850 - Automatización subestaciones",
-              "NERC CIP - Seguridad cibernética",
-              "IEC 62351 - Seguridad comunicaciones",
-            ].map((cert, idx) => (
+          <Grid container spacing={3} sx={{ maxWidth: 800, mx: 'auto' }}>
+            {CERTIFICATIONS.map((cert, idx) => (
               <Grid key={idx} size={{ xs: 12, sm: 6 }}>
-                <Stack direction="row" spacing={1.5} alignItems="center">
+                <Stack direction='row' spacing={1.5} alignItems='center'>
                   <Box
                     sx={{
                       width: 8,
                       height: 8,
                       flexShrink: 0,
-                      bgcolor: "primary.main",
-                      borderRadius: "50%",
+                      bgcolor: 'primary.main',
+                      borderRadius: '50%',
                     }}
                   />
-                  <Typography variant="caption" color="text.secondary">
+                  <Typography variant='caption' color='text.secondary'>
                     {cert}
                   </Typography>
                 </Stack>
