@@ -34,7 +34,7 @@ const industryDetails = [
       "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
     points: [
       "Monitoreo de servidores 24/7",
-      "Gestión de cooling y PUE",
+      "Monitorización de cooling y PUE",
       "Alertas de uptime en tiempo real",
     ],
     image: "/assets/industries/datacenter.png",
