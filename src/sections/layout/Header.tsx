@@ -94,24 +94,29 @@ export function Header() {
       label: "Industrias",
       submenu: [
         {
-          label: "Petrolera",
-          href: "/industrias#petrolera",
-          description: "Energía fósil",
+          label: "Petróleo",
+          href: "/industrias#petroleo",
+          description: "Oil & Gas",
         },
         {
-          label: "Energética",
-          href: "/industrias#energetica",
-          description: "Redes eléctricas",
-        },
-        {
-          label: "Alimenticia",
-          href: "/industrias#alimenticia",
-          description: "Producción masiva",
+          label: "Datos",
+          href: "/industrias#datos",
+          description: "Data Centers",
         },
         {
           label: "Aguas",
           href: "/industrias#aguas",
-          description: "Gestión de recursos",
+          description: "Water",
+        },
+        {
+          label: "Energía",
+          href: "/industrias#energia",
+          description: "Power",
+        },
+        {
+          label: "Producción",
+          href: "/industrias#produccion",
+          description: "Food & Beverage",
         },
       ],
     },

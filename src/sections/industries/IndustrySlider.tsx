@@ -15,28 +15,34 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const industries = [
   {
-    title: "Petrolera",
+    title: "Petróleo",
     description:
       "Optimización de procesos y monitoreo en tiempo real para la extracción y refinamiento.",
     image: "/assets/industries/oil.png",
   },
   {
-    title: "Energética",
+    title: "Datos",
     description:
-      "Gestión inteligente de redes eléctricas y fuentes de energía renovables.",
-    image: "/assets/industries/energy.png",
-  },
-  {
-    title: "Alimenticia",
-    description:
-      "Control de calidad y automatización en líneas de producción masiva.",
-    image: "/assets/industries/food.png",
+      "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
+    image: "/assets/industries/datacenter.png",
   },
   {
     title: "Aguas",
     description:
       "Tratamiento de recursos y gestión crítica de sistemas hídricos.",
     image: "/assets/industries/water.png",
+  },
+  {
+    title: "Energía",
+    description:
+      "Gestión inteligente de redes eléctricas y fuentes de energía renovables.",
+    image: "/assets/industries/energy.png",
+  },
+  {
+    title: "Producción",
+    description:
+      "Control de calidad y automatización en líneas de producción masiva.",
+    image: "/assets/industries/food.png",
   },
 ];
 

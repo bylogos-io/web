@@ -16,8 +16,8 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 const industryDetails = [
   {
-    tag: "Refinería 4.0",
-    title: "Petrolera",
+    tag: "Oil & Gas",
+    title: "Petróleo",
     description:
       "Monitoreo de activos críticos y detección temprana de fallas en entornos de alta presión.",
     points: [
@@ -28,8 +28,32 @@ const industryDetails = [
     image: "/assets/industries/oil.png",
   },
   {
-    tag: "Smart Grid",
-    title: "Energética",
+    tag: "Data Centers",
+    title: "Datos",
+    description:
+      "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
+    points: [
+      "Monitoreo de servidores 24/7",
+      "Gestión de cooling y PUE",
+      "Alertas de uptime en tiempo real",
+    ],
+    image: "/assets/industries/datacenter.png",
+  },
+  {
+    tag: "Water",
+    title: "Aguas",
+    description:
+      "Gestión inteligente del ciclo del agua para plantas de tratamiento y desalinización.",
+    points: [
+      "Control de pH y químicos",
+      "Optimización de bombeo",
+      "Alertas hidrológicas",
+    ],
+    image: "/assets/industries/water.png",
+  },
+  {
+    tag: "Power",
+    title: "Energía",
     description:
       "Distribución eficiente y almacenamiento optimizado para plantas de energía renovable.",
     points: [
@@ -40,8 +64,8 @@ const industryDetails = [
     image: "/assets/industries/energy.png",
   },
   {
-    tag: "Safe Food",
-    title: "Alimenticia",
+    tag: "Food & Beverage",
+    title: "Producción",
     description:
       "Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.",
     points: [
@@ -50,18 +74,6 @@ const industryDetails = [
       "Dashboards KPI",
     ],
     image: "/assets/industries/food.png",
-  },
-  {
-    tag: "Water Tech",
-    title: "Aguas",
-    description:
-      "Gestión inteligente del ciclo del agua para plantas de tratamiento y desalinización.",
-    points: [
-      "Control de pH y químicos",
-      "Optimización de bombeo",
-      "Alertas hidrológicas",
-    ],
-    image: "/assets/industries/water.png",
   },
 ];
 
