@@ -2,7 +2,7 @@
 
 import { Box, Typography, Container } from '@mui/material';
 
-export function NewsTitle() {
+export function PricingTitle() {
   return (
     <Box
       sx={{
@@ -13,13 +13,11 @@ export function NewsTitle() {
         justifyContent: 'center',
         backgroundColor: 'background.default',
         overflow: 'hidden',
-        pt: 15,
-        pb: 5,
       }}
     >
       <Container
         maxWidth='lg'
-        sx={{ position: 'relative', zIndex: 20, textAlign: 'center' }}
+        sx={{ position: 'relative', zIndex: 20, mt: 15, textAlign: 'center' }}
       >
         <Typography
           variant='subtitle2'
@@ -32,7 +30,7 @@ export function NewsTitle() {
             mb: 2,
           }}
         >
-          BLOG & NOTICIAS
+          INVERSIÓN ESTRATÉGICA
         </Typography>
         <Typography
           variant='h1'
@@ -52,10 +50,10 @@ export function NewsTitle() {
               color: 'transparent',
             })}
           >
-            Logos{' '}
+            Planes y{' '}
           </Box>
           <Box component='span' sx={{ color: 'primary.main' }}>
-            News
+            Precios
           </Box>
         </Typography>
 
@@ -69,8 +67,9 @@ export function NewsTitle() {
             fontWeight: 400,
           }}
         >
-          Mantente al día con las últimas tendencias en tecnología industrial,
-          IA, IoT y automatización.
+          Escalabilidad y eficiencia adaptada a tu operación industrial. Elige
+          el modelo que mejor se adapte a tu infraestructura y objetivos de
+          negocio.
         </Typography>
       </Container>
     </Box>

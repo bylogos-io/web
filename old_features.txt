@@ -1,5 +1,18 @@
 'use client';
+
 import { motion } from 'framer-motion';
+
+// MUI Icons - Outlined version
+import InsightsOutlinedIcon from '@mui/icons-material/InsightsOutlined';
+import ElectricBoltOutlinedIcon from '@mui/icons-material/ElectricBoltOutlined';
+import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
+import FaceRetouchingNaturalOutlinedIcon from '@mui/icons-material/FaceRetouchingNaturalOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
+import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
+
 import {
   Box,
   Container,
@@ -9,9 +22,71 @@ import {
   Stack,
   Card,
 } from '@mui/material';
-import { FEATURES_DATA } from '@/data/landing';
 
-const features = FEATURES_DATA;
+const features = [
+  {
+    icon: InsightsOutlinedIcon,
+    title: 'Monitoreo',
+    description:
+      'Supervisión en tiempo real de todos los parámetros eléctricos con latencia menor a 1 segundo.',
+    color: 'primary.main',
+  },
+  {
+    icon: ElectricBoltOutlinedIcon,
+    title: 'Diagramas Unilineales',
+    description:
+      'Esquemas interactivos con representación dinámica del estado de la instalación.',
+    color: 'primary.main',
+  },
+  {
+    icon: StorageOutlinedIcon,
+    title: 'Registro de datos',
+    description:
+      'Acceso histórico completo a registros pasados con análisis de tendencias y patrones.',
+    color: 'primary.main',
+  },
+  {
+    icon: ErrorOutlineOutlinedIcon,
+    title: 'Alarmas inteligentes',
+    description:
+      'Alarmas en base a eventos y predicciones para prevención de fallas.',
+    color: 'primary.main',
+  },
+  {
+    icon: FaceRetouchingNaturalOutlinedIcon,
+    title: 'Autenticación',
+    description:
+      'Sistema de seguridad avanzado con reconocimiento facial y autenticación biométrica multicapa.',
+    color: 'primary.main',
+  },
+  {
+    icon: DescriptionOutlinedIcon,
+    title: 'Reportes Automáticos',
+    description:
+      'Generación de reportes de consumo automáticos con información detallada del estado.',
+    color: 'primary.main',
+  },
+  {
+    icon: SmartToyOutlinedIcon,
+    title: 'Inteligencia Artificial',
+    description: 'Asistente inteligente para un mejor análisis de cargas.',
+    color: 'primary.main',
+  },
+  {
+    icon: Inventory2OutlinedIcon,
+    title: 'Gemelo Digital',
+    description:
+      'Representa tu proceso en el mundo digital con una copia exacta de tu instalación.',
+    color: 'primary.main',
+  },
+  {
+    icon: CloudOutlinedIcon,
+    title: 'Respaldo en la nube',
+    description:
+      'Sincronización a la nube para acceder a tu información desde cualquier dispositivo.',
+    color: 'primary.main',
+  },
+];
 
 export function Features() {
   const containerVariants = {

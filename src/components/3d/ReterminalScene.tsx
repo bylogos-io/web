@@ -1,40 +1,33 @@
-"use client";
+'use client';
 
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import {
-  OrbitControls,
-  Environment,
-  ContactShadows,
-  Center,
-} from "@react-three/drei";
-import { Box, useTheme } from "@mui/material";
-import { ReterminalModel } from "./ReterminalModel";
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Environment, Center } from '@react-three/drei';
+import { Box } from '@mui/material';
+import { ReterminalModel } from './ReterminalModel';
 
 /**
  * COMPONENTE: ReterminalScene
  * Este componente define la "ventana" o el lienzo (Canvas) donde vive el modelo 3D.
  */
 export function ReterminalScene() {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
-        width: "100%",
+        width: '100%',
         /**
          * 1. TAMAÑO DE LA VENTANA (ALTURA)
          * Ajusta estos valores para que el modelo tenga más espacio y no se corte.
          * xs: altura en móviles, md: altura en escritorio.
          */
-        height: { xs: "250px", md: "600px" },
-        position: "relative",
+        height: { xs: '250px', md: '600px' },
+        position: 'relative',
         //backgroundColor: "red", // Puedes quitar esto cuando el tamaño sea el ideal
-        cursor: "grab",
-        "&:active": { cursor: "grabbing" },
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        cursor: 'grab',
+        '&:active': { cursor: 'grabbing' },
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Canvas
@@ -69,7 +62,7 @@ export function ReterminalScene() {
             far={4.5}
           /> */}
 
-          <Environment preset="apartment" />
+          <Environment preset='apartment' />
 
           {/* Luces de la escena */}
           <ambientLight intensity={0.7} />
