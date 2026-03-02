@@ -16,35 +16,59 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const industries = [
   {
     title: "Petróleo",
+    subtitle: "Oil & Gas",
     description:
       "Optimización de procesos y monitoreo en tiempo real para la extracción y refinamiento.",
     image: "/assets/industries/oil.png",
   },
   {
     title: "Datos",
+    subtitle: "Data Centers",
     description:
       "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
     image: "/assets/industries/datacenter.png",
   },
   {
     title: "Aguas",
+    subtitle: "Water",
     description:
       "Tratamiento de recursos y gestión crítica de sistemas hídricos.",
     image: "/assets/industries/water.png",
   },
   {
     title: "Energía",
+    subtitle: "Power",
     description:
       "Gestión inteligente de redes eléctricas y fuentes de energía renovables.",
     image: "/assets/industries/energy.png",
   },
   {
     title: "Producción",
+    subtitle: "Food & Beverage",
     description:
       "Control de calidad y automatización en líneas de producción masiva.",
     image: "/assets/industries/food.png",
   },
 ];
+
+const imageVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+  center: { x: 0, opacity: 1, zIndex: 1 },
+  exit: (direction: number) => ({
+    x: direction < 0 ? "100%" : "-100%",
+    opacity: 0,
+    zIndex: 0,
+  }),
+};
+
+const textVariants = {
+  enter: { opacity: 0, y: 12 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
+};
 
 interface IndustrySliderProps {
   autoPlayInterval?: number;
@@ -54,7 +78,7 @@ export function IndustrySlider({
   autoPlayInterval = 5000,
 }: IndustrySliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 for right, -1 for left
+  const [direction, setDirection] = useState(0);
   const theme = useTheme();
 
   const handleNext = useCallback(() => {
@@ -70,178 +94,169 @@ export function IndustrySlider({
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, autoPlayInterval);
-    return () => clearInterval(timer);
+    let timer: ReturnType<typeof setInterval>;
+
+    const start = () => { timer = setInterval(handleNext, autoPlayInterval); };
+    const stop = () => clearInterval(timer);
+
+    const handleVisibility = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+
+    start();
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, [handleNext, autoPlayInterval]);
 
-  const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-      scale: 1.1,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-      scale: 1,
+  const arrowSx = {
+    position: "absolute" as const,
+    top: "50%",
+    transform: "translateY(-50%)",
+    zIndex: 4,
+    backgroundColor: alpha(theme.palette.background.default, 0.3),
+    backdropFilter: "blur(8px)",
+    color: "white",
+    border: `1px solid ${alpha(theme.palette.common.white, 0.1)}`,
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.primary.main, 0.8),
+      borderColor: "transparent",
     },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-      scale: 0.9,
-    }),
   };
 
   return (
-    <Box
-      sx={{ position: "relative", width: "100%", overflow: "hidden", py: 4 }}
-    >
-      <Container maxWidth="lg">
+    <Box sx={{ width: "100%" }}>
+      {/* ── Hero image ── */}
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          height: { xs: "55vh", md: "70vh" },
+          overflow: "hidden",
+          backgroundColor: "background.default",
+        }}
+      >
+        {/* Sliding images */}
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={imageVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 280, damping: 30 },
+              opacity: { duration: 0.4 },
+            }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundImage: `url(${industries[currentIndex].image})`,
+              filter:
+                "hue-rotate(200deg) saturate(2.5) brightness(1.1) contrast(1.1)",
+            }}
+          />
+        </AnimatePresence>
+
+        {/* Gradient overlay: dark top for header → transparent → dark bottom */}
         <Box
           sx={{
-            position: "relative",
-            height: { xs: 300, md: 500, lg: 600 },
-            width: "100%",
-            borderRadius: 2,
-            overflow: "hidden",
-            backgroundColor: "background.paper",
-            boxShadow: `0 24px 48px ${alpha(theme.palette.common.black, 0.4)}`,
-            border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(to bottom,
+              ${alpha(theme.palette.background.default, 0.5)} 0%,
+              transparent 30%,
+              transparent 40%,
+              ${theme.palette.background.default} 100%)`,
+            zIndex: 2,
+          }}
+        />
+
+        {/* Left arrow */}
+        <IconButton
+          onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+          sx={{ ...arrowSx, left: { xs: 12, md: 40 } }}
+        >
+          <ArrowBackIosNewIcon />
+        </IconButton>
+
+        {/* Right arrow */}
+        <IconButton
+          onClick={(e) => { e.stopPropagation(); handleNext(); }}
+          sx={{ ...arrowSx, right: { xs: 12, md: 40 } }}
+        >
+          <ArrowForwardIosIcon />
+        </IconButton>
+
+        {/* ── Centered text: label + gradient title ── */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: 0,
+            right: 0,
+            transform: "translateY(-50%)",
+            zIndex: 3,
+            textAlign: "center",
+            px: { xs: 10, md: 20 },
           }}
         >
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.4 },
-                scale: { duration: 0.6 },
-              }}
-              style={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundImage: `url(${industries[currentIndex].image})`,
-                cursor: "grab",
-                filter:
-                  "hue-rotate(200deg) saturate(2.5) brightness(1.1) contrast(1.1)", // Transforms blue neons to orange/amber
+          <Typography
+            variant="subtitle2"
+            sx={{
+              color: "primary.main",
+              fontWeight: 500,
+              letterSpacing: 4,
+              fontSize: { xs: "0.85rem", md: "1rem" },
+              mb: 1.5,
+              userSelect: "none",
+            }}
+          >
+            SECTORES ESTRATÉGICOS
+          </Typography>
+
+          <Typography
+            variant="h1"
+            fontWeight={900}
+            sx={{
+              fontSize: { xs: "3rem", md: "5.5rem" },
+              letterSpacing: "-0.02em",
+              lineHeight: 1.1,
+            }}
+          >
+            <Box
+              component="span"
+              sx={{
+                background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
               }}
             >
-              {/* Overlay Gradient */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  inset: 0,
-                  background: `linear-gradient(to top, ${alpha(theme.palette.background.default, 0.9)} 0%, transparent 60%)`,
-                }}
-              />
-
-              {/* Content */}
-              <Box
-                sx={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  p: { xs: 3, md: 6 },
-                  zIndex: 2,
-                }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                >
-                  <Typography
-                    variant="h3"
-                    fontWeight={900}
-                    sx={{
-                      fontSize: { xs: "2rem", md: "3.5rem" },
-                      letterSpacing: "-0.02em",
-                      mb: 2,
-                    }}
-                  >
-                    {industries[currentIndex].title}
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: "text.secondary",
-                      maxWidth: 600,
-                      lineHeight: 1.4,
-                    }}
-                  >
-                    {industries[currentIndex].description}
-                  </Typography>
-                </motion.div>
-              </Box>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Arrows */}
-          <IconButton
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePrev();
-            }}
-            sx={{
-              position: "absolute",
-              left: 20,
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 3,
-              backgroundColor: alpha(theme.palette.background.default, 0.4),
-              backdropFilter: "blur(8px)",
-              color: "white",
-              "&:hover": {
-                backgroundColor: alpha(theme.palette.primary.main, 0.8),
-              },
-            }}
-          >
-            <ArrowBackIosNewIcon />
-          </IconButton>
-
-          <IconButton
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNext();
-            }}
-            sx={{
-              position: "absolute",
-              right: 20,
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 3,
-              backgroundColor: alpha(theme.palette.background.default, 0.4),
-              backdropFilter: "blur(8px)",
-              color: "white",
-              "&:hover": {
-                backgroundColor: alpha(theme.palette.primary.main, 0.8),
-              },
-            }}
-          >
-            <ArrowForwardIosIcon />
-          </IconButton>
+              Industrias Inteligentes
+            </Box>
+          </Typography>
         </Box>
+      </Box>
 
-        {/* Indicators */}
+      {/* ── Below image: dots → title → description ── */}
+      <Container maxWidth="md">
+        {/* Dot indicators */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             gap: 1.5,
-            mt: 4,
+            pt: 4,
+            pb: 3,
           }}
         >
           {industries.map((_, index) => (
@@ -270,6 +285,64 @@ export function IndustrySlider({
               }}
             />
           ))}
+        </Box>
+
+        {/* Industry title + subtitle */}
+        <Box sx={{ position: "relative", height: 90, textAlign: "center" }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`title-${currentIndex}`}
+              variants={textVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.3 }}
+              style={{ position: "absolute", left: 0, right: 0 }}
+            >
+              <Typography
+                variant="h3"
+                fontWeight={900}
+                sx={{ letterSpacing: "-0.02em", lineHeight: 1.1 }}
+              >
+                {industries[currentIndex].title}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{
+                  color: "text.secondary",
+                  fontWeight: 500,
+                  letterSpacing: 1,
+                  mt: 0.5,
+                  display: "block",
+                }}
+              >
+                {industries[currentIndex].subtitle}
+              </Typography>
+            </motion.div>
+          </AnimatePresence>
+        </Box>
+
+        {/* Industry description */}
+        <Box sx={{ position: "relative", height: 80, textAlign: "center" }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`desc-${currentIndex}`}
+              variants={textVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.3, delay: 0.05 }}
+              style={{ position: "absolute", left: 0, right: 0 }}
+            >
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                sx={{ fontWeight: 400, lineHeight: 1.6 }}
+              >
+                {industries[currentIndex].description}
+              </Typography>
+            </motion.div>
+          </AnimatePresence>
         </Box>
       </Container>
     </Box>

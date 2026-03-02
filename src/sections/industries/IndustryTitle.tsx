@@ -19,7 +19,7 @@ export function IndustryTitle() {
     >
       <Container
         maxWidth="lg"
-        sx={{ position: "relative", zIndex: 20, mt: 15, textAlign: "center" }}
+        sx={{ position: "relative", zIndex: 20, mt: 6, textAlign: "center" }}
       >
         <Typography
           variant="subtitle2"

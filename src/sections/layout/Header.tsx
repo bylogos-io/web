@@ -77,6 +77,7 @@ export function Header() {
     },
     {
       label: "Soluciones",
+      href: "/soluciones",
       submenu: [
         {
           label: "Edge",
@@ -92,36 +93,38 @@ export function Header() {
     },
     {
       label: "Industrias",
+      href: "/industrias",
       submenu: [
         {
           label: "Petróleo",
           href: "/industrias#petroleo",
-          description: "Oil & Gas",
+          description: "(Oil & Gas)",
         },
         {
           label: "Datos",
           href: "/industrias#datos",
-          description: "Data Centers",
+          description: "(Data Centers)",
         },
         {
           label: "Aguas",
           href: "/industrias#aguas",
-          description: "Water",
+          description: "(Water)",
         },
         {
           label: "Energía",
           href: "/industrias#energia",
-          description: "Power",
+          description: "(Power)",
         },
         {
           label: "Producción",
           href: "/industrias#produccion",
-          description: "Food & Beverage",
+          description: "(Food & Beverage)",
         },
       ],
     },
     {
       label: "Precios",
+      href: "/precios",
       submenu: [
         { label: "Edge", href: "/precios", description: "Desde $XXX/mes" },
         {
