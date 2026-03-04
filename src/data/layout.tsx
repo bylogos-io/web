@@ -41,8 +41,8 @@ export const NAVIGATION_ITEMS = [
     label: 'Precios',
     href: '/precios',
     submenu: [
-      { label: 'Edge', href: '/precios', description: 'Desde $XXX/mes' },
-      { label: 'Cloud', href: '/precios', description: 'Desde $XXX/mes' },
+      { label: 'Edge', href: '/precios', description: 'Desde 15 UF/mes' },
+      { label: 'Cloud', href: '/precios', description: 'Desde 8 UF/mes' },
       { label: 'Custom', href: '/precios', description: 'Consúltanos' },
     ],
   },
