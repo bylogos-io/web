@@ -1,7 +1,7 @@
 export const INDUSTRY_CARDS_DATA = [
   {
-    tag: 'Refinería 4.0',
-    title: 'Petrolera',
+    tag: 'Oil & Gas',
+    title: 'Petróleo',
     description:
       'Monitoreo de activos críticos y detección temprana de fallas en entornos de alta presión.',
     points: [
@@ -12,31 +12,19 @@ export const INDUSTRY_CARDS_DATA = [
     image: '/assets/industries/oil.png',
   },
   {
-    tag: 'Smart Grid',
-    title: 'Energética',
+    tag: 'Data Centers',
+    title: 'Datos',
     description:
-      'Distribución eficiente y almacenamiento optimizado para plantas de energía renovable.',
+      'Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.',
     points: [
-      'Balance de carga real',
-      'Integración FV e Hidro',
-      'Monitoreo térmico',
+      'Monitoreo de servidores 24/7',
+      'Monitorización de cooling y PUE',
+      'Alertas de uptime en tiempo real',
     ],
-    image: '/assets/industries/energy.png',
+    image: '/assets/industries/oil.png', // TODO: reemplazar con /assets/industries/datacenter.png cuando esté disponible
   },
   {
-    tag: 'Safe Food',
-    title: 'Alimenticia',
-    description:
-      'Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.',
-    points: [
-      'Control de frío 24/7',
-      'Cumplimiento ISO 22000',
-      'Dashboards KPI',
-    ],
-    image: '/assets/industries/food.png',
-  },
-  {
-    tag: 'Water Tech',
+    tag: 'Water',
     title: 'Aguas',
     description:
       'Gestión inteligente del ciclo del agua para plantas de tratamiento y desalinización.',
@@ -47,31 +35,66 @@ export const INDUSTRY_CARDS_DATA = [
     ],
     image: '/assets/industries/water.png',
   },
+  {
+    tag: 'Power',
+    title: 'Energía',
+    description:
+      'Distribución eficiente y almacenamiento optimizado para plantas de energía renovable.',
+    points: [
+      'Balance de carga real',
+      'Integración FV e Hidro',
+      'Monitoreo térmico',
+    ],
+    image: '/assets/industries/energy.png',
+  },
+  {
+    tag: 'Food & Beverage',
+    title: 'Producción',
+    description:
+      'Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.',
+    points: [
+      'Control de frío 24/7',
+      'Cumplimiento ISO 22000',
+      'Dashboards KPI',
+    ],
+    image: '/assets/industries/food.png',
+  },
 ];
 
 export const INDUSTRY_SLIDER_DATA = [
   {
-    title: 'Petrolera',
+    title: 'Petróleo',
+    subtitle: 'Oil & Gas',
     description:
       'Optimización de procesos y monitoreo en tiempo real para la extracción y refinamiento.',
     image: '/assets/industries/oil.png',
   },
   {
-    title: 'Energética',
+    title: 'Datos',
+    subtitle: 'Data Centers',
+    description:
+      'Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.',
+    image: '/assets/industries/oil.png', // TODO: reemplazar con /assets/industries/datacenter.png cuando esté disponible
+  },
+  {
+    title: 'Aguas',
+    subtitle: 'Water',
+    description:
+      'Tratamiento de recursos y gestión crítica de sistemas hídricos.',
+    image: '/assets/industries/water.png',
+  },
+  {
+    title: 'Energía',
+    subtitle: 'Power',
     description:
       'Gestión inteligente de redes eléctricas y fuentes de energía renovables.',
     image: '/assets/industries/energy.png',
   },
   {
-    title: 'Alimenticia',
+    title: 'Producción',
+    subtitle: 'Food & Beverage',
     description:
       'Control de calidad y automatización en líneas de producción masiva.',
     image: '/assets/industries/food.png',
-  },
-  {
-    title: 'Aguas',
-    description:
-      'Tratamiento de recursos y gestión crítica de sistemas hídricos.',
-    image: '/assets/industries/water.png',
   },
 ];

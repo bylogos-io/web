@@ -63,21 +63,22 @@ export function ChatWidget() {
         bottom: 16,
         right: 16,
         zIndex: 1300,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
+        width: 56,
+        height: 56,
       }}
     >
       <AnimatePresence>
         {isOpen && (
           <Box
             component={motion.div}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, scale: 0.88 }}
+            animate={{ opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 400, damping: 28 } }}
+            exit={{ opacity: 0, scale: 0.88, transition: { duration: 0.18, ease: [0.4, 0, 1, 1] } }}
+            style={{ transformOrigin: 'bottom right' }}
             sx={(theme) => ({
-              mb: 2,
+              position: 'absolute',
+              bottom: 'calc(100% + 8px)',
+              right: 0,
               width: { xs: 320, sm: 380 },
               height: 600,
               bgcolor: 'background.paper',
@@ -453,9 +454,9 @@ export function ChatWidget() {
           <Box
             component={motion.button}
             aria-label='Abrir chat de asistencia'
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1, transition: { type: 'spring', stiffness: 420, damping: 26 } }}
+            exit={{ scale: 0.7, opacity: 0, transition: { duration: 0.15, ease: [0.4, 0, 1, 1] } }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}

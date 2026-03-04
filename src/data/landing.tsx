@@ -185,6 +185,7 @@ export const TECH_STACK = [
     name: 'Raspberry Pi',
     status: 'Optimizado',
     description: 'Soporte completo para Pi 4/5',
+    chips: ['2GB RAM mínimo', 'ARM64', 'Linux Kernel 5.4+'],
     logo: (
       <Box
         component='svg'
@@ -200,6 +201,7 @@ export const TECH_STACK = [
     status: 'En evaluación',
     description: 'Nuevas plataformas en desarrollo',
     coming: true,
+    chips: ['x86_64', 'En evaluación'],
     logo: (
       <Box
         sx={(theme) => ({
@@ -227,7 +229,7 @@ export const ARCHITECTURES = [
 
 export const TECH_SPECS = [
   { label: 'IEC 61850', sub: 'Protocolo estándar' },
-  { label: 'Modbus', sub: 'Comunicación industrial' },
+  { label: 'Modbus', sub: 'Protocolo industrial' },
   { label: 'OPC-UA', sub: 'Interoperabilidad' },
   { label: 'MQTT', sub: 'Integración IoT' },
 ];

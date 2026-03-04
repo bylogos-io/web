@@ -143,16 +143,15 @@ export function Stack() {
                     >
                       {(tech as any).coming ? (
                         <>
-                          <Chip variant='outlined' label='x86_64' size='small' sx={{ opacity: 0.6 }} />
-                          <Chip variant='outlined' label='???' size='small' sx={{ opacity: 0.4, letterSpacing: 2 }} />
+                          {tech.chips?.map((chip: string) => (
+                            <Chip key={chip} variant='outlined' label={chip} size='small' sx={{ opacity: 0.6 }} />
+                          ))}
                           <Chip variant='outlined' label='???' size='small' sx={{ opacity: 0.4, letterSpacing: 2 }} />
                         </>
                       ) : (
-                        <>
-                          <Chip variant='outlined' label='2GB RAM mínimo' size='small' />
-                          <Chip variant='outlined' label='ARM64' size='small' />
-                          <Chip variant='outlined' label='Linux Kernel 5.4+' size='small' />
-                        </>
+                        tech.chips?.map((chip: string) => (
+                          <Chip key={chip} variant='outlined' label={chip} size='small' />
+                        ))
                       )}
                     </Box>
                     <Box
@@ -336,7 +335,11 @@ export function Stack() {
                   >
                     {stat.label}
                   </Typography>
-                  <Typography variant='caption' color='text.secondary'>
+                  <Typography
+                    variant='caption'
+                    color='text.secondary'
+                    sx={{ whiteSpace: 'nowrap' }}
+                  >
                     {stat.sub}
                   </Typography>
                 </Box>
@@ -345,25 +348,6 @@ export function Stack() {
           </Grid>
         </Box>
 
-        {/* Contact info */}
-        <Box
-          component={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          sx={{ mt: 8, textAlign: 'center' }}
-        >
-          <Typography variant='caption' color='text.secondary'>
-            ¿Problemas de ejecución?{' '}
-            <Box
-              component='span'
-              sx={{ color: 'primary.main', fontWeight: 600 }}
-            >
-              contact@bylogos.io
-            </Box>
-          </Typography>
-        </Box>
       </Container>
     </Box>
   );

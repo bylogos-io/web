@@ -141,7 +141,7 @@ export function NewsPosts({ posts }: NewsPostsProps) {
                     )}
                   </Box>
 
-                  <CardContent sx={{ flexGrow: 1, width: '100%', p: 3 }}>
+                  <CardContent sx={{ flexGrow: 1, width: '100%', p: 3, display: 'flex', flexDirection: 'column' }}>
                     <Stack
                       direction='row'
                       spacing={1}

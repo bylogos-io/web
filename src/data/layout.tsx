@@ -28,43 +28,22 @@ export const NAVIGATION_ITEMS = [
   },
   {
     label: 'Industrias',
+    href: '/industrias',
     submenu: [
-      {
-        label: 'Petrolera',
-        href: '/industrias',
-        description: 'Energía fósil',
-      },
-      {
-        label: 'Energética',
-        href: '/industrias',
-        description: 'Redes eléctricas',
-      },
-      {
-        label: 'Alimenticia',
-        href: '/industrias',
-        description: 'Producción masiva',
-      },
-      {
-        label: 'Aguas',
-        href: '/industrias',
-        description: 'Gestión de recursos',
-      },
+      { label: 'Petróleo', href: '/industrias#petroleo', description: '(Oil & Gas)' },
+      { label: 'Datos', href: '/industrias#datos', description: '(Data Centers)' },
+      { label: 'Aguas', href: '/industrias#aguas', description: '(Water)' },
+      { label: 'Energía', href: '/industrias#energia', description: '(Power)' },
+      { label: 'Producción', href: '/industrias#produccion', description: '(Food & Beverage)' },
     ],
   },
   {
     label: 'Precios',
+    href: '/precios',
     submenu: [
       { label: 'Edge', href: '/precios', description: 'Desde $XXX/mes' },
-      {
-        label: 'Cloud',
-        href: '/precios',
-        description: 'Desde $XXX/mes',
-      },
-      {
-        label: 'Custom',
-        href: '/precios',
-        description: 'Consúltanos',
-      },
+      { label: 'Cloud', href: '/precios', description: 'Desde $XXX/mes' },
+      { label: 'Custom', href: '/precios', description: 'Consúltanos' },
     ],
   },
   { label: 'Nosotros', href: '/nosotros' },
