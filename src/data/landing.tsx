@@ -199,6 +199,7 @@ export const TECH_STACK = [
     name: 'Próximamente',
     status: 'En evaluación',
     description: 'Nuevas plataformas en desarrollo',
+    coming: true,
     logo: (
       <Box
         sx={(theme) => ({

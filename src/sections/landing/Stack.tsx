@@ -111,21 +111,25 @@ export function Stack() {
                       transition: 'all 0.3s ease',
                       backgroundColor: 'background.paper',
                       border: '1px solid',
-                      borderColor: 'divider',
-                      '&:hover': {
-                        borderColor: 'primary.main',
-                        backgroundColor: alpha(
-                          theme.palette.background.paper,
-                          0.9,
-                        ),
-                        boxShadow: `0 0 20px ${alpha(theme.palette.primary.main, 0.1)}`,
-                      },
-                      '& .tech-logo': {
-                        transition: 'color 0.3s ease',
-                      },
-                      '&:hover .tech-logo': {
-                        color: 'primary.main',
-                      },
+                      ...((tech as any).coming
+                        ? {
+                            borderColor: alpha(theme.palette.divider, 0.5),
+                            borderStyle: 'dashed',
+                            opacity: 0.75,
+                          }
+                        : {
+                            borderColor: 'divider',
+                            '&:hover': {
+                              borderColor: 'primary.main',
+                              backgroundColor: alpha(
+                                theme.palette.background.paper,
+                                0.9,
+                              ),
+                              boxShadow: `0 0 20px ${alpha(theme.palette.primary.main, 0.1)}`,
+                            },
+                          }),
+                      '& .tech-logo': { transition: 'color 0.3s ease' },
+                      '&:hover .tech-logo': { color: 'primary.main' },
                     })}
                   >
                     <Box
@@ -137,17 +141,19 @@ export function Stack() {
                         flexWrap: 'wrap',
                       }}
                     >
-                      <Chip
-                        variant='outlined'
-                        label='2GB RAM mínimo'
-                        size='small'
-                      />
-                      <Chip variant='outlined' label='ARM64' size='small' />
-                      <Chip
-                        variant='outlined'
-                        label='Linux Kernel 5.4+'
-                        size='small'
-                      />
+                      {(tech as any).coming ? (
+                        <>
+                          <Chip variant='outlined' label='x86_64' size='small' sx={{ opacity: 0.6 }} />
+                          <Chip variant='outlined' label='???' size='small' sx={{ opacity: 0.4, letterSpacing: 2 }} />
+                          <Chip variant='outlined' label='???' size='small' sx={{ opacity: 0.4, letterSpacing: 2 }} />
+                        </>
+                      ) : (
+                        <>
+                          <Chip variant='outlined' label='2GB RAM mínimo' size='small' />
+                          <Chip variant='outlined' label='ARM64' size='small' />
+                          <Chip variant='outlined' label='Linux Kernel 5.4+' size='small' />
+                        </>
+                      )}
                     </Box>
                     <Box
                       className='tech-logo'
@@ -155,15 +161,29 @@ export function Stack() {
                         display: 'flex',
                         justifyContent: 'center',
                         mb: 3,
-                        color: 'primary.main',
+                        color: (tech as any).coming ? 'text.disabled' : 'primary.main',
+                        ...((tech as any).coming && {
+                          animation: 'pulse 2.5s ease-in-out infinite',
+                          '@keyframes pulse': {
+                            '0%, 100%': { opacity: 0.4 },
+                            '50%': { opacity: 0.9 },
+                          },
+                        }),
                       }}
                     >
                       {tech.logo}
                     </Box>
-                    <Typography variant='h6' sx={{ mb: 1.5, fontWeight: 700 }}>
+                    <Typography
+                      variant='h6'
+                      sx={{
+                        mb: 1.5,
+                        fontWeight: 700,
+                        ...((tech as any).coming && { color: 'text.secondary', letterSpacing: 2 }),
+                      }}
+                    >
                       {tech.name}
                     </Typography>
-                    <Typography variant='body2' color='text.secondary'>
+                    <Typography variant='body2' color='text.disabled'>
                       {tech.description}
                     </Typography>
                   </Card>
