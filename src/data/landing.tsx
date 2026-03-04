@@ -200,6 +200,7 @@ export const TECH_STACK = [
     name: 'Próximamente',
     status: 'En evaluación',
     description: 'Nuevas plataformas en desarrollo',
+    coming: true,
     chips: ['x86_64', 'En evaluación'],
     logo: (
       <Box

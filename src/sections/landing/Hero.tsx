@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Box, Container, Typography, alpha } from '@mui/material';
 import { ReterminalScene } from '@/components/3d/ReterminalScene';
+import { ClientsMarquee } from '@/sections/landing/ClientsMarquee';
 
 export function Hero() {
   return (
@@ -116,6 +117,8 @@ export function Hero() {
           <ReterminalScene />
         </Box>
       </Container>
+
+      <ClientsMarquee />
     </Box>
   );
 }
