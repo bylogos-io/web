@@ -1,6 +1,7 @@
 "use client";
 
-import { Box, Typography, Container, alpha } from "@mui/material";
+import { Box, Typography, Container, alpha, Button } from "@mui/material";
+import Link from "next/link";
 
 export function IndustryFooter() {
   return (
@@ -26,6 +27,15 @@ export function IndustryFooter() {
           prácticamente cualquier entorno industrial que requiera monitoreo y
           control avanzado.
         </Typography>
+        <Button
+          component={Link}
+          href="/#newsletter"
+          variant="contained"
+          size="large"
+          sx={{ fontWeight: 700, px: 5 }}
+        >
+          Contáctanos
+        </Button>
       </Box>
     </Container>
   );

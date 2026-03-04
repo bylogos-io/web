@@ -8,6 +8,11 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 import { INDUSTRY_CARDS_DATA } from '@/data/industries';
 
+const HEADER_HEIGHT = 96;
+
+const toSlug = (title: string) =>
+  title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
 const industryDetails = INDUSTRY_CARDS_DATA;
 
 export function IndustryCards() {
@@ -23,7 +28,13 @@ export function IndustryCards() {
       </Box>
 
       {industryDetails.map((industry, index) => (
-        <IndustryCard key={index} industry={industry} index={index} />
+        <Box
+          key={index}
+          id={toSlug(industry.title)}
+          sx={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
+        >
+          <IndustryCard industry={industry} index={index} />
+        </Box>
       ))}
     </Container>
   );

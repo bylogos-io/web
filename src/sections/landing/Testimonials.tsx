@@ -138,6 +138,8 @@ export function Testimonials() {
                     sx={(theme) => ({
                       p: 4,
                       height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
                       position: 'relative',
                       bgcolor: 'background.paper',
                       border: '1px solid',
@@ -216,15 +218,15 @@ export function Testimonials() {
                       <Stack
                         direction='row'
                         justifyContent='space-between'
-                        alignItems='center'
+                        alignItems='flex-start'
                       >
-                        <Typography variant='caption' color='text.secondary'>
+                        <Typography variant='caption' color='text.secondary' sx={{ flexShrink: 0, mr: 1 }}>
                           Resultado clave:
                         </Typography>
                         <Typography
                           variant='caption'
                           color='primary.main'
-                          sx={{ fontWeight: 600 }}
+                          sx={{ fontWeight: 600, textAlign: 'right' }}
                         >
                           {testimonial.metrics}
                         </Typography>
@@ -232,12 +234,12 @@ export function Testimonials() {
                       <Stack
                         direction='row'
                         justifyContent='space-between'
-                        alignItems='center'
+                        alignItems='flex-start'
                       >
-                        <Typography variant='caption' color='text.secondary'>
+                        <Typography variant='caption' color='text.secondary' sx={{ flexShrink: 0, mr: 1 }}>
                           Instalaciones:
                         </Typography>
-                        <Typography variant='caption' color='text.primary'>
+                        <Typography variant='caption' color='text.primary' sx={{ textAlign: 'right' }}>
                           {testimonial.installations}
                         </Typography>
                       </Stack>
@@ -261,35 +263,26 @@ export function Testimonials() {
           <Typography color='text.secondary' sx={{ mb: 4 }}>
             Certificaciones y estándares cumplidos:
           </Typography>
-          <Box
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: { xs: 3, md: 5 },
-            }}
-          >
+          <Grid container spacing={3} sx={{ maxWidth: 800, mx: 'auto' }}>
             {CERTIFICATIONS.map((cert, idx) => (
-              <Stack
-                key={idx}
-                direction='row'
-                spacing={1.5}
-                alignItems='center'
-              >
-                <Box
-                  sx={{
-                    width: 8,
-                    height: 8,
-                    bgcolor: 'primary.main',
-                    borderRadius: '50%',
-                  }}
-                />
-                <Typography variant='caption' color='text.secondary'>
-                  {cert}
-                </Typography>
-              </Stack>
+              <Grid key={idx} size={{ xs: 12, sm: 6 }}>
+                <Stack direction='row' spacing={1.5} alignItems='center'>
+                  <Box
+                    sx={{
+                      width: 8,
+                      height: 8,
+                      flexShrink: 0,
+                      bgcolor: 'primary.main',
+                      borderRadius: '50%',
+                    }}
+                  />
+                  <Typography variant='caption' color='text.secondary'>
+                    {cert}
+                  </Typography>
+                </Stack>
+              </Grid>
             ))}
-          </Box>
+          </Grid>
         </Box>
       </Container>
     </Box>
