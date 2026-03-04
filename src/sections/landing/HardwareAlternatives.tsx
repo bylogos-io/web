@@ -73,9 +73,9 @@ export function HardwareAlternatives() {
           </Typography>
         </Box>
 
-        <Grid container spacing={4} sx={{ maxWidth: 1200, mx: 'auto' }}>
+        <Grid container spacing={4} sx={{ maxWidth: 1200, mx: 'auto', alignItems: 'stretch' }}>
           {hardwareOptions.map((hardware, index) => (
-            <Grid key={index} size={{ xs: 12, lg: 6 }}>
+            <Grid key={index} size={{ xs: 12, lg: 6 }} sx={{ display: 'flex' }}>
               <Box
                 component={motion.div}
                 initial={{ opacity: 0, y: 20 }}
@@ -217,11 +217,11 @@ export function HardwareAlternatives() {
 
                     <Grid container spacing={2.5} sx={{ mb: 4 }}>
                       {hardware.features.map((feature, fIdx) => (
-                        <Grid key={fIdx} size={{ xs: 6 }}>
+                        <Grid key={fIdx} size={{ xs: 6 }} sx={{ display: 'flex', minHeight: 60 }}>
                           <Stack
                             direction='row'
                             spacing={1.5}
-                            alignItems='center'
+                            alignItems='flex-start'
                           >
                             <Box
                               sx={(theme) => ({
@@ -258,6 +258,7 @@ export function HardwareAlternatives() {
                           mb: 1.5,
                           fontWeight: 700,
                           letterSpacing: 1,
+                          textAlign: 'center',
                         }}
                       >
                         ESPECIFICACIONES TÉCNICAS
@@ -298,6 +299,10 @@ export function HardwareAlternatives() {
                           0.08,
                         ),
                         mb: 4,
+                        flex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         border: '1px solid',
                         borderRadius: 2,
                         borderColor: alpha(theme.palette.secondary.main, 0.1),
