@@ -1,46 +1,60 @@
-import { getAgent } from "@/services/RagAgent";
-//import { LangChainAdapter } from "ai";
-import { toBaseMessages, toUIMessageStream } from "@ai-sdk/langchain";
-import { createUIMessageStreamResponse, UIMessage } from "ai";
-import { AIMessageChunk } from "@langchain/core/messages";
+import { getAgent } from '@/services/RagAgent';
+import { HumanMessage, AIMessage } from '@langchain/core/messages';
 
 export const maxDuration = 60;
 
 export async function POST(req: Request) {
   try {
-    const { messages }: { messages: UIMessage[] } = await req.json();
+    const body = await req.json();
+    const { messages } = body;
+
+    if (!messages || !Array.isArray(messages)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid messages format' }),
+        {
+          status: 400,
+        },
+      );
+    }
 
     const agent = await getAgent();
-    // Convert to LangChain format
-    const langchainMessages = await toBaseMessages(messages);
 
-    const stream = await agent.streamEvents(
-      { messages: langchainMessages },
-      { version: "v2" },
-    );
-
-    // Create a simple text stream that yields AIMessageChunks
-    // This ensures only the final text reaches the client, keeping history clean
-    const textStream = async function* () {
-      for await (const event of stream) {
-        if (
-          event.event === "on_chat_model_stream" &&
-          event.data.chunk?.content
-        ) {
-          const content = event.data.chunk.content;
-          if (typeof content === "string" && content.length > 0) {
-            yield new AIMessageChunk({ content });
-          }
-        }
-      }
-    };
-
-    return createUIMessageStreamResponse({
-      stream: toUIMessageStream(textStream()),
+    // Conversión manual a formato LangChain para evitar fallos de toBaseMessages
+    const langchainMessages = messages.map((m: any) => {
+      if (m.role === 'user') return new HumanMessage(m.content);
+      if (m.role === 'assistant') return new AIMessage(m.content);
+      return new HumanMessage(m.content);
     });
+
+    // Invocación única en lugar de streaming
+    const response = await agent.invoke({ messages: langchainMessages });
+
+    // Extraer el contenido del último mensaje generado por el agente
+    const lastMessage = response.messages[response.messages.length - 1];
+
+    // El contenido puede ser un string o un array de partes
+    const content =
+      typeof lastMessage.content === 'string'
+        ? lastMessage.content
+        : Array.isArray(lastMessage.content)
+          ? lastMessage.content.map((p: any) => p.text || '').join('')
+          : '';
+
+    // Devolvemos el mensaje en un formato que el frontend pueda procesar.
+    return new Response(
+      JSON.stringify({
+        id: crypto.randomUUID(),
+        role: 'assistant',
+        content: content,
+        createdAt: new Date(),
+      }),
+      {
+        headers: { 'Content-Type': 'application/json' },
+      },
+    );
   } catch (error) {
-    console.error("❌ [Server Action] Error in sendChatRequest:", error);
-    return new Response(JSON.stringify({ error: "Error processing request" }), {
+    console.error('❌ [Server Action] Error in chat API:', error);
+    return new Response(JSON.stringify({ error: 'Error processing request' }), {
       status: 500,
     });
   }
