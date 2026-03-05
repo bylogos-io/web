@@ -91,7 +91,7 @@ export const FEATURES_DATA = [
 // Hardware Alternatives Data
 export const HARDWARE_OPTIONS = [
     {
-        name: "ReTerminalDM",
+        name: "ReTerminal DM",
         subtitle: "Panel de Control Interactivo",
         image: reterminalImage.src,
         description:
