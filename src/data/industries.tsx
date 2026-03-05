@@ -8,7 +8,7 @@ export const INDUSTRY_CARDS_DATA = [
     },
     {
         tag: "Data Centers",
-        title: "Datos",
+        title: "Centros de Datos",
         description:
             "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
         points: ["Monitoreo de servidores 24/7", "Monitorización de cooling y PUE", "Alertas de uptime en tiempo real"],
@@ -30,7 +30,7 @@ export const INDUSTRY_CARDS_DATA = [
     },
     {
         tag: "Food & Beverage",
-        title: "Alimentos y bebidas",
+        title: "Alimentos y Bebidas",
         description: "Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.",
         points: ["Control de frío 24/7", "Cumplimiento ISO 22000", "Dashboards KPI"],
         image: "/industries/foodbeverage.png",
