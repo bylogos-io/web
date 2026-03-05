@@ -1,7 +1,7 @@
 export const INDUSTRY_CARDS_DATA = [
     {
         tag: "Oil & Gas",
-        title: "Petróleo",
+        title: "Petróleo y Gas",
         description: "Monitoreo de activos críticos y detección temprana de fallas en entornos de alta presión.",
         points: ["SCADA en la nube", "IA de mantenimiento predictivo", "Control de fugas"],
         image: "/industries/oilgas.png",
@@ -39,7 +39,7 @@ export const INDUSTRY_CARDS_DATA = [
 
 export const INDUSTRY_SLIDER_DATA = [
     {
-        title: "Petróleo",
+        title: "Petróleo y Gas",
         subtitle: "Oil & Gas",
         description: "Optimización de procesos y monitoreo en tiempo real para la extracción y refinamiento.",
         image: "/industries/oilgas.png",
