@@ -30,7 +30,7 @@ export const INDUSTRY_CARDS_DATA = [
     },
     {
         tag: "Food & Beverage",
-        title: "Producción",
+        title: "Alimentos y bebidas",
         description: "Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.",
         points: ["Control de frío 24/7", "Cumplimiento ISO 22000", "Dashboards KPI"],
         image: "/industries/foodbeverage.png",
