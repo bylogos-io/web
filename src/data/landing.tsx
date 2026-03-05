@@ -1,8 +1,6 @@
 // MUI Icons
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import MemoryOutlinedIcon from "@mui/icons-material/MemoryOutlined";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
-import WysiwygOutlinedIcon from "@mui/icons-material/WysiwygOutlined";
 import SmartToyOutlinedIcon from "@mui/icons-material/SmartToyOutlined";
 import Inventory2OutlinedIcon from "@mui/icons-material/Inventory2Outlined";
 import CloudOutlinedIcon from "@mui/icons-material/CloudOutlined";
@@ -12,13 +10,10 @@ import WifiOutlinedIcon from "@mui/icons-material/WifiOutlined";
 import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
 import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
 import ElectricBoltOutlinedIcon from "@mui/icons-material/ElectricBoltOutlined";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
-import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import BusinessIcon from "@mui/icons-material/Business";
 import FactoryIcon from "@mui/icons-material/Factory";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
