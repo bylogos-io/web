@@ -19,11 +19,44 @@ export function Hero() {
                 justifyContent: "center",
                 backgroundColor: "background.default",
                 overflow: "hidden",
+                paddingBottom: 5,
             }}
         >
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 20, mt: { xs: 12, md: 16 } }}>
                 <Box sx={{ textAlign: "center", maxWidth: "lg", mx: "auto" }}>
                     {/* Main title */}
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <Typography
+                            variant="h1"
+                            sx={{
+                                fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" },
+                                mb: 3,
+                                maxWidth: "lg",
+                                lineHeight: 1.1,
+                                userSelect: "none",
+                                pointerEvents: "none",
+                            }}
+                        >
+                            <Box
+                                component="span"
+                                sx={(theme) => ({
+                                    background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
+                                    backgroundClip: "text",
+                                    WebkitBackgroundClip: "text",
+                                    color: "transparent",
+                                })}
+                            >
+                                La mejor integración de IA para el IoT Industrial{" "}
+                            </Box>
+                        </Typography>
+                    </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -40,67 +73,7 @@ export function Hero() {
                                 mb: 2,
                             }}
                         >
-                            PROCESOS INTELLIGENTES, INDUSTRIA EFICIENTE.
-                        </Typography>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <Typography
-                            variant="h1"
-                            sx={{
-                                fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" },
-                                mb: 3,
-                                lineHeight: 1.1,
-                                userSelect: "none",
-                                pointerEvents: "none",
-                            }}
-                        >
-                            <Box
-                                component="span"
-                                sx={(theme) => ({
-                                    background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-                                    backgroundClip: "text",
-                                    WebkitBackgroundClip: "text",
-                                    color: "transparent",
-                                })}
-                            >
-                                LogOS es la nueva manera de eficiencia{" "}
-                            </Box>
-                            <Box component="span" sx={{ color: "primary.main" }}>
-                                industrial
-                            </Box>
-                        </Typography>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
-                    >
-                        <Typography
-                            variant="h5"
-                            color="text.secondary"
-                            sx={{
-                                mb: 2,
-                                maxWidth: 768,
-                                mx: "auto",
-                                lineHeight: 1.6,
-                                fontWeight: 400,
-                                userSelect: "none",
-                                pointerEvents: "none",
-                            }}
-                        >
-                            La mejor integración{" "}
-                            <Box component="strong" sx={{ color: "primary.main" }}>
-                                AIIoT
-                            </Box>{" "}
-                            para optimización de procesos industriales.
+                            PROCESOS INTELIGENTES, INDUSTRIA EFICIENTE.
                         </Typography>
                     </motion.div>
                 </Box>

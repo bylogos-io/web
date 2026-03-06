@@ -1,19 +1,19 @@
 {
-  "name": "Logos",
-  "short_name": "Logos",
-  "description": "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AIIoT",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0f0f0f",
-  "theme_color": "#e16e09",
-  "orientation": "any",
-  "lang": "es-CL",
-  "dir": "ltr",
-  "icons": [
-    {
-      "src": "/icon.png",
-      "sizes": "any",
-      "type": "image/png"
-    }
-  ]
+    "name": "Logos",
+    "short_name": "Logos",
+    "description": "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AI + IIoT",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f0f0f",
+    "theme_color": "#e16e09",
+    "orientation": "any",
+    "lang": "es-CL",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "any",
+            "type": "image/png"
+        }
+    ]
 }
