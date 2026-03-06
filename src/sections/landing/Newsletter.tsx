@@ -107,7 +107,7 @@ export function Newsletter() {
                                 </Box>
                             </Box>
                             <Typography variant="h3" sx={{ mb: 3, fontWeight: 800 }}>
-                                ¡Bienvenido!
+                                Bienvenido!
                             </Typography>
                             <Typography
                                 variant="body1"

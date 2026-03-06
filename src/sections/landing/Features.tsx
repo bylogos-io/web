@@ -81,7 +81,7 @@ export function Features() {
                             lineHeight: 1.6,
                         }}
                     >
-                        ¡Arma tu propia solución escogiendo los módulos que necesitas!
+                        Arma tu propia solución escogiendo los módulos que necesitas!
                     </Typography>
                 </Box>
 

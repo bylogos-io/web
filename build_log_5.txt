@@ -29,7 +29,7 @@ Type error: Cannot find name 'Badge'.
   286 |               >
 > 287 |                 <Badge variant="outline" sx={{ px: 2, py: 0.75 }}>
       |                  ^
-  288 |                   2GB RAM m├¡nimo
+  288 |                   2GB RAM m├nimo
   289 |                 </Badge>
   290 |                 <Badge variant="outline" sx={{ px: 2, py: 0.75 }}>
 Next.js build worker exited with code: 1 and signal: null
