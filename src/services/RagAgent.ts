@@ -1,15 +1,15 @@
-import { OpenAIEmbeddings } from "@langchain/openai";
-import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
-import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { Document } from "@langchain/core/documents";
-import { tool } from "@langchain/core/tools";
-import { z } from "zod";
-import { SystemMessage } from "@langchain/core/messages";
-import { createAgent } from "langchain";
-import { ChatOpenAI } from "@langchain/openai";
+import { OpenAIEmbeddings } from '@langchain/openai';
+import { MemoryVectorStore } from '@langchain/classic/vectorstores/memory';
+import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
+import { Document } from '@langchain/core/documents';
+import { tool } from '@langchain/core/tools';
+import { z } from 'zod';
+import { SystemMessage } from '@langchain/core/messages';
+import { createAgent } from 'langchain';
+import { ChatOpenAI } from '@langchain/openai';
 
 // Importamos la documentación generada por Velite
-import { docs as veliteDocs } from "@/velite";
+import { docs as veliteDocs } from '@/velite';
 
 let agentInstance: any = null;
 
@@ -18,22 +18,44 @@ export const getAgent = async () => {
     return agentInstance;
   }
 
-  const openAiApiKey = process.env.OPENAI_API_KEY;
-  if (!openAiApiKey) {
-    throw new Error("OPENAI_API_KEY is not set");
+  const openrouterApiKey = process.env.OPENROUTER_API_KEY;
+  if (!openrouterApiKey) {
+    throw new Error('OPENROUTER_API_KEY is not set');
   }
 
+  // const openAiApiKey = process.env.OPENAI_API_KEY;
+  // if (!openAiApiKey) {
+  //   throw new Error('OPENAI_API_KEY is not set');
+  // }
+
   // Implementación Óptima: gpt-4o-mini
+  // const model = new ChatOpenAI({
+  //   model: "gpt-4o-mini",
+  //   apiKey: openAiApiKey,
+  //   temperature: 0,
+  // });
+
+  // Implementación con OpenRouter
   const model = new ChatOpenAI({
-    model: "gpt-4o-mini",
-    apiKey: openAiApiKey,
+    model: 'openai/gpt-4o-mini',
     temperature: 0,
+    apiKey: openrouterApiKey,
+    configuration: {
+      baseURL: 'https://openrouter.ai/api/v1',
+      defaultHeaders: {
+        'HTTP-Referer': 'https://www.bylogos.io', // Opcional, para el ranking de OpenRouter
+        'X-OpenRouter-Title': 'Logos Cloud Agent', // Opcional
+      },
+    },
   });
 
   // carga embeddings
   const embeddings = new OpenAIEmbeddings({
-    model: "text-embedding-3-large",
-    apiKey: openAiApiKey,
+    model: 'text-embedding-3-large',
+    apiKey: openrouterApiKey,
+    configuration: {
+      baseURL: 'https://openrouter.ai/api/v1',
+    },
   });
 
   // carga vector store
@@ -75,27 +97,27 @@ export const getAgent = async () => {
           (doc: Document) =>
             `Title: ${doc.metadata.title}\nSource: ${doc.metadata.source}\nContent: ${doc.pageContent}`,
         )
-        .join("\n\n");
+        .join('\n\n');
       return serialized;
     },
     {
-      name: "retrieve",
+      name: 'retrieve',
       description:
-        "Retrieve information from the official LogOS documentation.",
+        'Retrieve information from the official LogOS documentation.',
       schema: retrieveSchema,
-      responseFormat: "content_and_artifact",
+      responseFormat: 'content_and_artifact',
     },
   );
 
   const tools = [retrieve];
 
   const systemPrompt = new SystemMessage(
-    "Eres LogOS AI, el asistente oficial de la plataforma LogOS. Tu objetivo es ayudar exclusivamente con temas relacionados a la plataforma." +
-    "\n\nDIRECTRICES DE RESPUESTA:" +
-    "\n1. Identidad y Saludos: Puedes responder saludos cordiales e identificarte como LogOS AI. Explica que tu función es asistir con la documentación de LogOS." +
-    "\n2. Búsqueda Obligatoria: Para cualquier consulta sobre LogOS (hardware, protocolos, configuración), DEBES usar siempre 'retrieve'." +
-    "\n3. Rigidez Externa: Si te preguntan por temas ajenos a LogOS (ej. Google, clima, cultura general), responde amablemente que solo tienes información sobre la plataforma LogOS." +
-    "\n4. Fallos de Contexto: Si 'retrieve' no devuelve información para un tema de LogOS, indica que esa información específica no está en la documentación oficial, pero no inventes datos."
+    'Eres LogOS AI, el asistente oficial de la plataforma LogOS. Tu objetivo es ayudar exclusivamente con temas relacionados a la plataforma.' +
+      '\n\nREGLAS DE RESPUESTA Y FLUJO:' +
+      "\n1. Primera Interacción (Saludo Obligatorio): Si es el primer mensaje de la conversación, DEBES saludar cordialmente, identificarte como LogOS AI y usar el tool 'retrieve' para responder técnicamente a la consulta. Ejemplo: '¡Hola! Soy LogOS AI... [información técnica del retrieve]'" +
+      "\n2. Uso de 'retrieve': Para CUALQUIER consulta técnica (qué es, hardware, protocolos), usa SIEMPRE 'retrieve' antes de responder." +
+      '\n3. Mensajes Posteriores: En el segundo mensaje en adelante, ve directamente a la respuesta técnica solicitada sin repetir el saludo inicial o tu identidad, para mantener la fluidez.' +
+      '\n4. Rigidez de Alcance: Solo responde sobre LogOS. Si consultan temas ajenos, indica amablemente que tu especialidad es exclusivamente LogOS.',
   );
 
   // 5. AGENT CREATION
