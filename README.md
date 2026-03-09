@@ -14,6 +14,7 @@ Este proyecto utiliza un stack tecnológico moderno y optimizado para rendimient
 -   **AI & LLM**: Integración avanzada con [LangChain](https://js.langchain.com/) y [Vercel AI SDK](https://sdk.vercel.ai/docs) para funcionalidades inteligentes como chatbots y asistentes.
 -   **Visualización 3D**: [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) para experiencias inmersivas y modelado 3D en la web.
 
+> **Nota Adicional:** La sección de "Noticias" se encuentra actualmente comentada y deshabilitada en la navegación (`src/data/layout.tsx`).
 ## 📂 Estructura del Proyecto
 
 La arquitectura del proyecto sigue un enfoque modular, favoreciendo la separación de responsabilidades:

@@ -97,34 +97,22 @@ export function AboutHero() {
                     sx={{ textAlign: "center", mt: 6, mb: 12 }}
                 >
                     <Box sx={{ mb: 6 }}>
-                        <Typography
-                            variant="h6"
-                            color="text.secondary"
-                            sx={{ mb: 3, fontWeight: 400, lineHeight: 1.6 }}
-                        >
-                            LogOS nace de la necesidad de cerrar la brecha entre la industria tradicional y las
-                            tecnologías de Industria 4.0.
-                        </Typography>
                         <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.6 }}>
-                            Nuestra plataforma AIoT integral proporciona visibilidad en tiempo real, inteligencia
-                            predictiva y control avanzado sobre activos críticos, todo con una arquitectura flexible y
-                            agnóstica de hardware.
+                            Estamos cerrando la brecha entre el IT y el OT en la infraestructura industrial que sostiene
+                            el mundo moderno. La industria opera con PLCs y sistemas legacy que no permiten la
+                            recolección, el análisis de datos ni la correcta implementación de la IA. LogOS conecta este
+                            entorno para entregar monitoreo, predicción y análisis operativo en tiempo real respecto a
+                            los datos aprovechados de campo, aplicando herramientas digitales en entornos analógicos.
+                            Entregamos herramientas modernas al O&M, aumentando considerablemente la productividad.
                         </Typography>
                     </Box>
 
                     <Box sx={{ mb: 6 }}>
-                        <Typography
-                            variant="h6"
-                            color="text.secondary"
-                            sx={{ mb: 3, fontWeight: 400, lineHeight: 1.6 }}
-                        >
-                            Nuestra misión es empoderar a las industrias mediante herramientas tecnológicas de
-                            vanguardia que simplifiquen operaciones complejas. Creemos que la transformación digital no
-                            debe ser un lujo, sino un estándar accesible.
-                        </Typography>
                         <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.6 }}>
-                            Construimos soluciones robustas de Edge-to-Cloud que garantizan seguridad, baja latencia y
-                            operabilidad continua incluso en los entornos más exigentes.
+                            Entendemos el desafío y temor a probar nuevas tecnologías en áreas críticas; por eso creamos
+                            LogOS, operando desde Hispanoamérica, como una solución amigable que se integra fácilmente a
+                            tu infraestructura sin interrumpir lo que funciona. Aportamos lo necesario para que la
+                            industria se atreva a dar el salto hacia la IA.
                         </Typography>
                     </Box>
                 </Box>

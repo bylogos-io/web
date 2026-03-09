@@ -62,9 +62,13 @@ export function HardwareAlternatives() {
                     </Typography>
                 </Box>
 
-                <Grid container spacing={4} sx={{ maxWidth: 1200, mx: "auto", alignItems: "stretch" }}>
+                <Grid container spacing={2} sx={{ mx: "auto", alignItems: "stretch" }}>
                     {hardwareOptions.map((hardware, index) => (
-                        <Grid key={index} size={{ xs: 12, lg: 6 }} sx={{ display: "flex" }}>
+                        <Grid
+                            key={index}
+                            size={{ xs: 12, md: 6, lg: 6 }}
+                            sx={{ display: "flex", justifyContent: "center" }}
+                        >
                             <Box
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 20 }}

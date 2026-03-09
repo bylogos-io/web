@@ -214,26 +214,6 @@ export function Testimonials() {
                                                     {testimonial.metrics}
                                                 </Typography>
                                             </Stack>
-                                            <Stack
-                                                direction="row"
-                                                justifyContent="space-between"
-                                                alignItems="flex-start"
-                                            >
-                                                <Typography
-                                                    variant="caption"
-                                                    color="text.secondary"
-                                                    sx={{ flexShrink: 0, mr: 1 }}
-                                                >
-                                                    Instalaciones:
-                                                </Typography>
-                                                <Typography
-                                                    variant="caption"
-                                                    color="text.primary"
-                                                    sx={{ textAlign: "right" }}
-                                                >
-                                                    {testimonial.installations}
-                                                </Typography>
-                                            </Stack>
                                         </Stack>
                                     </Card>
                                 </Box>

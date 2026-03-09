@@ -7,47 +7,23 @@ export const NAVIGATION_ITEMS = [
     {
         label: "Inicio",
         href: "/",
-        submenu: [
-            {
-                label: "Características",
-                href: "#features",
-                description: "Arquitectura modular",
-            },
-            {
-                label: "Hardware",
-                href: "#hardware",
-                description: "Equipamiento industrial",
-            },
-            {
-                label: "Comparativa",
-                href: "#comparison",
-                description: "Revolución",
-            },
-            { label: "Contacto", href: "#newsletter", description: "Hablemos" },
-        ],
     },
     {
         label: "Industrias",
         href: "/industries",
         submenu: [
-            { label: "Petróleo y Gas", href: "/industries#petroleo", description: "Extracción" },
-            { label: "Centros de Datos", href: "/industries#datos", description: "Infraestructura" },
-            { label: "Aguas", href: "/industries#aguas", description: "Tratamiento" },
+            { label: "Petróleo y Gas", href: "/industries#petroleo-y-gas", description: "Extracción" },
+            { label: "Aguas y Saneamiento", href: "/industries#aguas-y-saneamiento", description: "Tratamiento" },
             { label: "Energía", href: "/industries#energia", description: "Generación" },
-            { label: "Alimentos y Bebidas", href: "/industries#produccion", description: "Producción" },
+            { label: "Alimentos y Bebidas", href: "/industries#alimentos-y-bebidas", description: "Producción" },
         ],
     },
     {
-        label: "Precios",
+        label: "Planes y Precios",
         href: "/pricing",
-        submenu: [
-            { label: "Edge", href: "/pricing", description: "Desde 15 UF/mes" },
-            { label: "Cloud", href: "/pricing", description: "Desde 8 UF/mes" },
-            { label: "Personalizado", href: "/pricing", description: "Consúltanos" },
-        ],
     },
     { label: "Nosotros", href: "/about" },
-    { label: "Noticias", href: "/news" },
+    // { label: "Noticias", href: "/news" },
 ];
 
 export const SOCIAL_LINKS = [

@@ -2,37 +2,49 @@ export const INDUSTRY_CARDS_DATA = [
     {
         tag: "Oil & Gas",
         title: "Petróleo y Gas",
-        description: "Monitoreo de activos críticos y detección temprana de fallas en entornos de alta presión.",
-        points: ["SCADA en la nube", "IA de mantenimiento predictivo", "Control de fugas"],
+        description:
+            "Moderniza sistemas de extracción y refinería legacy integrando telemetría en la nube sin interrumpir la operación actual.",
+        points: ["Integración con PLCs y SCADA", "Monitoreo remoto 24/7", "Detección temprana de fallas con IA"],
         image: "/industries/oilgas.png",
     },
     {
         tag: "Data Centers",
         title: "Centros de Datos",
         description:
-            "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
-        points: ["Monitoreo de servidores 24/7", "Monitorización de cooling y PUE", "Alertas de uptime en tiempo real"],
-        image: "/industries/oilgas.png", // Fallback to oilgas as datacenter isn't in public/industries
+            "Supervisión continua de infraestructura crítica (cooling, energía, ambiente) para maximizar la disponibilidad integrando sistemas legacy.",
+        points: ["Monitoreo de PUE", "Integración BMS legacy", "Alertas de prevención de caídas"],
+        image: "/industries/data.png",
     },
     {
         tag: "Water",
-        title: "Aguas",
-        description: "Gestión inteligente del ciclo del agua para plantas de tratamiento y desalinización.",
-        points: ["Control de pH y químicos", "Optimización de bombeo", "Alertas hidrológicas"],
+        title: "Aguas y Saneamiento",
+        description:
+            "Gestión centralizada de plantas de tratamiento y redes de distribución mediante recolección de datos agnóstica al hardware.",
+        points: [
+            "Telemetría de campo confiable",
+            "Alertas y prevención de fugas",
+            "Dashboards operativos en tiempo real",
+        ],
         image: "/industries/water.png",
     },
     {
         tag: "Power",
         title: "Energía",
-        description: "Distribución eficiente y almacenamiento optimizado para plantas de energía renovable.",
-        points: ["Balance de carga real", "Integración FV e Hidro", "Monitoreo térmico"],
+        description:
+            "Transforma datos de generación y distribución en insights accionables, conectando activos aislados a la nube de manera segura.",
+        points: [
+            "Infraestructura legacy a la nube",
+            "Analítica de eficiencia energética",
+            "Monitoreo preventivo continuo",
+        ],
         image: "/industries/energy.png",
     },
     {
         tag: "Food & Beverage",
         title: "Alimentos y Bebidas",
-        description: "Trazabilidad completa y control microbiológico automatizado en líneas de procesamiento.",
-        points: ["Control de frío 24/7", "Cumplimiento ISO 22000", "Dashboards KPI"],
+        description:
+            "Asegura la calidad y la eficiencia conectando los sensores de piso directamente a herramientas de monitoreo y análisis.",
+        points: ["Trazabilidad completa de variables", "Control automatizado 24/7", "Cumplimiento y reportes de KPIs"],
         image: "/industries/foodbeverage.png",
     },
 ];
@@ -41,32 +53,34 @@ export const INDUSTRY_SLIDER_DATA = [
     {
         title: "Petróleo y Gas",
         subtitle: "Oil & Gas",
-        description: "Optimización de procesos y monitoreo en tiempo real para la extracción y refinamiento.",
+        description:
+            "Lleva la inteligencia artificial y conectividad cloud a entornos de alta disponibilidad y exigencia.",
         image: "/industries/oilgas.png",
     },
     {
         title: "Datos",
         subtitle: "Data Centers",
         description:
-            "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa.",
-        image: "/industries/oilgas.png",
+            "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa (PUE).",
+        image: "/industries/data.png",
     },
     {
         title: "Aguas",
         subtitle: "Water",
-        description: "Tratamiento de recursos y gestión crítica de sistemas hídricos.",
+        description:
+            "Optimiza la gestión hídrica integrando telemetría y monitoreo centralizado de activos distribuidos.",
         image: "/industries/water.png",
     },
     {
         title: "Energía",
         subtitle: "Power",
-        description: "Gestión inteligente de redes eléctricas y fuentes de energía renovables.",
+        description: "Conecta infraestructura de generación legacy para lograr visibilidad, predicción y control.",
         image: "/industries/energy.png",
     },
     {
         title: "Producción",
         subtitle: "Food & Beverage",
-        description: "Control de calidad y automatización en líneas de producción masiva.",
+        description: "Trazabilidad, calidad y control garantizado al unir los datos del piso de producción con el IT.",
         image: "/industries/foodbeverage.png",
     },
 ];

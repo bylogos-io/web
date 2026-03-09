@@ -137,7 +137,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundImage: `url(${industries[currentIndex].image})`,
-                            filter: "saturate(1.2) brightness(0.95)",
+                            filter: "brightness(0.95)",
                         }}
                     />
                 </AnimatePresence>

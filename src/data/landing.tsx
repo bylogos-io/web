@@ -22,6 +22,7 @@ import HubIcon from "@mui/icons-material/Hub";
 // Images
 import reterminalImage from "@public/assets/hardware-alternatives/reterminal.png";
 import recomputerImage from "@public/assets/hardware-alternatives/recomputer.png";
+import recomputeraiImage from "@public/assets/hardware-alternatives/recomputerai.png";
 
 // Features Data
 export const FEATURES_DATA = [
@@ -110,15 +111,32 @@ export const HARDWARE_OPTIONS = [
             "Computadora industrial compacta optimizada para ejecutar LogOS como servidor web local y gateway de comunicaciones de alto rendimiento.",
         features: [
             { icon: DnsOutlinedIcon, text: "Server-grade performance" },
-            { icon: StorageOutlinedIcon, text: "SSD NVMe 256GB" },
+            { icon: StorageOutlinedIcon, text: "6 Meses de retención" },
             { icon: WifiOutlinedIcon, text: "Ethernet Gigabit x2" },
             { icon: MemoryOutlinedIcon, text: "ARM Cortex-A72 Quad-core" },
         ],
-        specs: ["8GB RAM DDR4", "Ventilación silenciosa", "Riel DIN para montaje", "Temperaturas críticas"],
-        useCase: "Perfecto para despliegues centralizados, edge computing y servidores locales de alta disponibilidad.",
+        specs: ["8GB RAM DDR4", "Sin ventiladores", "Riel DIN para montaje", "Temperaturas críticas"],
+        useCase: "Perfecto para despliegues locales, edge computing y servidores locales de alta disponibilidad.",
         price: "Desde UF 8,3",
         highlight: "Edge Computing",
     },
+    /*{
+        name: "ReComputer AI",
+        subtitle: "Acelerador Inteligente",
+        image: recomputeraiImage.src,
+        description:
+            "Hardware industrial equipado con potente procesamiento neuronal para inferencia de modelos predictivos de la plataforma LogOS en tiempo real.",
+        features: [
+            { icon: SmartToyOutlinedIcon, text: "Aceleración de AI Edge" },
+            { icon: StorageOutlinedIcon, text: "Máximo rendimiento" },
+            { icon: InsightsOutlinedIcon, text: "Inferencia optimizada" },
+            { icon: MemoryOutlinedIcon, text: "16GB RAM LPDDR4x" },
+        ],
+        specs: ["Raspberry Pi 5", "Acelerador Hailo 8", "Riel DIN o montaje en pared", "Entornos industriales"],
+        useCase: "Ideal para procesamiento complejo local y análisis de video / imagenes en tiempo real.",
+        price: "Desde UF 19",
+        highlight: "Aceleración IA",
+    },*/
 ];
 
 // Newsletter Data
@@ -148,9 +166,14 @@ export const NEWSLETTER_BENEFITS = [
 // Comparison Data
 export const COMPARISON_BEFORE = [
     { title: "Silos de Datos", desc: "Información fragmentada y difícil de auditar en tiempo real." },
-    { title: "Costo de Infraestructura", desc: "Servidores locales, licencias perpetuas y hardware dedicado." },
-    { title: "Mantenimiento Reactivo", desc: "El sistema solo avisa cuando el fallo ya ha ocurrido." },
+    { title: "Costo de Infraestructura", desc: "Servidores independientes, licencias separadas y hardware cerrado." },
+    {
+        title: "Mantenimiento Reactivo",
+        desc: "El sistema solo avisa cuando el fallo ya ha ocurrido. Mantenimiento costoso.",
+    },
     { title: "Brechas de Seguridad", desc: "Protocolos antiguos y vulnerables sin actualizaciones constantes." },
+    { title: "Interfaces Incómodas", desc: "Interfaz de usuario desordenada y difícil de usar." },
+    { title: "Interoperabilidad Nula", desc: "No se puede integrar con sistemas externos." },
 ];
 
 export const COMPARISON_AFTER = [
@@ -167,7 +190,7 @@ export const COMPARISON_AFTER = [
     {
         icon: "savings",
         title: "Eficiencia Energética",
-        desc: "Optimización autónoma que reduce el consumo eléctrico hasta un 30%.",
+        desc: "Reportes y análisis autónomos para que puedas optimizar tu consumo eléctrico.",
     },
     {
         icon: "cloud",
@@ -177,40 +200,37 @@ export const COMPARISON_AFTER = [
     {
         icon: "realtime",
         title: "Continuidad Operacional",
-        desc: "Monitoreo 24/7 con redundancia en la nube y alertas de misión crítica.",
+        desc: "Monitoreo 24/7 desde la nube y alertas de misión crítica dondequiera que estés.",
     },
     {
         icon: "security",
         title: "Ciberseguridad Total",
-        desc: "Encriptación de grado militar y cumplimiento de estándares internacionales.",
+        desc: "Encriptación de punto a punto y cumplimiento de estándares internacionales.",
     },
 ];
 
 // Testimonials Data
 export const TESTIMONIALS_DATA = [
     {
-        company: "Red Salud",
-        industry: "Médicina",
-        quote: "Logos nos ha permitido reducir el tiempo de respuesta ante incidencias en un 70%. La integración con nuestros sistemas legacy fue perfecta.",
-        metrics: "70% reducción MTTR",
+        company: "Redsalud",
+        industry: "Medicina",
+        quote: "LogOS nos ha permitido reducir el tiempo de respuesta ante emergencias. La integración con nuestros sistemas legacy fue perfecta.",
+        metrics: "Reacción 60% más rápida.",
         icon: BusinessIcon,
-        installations: "45+ subestaciones",
     },
     {
-        company: "Arcelor Mittal",
-        industry: "Siderurgia",
-        quote: "El módulo de IA predictiva identificó 3 fallos críticos antes de que ocurrieran. ROI del 340% en el primer año.",
-        metrics: "340% ROI primer año",
+        company: "Molinera del Rey",
+        industry: "Alimentos",
+        quote: "Con LogOS podemos monitorear el consumo energético en cada proceso de producción y optimizarlo para reducir el desperdicio.",
+        metrics: "Consumo energético optimizado.",
         icon: FactoryIcon,
-        installations: "12 plantas industriales",
     },
     {
-        company: "Iberdrola Renovables",
+        company: "Taleselek",
         industry: "Energía Renovable",
-        quote: "Monitoreo en tiempo real de 150+ parques eólicos desde una sola plataforma. Eficiencia operativa sin precedentes.",
-        metrics: "150+ parques monitorizados",
+        quote: "La SUITE de desarrollo de LogOS es impecable, nos facilita la creación de soluciones para nuestros clientes.",
+        metrics: "Desarrollo 50% más rápido.",
         icon: ElectricBoltIcon,
-        installations: "2.3 GW bajo gestión",
     },
 ];
 

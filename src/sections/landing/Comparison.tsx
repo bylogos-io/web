@@ -73,7 +73,7 @@ export function Comparison() {
                                 fontSize: "0.75rem",
                             }}
                         >
-                            LA TERCERA
+                            LA CUARTA
                         </Typography>
                         <Typography
                             variant="h2"
@@ -144,7 +144,7 @@ export function Comparison() {
                                         letterSpacing: 1,
                                     }}
                                 >
-                                    ANTES: INFRAESTRUCTURA LEGACY
+                                    ANTES: LEGACY
                                 </Typography>
 
                                 <Stack spacing={3}>
@@ -231,7 +231,7 @@ export function Comparison() {
                                             letterSpacing: 1.5,
                                         }}
                                     >
-                                        AHORA: INTELIGENCIA LOGOS
+                                        AHORA: ECOSISTEMA LOGOS
                                     </Typography>
                                 </Box>
 
@@ -296,13 +296,13 @@ export function Comparison() {
                                             variant="subtitle1"
                                             sx={{ color: "primary.main", fontWeight: 800, lineHeight: 1.2 }}
                                         >
-                                            +65% Ahorro OPEX Garantizado
+                                            AHORRA EN HH Y OBTIENES EFICIENCIA
                                         </Typography>
                                         <Typography
                                             variant="caption"
                                             sx={{ color: "text.secondary", fontSize: "0.7rem" }}
                                         >
-                                            Optimización real basada en datos audibles.
+                                            Paga poco, haz mucho.
                                         </Typography>
                                     </Box>
                                 </Box>

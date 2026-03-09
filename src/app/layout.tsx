@@ -14,25 +14,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: {
-        default: "Inteligencia Industrial SCADA, BMS, AI + IIoT | LogOS",
+        default: "LogOS | Unificando IT y OT para Infraestructura Industrial",
         template: "%s | LogOS",
     },
     description:
-        "LogOS: Sistema de gestión inteligente para SCADA, BMS y AI + IIoT. Mejora la eficiencia operacional en Smart Cities e industria.",
+        "LogOS: Plataforma inteligente agnóstica de hardware que moderniza sistemas legados y establece un puente entre IT y OT mediante SCADA, AI y Edge Computing.",
     applicationName: "LogOS",
     keywords: [
         "LogOS",
         "SCADA",
         "BMS",
         "AI + IIoT",
-        "IIoT",
-        "Industrial AI",
-        "Smart Cities",
+        "Edge Computing",
+        "Modernización IT/OT",
+        "Infraestructura Legada",
         "Automatización Industrial",
+        "Gemelos Digitales",
         "Monitorización en Tiempo Real",
-        "Gestión de Edificios",
         "HMI",
-        "ByLogos",
+        "LogOS",
     ],
     robots: {
         index: true,

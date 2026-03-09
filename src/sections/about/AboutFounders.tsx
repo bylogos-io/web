@@ -85,19 +85,13 @@ export function AboutFounders() {
                                         sx={{
                                             color: "primary.main",
                                             fontWeight: 700,
-                                            mb: 2,
+                                            mb: 4,
+                                            flexGrow: 1,
                                             textTransform: "uppercase",
                                             letterSpacing: 1,
                                         }}
                                     >
                                         {founder.role}
-                                    </Typography>
-                                    <Typography
-                                        variant="body1"
-                                        color="text.secondary"
-                                        sx={{ mb: 4, flexGrow: 1, lineHeight: 1.6 }}
-                                    >
-                                        {founder.description}
                                     </Typography>
 
                                     <Stack direction="row" spacing={1.5}>

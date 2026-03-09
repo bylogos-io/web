@@ -13,7 +13,8 @@ const toSlug = (title: string) =>
     title
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "-");
 
 const industryDetails = INDUSTRY_CARDS_DATA;
 
@@ -83,7 +84,6 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
                         backgroundImage: `url(${industry.image})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        filter: "grayscale(100%) sepia(100%) hue-rotate(345deg) saturate(500%) brightness(0.9) contrast(1.2)",
                         transition: "transform 0.5s ease",
                         transform: isHovered ? "scale(1.1)" : "scale(1)",
                     }}

@@ -21,3 +21,6 @@ Always follow the instructions from Reglas-IA/Base.md.
 
 ---
 For the complete and updated set of rules, **always** follow what is defined in `Reglas-IA/Base.md`.
+
+## Current Project State
+- The "News" ("Noticias") section in the main navigation is currently hidden (commented out). Do not re-enable it or add references to it unless explicitly requested by the user.
