@@ -1,65 +1,74 @@
 ---
-title: "Introducción a LogOS"
-slug: "introduccion"
+title: 'Introducción a LogOS'
+slug: 'introduccion'
 order: 1
-description: "Visión general de la plataforma de eficiencia industrial LogOS, compatibilidad técnica y hardware soportado."
+description: 'Visión general de la plataforma de eficiencia industrial LogOS, funcionalidades, hardware y comparación.'
 ---
 
 # ¿Qué es LogOS?
 
-**LogOS** es la nueva manera de eficiencia industrial. Es una plataforma de integración **AI + IIoT** (Artificial Intelligence + Industrial IoT) diseñada para la optimización y modernización de infraestructuras críticas.
+**LogOS** es la nueva manera de eficiencia industrial. Es la mejor integración de **IA para el IoT Industrial**, diseñada para crear procesos inteligentes y una industria eficiente.
 
 Nuestra misión es ser el puente entre los mundos de IT (Tecnología de la Información) y OT (Tecnología de la Operación), modernizando sistemas legados y unificando el control bajo una única plataforma mediante Inteligencia Artificial y computación Edge.
 
-## Características Principales
+## Funcionamiento Modular
 
-- **Procesos Inteligentes**: Optimización continua mediante algoritmos avanzados.
-- **Probado en Industrias Críticas**: Estabilidad garantizada en entornos exigentes.
-- **Cumplimiento Normativo**: Acoplado a normativas RIC para SEC.
+Arma tu propia solución escogiendo los módulos que necesitas:
 
-## Compatibilidad Técnica
+- **Monitoreo**: Supervisión en tiempo real de todos los parámetros eléctricos con latencia menor a 1 segundo.
+- **Diagramas Unilineales**: Esquemas interactivos con representación dinámica del estado de la instalación.
+- **Registro de datos**: Acceso histórico completo a registros pasados con análisis de tendencias y patrones.
+- **Alarmas inteligentes**: Alarmas en base a eventos y predicciones para prevención de fallas.
+- **Integraciones**: Conectividad en tiempo real con WhatsApp, Telegram, Gmail y más.
+- **Reportes Automáticos**: Generación de reportes de consumo automáticos con información detallada.
+- **Inteligencia Artificial**: Asistente inteligente para un mejor análisis de cargas.
+- **Gemelo Digital**: Copia exacta de tu instalación en el mundo digital.
+- **Acceso dondequiera que estés**: Información sincronizada y disponible desde cualquier dispositivo.
 
-LogOS está diseñado para ser agnóstico del hardware pero altamente optimizado para plataformas robustas.
+## Hardware Industrial
 
-### Requisitos Mínimos
+Soluciones de hardware especializadas de **Seeed Studio**, optimizadas para ejecutar LogOS con la mayor estabilidad.
 
-- **Arquitectura**: ARM64 (Soporte x86_64 próximamente)
-- **RAM**: 2GB mínimo
-- **Sistema Operativo**: Linux Kernel 5.4+
+### ReTerminal DM (Panel de Control)
 
-### Protocolos Industriales Soportados
+- **Uso**: Panel de control interactivo para salas de control y HMI local.
+- **Características**: Pantalla táctil 10.1", Cámara integrada, WiFi 6 + Bluetooth 5.0, PoE+.
+- **Especificaciones**: Resolución 1280x800, IP65, Serial RS485, IEC 61850 compatible.
 
-LogOS habla tu idioma industrial nativo:
+### ReComputer (Servidor Edge)
 
-- **IEC 61850**: Estándar global para automatización de subestaciones.
-- **Modbus**: Comunicación serial robusta.
-- **OPC-UA**: Interoperabilidad y modelado de datos.
-- **MQTT**: Integración ligera para IoT.
+- **Uso**: Servidor Edge industrial y gateway de comunicaciones de alto rendimiento.
+- **Características**: Server-grade performance, 6 meses de retención, Dual Gigabit Ethernet, ARM Cortex-A72 Quad-core.
+- **Especificaciones**: 8GB RAM DDR4, Sin ventiladores, Montaje Riel DIN.
 
-## Hardware Verificado
+## Antes vs. Después con LogOS
 
-Aunque LogOS puede correr en diversos entornos Linux, está oficialmente optimizado y probado en:
+| Desafío Tradicional                                         | Solución LogOS                                               |
+| :---------------------------------------------------------- | :----------------------------------------------------------- |
+| **Silos de Datos**: Información fragmentada.                | **Single Source of Truth**: Operación unificada y auditable. |
+| **Mantenimiento Reactivo**: Avisa cuando el fallo ocurrió.  | **Inteligencia Predictiva**: Anticipación a fallas críticas. |
+| **Costo de Infraestructura**: Hardware cerrado y licencias. | **TCO Reducido**: Escala según tus necesidades.              |
+| **Interfaces Incómodas**: Difícil de usar.                  | **Continuidad Operacional**: Monitoreo 24/7 intuitivo.       |
+| **Brechas de Seguridad**: Protocolos antiguos.              | **Ciberseguridad Total**: Encriptación de punto a punto.     |
 
-### Raspberry Pi
+## Confianza y Certificaciones
 
-- Soporte completo para **Raspberry Pi 4 y 5**.
-- Estado: **Optimizado**.
+LogOS ha sido implementado exitosamente en diversas industrias:
 
-### Seeed Studio (Industrial)
+- **Redsalud** (Medicina): Reacción 60% más rápida.
+- **Molinera del Rey** (Alimentos): Consumo energético optimizado.
+- **Taleselek** (Energía Renovable): Desarrollo 50% más rápido.
 
-Asociación estratégica para hardware de grado industrial.
+### Estándares Internacionales
 
-1.  **ReTerminalDM**
-    - _Uso_: Panel de Control Interactivo.
-    - _Features_: Pantalla táctil 10.1", IP65, RS485.
-    - _Ideal para_: Salas de control y HMI local.
+- **ISO 27001**: Seguridad de la información.
+- **IEC 61850**: Automatización de subestaciones.
+- **NERC CIP**: Seguridad cibernética.
+- **IEC 62351**: Seguridad en comunicaciones.
 
-2.  **ReComputer**
-    - _Uso_: Servidor Edge Industrial.
-    - _Features_: ARM Cortex-A72, NVMe SSD, Ethernet Gigabit Dual.
-    - _Ideal para_: Gateway central y Edge Computing.
+## Compatibilidad Técnica Mínima
 
-3.  **ReComputer AI**
-    - _Uso_: Procesamiento Edge avanzado con aceleración de hardware.
-    - _Features_: Integra módulos NVIDIA Jetson para inferencia local.
-    - _Ideal para_: Visión artificial centralizada y procesamiento profundo de datos (Deep Learning) en el sitio.
+- **Arquitectura**: ARM64 (Soporte x86_64 próximamente).
+- **RAM**: 2GB mínimo.
+- **Sistema Operativo**: Linux Kernel 5.4+.
+- **Protocolos**: IEC 61850, Modbus, OPC-UA, MQTT.
