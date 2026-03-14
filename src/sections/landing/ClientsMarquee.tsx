@@ -5,8 +5,8 @@ import Typography from "@mui/material/Typography";
 import { keyframes } from "@mui/material/styles";
 
 const CLIENTS = [
-    { name: "Seeed Studio", src: "/seeed.png" },
-    { name: "UC Facultad de Ingeniería", src: "/uc-facultad-ingenieria.png", height: 52 },
+    { name: "Seeed Studio", src: "/seeed.webp" },
+    { name: "UC Facultad de Ingeniería", src: "/uc-facultad-ingenieria.webp", height: 52 },
     { name: "Client 3", src: "/Mesa_de_trabajo_3.svg" },
     { name: "Client 4", src: "/Mesa_de_trabajo_4.svg" },
     { name: "Client 5", src: "/Mesa_de_trabajo_5.svg" },

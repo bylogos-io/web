@@ -4,13 +4,13 @@ export const ABOUT_FOUNDERS_DATA = {
         {
             name: "José Vargas",
             role: "Co-Fundador & CEO",
-            image: "/founders/josevargas.png",
+            image: "/founders/josevargas.webp",
             linkedin: "https://www.linkedin.com/in/jovargass/",
         },
         {
             name: "Javier Vargas",
             role: "Co-Fundador & CTO",
-            image: "/founders/javiervargas.png",
+            image: "/founders/javiervargas.webp",
             linkedin: "https://www.linkedin.com/in/javierdvt/",
             github: "https://github.com/javierdv7",
         },

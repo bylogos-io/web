@@ -121,7 +121,7 @@ export function NewsSlider({
                   inset: 0,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  backgroundImage: `url(${posts[currentIndex].cover || '/images/news-placeholder.png'})`,
+                  backgroundImage: `url(${posts[currentIndex].cover || '/images/news-placeholder.webp'})`,
                   filter: 'brightness(0.7)',
                 }}
               />

@@ -302,7 +302,7 @@ export function Comparison() {
                                             variant="caption"
                                             sx={{ color: "text.secondary", fontSize: "0.7rem" }}
                                         >
-                                            Paga poco, haz mucho.
+                                            Optimiza tu uso de los recursos
                                         </Typography>
                                     </Box>
                                 </Box>

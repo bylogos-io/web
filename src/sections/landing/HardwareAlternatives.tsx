@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-import seeed from "@public/seeed.png";
+import seeed from "@public/seeed.webp";
 import { HARDWARE_OPTIONS } from "@/data/landing";
 import { Box, Container, Grid2 as Grid, Typography, Stack, alpha, Chip, Card, Button } from "@mui/material";
 
@@ -13,7 +13,7 @@ const hardwareOptions = HARDWARE_OPTIONS;
 export function HardwareAlternatives() {
     return (
         <Box component="section" id="hardware" sx={{ py: 8 }}>
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Box
                     component={motion.div}
                     initial={{ opacity: 0, y: 30 }}
@@ -66,7 +66,7 @@ export function HardwareAlternatives() {
                     {hardwareOptions.map((hardware, index) => (
                         <Grid
                             key={index}
-                            size={{ xs: 12, md: 6, lg: 6 }}
+                            size={{ xs: 12, md: 6, lg: 4 }}
                             sx={{ display: "flex", justifyContent: "center" }}
                         >
                             <Box
@@ -300,7 +300,7 @@ export function HardwareAlternatives() {
                                         </Box>
 
                                         <Box sx={{ mt: "auto" }}>
-                                            <Link href="#contact" style={{ textDecoration: "none" }}>
+                                            <Link href="mailto:contact@bylogos.io" style={{ textDecoration: "none" }}>
                                                 <Button
                                                     variant="contained"
                                                     fullWidth

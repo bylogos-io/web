@@ -54,12 +54,12 @@ export function PricingModules() {
             <Container maxWidth="lg">
                 <Box sx={{ mb: 6, textAlign: "center" }}>
                     <Typography variant="h3" fontWeight={800} gutterBottom>
-                        Módulos Adicionales (Add-ons)
+                        Módulos Adicionales
                     </Typography>
-                    <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 800, mx: "auto" }}>
-                        Sobre la suscripción base, puedes ampliar las funcionalidades de LogOS según las verdaderas
-                        necesidades operativas de tu infraestructura. El sistema modular permite que cada instalación
-                        escale progresivamente en capacidad y precio.
+                    <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 1000, mx: "auto" }}>
+                        Sobre la suscripción base, puedes ampliar las funcionalidades de LogOS según las necesidades
+                        operativas de tu infraestructura. El sistema modular permite que cada instalación escale
+                        progresivamente en capacidad y precio.
                     </Typography>
                 </Box>
 

@@ -200,8 +200,20 @@ export function Newsletter() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Únete a nuestra comunidad industrial para recibir las últimas actualizaciones de producto,
-                        estándares internacionales y casos de éxito en monitoreo eléctrico.
+                        Únete a nuestra comunidad industrial para recibir las últimas actualizaciones de producto o
+                        escríbenos directamente a{" "}
+                        <Box
+                            component="a"
+                            href="mailto:contact@bylogos.io"
+                            sx={{
+                                color: "primary.main",
+                                textDecoration: "none",
+                                fontWeight: 700,
+                                "&:hover": { textDecoration: "underline" },
+                            }}
+                        >
+                            contact@bylogos.io
+                        </Box>
                     </Typography>
                 </Box>
 

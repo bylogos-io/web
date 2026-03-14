@@ -5,7 +5,7 @@ export const INDUSTRY_CARDS_DATA = [
         description:
             "Moderniza sistemas de extracción y refinería legacy integrando telemetría en la nube sin interrumpir la operación actual.",
         points: ["Integración con PLCs y SCADA", "Monitoreo remoto 24/7", "Detección temprana de fallas con IA"],
-        image: "/industries/oilgas.png",
+        image: "/industries/oilgas.webp",
     },
     {
         tag: "Data Centers",
@@ -13,7 +13,7 @@ export const INDUSTRY_CARDS_DATA = [
         description:
             "Supervisión continua de infraestructura crítica (cooling, energía, ambiente) para maximizar la disponibilidad integrando sistemas legacy.",
         points: ["Monitoreo de PUE", "Integración BMS legacy", "Alertas de prevención de caídas"],
-        image: "/industries/data.png",
+        image: "/industries/data.webp",
     },
     {
         tag: "Water",
@@ -25,7 +25,7 @@ export const INDUSTRY_CARDS_DATA = [
             "Alertas y prevención de fugas",
             "Dashboards operativos en tiempo real",
         ],
-        image: "/industries/water.png",
+        image: "/industries/water.webp",
     },
     {
         tag: "Power",
@@ -37,7 +37,7 @@ export const INDUSTRY_CARDS_DATA = [
             "Analítica de eficiencia energética",
             "Monitoreo preventivo continuo",
         ],
-        image: "/industries/energy.png",
+        image: "/industries/energy.webp",
     },
     {
         tag: "Food & Beverage",
@@ -45,7 +45,7 @@ export const INDUSTRY_CARDS_DATA = [
         description:
             "Asegura la calidad y la eficiencia conectando los sensores de piso directamente a herramientas de monitoreo y análisis.",
         points: ["Trazabilidad completa de variables", "Control automatizado 24/7", "Cumplimiento y reportes de KPIs"],
-        image: "/industries/foodbeverage.png",
+        image: "/industries/foodbeverage.webp",
     },
 ];
 
@@ -55,32 +55,32 @@ export const INDUSTRY_SLIDER_DATA = [
         subtitle: "Oil & Gas",
         description:
             "Lleva la inteligencia artificial y conectividad cloud a entornos de alta disponibilidad y exigencia.",
-        image: "/industries/oilgas.png",
+        image: "/industries/oilgas.webp",
     },
     {
         title: "Datos",
         subtitle: "Data Centers",
         description:
             "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa (PUE).",
-        image: "/industries/data.png",
+        image: "/industries/data.webp",
     },
     {
         title: "Aguas",
         subtitle: "Water",
         description:
             "Optimiza la gestión hídrica integrando telemetría y monitoreo centralizado de activos distribuidos.",
-        image: "/industries/water.png",
+        image: "/industries/water.webp",
     },
     {
         title: "Energía",
         subtitle: "Power",
         description: "Conecta infraestructura de generación legacy para lograr visibilidad, predicción y control.",
-        image: "/industries/energy.png",
+        image: "/industries/energy.webp",
     },
     {
         title: "Producción",
         subtitle: "Food & Beverage",
         description: "Trazabilidad, calidad y control garantizado al unir los datos del piso de producción con el IT.",
-        image: "/industries/foodbeverage.png",
+        image: "/industries/foodbeverage.webp",
     },
 ];

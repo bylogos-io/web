@@ -103,7 +103,7 @@ export function NewsPosts({ posts }: NewsPostsProps) {
                         left: 0,
                         width: '100%',
                         height: '100%',
-                        backgroundImage: `url(${post.cover || '/images/news-placeholder.png'})`,
+                        backgroundImage: `url(${post.cover || '/images/news-placeholder.webp'})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         transition: 'transform 0.5s ease',

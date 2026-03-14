@@ -110,7 +110,7 @@ export function PricingHero() {
                                     </Stack>
                                 </Stack>
                                 <Box sx={{ mt: 4 }}>
-                                    <Link href="/#newsletter" style={{ textDecoration: "none" }}>
+                                    <Link href="mailto:contact@bylogos.io" style={{ textDecoration: "none" }}>
                                         <Button
                                             fullWidth
                                             variant="outlined"
@@ -229,7 +229,7 @@ export function PricingHero() {
                                     </Stack>
                                 </Stack>
                                 <Box sx={{ mt: 4 }}>
-                                    <Link href="/#newsletter" style={{ textDecoration: "none" }}>
+                                    <Link href="mailto:contact@bylogos.io" style={{ textDecoration: "none" }}>
                                         <Button
                                             fullWidth
                                             variant="contained"

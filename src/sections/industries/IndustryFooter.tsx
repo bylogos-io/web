@@ -29,7 +29,7 @@ export function IndustryFooter() {
         </Typography>
         <Button
           component={Link}
-          href="/#newsletter"
+          href="mailto:contact@bylogos.io"
           variant="contained"
           size="large"
           sx={{ fontWeight: 700, px: 5 }}

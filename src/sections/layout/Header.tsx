@@ -78,7 +78,7 @@ export function Header() {
                 sx={{ position: "relative" }}
             >
                 <Box
-                    component={item.href && !item.href.startsWith("#") ? motion(Link) : motion.button}
+                    component={item.href && !item.href.startsWith("#") ? motion.create(Link) : motion.button}
                     {...(item.href && !item.href.startsWith("#") ? { href: item.href } : {})}
                     aria-haspopup={item.submenu ? "true" : undefined}
                     aria-expanded={item.submenu ? isOpen : undefined}
@@ -234,7 +234,7 @@ export function Header() {
                         {/* Logo */}
                         <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-start" }}>
                             <Box
-                                component={motion(Link)}
+                                component={motion.create(Link)}
                                 href="/"
                                 aria-label="Inicio"
                                 whileHover={{ scale: 1.05 }}
@@ -303,13 +303,9 @@ export function Header() {
                             >
                                 <Button
                                     component={Link}
-                                    href="#newsletter"
+                                    href="mailto:contact@bylogos.io"
                                     variant="contained"
                                     size="medium"
-                                    onClick={(e: React.MouseEvent) => {
-                                        e.preventDefault();
-                                        handleNavigation("#newsletter");
-                                    }}
                                     sx={(theme) => ({
                                         fontWeight: 800,
                                         textTransform: "none",

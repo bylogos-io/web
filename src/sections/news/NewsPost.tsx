@@ -47,7 +47,7 @@ export function NewsPost({ post }: NewsPostProps) {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundImage: `url(${post.cover || "/images/news-placeholder.png"})`,
+            backgroundImage: `url(${post.cover || "/images/news-placeholder.webp"})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: "brightness(0.6)",

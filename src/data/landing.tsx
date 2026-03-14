@@ -20,9 +20,9 @@ import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import HubIcon from "@mui/icons-material/Hub";
 
 // Images
-import reterminalImage from "@public/assets/hardware-alternatives/reterminal.png";
-import recomputerImage from "@public/assets/hardware-alternatives/recomputer.png";
-import recomputeraiImage from "@public/assets/hardware-alternatives/recomputerai.png";
+import reterminalImage from "@public/assets/hardware-alternatives/reterminal.webp";
+import recomputerImage from "@public/assets/hardware-alternatives/recomputer.webp";
+import recomputeraiImage from "@public/assets/hardware-alternatives/recomputerai.webp";
 
 // Features Data
 export const FEATURES_DATA = [
@@ -100,12 +100,12 @@ export const HARDWARE_OPTIONS = [
         ],
         specs: ["Resolución 1280x800", "IP65 clasificación", "Serial RS485", "IEC 61850 compatible"],
         useCase: "Ideal para salas de control, cabinas de operador y puntos de supervisión local.",
-        price: "Desde UF 18,5",
-        highlight: "Interactividad Local",
+        price: "Desde UF 19,5",
+        highlight: "Interfaz Local",
     },
     {
         name: "ReComputer",
-        subtitle: "Servidor Edge Industrial",
+        subtitle: "Gateway Edge Industrial",
         image: recomputerImage.src,
         description:
             "Computadora industrial compacta optimizada para ejecutar LogOS como servidor web local y gateway de comunicaciones de alto rendimiento.",
@@ -117,12 +117,12 @@ export const HARDWARE_OPTIONS = [
         ],
         specs: ["8GB RAM DDR4", "Sin ventiladores", "Riel DIN para montaje", "Temperaturas críticas"],
         useCase: "Perfecto para despliegues locales, edge computing y servidores locales de alta disponibilidad.",
-        price: "Desde UF 8,3",
-        highlight: "Edge Computing",
+        price: "Desde UF 8,4",
+        highlight: "Comunicación",
     },
-    /*{
+    {
         name: "ReComputer AI",
-        subtitle: "Acelerador Inteligente",
+        subtitle: "Procesador Inteligente",
         image: recomputeraiImage.src,
         description:
             "Hardware industrial equipado con potente procesamiento neuronal para inferencia de modelos predictivos de la plataforma LogOS en tiempo real.",
@@ -134,9 +134,9 @@ export const HARDWARE_OPTIONS = [
         ],
         specs: ["Raspberry Pi 5", "Acelerador Hailo 8", "Riel DIN o montaje en pared", "Entornos industriales"],
         useCase: "Ideal para procesamiento complejo local y análisis de video / imagenes en tiempo real.",
-        price: "Desde UF 19",
-        highlight: "Aceleración IA",
-    },*/
+        price: "Desde UF 21",
+        highlight: "Cerebro Inteligente",
+    },
 ];
 
 // Newsletter Data
