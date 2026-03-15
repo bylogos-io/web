@@ -260,7 +260,7 @@ export function Header() {
                                 >
                                     <Image
                                         src={LogosIcon}
-                                        alt="Logos Logo"
+                                        alt="LogOS Logo"
                                         width={120}
                                         height={36}
                                         style={{ objectFit: "contain" }}

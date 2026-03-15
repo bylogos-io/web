@@ -1,6 +1,6 @@
 {
-    "name": "Logos",
-    "short_name": "Logos",
+    "name": "LogOS",
+    "short_name": "LogOS",
     "description": "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AI + IIoT",
     "start_url": "/",
     "display": "standalone",

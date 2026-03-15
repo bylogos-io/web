@@ -115,7 +115,7 @@ export function ChatWidget() {
                                         p: 0.5,
                                     })}
                                 >
-                                    <Image src={Logos} alt="Logos Logo" width={24} height={24} />
+                                    <Image src={Logos} alt="LogOS Logo" width={24} height={24} />
                                 </Box>
                                 <Box>
                                     <Typography variant="subtitle2" sx={{ fontWeight: 700, lineHeight: 1.2 }}>

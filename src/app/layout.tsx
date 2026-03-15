@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
     title: {
         default: "LogOS | Unificando IT y OT para Infraestructura Industrial",
-        template: "%s | LogOS",
+        template: "LogOS | %s",
     },
     description:
         "LogOS: La solución mixta de infraestructura y software que conecta el mundo analógico con la IA. Reducimos pérdidas en HH, optimizamos el control industrial y automatizamos reportes para Oil & Gas, Energía y Data Centers.",
@@ -64,10 +64,11 @@ export const metadata: Metadata = {
         url: "https://bylogos.io",
         siteName: "LogOS",
         title: "LogOS | Solución Mixta IT/OT para Infraestructura Crítica",
-        description: "LogOS adapta tu infraestructura analógica a la era de la IA. Reduce pérdidas de HH y revoluciona la toma de decisiones mediante control detallado y automatización de reportes.",
+        description:
+            "LogOS adapta tu infraestructura analógica a la era de la IA. Reduce pérdidas de HH y revoluciona la toma de decisiones mediante control detallado y automatización de reportes.",
         images: [
             {
-                url: "/opengraph-image.png",
+                url: "/opengraph-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "LogOS - Unificando IT y OT para Infraestructura Industrial",
@@ -77,17 +78,13 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "LogOS | Conectando el Campo OT con el Área IT",
-        description: "Deja de analizar tu infraestructura a mano. LogOS automatiza reportes y adapta sistemas legados a algoritmos de inteligencia artificial.",
-        images: ["/twitter-image.png"],
+        description:
+            "Deja de analizar tu infraestructura a mano. LogOS automatiza reportes y adapta sistemas legados a algoritmos de inteligencia artificial.",
+        images: ["/twitter-image.jpg"],
     },
     icons: {
-        icon: [
-            { url: "/favicon.ico" },
-            { url: "/icon.png", type: "image/png" },
-        ],
-        apple: [
-            { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
-        ],
+        icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
+        apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     },
     manifest: "/manifest.json",
     robots: {

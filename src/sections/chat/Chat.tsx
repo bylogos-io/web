@@ -89,7 +89,7 @@ const Chat = () => {
                             p: 0.5,
                         })}
                     >
-                        <Image src={Logos} alt="Logos Logo" width={32} height={32} />
+                        <Image src={Logos} alt="LogOS Logo" width={32} height={32} />
                     </Box>
                 </Box>
 
