@@ -11,9 +11,21 @@
     "dir": "ltr",
     "icons": [
         {
+            "src": "/apple-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
             "src": "/icon.png",
+            "sizes": "75x74",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/favicon.ico",
             "sizes": "any",
-            "type": "image/png"
+            "type": "image/x-icon"
         }
     ]
 }

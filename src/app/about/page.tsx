@@ -4,9 +4,9 @@ import { AboutHero } from "@/sections/about/AboutHero";
 import { AboutFounders } from "@/sections/about/AboutFounders";
 
 export const metadata: Metadata = {
-    title: "Sobre Nosotros | LogOS",
+    title: "Sobre Nosotros",
     description:
-        "Conoce al equipo detrás de LogOS y nuestra misión de establecer el puente definitivo entre IT y OT mediante IA y Edge Computing.",
+        "LogOS nace para resolver la brecha entre el mundo analógico y la IA. Nuestra misión es facilitar la vida de los técnicos y reducir pérdidas en HH mediante tecnología mixta de vanguardia.",
 };
 
 export default function Nosotros() {

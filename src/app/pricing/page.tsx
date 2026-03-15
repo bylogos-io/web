@@ -5,9 +5,9 @@ import { PricingModules } from "@/sections/pricing/PricingModules";
 import { PricingTitle } from "@/sections/pricing/PricingTitle";
 
 export const metadata: Metadata = {
-    title: "Planes y Precios | LogOS",
+    title: "Planes y Precios",
     description:
-        "Conoce la inversión requerida para digitalizar tu instalación. Instalación inicial de infraestructura y suscripción mensual adaptable a tus necesidades.",
+        "Invierte en eficiencia. Conoce nuestros planes para digitalizar tu infraestructura, reducir pérdidas en HH y automatizar reportes con LogOS.",
 };
 
 export default function Precios() {
