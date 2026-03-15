@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 interface ChatContextType {
   messages: any[];
-  sendMessage: (data: { text: string }) => Promise<void>;
+  sendMessage: (data: { text: string; context?: string }) => Promise<void>;
   status: 'idle' | 'submitted' | 'streaming' | 'ready';
 }
 
@@ -16,7 +16,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     'idle' | 'submitted' | 'streaming' | 'ready'
   >('idle');
 
-  const sendMessage = async ({ text }: { text: string }) => {
+  const sendMessage = async ({ text, context }: { text: string; context?: string }) => {
     if (!text.trim()) return;
 
     const userMessage = {
@@ -39,6 +39,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
             role: m.role,
             content: m.content,
           })),
+          context: context,
         }),
       });
 

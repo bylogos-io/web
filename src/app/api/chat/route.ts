@@ -6,7 +6,7 @@ export const maxDuration = 60;
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { messages } = body;
+    const { messages, context } = body;
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(
@@ -19,14 +19,19 @@ export async function POST(req: Request) {
 
     const agent = await getAgent();
 
-    // Conversión manual a formato LangChain para evitar fallos de toBaseMessages
+    // Conversión manual a formato LangChain
     const langchainMessages = messages.map((m: any) => {
       if (m.role === 'user') return new HumanMessage(m.content);
       if (m.role === 'assistant') return new AIMessage(m.content);
       return new HumanMessage(m.content);
     });
 
-    // Invocación única en lugar de streaming
+    // Inyectar contexto de la página si existe
+    if (context) {
+      langchainMessages.unshift(new HumanMessage(`[CONTEXTO DEL SISTEMA] El usuario está actualmente viendo la página: ${context}. Por favor, prioriza la información relacionada con esta sección si es relevante para su pregunta.`));
+    }
+
+    // Invocación única
     const response = await agent.invoke({ messages: langchainMessages });
 
     // Extraer el contenido del último mensaje generado por el agente

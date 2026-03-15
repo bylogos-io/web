@@ -9,6 +9,24 @@ export const metadata: Metadata = {
   title: 'Noticias y Blog',
   description:
     'Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT de la mano de LogOS.',
+  openGraph: {
+    title: 'Noticias y Blog | LogOS',
+    description: 'Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT de la mano de LogOS.',
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Noticias y Blog | LogOS",
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Noticias y Blog | LogOS',
+    description: 'Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT de la mano de LogOS.',
+    images: ['/twitter-image.jpg'],
+  },
 };
 
 export default function NewsPage() {

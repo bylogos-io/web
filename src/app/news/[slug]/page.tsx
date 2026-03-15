@@ -29,6 +29,26 @@ export async function generateMetadata({
 	return {
 		title: post.title,
 		description: post.description,
+		openGraph: {
+			title: `${post.title} | LogOS`,
+			description: post.description,
+			images: [
+				{
+					url: post.cover || "/opengraph-image.jpg",
+					width: 1200,
+					height: 630,
+					alt: post.title,
+				},
+			],
+			type: "article",
+			publishedTime: post.date,
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: `${post.title} | LogOS`,
+			description: post.description,
+			images: [post.cover || "/twitter-image.jpg"],
+		},
 	};
 }
 

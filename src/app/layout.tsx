@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { ConditionalHeader } from "@/sections/layout/ConditionalHeader";
 import { ConditionalFooter } from "@/sections/layout/ConditionalFooter";
+import { ChatBubble } from "@/components/ChatBubble";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -57,6 +58,9 @@ export const metadata: Metadata = {
     metadataBase: new URL("https://bylogos.io"),
     alternates: {
         canonical: "/",
+        languages: {
+            'es-ES': '/es',
+        },
     },
     openGraph: {
         type: "website",
@@ -77,19 +81,34 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
+        site: "@bylogos",
+        creator: "@javiervargas",
         title: "LogOS | Conectando el Campo OT con el Área IT",
         description:
             "Deja de analizar tu infraestructura a mano. LogOS automatiza reportes y adapta sistemas legados a algoritmos de inteligencia artificial.",
         images: ["/twitter-image.jpg"],
     },
     icons: {
-        icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
-        apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+        icon: [
+            { url: "/favicon.ico" },
+            { url: "/icon.png", type: "image/png" },
+            { url: "/icon.svg", type: "image/svg+xml" },
+        ],
+        apple: [
+            { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+        ],
+        other: [
+            {
+                rel: 'mask-icon',
+                url: '/icon.svg',
+            },
+        ],
     },
     manifest: "/manifest.json",
     robots: {
         index: true,
         follow: true,
+        nocache: true,
         googleBot: {
             index: true,
             follow: true,
@@ -99,6 +118,14 @@ export const metadata: Metadata = {
         },
     },
     category: "technology",
+    appleWebApp: {
+        capable: true,
+        statusBarStyle: "default",
+        title: "LogOS",
+    },
+    formatDetection: {
+        telephone: false,
+    },
 };
 
 export default function RootLayout({
@@ -113,6 +140,7 @@ export default function RootLayout({
                 <MuiRootProvider>
                     <ConditionalHeader />
                     {children}
+                    <ChatBubble />
                     <ConditionalFooter />
                 </MuiRootProvider>
             </body>

@@ -31,6 +31,24 @@ export async function generateMetadata({
   return {
     title: doc.title,
     description: doc.description,
+    openGraph: {
+      title: `${doc.title} | LogOS Docs`,
+      description: doc.description,
+      images: [
+        {
+          url: "/opengraph-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "LogOS Documentation",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${doc.title} | LogOS Docs`,
+      description: doc.description,
+      images: ["/twitter-image.jpg"],
+    },
   };
 }
 

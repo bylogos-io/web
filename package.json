@@ -37,6 +37,7 @@
     "react": "19.1.2",
     "react-dom": "19.1.2",
     "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "resend": "^4.8.0",
     "simple-icons": "^15.22.0",
     "three": "^0.182.0",
