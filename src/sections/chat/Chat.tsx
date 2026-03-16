@@ -12,11 +12,11 @@ import Link from "next/link";
 import Image from "next/image";
 import Logos from "@public/icon.svg";
 import { motion } from "framer-motion";
-import { 
-    Box, 
-    TextField, 
-    Typography, 
-    alpha, 
+import {
+    Box,
+    TextField,
+    Typography,
+    alpha,
     IconButton,
     Table,
     TableBody,
@@ -24,7 +24,7 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Paper
+    Paper,
 } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import EmailIcon from "@mui/icons-material/Email";
@@ -60,24 +60,20 @@ const TypedMessage = ({ content, role }: { content: string; role: string }) => {
         <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-                ul: ({ node, ref, ...props }) => (
-                    <ul style={{ paddingLeft: "24px", margin: "12px 0" }} {...props} />
-                ),
-                ol: ({ node, ref, ...props }) => (
-                    <ol style={{ paddingLeft: "24px", margin: "12px 0" }} {...props} />
-                ),
+                ul: ({ node, ref, ...props }) => <ul style={{ paddingLeft: "24px", margin: "12px 0" }} {...props} />,
+                ol: ({ node, ref, ...props }) => <ol style={{ paddingLeft: "24px", margin: "12px 0" }} {...props} />,
                 li: ({ node, ref, ...props }) => (
-                    <Typography 
-                        component="li" 
-                        variant="body2" 
-                        sx={{ 
+                    <Typography
+                        component="li"
+                        variant="body2"
+                        sx={{
                             mb: 1,
                             "&::marker": {
                                 color: "primary.main",
-                                fontWeight: "bold"
-                            }
-                        }} 
-                        {...props} 
+                                fontWeight: "bold",
+                            },
+                        }}
+                        {...props}
                     />
                 ),
                 strong: ({ node, ...props }) => (
@@ -91,7 +87,8 @@ const TypedMessage = ({ content, role }: { content: string; role: string }) => {
                             py: 0.2,
                             borderRadius: "4px",
                             display: "inline",
-                            borderBottom: role === "user" ? "none" : `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+                            borderBottom:
+                                role === "user" ? "none" : `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
                         })}
                         {...props}
                     />
@@ -115,7 +112,7 @@ const TypedMessage = ({ content, role }: { content: string; role: string }) => {
                                 "&:hover": {
                                     bgcolor: alpha(theme.palette.primary.main, 0.1),
                                     borderBottomColor: theme.palette.primary.main,
-                                }
+                                },
                             })}
                             {...props}
                         >
@@ -146,7 +143,7 @@ const TypedMessage = ({ content, role }: { content: string; role: string }) => {
                             borderRadius: "0 12px 12px 0",
                             display: "flex",
                             gap: 2,
-                            alignItems: "flex-start"
+                            alignItems: "flex-start",
                         })}
                     >
                         <InfoOutlinedIcon sx={{ color: "primary.main", mt: 0.3 }} />
@@ -154,46 +151,54 @@ const TypedMessage = ({ content, role }: { content: string; role: string }) => {
                     </Box>
                 ),
                 table: ({ node, ...props }) => (
-                    <TableContainer component={Paper} variant="outlined" sx={{ my: 2, bgcolor: "transparent", border: `1px solid ${alpha("#fff", 0.1)}` }}>
-                        <Table size="small">
-                            {props.children}
-                        </Table>
+                    <TableContainer
+                        component={Paper}
+                        variant="outlined"
+                        sx={{ my: 2, bgcolor: "transparent", border: `1px solid ${alpha("#fff", 0.1)}` }}
+                    >
+                        <Table size="small">{props.children}</Table>
                     </TableContainer>
                 ),
-                thead: ({ node, ...props }) => <TableHead sx={{ bgcolor: alpha("#fff", 0.05) }}>{props.children}</TableHead>,
+                thead: ({ node, ...props }) => (
+                    <TableHead sx={{ bgcolor: alpha("#fff", 0.05) }}>{props.children}</TableHead>
+                ),
                 tbody: ({ node, ...props }) => <TableBody>{props.children}</TableBody>,
                 tr: ({ node, ...props }) => <TableRow>{props.children}</TableRow>,
                 th: ({ node, ...props }) => (
-                    <TableCell sx={{ fontWeight: 800, color: "primary.main", borderBottom: `2px solid ${alpha("#fff", 0.1)}` }}>
+                    <TableCell
+                        sx={{ fontWeight: 800, color: "primary.main", borderBottom: `2px solid ${alpha("#fff", 0.1)}` }}
+                    >
                         {props.children}
                     </TableCell>
                 ),
-                td: ({ node, ...props }) => <TableCell sx={{ borderBottom: `1px solid ${alpha("#fff", 0.1)}` }}>{props.children}</TableCell>,
+                td: ({ node, ...props }) => (
+                    <TableCell sx={{ borderBottom: `1px solid ${alpha("#fff", 0.1)}` }}>{props.children}</TableCell>
+                ),
                 h1: ({ node, ...props }) => (
-                    <Typography 
-                        variant="h5" 
-                        sx={(theme) => ({ 
-                            mt: 4, 
-                            mb: 2, 
-                            fontWeight: 900, 
+                    <Typography
+                        variant="h5"
+                        sx={(theme) => ({
+                            mt: 4,
+                            mb: 2,
+                            fontWeight: 900,
                             color: "primary.main",
                             letterSpacing: "-0.02em",
                             borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
-                            pb: 1
-                        })} 
-                        {...props} 
+                            pb: 1,
+                        })}
+                        {...props}
                     />
                 ),
                 h2: ({ node, ...props }) => (
-                    <Typography 
-                        variant="h6" 
-                        sx={{ 
-                            mt: 3, 
-                            mb: 1.5, 
-                            fontWeight: 800, 
-                            color: "text.primary" 
-                        }} 
-                        {...props} 
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            mt: 3,
+                            mb: 1.5,
+                            fontWeight: 800,
+                            color: "text.primary",
+                        }}
+                        {...props}
                     />
                 ),
                 code: ({ node, ...props }) => (
@@ -287,7 +292,10 @@ const Chat = () => {
                     </Link>
                     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                         <Box sx={{ textAlign: "right", display: { xs: "none", sm: "block" } }}>
-                            <Typography variant="caption" sx={{ fontWeight: 700, color: "primary.main", display: "block" }}>
+                            <Typography
+                                variant="caption"
+                                sx={{ fontWeight: 700, color: "primary.main", display: "block" }}
+                            >
                                 LOGOS AI
                             </Typography>
                             <Typography variant="caption" sx={{ color: "text.secondary" }}>
@@ -318,14 +326,14 @@ const Chat = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        sx={{ 
-                            textAlign: "center", 
-                            flex: 1, 
-                            display: "flex", 
-                            flexDirection: "column", 
+                        sx={{
+                            textAlign: "center",
+                            flex: 1,
+                            display: "flex",
+                            flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
-                            p: 3
+                            p: 3,
                         }}
                     >
                         <Box
@@ -354,7 +362,7 @@ const Chat = () => {
                         >
                             Bienvenido a <br />
                             <Box component="span" sx={{ color: "primary.main" }}>
-                                LogOS Assistant
+                                LogOS
                             </Box>
                         </Typography>
                         <Typography
@@ -362,7 +370,8 @@ const Chat = () => {
                             color="text.secondary"
                             sx={{ maxWidth: 500, mx: "auto", fontWeight: 400, opacity: 0.8 }}
                         >
-                            Soy tu experto en infraestructura IT/OT y automatización industrial. ¿En qué puedo ayudarte hoy?
+                            Soy tu experto en infraestructura IT/OT y automatización industrial. ¿En qué puedo ayudarte
+                            hoy?
                         </Typography>
                     </Box>
                 )}
@@ -413,28 +422,48 @@ const Chat = () => {
                                         <Box
                                             sx={(theme) => ({
                                                 bgcolor: message.role === "user" ? "primary.main" : "background.paper",
-                                                color: message.role === "user" ? "primary.contrastText" : "text.primary",
+                                                color:
+                                                    message.role === "user" ? "primary.contrastText" : "text.primary",
                                                 px: 3,
                                                 py: 2,
-                                                borderRadius: message.role === "user" ? "20px 20px 4px 20px" : "20px 20px 20px 4px",
-                                                border: message.role === "user" ? "none" : `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                                                boxShadow: message.role === "user" 
-                                                    ? `0 10px 25px ${alpha(theme.palette.primary.main, 0.3)}`
-                                                    : `0 4px 20px ${alpha(theme.palette.common.black, 0.2)}`,
+                                                borderRadius:
+                                                    message.role === "user"
+                                                        ? "20px 20px 4px 20px"
+                                                        : "20px 20px 20px 4px",
+                                                border:
+                                                    message.role === "user"
+                                                        ? "none"
+                                                        : `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+                                                boxShadow:
+                                                    message.role === "user"
+                                                        ? `0 10px 25px ${alpha(theme.palette.primary.main, 0.3)}`
+                                                        : `0 4px 20px ${alpha(theme.palette.common.black, 0.2)}`,
                                                 position: "relative",
                                             })}
                                         >
-                                            <TypedMessage 
-                                                content={message.parts
-                                                    ? message.parts
-                                                          .map((part: any) => (part.type === "text" ? part.text : ""))
-                                                          .join("")
-                                                    : message.content} 
-                                                role={message.role} 
+                                            <TypedMessage
+                                                content={
+                                                    message.parts
+                                                        ? message.parts
+                                                              .map((part: any) =>
+                                                                  part.type === "text" ? part.text : "",
+                                                              )
+                                                              .join("")
+                                                        : message.content
+                                                }
+                                                role={message.role}
                                             />
                                         </Box>
                                         {message.role !== "user" && (
-                                            <Box sx={{ display: "flex", justifyContent: "flex-start", opacity: 0.6, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}>
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    justifyContent: "flex-start",
+                                                    opacity: 0.6,
+                                                    "&:hover": { opacity: 1 },
+                                                    transition: "opacity 0.2s",
+                                                }}
+                                            >
                                                 <CopyButton
                                                     text={
                                                         message.parts
@@ -548,8 +577,8 @@ const Chat = () => {
                                     },
                                     "&.Mui-focused": {
                                         boxShadow: `0 0 0 4px ${alpha(theme.palette.primary.main, 0.1)}`,
-                                    }
-                                }
+                                    },
+                                },
                             })}
                         />
                         <IconButton
@@ -576,16 +605,23 @@ const Chat = () => {
                                 "&.Mui-disabled": {
                                     background: alpha(theme.palette.action.disabled, 0.1),
                                     boxShadow: "none",
-                                }
+                                },
                             })}
                         >
                             <SendOutlinedIcon sx={{ fontSize: 22 }} />
                         </IconButton>
-                        
+
                         <Typography
                             variant="caption"
                             display="block"
-                            sx={{ mt: 1.5, textAlign: "center", color: "text.secondary", opacity: 0.6, fontSize: "0.7rem", letterSpacing: "0.02em" }}
+                            sx={{
+                                mt: 1.5,
+                                textAlign: "center",
+                                color: "text.secondary",
+                                opacity: 0.6,
+                                fontSize: "0.7rem",
+                                letterSpacing: "0.02em",
+                            }}
                         >
                             CONSTRUIDO POR LOGOS • LA IA PUEDE COMETER ERRORES
                         </Typography>
