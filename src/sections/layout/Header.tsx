@@ -303,7 +303,7 @@ export function Header() {
                             >
                                 <Button
                                     component={Link}
-                                    href="mailto:contact@bylogos.io"
+                                    href="/#newsletter"
                                     variant="contained"
                                     size="medium"
                                     sx={(theme) => ({

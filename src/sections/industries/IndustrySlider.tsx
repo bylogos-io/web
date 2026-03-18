@@ -218,7 +218,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
             </Box>
 
             {/* ── Below image: dots → title → description ── */}
-            <Container maxWidth="md">
+            <Container maxWidth="xl">
                 {/* Dot indicators */}
                 <Box
                     sx={{

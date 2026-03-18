@@ -150,40 +150,209 @@ export function NewsPost({ post }: NewsPostProps) {
         <Divider sx={{ mb: 6 }} />
 
         <Box
-          sx={{
+          sx={(theme) => ({
+            /* ── Párrafos ── */
             "& p": {
               fontSize: "1.125rem",
-              lineHeight: 1.8,
+              lineHeight: 1.9,
               mb: 3,
               color: "text.primary",
             },
+
+            /* ── Encabezados ── */
             "& h2": {
-              fontSize: "2rem",
-              fontWeight: 700,
-              mt: 6,
+              fontSize: { xs: "1.6rem", md: "2rem" },
+              fontWeight: 800,
+              mt: 7,
               mb: 3,
               color: "text.primary",
+              borderLeft: `4px solid ${theme.palette.primary.main}`,
+              pl: 2,
+              lineHeight: 1.2,
             },
             "& h3": {
-              fontSize: "1.5rem",
-              fontWeight: 600,
-              mt: 4,
+              fontSize: { xs: "1.2rem", md: "1.5rem" },
+              fontWeight: 700,
+              mt: 5,
               mb: 2,
               color: "text.primary",
             },
-            "& ul, & ol": { pl: 3, mb: 3, color: "text.primary" },
-            "& li": { mb: 1, fontSize: "1.125rem" },
-            "& blockquote": {
-              borderLeft: "4px solid",
-              borderColor: "primary.main",
-              pl: 3,
-              py: 1,
-              my: 4,
-              fontStyle: "italic",
-              backgroundColor: (theme) =>
-                alpha(theme.palette.primary.main, 0.05),
+            "& h4": {
+              fontSize: "1.1rem",
+              fontWeight: 700,
+              mt: 3,
+              mb: 1,
+              color: "primary.main",
             },
-          }}
+
+            /* ── Listas ── */
+            "& ul": {
+              pl: 0,
+              mb: 3,
+              listStyle: "none",
+              "& li": {
+                position: "relative",
+                pl: "1.5em",
+                mb: 1.5,
+                fontSize: "1.1rem",
+                lineHeight: 1.8,
+                "&::before": {
+                  content: '"▸"',
+                  position: "absolute",
+                  left: 0,
+                  color: theme.palette.primary.main,
+                  fontWeight: 700,
+                },
+              },
+            },
+            "& ol": {
+              pl: 3,
+              mb: 3,
+              "& li": {
+                mb: 1.5,
+                fontSize: "1.1rem",
+                lineHeight: 1.8,
+                pl: "0.5em",
+              },
+            },
+
+            /* ── Citas / Blockquote ── */
+            "& blockquote": {
+              borderLeft: `5px solid ${theme.palette.primary.main}`,
+              pl: 3,
+              pr: 2,
+              py: 2,
+              my: 5,
+              mx: 0,
+              borderRadius: "0 8px 8px 0",
+              fontStyle: "italic",
+              fontSize: "1.15rem",
+              lineHeight: 1.8,
+              color: "text.secondary",
+              backgroundColor: alpha(theme.palette.primary.main, 0.06),
+              "& p": { mb: 0 },
+            },
+
+            /* ── Código inline ── */
+            "& code": {
+              fontFamily: "monospace",
+              fontSize: "0.9em",
+              px: "6px",
+              py: "2px",
+              borderRadius: "4px",
+              backgroundColor: alpha(theme.palette.primary.main, 0.1),
+              color: theme.palette.primary.main,
+              border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+            },
+
+            /* ── Bloques de código ── */
+            "& pre": {
+              backgroundColor:
+                theme.palette.mode === "dark"
+                  ? alpha("#000", 0.5)
+                  : alpha(theme.palette.grey[900], 0.92),
+              color: "#e2e8f0",
+              borderRadius: "10px",
+              p: 3,
+              my: 4,
+              overflowX: "auto",
+              fontSize: "0.9rem",
+              lineHeight: 1.7,
+              border: `1px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+              "& code": {
+                backgroundColor: "transparent",
+                border: "none",
+                color: "inherit",
+                fontSize: "inherit",
+                p: 0,
+              },
+            },
+
+            /* ── Tablas ── */
+            "& table": {
+              width: "100%",
+              borderCollapse: "collapse",
+              my: 5,
+              fontSize: "0.97rem",
+              borderRadius: "10px",
+              overflow: "hidden",
+              boxShadow: `0 0 0 1px ${alpha(theme.palette.divider, 0.5)}`,
+              display: "block",
+              overflowX: "auto",
+            },
+            "& thead": {
+              backgroundColor: theme.palette.primary.main,
+              "& th": {
+                color: "#fff",
+                fontWeight: 700,
+                px: 2.5,
+                py: 1.5,
+                textAlign: "left",
+                whiteSpace: "nowrap",
+                fontSize: "0.9rem",
+                letterSpacing: "0.03em",
+                textTransform: "uppercase",
+              },
+            },
+            "& tbody": {
+              "& tr:nth-of-type(even)": {
+                backgroundColor: alpha(theme.palette.primary.main, 0.04),
+              },
+              "& tr:hover": {
+                backgroundColor: alpha(theme.palette.primary.main, 0.08),
+                transition: "background 0.15s ease",
+              },
+              "& td": {
+                px: 2.5,
+                py: 1.5,
+                borderBottom: `1px solid ${alpha(theme.palette.divider, 0.4)}`,
+                verticalAlign: "top",
+                lineHeight: 1.6,
+              },
+            },
+
+            /* ── Imágenes ── */
+            "& img": {
+              maxWidth: "100%",
+              height: "auto",
+              borderRadius: "12px",
+              my: 4,
+              display: "block",
+              mx: "auto",
+              boxShadow: `0 4px 24px ${alpha("#000", 0.15)}`,
+            },
+
+            /* ── Links ── */
+            "& a": {
+              color: theme.palette.primary.main,
+              textDecoration: "underline",
+              textDecorationColor: alpha(theme.palette.primary.main, 0.4),
+              textUnderlineOffset: "3px",
+              fontWeight: 500,
+              transition: "all 0.2s ease",
+              "&:hover": {
+                textDecorationColor: theme.palette.primary.main,
+                color: theme.palette.primary.dark,
+              },
+            },
+
+            /* ── Énfasis ── */
+            "& strong, & b": {
+              fontWeight: 700,
+              color: "text.primary",
+            },
+            "& em": {
+              fontStyle: "italic",
+              color: "text.secondary",
+            },
+
+            /* ── Separador ── */
+            "& hr": {
+              border: "none",
+              borderTop: `2px solid ${alpha(theme.palette.divider, 0.5)}`,
+              my: 6,
+            },
+          })}
         >
           <MDXContent code={post.content} />
         </Box>

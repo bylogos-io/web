@@ -23,12 +23,15 @@ export const NAVIGATION_ITEMS = [
         href: "/pricing",
     },
     { label: "Nosotros", href: "/about" },
-    // { label: "Noticias", href: "/news" },
+    { label: "Noticias", href: "/news" },
 ];
 
 export const SOCIAL_LINKS = [
     { icon: LinkedInIcon, href: "https://www.linkedin.com/company/bylogos/" },
-    { icon: InstagramIcon, href: "https://www.instagram.com/bylogos.io/" },
+    {
+        icon: InstagramIcon,
+        href: "https://www.instagram.com/logos_iot/",
+    },
     { icon: GitHubIcon, href: "https://github.com/bylogos-io" },
 ];
 

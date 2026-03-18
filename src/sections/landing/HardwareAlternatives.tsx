@@ -300,7 +300,7 @@ export function HardwareAlternatives() {
                                         </Box>
 
                                         <Box sx={{ mt: "auto" }}>
-                                            <Link href="mailto:contact@bylogos.io" style={{ textDecoration: "none" }}>
+                                            <Link href="/#newsletter" style={{ textDecoration: "none" }}>
                                                 <Button
                                                     variant="contained"
                                                     fullWidth
