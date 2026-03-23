@@ -1,5 +1,5 @@
 import { news } from '@/velite';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import { NewsPost } from '@/sections/news/NewsPost';
 
@@ -59,6 +59,10 @@ export default async function NewsPostPage({ params }: PageProps) {
 	if (!post) {
 		notFound();
 	}
+
+  if ((post as any).redirectUrl) {
+    redirect((post as any).redirectUrl);
+  }
 
 	return <NewsPost post={post} />;
 }

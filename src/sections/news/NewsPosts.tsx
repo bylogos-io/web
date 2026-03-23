@@ -24,6 +24,7 @@ interface NewsItem {
   cover?: string;
   date: string;
   tags?: string[];
+  redirectUrl?: string;
 }
 
 interface NewsPostsProps {
@@ -79,7 +80,9 @@ export function NewsPosts({ posts }: NewsPostsProps) {
               >
                 <CardActionArea
                   component={Link}
-                  href={`/${post.slug}`}
+                  href={post.redirectUrl || `/${post.slug}`}
+                  target={post.redirectUrl ? '_blank' : '_self'}
+                  rel={post.redirectUrl ? 'noopener noreferrer' : undefined}
                   sx={{
                     height: '100%',
                     display: 'flex',
@@ -194,7 +197,7 @@ export function NewsPosts({ posts }: NewsPostsProps) {
                         fontSize: '0.875rem',
                       }}
                     >
-                      Leer más
+                      {post.redirectUrl ? 'Ver más' : 'Leer más'}
                       <ArrowForwardIcon sx={{ fontSize: 16 }} />
                     </Stack>
                   </CardContent>

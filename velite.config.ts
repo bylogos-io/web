@@ -24,6 +24,8 @@ const news = defineCollection({
     description: s.string(),
     cover: s.string().optional(),
     tags: s.array(s.string()).optional(),
+    links: s.array(s.object({ title: s.string(), url: s.string() })).optional(),
+    redirectUrl: s.string().optional(),
     content: s.mdx(),
   }),
 });

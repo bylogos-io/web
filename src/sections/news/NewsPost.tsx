@@ -12,6 +12,7 @@ import {
 import { MDXContent } from "@/components/MdxContent"; // Using existing component
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
 import { News } from "../../../.velite"; // Placeholder
 
@@ -22,6 +23,8 @@ interface NewsItem {
   date: string;
   cover?: string;
   tags?: string[];
+  links?: { title: string; url: string }[];
+  redirectUrl?: string;
   content: any; // MDX content
 }
 
@@ -136,6 +139,62 @@ export function NewsPost({ post }: NewsPostProps) {
 
       {/* Main Content */}
       <Container maxWidth="md">
+        {post.links && post.links.length > 0 && (
+          <Box sx={{ mb: 6 }}>
+            <Typography variant="h4" fontWeight={800} sx={{ mb: 4, letterSpacing: '-0.02em' }}>
+              Enlaces de Interés
+            </Typography>
+            <Stack spacing={2}>
+              {post.links.map((link, index) => (
+                <Box
+                  key={index}
+                  component="a"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={(theme) => ({
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    p: 3,
+                    borderRadius: 3,
+                    textDecoration: 'none',
+                    backgroundColor: alpha(theme.palette.primary.main, 0.03),
+                    border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {
+                      backgroundColor: alpha(theme.palette.primary.main, 0.08),
+                      borderColor: theme.palette.primary.main,
+                      transform: 'translateX(8px)',
+                      '& .link-title': { color: 'primary.main' },
+                      '& .link-arrow': { transform: 'translateX(8px)' },
+                    },
+                  })}
+                >
+                  <Typography
+                    className="link-title"
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ color: 'text.primary', transition: 'color 0.3s ease', fontSize: '1rem' }}
+                  >
+                    {link.title}
+                  </Typography>
+                  <Box
+                    className="link-arrow"
+                    sx={{
+                      color: 'primary.main',
+                      transition: 'transform 0.3s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <ArrowForwardIcon sx={{ fontSize: 20 }} />
+                  </Box>
+                </Box>
+              ))}
+            </Stack>
+          </Box>
+        )}
         <Typography
           variant="h5"
           sx={{
@@ -148,6 +207,7 @@ export function NewsPost({ post }: NewsPostProps) {
           {post.description}
         </Typography>
         <Divider sx={{ mb: 6 }} />
+
 
         <Box
           sx={(theme) => ({
@@ -356,6 +416,7 @@ export function NewsPost({ post }: NewsPostProps) {
         >
           <MDXContent code={post.content} />
         </Box>
+
       </Container>
     </Box>
   );

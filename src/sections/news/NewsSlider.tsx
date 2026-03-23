@@ -22,6 +22,7 @@ interface NewsItem {
   description: string;
   cover?: string;
   date: string;
+  redirectUrl?: string;
 }
 
 interface NewsSliderProps {
@@ -198,7 +199,9 @@ export function NewsSlider({
                   </Typography>
                   <Button
                     component={Link}
-                    href={`/${posts[currentIndex].slug}`}
+                    href={posts[currentIndex].redirectUrl || `/${posts[currentIndex].slug}`}
+                    target={posts[currentIndex].redirectUrl ? '_blank' : '_self'}
+                    rel={posts[currentIndex].redirectUrl ? 'noopener noreferrer' : undefined}
                     variant='contained'
                     size='large'
                     sx={{
@@ -207,7 +210,7 @@ export function NewsSlider({
                       fontWeight: 700,
                     }}
                   >
-                    Leer Artículo
+                    {posts[currentIndex].redirectUrl ? 'Ver Noticia Externa' : 'Leer Artículo'}
                   </Button>
                 </motion.div>
               </Box>
