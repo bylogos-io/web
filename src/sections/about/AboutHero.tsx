@@ -26,7 +26,7 @@ export function AboutHero() {
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
-                        backgroundImage: `url(/logos.svg)`,
+                        backgroundImage: `url(/isologo.svg)`,
                         opacity: 0.15,
                         filter: "brightness(0.8)",
                     }}

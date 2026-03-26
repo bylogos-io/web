@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import LogosIcon from "@public/logos.svg";
+import LogosIcon from "@public/isologo.svg";
 
 // MUI Icons
 import MenuIcon from "@mui/icons-material/Menu";

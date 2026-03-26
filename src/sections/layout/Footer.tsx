@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import logoImage from "@public/logos.svg";
+import logoImage from "@public/isologo.svg";
 import { SOCIAL_LINKS, CONTACT_INFO, FOOTER_PROTOCOLS } from "@/data/layout";
 import { Box, Container, Grid2 as Grid, Typography, Divider, Stack, alpha, Button, IconButton } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
