@@ -45,6 +45,7 @@
     "three": "^0.182.0",
     "three-stdlib": "^2.36.1",
     "uuid": "^13.0.0",
+    "video.js": "^8.23.7",
     "zod": "^4.3.6"
   },
   "devDependencies": {
