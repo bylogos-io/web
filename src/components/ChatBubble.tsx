@@ -60,7 +60,7 @@ const TypedMessage = ({ content, role, skipAnimation }: { content: string; role:
         }, speed);
 
         return () => clearInterval(interval);
-    }, [content, role]);
+    }, [content, role, skipAnimation]);
 
     return (
         <ReactMarkdown
@@ -252,6 +252,14 @@ export function ChatBubble() {
     const isLoading = status === "streaming" || status === "submitted";
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
+    const handleOpen = () => {
+        setInitialMessageCount(messages.length);
+        setIsOpen(true);
+        requestAnimationFrame(() => {
+            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        });
+    };
+
     useEffect(() => {
         const timer = setTimeout(() => setIsVisible(true), 1500);
         return () => clearTimeout(timer);
@@ -259,16 +267,9 @@ export function ChatBubble() {
 
     useEffect(() => {
         if (isOpen) {
-            setInitialMessageCount(messages.length);
             messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
         }
-    }, [isOpen]);
-
-    useEffect(() => {
-        if (isOpen) {
-            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-        }
-    }, [messages, status]);
+    }, [isOpen, messages, status]);
 
     useEffect(() => {
         if (isOpen && isHovering) {
@@ -302,7 +303,13 @@ export function ChatBubble() {
                             whileTap={{ scale: 0.95 }}
                         >
                             <Fab
-                                onClick={() => setIsOpen(!isOpen)}
+                                onClick={() => {
+                                    if (isOpen) {
+                                        setIsOpen(false);
+                                        return;
+                                    }
+                                    handleOpen();
+                                }}
                                 sx={(theme) => ({
                                     width: { xs: 56, md: 64 },
                                     height: { xs: 56, md: 64 },

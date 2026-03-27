@@ -6,17 +6,18 @@ import { Box } from "@mui/material";
 
 export function ConditionalFooter() {
   const pathname = usePathname();
+  const currentPath = pathname ?? "";
 
   // List of paths where the footer should NOT be shown
   const excludedPaths = ["/chat", "/docs", "/terms", "/privacy"];
 
   const shouldExclude = excludedPaths.some(
-    (path) => pathname === path || pathname.startsWith(`${path}/`),
+    (path) => currentPath === path || currentPath.startsWith(`${path}/`),
   );
 
   if (shouldExclude) return null;
 
-  const isHome = pathname === "/";
+  const isHome = currentPath === "/";
 
   if (isHome) {
     return (

@@ -245,7 +245,7 @@ export function ChatWidget() {
                                                 >
                                                     <ReactMarkdown
                                                         components={{
-                                                            ul: ({ node, ...props }) => (
+                                                            ul: ({ node, ref, ...props }) => (
                                                                 <ul
                                                                     style={{
                                                                         paddingLeft: "16px",
@@ -254,7 +254,7 @@ export function ChatWidget() {
                                                                     {...props}
                                                                 />
                                                             ),
-                                                            p: ({ node, ...props }) => (
+                                                            p: ({ node, ref, ...props }) => (
                                                                 <Typography
                                                                     variant="body2"
                                                                     sx={{
@@ -265,7 +265,7 @@ export function ChatWidget() {
                                                                     {...props}
                                                                 />
                                                             ),
-                                                            a: ({ node, ...props }) => (
+                                                            a: ({ node, ref, ...props }) => (
                                                                 <a
                                                                     target="_blank"
                                                                     rel="noopener noreferrer"
