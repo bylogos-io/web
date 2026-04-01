@@ -35,7 +35,14 @@ export function Footer() {
                             viewport={{ once: true }}
                         >
                             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                                <Image src={logoImage} alt="LogOS" width={64} height={32} unoptimized />
+                                <Image
+                                    src={logoImage}
+                                    alt="LogOS"
+                                    width={100}
+                                    height={36}
+                                    style={{ objectFit: "contain", objectPosition: "left" }}
+                                    unoptimized
+                                />
                             </Box>
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.6 }}>
                                 Revoluciona infraestructura industrial en tiempo real.

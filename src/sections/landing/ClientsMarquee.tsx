@@ -12,6 +12,7 @@ const CLIENTS = [
     { name: "Client 5", src: "/Mesa_de_trabajo_5.svg" },
     { name: "Client 6", src: "/Mesa_de_trabajo_6.svg" },
     { name: "Rodar", src: "/rodar_registrado.svg" },
+    { name: "FS Curtis", src: "/fscurtis.png", height: 100 },
 ];
 
 const scrollRight = keyframes`
