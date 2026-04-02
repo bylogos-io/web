@@ -14,37 +14,19 @@ import {
 import Image from "next/image";
 import logoImage from "@public/isologo.svg";
 import { Box, Container, Typography, Stack, Grid2 as Grid, alpha, Chip, Card, Button } from "@mui/material";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
+import { useRouter } from "@/i18n/routing";
 
 export default function ERR404() {
-    const diagnostics = [
-        { label: "HTTP Status", value: "404", status: "error" },
-        { label: "Connection", value: "Active", status: "success" },
-        { label: "Protocol", value: "HTTPS", status: "success" },
-        { label: "Response Time", value: "45ms", status: "success" },
-    ];
-
-    const suggestions = [
-        {
-            icon: HomeIcon,
-            title: "Volver al inicio",
-            description: "Regresa a la página principal de LogOS.",
-            action: "Ir a inicio",
-            href: "/",
-        },
-        {
-            icon: SearchIcon,
-            title: "Revisar la URL",
-            description: "Revisa la dirección que estás buscando.",
-            action: "Revisar",
-        },
-        {
-            icon: MailIcon,
-            title: "Newsletter",
-            description: "Suscríbete a nuestra bandeja de entrada y entérate de todo.",
-            action: "Suscribir",
-            href: "#newsletter",
-        },
-    ];
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const router = useRouter();
+    const diagnostics = content.notFound.diagnostics;
+    const suggestions = content.notFound.suggestions.map((suggestion, index) => ({
+        ...suggestion,
+        icon: index === 0 ? HomeIcon : index === 1 ? SearchIcon : MailIcon,
+    }));
 
     return (
         <Box
@@ -129,7 +111,7 @@ export default function ERR404() {
                     >
                         <Image
                             src={logoImage}
-                            alt="LogOS Logo"
+                            alt={content.common.logosWordmarkAlt}
                             width={150}
                             height={48}
                             style={{
@@ -139,7 +121,7 @@ export default function ERR404() {
                             }}
                         />
                         <Chip
-                            label="Página no encontrada"
+                            label={content.notFound.badge}
                             color="error"
                             variant="outlined"
                             sx={(theme) => ({
@@ -182,9 +164,9 @@ export default function ERR404() {
                                         mb: 2,
                                     }}
                                 >
-                                    Página{" "}
+                                    {content.notFound.title}{" "}
                                     <Box component="span" sx={{ color: "error.main" }}>
-                                        no encontrada
+                                        {content.notFound.titleAccent}
                                     </Box>
                                 </Typography>
                                 <Typography
@@ -192,7 +174,7 @@ export default function ERR404() {
                                     color="text.secondary"
                                     sx={{ mb: 4, fontWeight: 400, lineHeight: 1.6 }}
                                 >
-                                    La ruta solicitada no existe. Verifica la URL o utiliza los enlaces de navegación.
+                                    {content.notFound.description}
                                 </Typography>
                             </Box>
 
@@ -201,7 +183,7 @@ export default function ERR404() {
                                 <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 3 }}>
                                     <ActivityIcon sx={{ color: "primary.main", fontSize: 20 }} />
                                     <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                                        Diagnóstico del sistema
+                                        {content.notFound.diagnosticsTitle}
                                     </Typography>
                                 </Stack>
 
@@ -264,11 +246,11 @@ export default function ERR404() {
                                 >
                                     <AlertTriangleIcon sx={{ color: "primary.main", fontSize: 24 }} />
                                     <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                                        Recuperación
+                                        {content.notFound.recoveryTitle}
                                     </Typography>
                                 </Stack>
                                 <Typography color="text.secondary">
-                                    Selecciona una de las siguientes opciones para continuar navegando.
+                                    {content.notFound.recoveryDescription}
                                 </Typography>
                             </Box>
 
@@ -298,7 +280,18 @@ export default function ERR404() {
                                                     },
                                                 },
                                             })}
-                                            onClick={() => suggestion.href && (window.location.href = suggestion.href)}
+                                            onClick={() => {
+                                                if (!suggestion.href) {
+                                                    return;
+                                                }
+
+                                                if (suggestion.href.startsWith("#")) {
+                                                    window.location.href = `/${locale}${suggestion.href}`;
+                                                    return;
+                                                }
+
+                                                router.push(suggestion.href);
+                                            }}
                                         >
                                             <Stack direction="row" spacing={2} alignItems="center">
                                                 <Box
@@ -355,10 +348,10 @@ export default function ERR404() {
                                 <Button
                                     variant="contained"
                                     sx={{ flex: 1, height: 48 }}
-                                    onClick={() => (window.location.href = "/")}
+                                    onClick={() => router.push("/")}
                                 >
                                     <HomeIcon sx={{ fontSize: 18, mr: 1 }} />
-                                    Volver al inicio
+                                    {content.notFound.goHome}
                                 </Button>
                                 <Button
                                     variant="outlined"
@@ -366,7 +359,7 @@ export default function ERR404() {
                                     onClick={() => window.history.back()}
                                 >
                                     <ArrowLeftIcon sx={{ fontSize: 18, mr: 1 }} />
-                                    Página anterior
+                                    {content.notFound.previousPage}
                                 </Button>
                             </Stack>
                         </Grid>
@@ -399,7 +392,7 @@ export default function ERR404() {
                                             LogOS v1.1.0
                                         </Typography>
                                         <Typography variant="caption" color="text.secondary">
-                                            Plataforma • Tiempo de actividad: 99.9%
+                                            {content.notFound.platformLabel}
                                         </Typography>
                                     </Box>
                                 </Stack>
@@ -418,7 +411,7 @@ export default function ERR404() {
                                             }}
                                         />
                                         <Typography variant="caption" color="text.secondary">
-                                            Servicios activos
+                                            {content.notFound.servicesActive}
                                         </Typography>
                                     </Stack>
                                     <Stack direction="row" spacing={1} alignItems="center">
@@ -431,7 +424,7 @@ export default function ERR404() {
                                             }}
                                         />
                                         <Typography variant="caption" color="text.secondary">
-                                            Conectado a edge
+                                            {content.notFound.edgeConnected}
                                         </Typography>
                                     </Stack>
                                 </Stack>
@@ -439,7 +432,7 @@ export default function ERR404() {
                         </Card>
 
                         <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 3 }}>
-                            Error ID: ERR-404 • Soporte técnico:{" "}
+                            Error ID: ERR-404 • {content.notFound.supportLabel}{" "}
                             <Box component="span" sx={{ color: "primary.main" }}>
                                 soporte@bylogos.cl
                             </Box>

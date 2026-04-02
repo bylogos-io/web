@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/routing";
 import { Footer } from "./Footer";
 import { Box } from "@mui/material";
 

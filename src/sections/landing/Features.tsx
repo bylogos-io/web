@@ -2,10 +2,17 @@
 import { motion } from "framer-motion";
 import { Box, Container, Grid2 as Grid, Typography, alpha, Stack, Card } from "@mui/material";
 import { FEATURES_DATA } from "@/data/landing";
-
-const features = FEATURES_DATA;
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function Features() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const features = FEATURES_DATA.map((feature, index) => ({
+        ...feature,
+        ...content.home.features.items[index],
+    }));
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -64,10 +71,10 @@ export function Features() {
                                 color: "transparent",
                             })}
                         >
-                            Funcionamiento
+                            {content.home.features.titleStart}
                         </Box>{" "}
                         <Box component="span" sx={{ color: "primary.main" }}>
-                            Modular
+                            {content.home.features.titleAccent}
                         </Box>
                     </Typography>
                     <Typography
@@ -81,7 +88,7 @@ export function Features() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Arma tu propia solución escogiendo los módulos que necesitas!
+                        {content.home.features.description}
                     </Typography>
                 </Box>
 

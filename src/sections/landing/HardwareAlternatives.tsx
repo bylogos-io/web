@@ -1,16 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 
 import seeed from "@public/seeed.webp";
 import { HARDWARE_OPTIONS } from "@/data/landing";
 import { Box, Container, Grid2 as Grid, Typography, Stack, alpha, Chip, Card, Button } from "@mui/material";
-
-const hardwareOptions = HARDWARE_OPTIONS;
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
+import { Link } from "@/i18n/routing";
 
 export function HardwareAlternatives() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const hardwareOptions = HARDWARE_OPTIONS.map((hardware, index) => ({
+        ...hardware,
+        subtitle: content.home.hardware.options[index]?.subtitle ?? hardware.subtitle,
+        description: content.home.hardware.options[index]?.description ?? hardware.description,
+        features: hardware.features.map((feature, featureIndex) => ({
+            ...feature,
+            text: content.home.hardware.options[index]?.features?.[featureIndex] ?? feature.text,
+        })),
+        specs: content.home.hardware.options[index]?.specs ?? hardware.specs,
+        useCase: content.home.hardware.options[index]?.useCase ?? hardware.useCase,
+        highlight: content.home.hardware.options[index]?.highlight ?? hardware.highlight,
+    }));
+
     return (
         <Box component="section" id="hardware" sx={{ py: 8 }}>
             <Container maxWidth="xl">
@@ -40,10 +55,10 @@ export function HardwareAlternatives() {
                                 color: "transparent",
                             })}
                         >
-                            Hardware
+                            {content.home.hardware.titleStart}
                         </Box>{" "}
                         <Box component="span" sx={{ color: "primary.main" }}>
-                            Industrial
+                            {content.home.hardware.titleAccent}
                         </Box>
                     </Typography>
                     <Typography
@@ -57,8 +72,7 @@ export function HardwareAlternatives() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Soluciones de hardware especializadas de Seeed Studio, optimizadas para ejecutar LogOS en
-                        entornos industriales exigentes con la mayor estabilidad.
+                        {content.home.hardware.description}
                     </Typography>
                 </Box>
 
@@ -188,7 +202,7 @@ export function HardwareAlternatives() {
                                                     color="text.secondary"
                                                     sx={{ fontWeight: 500 }}
                                                 >
-                                                    IVA NO INCLUIDO
+                                                    {content.home.hardware.vatExcluded}
                                                 </Typography>
                                             </Box>
                                         </Box>
@@ -244,7 +258,7 @@ export function HardwareAlternatives() {
                                                     textAlign: "center",
                                                 }}
                                             >
-                                                ESPECIFICACIONES TÉCNICAS
+                                                {content.home.hardware.technicalSpecs}
                                             </Typography>
                                             <Grid container spacing={1.5}>
                                                 {hardware.specs.map((spec, sIdx) => (
@@ -293,7 +307,7 @@ export function HardwareAlternatives() {
                                                     component="span"
                                                     sx={{ color: "primary.main", mr: 1, fontWeight: 700 }}
                                                 >
-                                                    Caso de uso:
+                                                    {content.home.hardware.useCaseLabel}
                                                 </Box>{" "}
                                                 {hardware.useCase}
                                             </Typography>
@@ -310,7 +324,7 @@ export function HardwareAlternatives() {
                                                         boxShadow: `0 8px 16px ${alpha(theme.palette.primary.main, 0.2)}`,
                                                     })}
                                                 >
-                                                    SOLICITAR COTIZACIÓN
+                                                    {content.home.hardware.quoteButton}
                                                 </Button>
                                             </Link>
                                         </Box>
@@ -356,9 +370,7 @@ export function HardwareAlternatives() {
                             color="text.secondary"
                             sx={{ maxWidth: 900, mx: "auto", lineHeight: 1.8 }}
                         >
-                            <strong style={{ color: "#e16e09" }}>LogOS</strong> está probado y optimizado para hardware
-                            SEEED Studio, garantizando máximo rendimiento, seguridad y compatibilidad total en entornos
-                            industriales críticos de alta exigencia.
+                            {content.home.hardware.partnership}
                         </Typography>
                     </Box>
                 </Box>

@@ -1,9 +1,14 @@
 "use client";
 
 import { Box, Typography, Container, alpha, Button } from "@mui/material";
-import Link from "next/link";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
+import { Link } from "@/i18n/routing";
 
 export function IndustryFooter() {
+  const locale = useLocale();
+  const content = getSiteContent(locale);
+
   return (
     <Container maxWidth="lg" sx={{ mt: 10, pb: 10 }}>
       <Box
@@ -17,15 +22,13 @@ export function IndustryFooter() {
         }}
       >
         <Typography variant="h4" fontWeight={800} gutterBottom>
-          ¿Tu industria no aparece aquí?
+          {content.industries.footerTitle}
         </Typography>
         <Typography
           variant="body1"
           sx={{ color: "text.secondary", mb: 4, maxWidth: 600, mx: "auto" }}
         >
-          Nuestra arquitectura hardware-agnostic permite la integración en
-          prácticamente cualquier entorno industrial que requiera monitoreo y
-          control avanzado.
+          {content.industries.footerDescription}
         </Typography>
         <Button
           component={Link}
@@ -34,7 +37,7 @@ export function IndustryFooter() {
           size="large"
           sx={{ fontWeight: 700, px: 5 }}
         >
-          Contáctanos
+          {content.industries.footerButton}
         </Button>
       </Box>
     </Container>

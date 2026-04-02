@@ -2,15 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import logoImage from "@public/isologo.svg";
-import { SOCIAL_LINKS, CONTACT_INFO, FOOTER_PROTOCOLS } from "@/data/layout";
+import { SOCIAL_LINKS } from "@/data/layout";
 import { Box, Container, Grid2 as Grid, Typography, Divider, Stack, alpha, Button, IconButton } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
+import { Link } from "@/i18n/routing";
+import { getSiteContent } from "@/i18n/siteContent";
+import { useLocale } from "next-intl";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
-    const contactInfo = CONTACT_INFO;
+    const locale = useLocale();
+    const content = getSiteContent(locale);
     const socialLinks = SOCIAL_LINKS;
 
     return (
@@ -37,7 +40,7 @@ export function Footer() {
                             <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                                 <Image
                                     src={logoImage}
-                                    alt="LogOS"
+                                    alt={content.common.logosWordmarkAlt}
                                     width={100}
                                     height={36}
                                     style={{ objectFit: "contain", objectPosition: "left" }}
@@ -45,7 +48,7 @@ export function Footer() {
                                 />
                             </Box>
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2, lineHeight: 1.6 }}>
-                                Revoluciona infraestructura industrial en tiempo real.
+                                {content.footer.tagline}
                             </Typography>
                             <Stack direction="row" spacing={1}>
                                 {socialLinks.map((social, idx) => (
@@ -54,7 +57,7 @@ export function Footer() {
                                         component="a"
                                         href={social.href}
                                         target="_blank"
-                                        aria-label="Visitar red social"
+                                        aria-label={content.common.socialLinkAriaLabel}
                                         sx={(theme) => ({
                                             color: "text.secondary",
                                             backgroundColor: alpha(theme.palette.secondary.main, 0.05),
@@ -123,10 +126,10 @@ export function Footer() {
                             viewport={{ once: true }}
                         >
                             <Typography variant="h6" color="text.primary" sx={{ mb: 2, fontWeight: 600 }}>
-                                Protocolos soportados
+                                {content.footer.protocolsTitle}
                             </Typography>
                             <Stack spacing={1}>
-                                {FOOTER_PROTOCOLS.map((protocol, idx) => (
+                                {content.footer.protocols.map((protocol, idx) => (
                                     <Typography key={idx} variant="body2" color="text.secondary">
                                         • {protocol}
                                     </Typography>
@@ -145,50 +148,45 @@ export function Footer() {
                             viewport={{ once: true }}
                         >
                             <Typography variant="h6" color="text.primary" sx={{ mb: 2, fontWeight: 600 }}>
-                                Contacto directo
+                                {content.footer.directContactTitle}
                             </Typography>
                             <Stack spacing={2}>
-                                {contactInfo.map((contact, index) => (
-                                    <Box key={index} sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
-                                        <contact.icon
-                                            sx={{
-                                                color: "primary.main",
-                                                fontSize: 18,
-                                                marginTop: 0.5,
-                                            }}
-                                        />
-                                        <Box>
+                                <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
+                                    <MailIcon
+                                        sx={{
+                                            color: "primary.main",
+                                            fontSize: 18,
+                                            marginTop: 0.5,
+                                        }}
+                                    />
+                                    <Box>
+                                        <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                                            {content.footer.contactInfoLabel}
+                                        </Typography>
+                                        <Box
+                                            component="a"
+                                            href="mailto:contact@bylogos.io"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={{ textDecoration: "none" }}
+                                        >
                                             <Typography
-                                                variant="caption"
-                                                color="text.secondary"
-                                                sx={{ display: "block" }}
+                                                variant="body2"
+                                                color="text.primary"
+                                                sx={{ "&:hover": { color: "primary.main" } }}
                                             >
-                                                {contact.label}
+                                                contact@bylogos.io
                                             </Typography>
-                                            <Link
-                                                href={`mailto:${contact.value}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                style={{ textDecoration: "none" }}
-                                            >
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.primary"
-                                                    sx={{ "&:hover": { color: "primary.main" } }}
-                                                >
-                                                    {contact.value}
-                                                </Typography>
-                                            </Link>
                                         </Box>
                                     </Box>
-                                ))}
+                                </Box>
                             </Stack>
 
                             <Box sx={{ mt: 3 }}>
                                 <Link href="/#newsletter" style={{ textDecoration: "none" }}>
                                     <Button variant="default" sx={{ width: "100%", gap: 1 }}>
                                         <MailIcon sx={{ fontSize: 18 }} />
-                                        Solicitar demo técnica
+                                        {content.footer.contactButton}
                                     </Button>
                                 </Link>
                             </Box>
@@ -214,7 +212,7 @@ export function Footer() {
                     }}
                 >
                     <Typography variant="body2" color="text.secondary">
-                        © {currentYear} LogOS SCADA. Todos los derechos reservados.
+                        {content.footer.copyright.replace("{year}", String(currentYear))}
                     </Typography>
 
                     <Stack direction="row" spacing={3}>
@@ -224,7 +222,7 @@ export function Footer() {
                                 color="text.secondary"
                                 sx={{ "&:hover": { color: "primary.main" } }}
                             >
-                                Política de privacidad
+                                {content.footer.privacy}
                             </Typography>
                         </Link>
                         <Link href="/terms" style={{ textDecoration: "none" }}>
@@ -233,7 +231,7 @@ export function Footer() {
                                 color="text.secondary"
                                 sx={{ "&:hover": { color: "primary.main" } }}
                             >
-                                Términos de servicio
+                                {content.footer.terms}
                             </Typography>
                         </Link>
                     </Stack>

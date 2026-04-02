@@ -13,6 +13,8 @@ import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import SecurityIcon from "@mui/icons-material/Security";
 
 import { COMPARISON_BEFORE, COMPARISON_AFTER } from "@/data/landing";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const ICON_MAP: Record<string, React.ReactNode> = {
     cloud: <CloudQueueIcon />,
@@ -25,8 +27,16 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 
 export function Comparison() {
     const theme = useTheme();
-    const beforeItems = COMPARISON_BEFORE;
-    const afterFeatures = COMPARISON_AFTER;
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const beforeItems = COMPARISON_BEFORE.map((item, index) => ({
+        ...item,
+        ...content.home.comparison.beforeItems[index],
+    }));
+    const afterFeatures = COMPARISON_AFTER.map((item, index) => ({
+        ...item,
+        ...content.home.comparison.afterItems[index],
+    }));
 
     return (
         <Box
@@ -73,7 +83,7 @@ export function Comparison() {
                                 fontSize: "0.75rem",
                             }}
                         >
-                            LA CUARTA
+                            {content.home.comparison.eyebrow}
                         </Typography>
                         <Typography
                             variant="h2"
@@ -87,7 +97,7 @@ export function Comparison() {
                                 WebkitTextFillColor: "transparent",
                             })}
                         >
-                            Revolución Industrial
+                            {content.home.comparison.title}
                         </Typography>
                         <Typography
                             variant="body1"
@@ -100,8 +110,7 @@ export function Comparison() {
                                 fontSize: { xs: "0.95rem", md: "1.1rem" },
                             }}
                         >
-                            El monitoreo de datos y la IA han llegado para cambiar las reglas del juego industrial.
-                            LogOS unifica tu operación en una sola inteligencia.
+                            {content.home.comparison.description}
                         </Typography>
                     </motion.div>
                 </Box>
@@ -144,7 +153,7 @@ export function Comparison() {
                                         letterSpacing: 1,
                                     }}
                                 >
-                                    ANTES: LEGACY
+                                    {content.home.comparison.beforeLabel}
                                 </Typography>
 
                                 <Stack spacing={3}>
@@ -231,7 +240,7 @@ export function Comparison() {
                                             letterSpacing: 1.5,
                                         }}
                                     >
-                                        AHORA: ECOSISTEMA LOGOS
+                                        {content.home.comparison.afterLabel}
                                     </Typography>
                                 </Box>
 
@@ -296,13 +305,13 @@ export function Comparison() {
                                             variant="subtitle1"
                                             sx={{ color: "primary.main", fontWeight: 800, lineHeight: 1.2 }}
                                         >
-                                            AHORRA EN HH Y OBTIENES EFICIENCIA
+                                            {content.home.comparison.savingsTitle}
                                         </Typography>
                                         <Typography
                                             variant="caption"
                                             sx={{ color: "text.secondary", fontSize: "0.7rem" }}
                                         >
-                                            Optimiza tu uso de los recursos
+                                            {content.home.comparison.savingsDescription}
                                         </Typography>
                                     </Box>
                                 </Box>

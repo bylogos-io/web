@@ -34,6 +34,8 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import EmailIcon from "@mui/icons-material/Email";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { CopyButton } from "@/components/CopyButton";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const TypedMessage = ({ content, role, skipAnimation }: { content: string; role: string; skipAnimation?: boolean }) => {
     const theme = useTheme();
@@ -243,6 +245,8 @@ export function ChatBubble() {
     const theme = useTheme();
     const router = useRouter();
     const pathname = usePathname();
+    const locale = useLocale();
+    const content = getSiteContent(locale);
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -354,7 +358,7 @@ export function ChatBubble() {
                                 })}
                             >
                                 <Typography variant="caption" sx={{ fontWeight: 700 }}>
-                                    ¿En qué puedo ayudarte?
+                                    {content.chat.bubblePrompt}
                                 </Typography>
                             </Box>
                         )}
@@ -422,7 +426,7 @@ export function ChatBubble() {
                                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                                     <Box sx={{ width: 6, height: 6, borderRadius: "50%", bgcolor: "#4CAF50" }} />
                                     <Typography variant="caption" sx={{ color: "text.secondary" }}>
-                                        En línea ahora
+                                        {content.chat.statusOnline}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -446,10 +450,10 @@ export function ChatBubble() {
                             {messages.length === 0 && (
                                 <Box sx={{ textAlign: "center", py: 4, px: 2 }}>
                                     <Typography variant="body2" sx={{ color: "text.secondary", mb: 1 }}>
-                                        ¡Hola! Soy el asistente de LogOS.
+                                        {content.chat.welcomeTitle}
                                     </Typography>
                                     <Typography variant="caption" sx={{ opacity: 0.6 }}>
-                                        Pregúntame sobre IoT Industrial, SCADA o cómo modernizar tu infraestructura.
+                                        {content.chat.welcomeSubtitle}
                                     </Typography>
                                 </Box>
                             )}
@@ -536,7 +540,7 @@ export function ChatBubble() {
                                 <TextField
                                     fullWidth
                                     size="small"
-                                    placeholder="Escribe un mensaje..."
+                                    placeholder={content.chat.inputPlaceholder}
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && handleSend()}
@@ -560,7 +564,7 @@ export function ChatBubble() {
                                 variant="caption"
                                 sx={{ display: "block", mt: 1, textAlign: "center", opacity: 0.5, fontSize: "0.6rem" }}
                             >
-                                LogOS AI • Estamos para ayudarte
+                                {content.chat.footerNote}
                             </Typography>
                         </Box>
                     </Box>

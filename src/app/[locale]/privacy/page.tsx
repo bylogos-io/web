@@ -1,13 +1,15 @@
 'use client';
 
-import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
+import { Link } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
+import { getSiteContent } from '@/i18n/siteContent';
 
-import { TERMS_DATA } from '@/data/terms';
-
-export default function Terms() {
-  const sections = TERMS_DATA;
+export default function Privacy() {
+  const locale = useLocale();
+  const content = getSiteContent(locale);
+  const sections = content.privacy.sections;
 
   return (
     <Box
@@ -30,7 +32,7 @@ export default function Terms() {
             '&:hover': { color: 'primary.main' },
           }}
         >
-          Volver al inicio
+          {content.privacy.backHome}
         </Button>
 
         <Typography
@@ -39,7 +41,7 @@ export default function Terms() {
           color='primary'
           sx={{ fontWeight: 700, mb: 6 }}
         >
-          Términos y Condiciones
+          {content.privacy.title}
         </Typography>
 
         <Stack spacing={6}>
@@ -57,14 +59,24 @@ export default function Terms() {
                 {section.title}
               </Typography>
 
-              {section.content && (
-                <Typography
-                  variant='body1'
-                  color='text.secondary'
-                  sx={{ mb: 2 }}
-                >
-                  {section.content}
-                </Typography>
+              {Array.isArray(section.content) ? (
+                <Stack spacing={2}>
+                  {section.content.map((text, i) => (
+                    <Typography key={i} variant='body1' color='text.secondary'>
+                      {text}
+                    </Typography>
+                  ))}
+                </Stack>
+              ) : (
+                section.content && (
+                  <Typography
+                    variant='body1'
+                    color='text.secondary'
+                    sx={{ mb: 2 }}
+                  >
+                    {section.content}
+                  </Typography>
+                )
               )}
 
               {section.list && (
@@ -90,8 +102,24 @@ export default function Terms() {
                   ))}
                 </Box>
               )}
-
-              {section.customContent}
+              {section.title === 'Contacto' || section.title === 'Contact' || section.title === 'Contato' ? (
+                <Typography variant='body1' color='text.secondary'>
+                  {content.privacy.contactIntro}{' '}
+                  <Button
+                    href='mailto:contact@bylogos.io'
+                    sx={{
+                      color: 'primary.main',
+                      textTransform: 'none',
+                      p: 0,
+                      minWidth: 'auto',
+                      fontWeight: 600,
+                      '&:hover': { backgroundColor: 'transparent', opacity: 0.8 },
+                    }}
+                  >
+                    contact@bylogos.io
+                  </Button>
+                </Typography>
+              ) : null}
             </Box>
           ))}
         </Stack>

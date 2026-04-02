@@ -10,6 +10,8 @@ import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded";
 import VolumeOffRoundedIcon from "@mui/icons-material/VolumeOffRounded";
 import FullscreenRoundedIcon from "@mui/icons-material/FullscreenRounded";
 import { alpha, Box, Container, IconButton, Slider, Typography, useTheme } from "@mui/material";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const muxPlaybackId = "dCLyVABT2KVKnxWN4fVqYFlToHWwnTniCdgK02bifBeM";
 
@@ -27,6 +29,8 @@ function formatTime(value: number) {
 }
 
 export function DemoVideo() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
     const theme = useTheme();
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const playerRef = useRef<Player | null>(null);
@@ -151,7 +155,7 @@ export function DemoVideo() {
                             mb: 2,
                         }}
                     >
-                        ESTÁ ACÁ
+                        {content.home.demoVideo.label}
                     </Typography>
                     <Typography
                         variant="h2"
@@ -171,10 +175,10 @@ export function DemoVideo() {
                                 color: "transparent",
                             })}
                         >
-                            Mira cómo funciona
+                            {content.home.demoVideo.title}
                         </Box>{" "}
                         <Box component="span" sx={{ color: "primary.main" }}>
-                            LogOS
+                            {content.home.demoVideo.brand}
                         </Box>
                     </Typography>
                     <Typography
@@ -188,8 +192,7 @@ export function DemoVideo() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Revisa el flujo completo de monitoreo, visualización y operación asistida por IA desde una sola
-                        plataforma.
+                        {content.home.demoVideo.description}
                     </Typography>
                 </Box>
 

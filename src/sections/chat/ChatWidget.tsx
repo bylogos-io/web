@@ -18,9 +18,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { Box, TextField, Typography, alpha, IconButton } from "@mui/material";
 import { CopyButton } from "@/components/CopyButton";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function ChatWidget() {
     const pathname = usePathname();
+    const locale = useLocale();
+    const content = getSiteContent(locale);
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState("");
     const { messages, sendMessage, status } = useChatContext();
@@ -133,20 +137,24 @@ export function ChatWidget() {
                                         <Box component="span" sx={{ fontSize: 8 }}>
                                             ●
                                         </Box>{" "}
-                                        En línea
+                                        {content.chat.widgetStatusOnline}
                                     </Typography>
                                 </Box>
                             </Box>
 
                             <Box sx={{ display: "flex", gap: 0.5 }}>
                                 <Link href="/chat">
-                                    <IconButton size="small" aria-label="Pantalla completa" title="Pantalla completa">
+                                    <IconButton
+                                        size="small"
+                                        aria-label={content.chat.widgetFullscreen}
+                                        title={content.chat.widgetFullscreen}
+                                    >
                                         <OpenInFullOutlinedIcon sx={{ fontSize: 18 }} />
                                     </IconButton>
                                 </Link>
                                 <IconButton
                                     size="small"
-                                    aria-label="Cerrar chat"
+                                    aria-label={content.chat.widgetClose}
                                     onClick={() => setIsOpen(false)}
                                     sx={(theme) => ({
                                         "&:hover": {
@@ -184,10 +192,10 @@ export function ChatWidget() {
                                 >
                                     <ForumOutlinedIcon sx={{ fontSize: 40, opacity: 0.2, mb: 1.5 }} />
                                     <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>
-                                        Hola! Soy el asistente de LogOS.
+                                        {content.chat.widgetWelcomeTitle}
                                     </Typography>
                                     <Typography variant="caption">
-                                        Pregúntame sobre funcionalidades, protocolos o monitoreo.
+                                        {content.chat.widgetWelcomeSubtitle}
                                     </Typography>
                                 </Box>
                             ) : (
@@ -391,13 +399,13 @@ export function ChatWidget() {
                                         handleSend();
                                     }
                                 }}
-                                placeholder="Escribe un mensaje..."
+                                placeholder={content.chat.widgetInputPlaceholder}
                                 disabled={isLoading}
                                 slotProps={{
                                     input: {
                                         endAdornment: (
                                             <IconButton
-                                                aria-label="Enviar mensaje"
+                                                aria-label={content.chat.sendMessageAriaLabel}
                                                 onClick={handleSend}
                                                 disabled={!input.trim() || isLoading}
                                                 color="primary"
@@ -419,7 +427,7 @@ export function ChatWidget() {
                                     fontSize: 10,
                                 }}
                             >
-                                IA puede cometer errores.
+                                {content.chat.widgetDisclaimer}
                             </Typography>
                         </Box>
                     </Box>
@@ -431,7 +439,7 @@ export function ChatWidget() {
                 {!isOpen && (
                     <Box
                         component={motion.button}
-                        aria-label="Abrir chat de asistencia"
+                        aria-label={content.chat.widgetOpenAriaLabel}
                         initial={{ scale: 0.7, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1, transition: { type: "spring", stiffness: 420, damping: 26 } }}
                         exit={{ scale: 0.7, opacity: 0, transition: { duration: 0.15, ease: [0.4, 0, 1, 1] } }}

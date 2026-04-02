@@ -5,8 +5,17 @@ import { motion } from "framer-motion";
 import { ABOUT_FOUNDERS_DATA } from "@/data/about";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function AboutFounders() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const founders = ABOUT_FOUNDERS_DATA.founders.map((founder, index) => ({
+        ...founder,
+        role: content.about.founders[index]?.role ?? founder.role,
+    }));
+
     return (
         <Box component="section" sx={{ py: 12, mb: 10 }}>
             <Container maxWidth="lg">
@@ -24,11 +33,11 @@ export function AboutFounders() {
                         letterSpacing: "-0.02em",
                     }}
                 >
-                    {ABOUT_FOUNDERS_DATA.title}
+                    {content.about.foundersTitle}
                 </Typography>
 
                 <Grid container spacing={4} justifyContent="center">
-                    {ABOUT_FOUNDERS_DATA.founders.map((founder, index) => (
+                    {founders.map((founder, index) => (
                         <Grid key={index} size={{ xs: 12, sm: 6, md: 5 }}>
                             <Box
                                 component={motion.div}

@@ -2,18 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, Link } from "@/i18n/routing";
 import Image from "next/image";
 import LogosIcon from "@public/isologo.svg";
 
 // MUI Icons
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import Link from "next/link";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 
-import { NAVIGATION_ITEMS, SOCIAL_LINKS } from "@/data/layout";
+import { SOCIAL_LINKS } from "@/data/layout";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { getSiteContent } from "@/i18n/siteContent";
+import { useLocale } from "next-intl";
 
 import {
     Box,
@@ -38,6 +40,8 @@ export function Header() {
     const [expandedItem, setExpandedItem] = useState<string | null>(null);
     const router = useRouter();
     const pathname = usePathname();
+    const locale = useLocale();
+    const content = getSiteContent(locale);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,7 +52,11 @@ export function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const navigationItems = NAVIGATION_ITEMS;
+    const navigationItems = content.header.navigation as Array<{
+        label: string;
+        href: string;
+        submenu?: Array<{ label: string; href: string; description?: string }>;
+    }>;
 
     const handleNavigation = (href: string) => {
         if (href.startsWith("#")) {
@@ -236,7 +244,7 @@ export function Header() {
                             <Box
                                 component={motion.create(Link)}
                                 href="/"
-                                aria-label="Inicio"
+                                aria-label={content.header.logoAriaLabel}
                                 whileHover={{ scale: 1.05 }}
                                 sx={{
                                     display: "flex",
@@ -299,8 +307,12 @@ export function Header() {
                                     ml: 2,
                                     borderLeft: `1px solid ${theme.palette.divider}`,
                                     pl: 2,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 2
                                 })}
                             >
+                                <LanguageSwitcher />
                                 <Button
                                     component={Link}
                                     href="/#newsletter"
@@ -321,14 +333,14 @@ export function Header() {
                                         },
                                     })}
                                 >
-                                    Contacto
+                                    {content.header.contactCta}
                                 </Button>
                             </Box>
                         </Box>
 
                         {/* Mobile Menu Button */}
                         <IconButton
-                            aria-label="Abrir menú de navegación"
+                            aria-label={content.header.mobileMenuButtonAriaLabel}
                             aria-expanded={isMobileMenuOpen}
                             aria-controls="mobile-menu-drawer"
                             sx={(theme: Theme) => ({
@@ -369,15 +381,18 @@ export function Header() {
                     }}
                 >
                     <Typography variant="h6" fontWeight={800}>
-                        Menú
+                        {content.header.menuTitle}
                     </Typography>
-                    <IconButton
-                        aria-label="Cerrar menú"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        sx={{ color: "text.primary" }}
-                    >
-                        <CloseIcon />
-                    </IconButton>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <LanguageSwitcher />
+                        <IconButton
+                            aria-label={content.header.closeMenuAriaLabel}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            sx={{ color: "text.primary" }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </Box>
                 </Box>
                 <Divider />
                 <List sx={{ px: 2, py: 3 }}>
@@ -531,7 +546,7 @@ export function Header() {
                             letterSpacing: 1,
                         }}
                     >
-                        SÍGUENOS
+                        {content.header.followUs}
                     </Typography>
                     <Stack direction="row" spacing={3} justifyContent="center">
                         {socialLinks.map((social, idx) => (
@@ -540,7 +555,7 @@ export function Header() {
                                 component="a"
                                 href={social.href}
                                 target="_blank"
-                                aria-label="Visitar red social"
+                                aria-label={content.common.socialLinkAriaLabel}
                                 sx={(theme: Theme) => ({
                                     color: "text.secondary",
                                     backgroundColor: alpha(theme.palette.secondary.main, 0.05),

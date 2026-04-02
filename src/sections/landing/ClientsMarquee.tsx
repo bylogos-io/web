@@ -3,6 +3,8 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { keyframes } from "@mui/material/styles";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const CLIENTS = [
     { name: "Seeed Studio", src: "/seeed.webp" },
@@ -21,6 +23,8 @@ const scrollRight = keyframes`
 `;
 
 export function ClientsMarquee() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
     const items = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
 
     return (
@@ -45,7 +49,7 @@ export function ClientsMarquee() {
                     userSelect: "none",
                 }}
             >
-                Confían en nosotros
+                {content.home.clientsMarqueeLabel}
             </Typography>
 
             <Box

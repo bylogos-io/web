@@ -4,8 +4,13 @@ import { motion } from "framer-motion";
 import { Box, Container, Typography, alpha } from "@mui/material";
 import { ReterminalScene } from "@/components/3d/ReterminalScene";
 import { ClientsMarquee } from "@/sections/landing/ClientsMarquee";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function Hero() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+
     return (
         <Box
             component="section"
@@ -52,7 +57,7 @@ export function Hero() {
                                     color: "transparent",
                                 })}
                             >
-                                La mejor integración de IA para el IoT Industrial{" "}
+                                {content.home.hero.title}{" "}
                             </Box>
                         </Typography>
                     </motion.div>
@@ -73,7 +78,7 @@ export function Hero() {
                                 mb: 2,
                             }}
                         >
-                            PROCESOS INTELIGENTES, INDUSTRIA EFICIENTE.
+                            {content.home.hero.subtitle}
                         </Typography>
                     </motion.div>
                 </Box>

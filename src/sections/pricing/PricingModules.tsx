@@ -8,6 +8,8 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const modules = [
     {
@@ -49,22 +51,27 @@ const modules = [
 ];
 
 export function PricingModules() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const localizedModules = modules.map((mod, index) => ({
+        ...mod,
+        ...content.pricing.modules[index],
+    }));
+
     return (
         <Box sx={{ bgcolor: "background.default", pb: 10 }}>
             <Container maxWidth="lg">
                 <Box sx={{ mb: 6, textAlign: "center" }}>
                     <Typography variant="h3" fontWeight={800} gutterBottom>
-                        Módulos Adicionales
+                        {content.pricing.modulesTitle}
                     </Typography>
                     <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 1000, mx: "auto" }}>
-                        Sobre la suscripción base, puedes ampliar las funcionalidades de LogOS según las necesidades
-                        operativas de tu infraestructura. El sistema modular permite que cada instalación escale
-                        progresivamente en capacidad y precio.
+                        {content.pricing.modulesDescription}
                     </Typography>
                 </Box>
 
                 <Grid container spacing={3}>
-                    {modules.map((mod, index) => (
+                    {localizedModules.map((mod, index) => (
                         <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
                             <Box
                                 component={motion.div}

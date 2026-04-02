@@ -6,11 +6,21 @@ import { alpha, Box, Typography, Card, Grid2 as Grid, Container, Stack } from "@
 // MUI Icons replacements
 import { TESTIMONIALS_DATA, STATS, CERTIFICATIONS } from "@/data/landing";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-
-const testimonials = TESTIMONIALS_DATA;
-const stats = STATS;
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function Testimonials() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const testimonials = TESTIMONIALS_DATA.map((testimonial, index) => ({
+        ...testimonial,
+        ...content.home.testimonials.items[index],
+    }));
+    const stats = STATS.map((stat, index) => ({
+        ...stat,
+        ...content.home.testimonials.stats[index],
+    }));
+
     return (
         <Box
             component="section"
@@ -40,7 +50,7 @@ export function Testimonials() {
                             mb: 2,
                         }}
                     >
-                        CASOS DE ÉXITO
+                        {content.home.testimonials.eyebrow}
                     </Typography>
                     <Typography
                         variant="h2"
@@ -60,10 +70,10 @@ export function Testimonials() {
                                 color: "transparent",
                             })}
                         >
-                            Resultados que hablan
+                            {content.home.testimonials.titleStart}
                         </Box>{" "}
                         <Box component="span" sx={{ color: "primary.main" }}>
-                            por sí mismos
+                            {content.home.testimonials.titleAccent}
                         </Box>
                     </Typography>
                     <Typography
@@ -77,7 +87,7 @@ export function Testimonials() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Empresas líderes confían en LogOS para gestionar sus infraestructuras eléctricas más críticas.
+                        {content.home.testimonials.description}
                     </Typography>
                 </Box>
 
@@ -204,7 +214,7 @@ export function Testimonials() {
                                                     color="text.secondary"
                                                     sx={{ flexShrink: 0, mr: 1 }}
                                                 >
-                                                    Resultado clave:
+                                                    {content.home.testimonials.keyResultLabel}
                                                 </Typography>
                                                 <Typography
                                                     variant="caption"

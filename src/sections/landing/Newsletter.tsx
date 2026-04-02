@@ -10,6 +10,8 @@ import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutli
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 
 import { NEWSLETTER_BENEFITS } from "@/data/landing";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 import {
     Box,
@@ -32,7 +34,12 @@ export function Newsletter() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const benefits = NEWSLETTER_BENEFITS;
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const benefits = NEWSLETTER_BENEFITS.map((benefit, index) => ({
+        ...benefit,
+        ...content.home.newsletter.benefits[index],
+    }));
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,7 +48,7 @@ export function Newsletter() {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            setError("Por favor, introduce un email válido");
+            setError(content.home.newsletter.invalidEmail);
             setIsLoading(false);
             return;
         }
@@ -63,7 +70,7 @@ export function Newsletter() {
             setEmail("");
             setName("");
         } catch (err) {
-            setError("Hubo un problema al procesar tu suscripción. Inténtalo de nuevo.");
+            setError(content.home.newsletter.subscribeError);
         } finally {
             setIsLoading(false);
         }
@@ -107,22 +114,21 @@ export function Newsletter() {
                                 </Box>
                             </Box>
                             <Typography variant="h3" sx={{ mb: 3, fontWeight: 800 }}>
-                                Bienvenido!
+                                {content.home.newsletter.successTitle}
                             </Typography>
                             <Typography
                                 variant="body1"
                                 color="text.secondary"
                                 sx={{ mb: 6, fontSize: "1.125rem", lineHeight: 1.6 }}
                             >
-                                Tu suscripción ha sido confirmada correctamente. Pronto recibirás nuestras
-                                actualizaciones técnicas y novedades industriales.
+                                {content.home.newsletter.successDescription}
                             </Typography>
                             <Button
                                 variant="outlined"
                                 onClick={() => setIsSubmitted(false)}
                                 sx={{ px: 4, py: 1.25, fontWeight: 700 }}
                             >
-                                Suscribir otro correo
+                                {content.home.newsletter.subscribeAnother}
                             </Button>
                         </Card>
                     </motion.div>
@@ -163,7 +169,7 @@ export function Newsletter() {
                             mb: 2,
                         }}
                     >
-                        CONTACTO
+                        {content.home.newsletter.eyebrow}
                     </Typography>
                     <Typography
                         variant="h2"
@@ -183,10 +189,10 @@ export function Newsletter() {
                                 color: "transparent",
                             })}
                         >
-                            Expertiz Técnica
+                            {content.home.newsletter.titleStart}
                         </Box>{" "}
                         <Box component="span" sx={{ color: "primary.main" }}>
-                            con nosotros
+                            {content.home.newsletter.titleAccent}
                         </Box>
                     </Typography>
                     <Typography
@@ -200,8 +206,7 @@ export function Newsletter() {
                             lineHeight: 1.6,
                         }}
                     >
-                        Únete a nuestra comunidad industrial para recibir las últimas actualizaciones de producto o
-                        escríbenos directamente a{" "}
+                        {content.home.newsletter.description}{" "}
                         <Box
                             component="a"
                             href="mailto:contact@bylogos.io"
@@ -228,7 +233,7 @@ export function Newsletter() {
                             viewport={{ once: true }}
                         >
                             <Typography variant="h4" sx={{ mb: 6, fontWeight: 800 }}>
-                                Valor exclusivo para ti
+                                {content.home.newsletter.benefitsTitle}
                             </Typography>
 
                             <Stack spacing={5}>
@@ -314,10 +319,10 @@ export function Newsletter() {
                                         <MailOutlineIcon sx={{ fontSize: 40, color: "primary.main" }} />
                                     </Box>
                                     <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>
-                                        Suscríbete ahora
+                                        {content.home.newsletter.formTitle}
                                     </Typography>
                                     <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 500 }}>
-                                        Mantente a la vanguardia industrial
+                                        {content.home.newsletter.formSubtitle}
                                     </Typography>
                                 </Box>
 
@@ -328,7 +333,7 @@ export function Newsletter() {
                                 >
                                     <TextField
                                         fullWidth
-                                        label="Nombre y Apellido"
+                                        label={content.home.newsletter.nameLabel}
                                         variant="outlined"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
@@ -336,7 +341,7 @@ export function Newsletter() {
                                     />
                                     <TextField
                                         fullWidth
-                                        label="email@empresa.com"
+                                        label={content.home.newsletter.emailLabel}
                                         type="email"
                                         variant="outlined"
                                         value={email}
@@ -370,13 +375,15 @@ export function Newsletter() {
                                         {isLoading ? (
                                             <Stack direction="row" spacing={2} alignItems="center">
                                                 <CircularProgress size={24} thickness={5} sx={{ color: "inherit" }} />
-                                                <Typography variant="button">SUSCRIBIENDO...</Typography>
+                                                <Typography variant="button">
+                                                    {content.home.newsletter.submitting}
+                                                </Typography>
                                             </Stack>
                                         ) : (
                                             <Stack direction="row" spacing={1.5} alignItems="center">
                                                 <MailOutlineIcon />
                                                 <Typography variant="button" sx={{ letterSpacing: 1 }}>
-                                                    SUSCRIBIRSE GRATIS
+                                                    {content.home.newsletter.submit}
                                                 </Typography>
                                             </Stack>
                                         )}
@@ -393,7 +400,7 @@ export function Newsletter() {
                                         fontWeight: 500,
                                     }}
                                 >
-                                    * Respetamos tu privacidad. No enviamos spam.
+                                    {content.home.newsletter.privacyNote}
                                 </Typography>
                             </Card>
                         </Box>
@@ -418,7 +425,7 @@ export function Newsletter() {
                             textTransform: "uppercase",
                         }}
                     >
-                        Apoyados por
+                        {content.home.newsletter.supportedBy}
                     </Typography>
 
                     <Stack

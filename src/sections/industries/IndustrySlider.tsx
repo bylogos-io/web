@@ -1,14 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, IconButton, Typography, useTheme, alpha, Container } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import { INDUSTRY_SLIDER_DATA } from "@/data/industries";
-
-const industries = INDUSTRY_SLIDER_DATA;
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const imageVariants = {
     enter: (direction: number) => ({
@@ -34,33 +34,45 @@ interface IndustrySliderProps {
 }
 
 export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps) {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const industries = INDUSTRY_SLIDER_DATA.map((industry, index) => ({
+        ...industry,
+        title: content.industries.sliderItems[index]?.title ?? industry.title,
+        description: content.industries.sliderItems[index]?.description ?? industry.description,
+    }));
+    const industryCount = industries.length;
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
     const theme = useTheme();
     const restartTimer = useRef<(() => void) | null>(null);
 
-    const handleNext = useCallback(() => {
+    const handleNext = () => {
         setDirection(1);
-        setCurrentIndex((prev) => (prev + 1) % industries.length);
-    }, []);
+        setCurrentIndex((prev) => (prev + 1) % industryCount);
+    };
 
-    const handlePrev = useCallback(() => {
+    const handlePrev = () => {
         setDirection(-1);
-        setCurrentIndex((prev) => (prev - 1 + industries.length) % industries.length);
-    }, []);
+        setCurrentIndex((prev) => (prev - 1 + industryCount) % industryCount);
+    };
 
-    const handleUserNext = useCallback(() => {
+    const handleUserNext = () => {
         handleNext();
         restartTimer.current?.();
-    }, [handleNext]);
+    };
 
-    const handleUserPrev = useCallback(() => {
+    const handleUserPrev = () => {
         handlePrev();
         restartTimer.current?.();
-    }, [handlePrev]);
+    };
 
     useEffect(() => {
         let timer: ReturnType<typeof setInterval> | null = null;
+        const advance = () => {
+            setDirection(1);
+            setCurrentIndex((prev) => (prev + 1) % industryCount);
+        };
 
         const stop = () => {
             if (timer) {
@@ -70,7 +82,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
         };
         const start = () => {
             stop();
-            timer = setInterval(handleNext, autoPlayInterval);
+            timer = setInterval(advance, autoPlayInterval);
         };
 
         restartTimer.current = start;
@@ -87,7 +99,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
             restartTimer.current = null;
             document.removeEventListener("visibilitychange", handleVisibility);
         };
-    }, [handleNext, autoPlayInterval]);
+    }, [autoPlayInterval, industryCount]);
 
     const arrowSx = {
         position: "absolute" as const,
@@ -158,7 +170,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
 
                 {/* Left arrow */}
                 <IconButton
-                    aria-label="Anterior"
+                    aria-label={content.industries.previousAriaLabel}
                     onClick={(e) => {
                         e.stopPropagation();
                         handleUserPrev();
@@ -170,7 +182,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
 
                 {/* Right arrow */}
                 <IconButton
-                    aria-label="Siguiente"
+                    aria-label={content.industries.nextAriaLabel}
                     onClick={(e) => {
                         e.stopPropagation();
                         handleUserNext();
@@ -211,7 +223,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
                                 color: "transparent",
                             }}
                         >
-                            Industrias Inteligentes
+                            {content.industries.sliderTitle}
                         </Box>
                     </Typography>
                 </Box>

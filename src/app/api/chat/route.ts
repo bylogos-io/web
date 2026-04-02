@@ -6,7 +6,7 @@ export const maxDuration = 60;
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { messages, context } = body;
+    const { messages, context, locale } = body;
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(
@@ -25,6 +25,20 @@ export async function POST(req: Request) {
       if (m.role === 'assistant') return new AIMessage(m.content);
       return new HumanMessage(m.content);
     });
+
+    const languageByLocale: Record<string, string> = {
+      es: 'español',
+      en: 'English',
+      pt: 'português',
+    };
+
+    const selectedLanguage = languageByLocale[locale] || languageByLocale.es;
+
+    langchainMessages.unshift(
+      new HumanMessage(
+        `[INSTRUCCIÓN DEL SISTEMA] Debes responder completamente en ${selectedLanguage}. Mantén ese idioma en todo el mensaje, incluyendo saludo, explicación y CTA.`,
+      ),
+    );
 
     // Inyectar contexto de la página si existe
     if (context) {

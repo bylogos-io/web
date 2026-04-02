@@ -30,6 +30,8 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import EmailIcon from "@mui/icons-material/Email";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { CopyButton } from "@/components/CopyButton";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const TypedMessage = ({ content, role }: { content: string; role: string }) => {
     const [displayedContent, setDisplayedContent] = useState(role === "user" ? content : "");
@@ -225,6 +227,8 @@ const TypedMessage = ({ content, role }: { content: string; role: string }) => {
 
 const Chat = () => {
     const [input, setInput] = useState<string>("");
+    const locale = useLocale();
+    const content = getSiteContent(locale);
     const { messages, sendMessage, status } = useChatContext();
     const isLoading = status === "streaming" || status === "submitted";
 
@@ -286,7 +290,7 @@ const Chat = () => {
                         >
                             <ArrowBackOutlinedIcon sx={{ fontSize: 20 }} />
                             <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                                Volver al inicio
+                                {content.chat.pageBackHome}
                             </Typography>
                         </Box>
                     </Link>
@@ -299,7 +303,7 @@ const Chat = () => {
                                 LOGOS AI
                             </Typography>
                             <Typography variant="caption" sx={{ color: "text.secondary" }}>
-                                Agente Inteligente
+                                {content.chat.pageAgentLabel}
                             </Typography>
                         </Box>
                         <Box
@@ -360,7 +364,7 @@ const Chat = () => {
                                 letterSpacing: "-0.02em",
                             }}
                         >
-                            Bienvenido a <br />
+                            {content.chat.pageWelcomeTitle} <br />
                             <Box component="span" sx={{ color: "primary.main" }}>
                                 LogOS
                             </Box>
@@ -370,8 +374,7 @@ const Chat = () => {
                             color="text.secondary"
                             sx={{ maxWidth: 500, mx: "auto", fontWeight: 400, opacity: 0.8 }}
                         >
-                            Soy tu experto en infraestructura IT/OT y automatización industrial. ¿En qué puedo ayudarte
-                            hoy?
+                            {content.chat.pageWelcomeSubtitle}
                         </Typography>
                     </Box>
                 )}
@@ -564,7 +567,7 @@ const Chat = () => {
                                     handleSend();
                                 }
                             }}
-                            placeholder="Describe tu duda o proyecto industrial..."
+                            placeholder={content.chat.pageInputPlaceholder}
                             disabled={isLoading}
                             sx={(theme) => ({
                                 "& .MuiOutlinedInput-root": {
@@ -582,7 +585,7 @@ const Chat = () => {
                             })}
                         />
                         <IconButton
-                            aria-label="Enviar mensaje"
+                            aria-label={content.chat.sendMessageAriaLabel}
                             onClick={handleSend}
                             disabled={!input.trim() || isLoading}
                             sx={(theme) => ({
@@ -623,7 +626,7 @@ const Chat = () => {
                                 letterSpacing: "0.02em",
                             }}
                         >
-                            CONSTRUIDO POR LOGOS • LA IA PUEDE COMETER ERRORES
+                            {content.chat.pageDisclaimer}
                         </Typography>
                     </Box>
                 </Box>

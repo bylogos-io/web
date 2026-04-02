@@ -6,6 +6,8 @@ import { Box, Typography, Container, alpha, Stack, Chip } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 import { INDUSTRY_CARDS_DATA } from "@/data/industries";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 const HEADER_HEIGHT = 96;
 
@@ -16,17 +18,24 @@ const toSlug = (title: string) =>
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/\s+/g, "-");
 
-const industryDetails = INDUSTRY_CARDS_DATA;
-
 export function IndustryCards() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+    const industryDetails = INDUSTRY_CARDS_DATA.map((industry, index) => ({
+        ...industry,
+        title: content.industries.cards[index]?.title ?? industry.title,
+        description: content.industries.cards[index]?.description ?? industry.description,
+        points: content.industries.cards[index]?.points ?? industry.points,
+    }));
+
     return (
         <Container maxWidth="lg" sx={{ mt: 15 }}>
             <Box sx={{ mb: 8, textAlign: "center" }}>
                 <Typography variant="h2" fontWeight={800}>
-                    Soluciones por Sector
+                    {content.industries.titleSection}
                 </Typography>
                 <Typography variant="body1" sx={{ color: "text.secondary", mt: 2 }}>
-                    Explora cómo optimizamos cada industria con tecnología de punta.
+                    {content.industries.descriptionSection}
                 </Typography>
             </Box>
 

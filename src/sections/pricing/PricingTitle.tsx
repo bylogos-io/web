@@ -1,8 +1,13 @@
 "use client";
 
 import { Box, Typography, Container } from "@mui/material";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function PricingTitle() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+
     return (
         <Box
             sx={{
@@ -27,7 +32,7 @@ export function PricingTitle() {
                         mb: 2,
                     }}
                 >
-                    INVERSIÓN CLARA Y ESCALABLE
+                    {content.pricing.eyebrow}
                 </Typography>
                 <Typography
                     variant="h1"
@@ -47,10 +52,10 @@ export function PricingTitle() {
                             color: "transparent",
                         })}
                     >
-                        Planes y{" "}
+                        {content.pricing.titleStart}{" "}
                     </Box>
                     <Box component="span" sx={{ color: "primary.main" }}>
-                        Precios
+                        {content.pricing.titleAccent}
                     </Box>
                 </Typography>
 
@@ -64,8 +69,7 @@ export function PricingTitle() {
                         fontWeight: 400,
                     }}
                 >
-                    Transparencia y escalabilidad. Nuestro modelo combina la instalación de infraestructura inicial con
-                    una suscripción mensual adaptable a las necesidades de tu operación.
+                    {content.pricing.description}
                 </Typography>
             </Container>
         </Box>

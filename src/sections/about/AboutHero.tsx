@@ -1,9 +1,13 @@
 "use client";
 import { Box, Container, Typography, useTheme, alpha } from "@mui/material";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function AboutHero() {
     const theme = useTheme();
+    const locale = useLocale();
+    const content = getSiteContent(locale);
 
     return (
         <Box sx={{ width: "100%", mb: 0 }}>
@@ -81,7 +85,7 @@ export function AboutHero() {
                                 color: "transparent",
                             }}
                         >
-                            ¿Por qué LogOS?
+                            {content.about.heroTitle}
                         </Box>
                     </Typography>
                 </Box>
@@ -98,21 +102,13 @@ export function AboutHero() {
                 >
                     <Box sx={{ mb: 6 }}>
                         <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.6 }}>
-                            Estamos cerrando la brecha entre el IT y el OT en la infraestructura industrial que sostiene
-                            el mundo moderno. La industria opera con PLCs y sistemas legacy que no permiten la
-                            recolección, el análisis de datos ni la correcta implementación de la IA. LogOS conecta este
-                            entorno para entregar monitoreo, predicción y análisis operativo en tiempo real respecto a
-                            los datos aprovechados de campo, aplicando herramientas digitales en entornos analógicos.
-                            Entregamos herramientas modernas al O&M, aumentando considerablemente la productividad.
+                            {content.about.paragraphs[0]}
                         </Typography>
                     </Box>
 
                     <Box sx={{ mb: 6 }}>
                         <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.6 }}>
-                            Entendemos el desafío y temor a probar nuevas tecnologías en áreas críticas; por eso creamos
-                            LogOS, operando desde Hispanoamérica, como una solución amigable que se integra fácilmente a
-                            tu infraestructura sin interrumpir lo que funciona. Aportamos lo necesario para que la
-                            industria se atreva a dar el salto hacia la IA.
+                            {content.about.paragraphs[1]}
                         </Typography>
                     </Box>
                 </Box>

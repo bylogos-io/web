@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState } from 'react';
+import { useLocale } from 'next-intl';
 
 interface ChatContextType {
   messages: any[];
@@ -12,6 +13,7 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [messages, setMessages] = useState<any[]>([]);
+  const locale = useLocale();
   const [status, setStatus] = useState<
     'idle' | 'submitted' | 'streaming' | 'ready'
   >('idle');
@@ -40,6 +42,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
             content: m.content,
           })),
           context: context,
+          locale,
         }),
       });
 

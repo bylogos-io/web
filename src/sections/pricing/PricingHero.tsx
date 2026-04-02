@@ -4,9 +4,14 @@ import { motion } from "framer-motion";
 import { Box, Container, Typography, Grid2 as Grid, Card, alpha, Stack, Divider, Button } from "@mui/material";
 import MemoryIcon from "@mui/icons-material/Memory";
 import CloudSyncIcon from "@mui/icons-material/CloudSync";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
+import { useLocale } from "next-intl";
+import { getSiteContent } from "@/i18n/siteContent";
 
 export function PricingHero() {
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+
     return (
         <Box sx={{ bgcolor: "background.default" }}>
             <Container maxWidth="lg" sx={{ py: 8 }}>
@@ -53,37 +58,31 @@ export function PricingHero() {
                                             <MemoryIcon fontSize="large" />
                                         </Box>
                                         <Typography variant="h5" fontWeight={800} letterSpacing={1}>
-                                            Instalación Inicial
+                                            {content.pricing.installationTitle}
                                         </Typography>
                                     </Box>
 
                                     <Box>
                                         <Typography variant="h3" fontWeight={900}>
-                                            A la medida
+                                            {content.pricing.installationPrice}
                                         </Typography>
                                         <Typography
                                             variant="subtitle1"
                                             color="text.secondary"
                                             sx={{ mt: 1, fontWeight: 600 }}
                                         >
-                                            Estructurado según tus necesidades operativas
+                                            {content.pricing.installationSubtitle}
                                         </Typography>
                                     </Box>
 
                                     <Typography variant="body1" color="text.secondary">
-                                        Despliegue físico de la infraestructura. Conectamos y digitalizamos los equipos
-                                        existentes en tu instalación con nuestros tableros de datos.
+                                        {content.pricing.installationDescription}
                                     </Typography>
 
                                     <Divider />
 
                                     <Stack spacing={2}>
-                                        {[
-                                            "Hardware y dispositivos de medición incluidos.",
-                                            "Integración completa con sistemas OT existentes.",
-                                            "Licencia inicial del software LogOS.",
-                                            "Cantidad de tableros ajustada al tamaño de la infraestructura.",
-                                        ].map((feature, fIdx) => (
+                                        {content.pricing.installationFeatures.map((feature, fIdx) => (
                                             <Typography
                                                 key={fIdx}
                                                 variant="body2"
@@ -119,7 +118,7 @@ export function PricingHero() {
                                                 py: 1.5,
                                             }}
                                         >
-                                            Cotizar Instalación
+                                            {content.pricing.installationButton}
                                         </Button>
                                     </Link>
                                 </Box>
@@ -169,15 +168,15 @@ export function PricingHero() {
                                             <CloudSyncIcon fontSize="large" />
                                         </Box>
                                         <Typography variant="h5" fontWeight={800} letterSpacing={1}>
-                                            Suscripción Operativa
+                                            {content.pricing.subscriptionTitle}
                                         </Typography>
                                     </Box>
 
                                     <Box>
                                         <Typography variant="h3" fontWeight={900}>
-                                            Desde $200{" "}
+                                            {content.pricing.subscriptionPrice}{" "}
                                             <Typography component="span" variant="h5" color="text.secondary">
-                                                / mes
+                                                {content.pricing.subscriptionPeriod}
                                             </Typography>
                                         </Typography>
                                         <Typography
@@ -185,24 +184,18 @@ export function PricingHero() {
                                             color="text.secondary"
                                             sx={{ mt: 1, fontWeight: 600 }}
                                         >
-                                            Suscripción operativa según tu infraestructura
+                                            {content.pricing.subscriptionSubtitle}
                                         </Typography>
                                     </Box>
 
                                     <Typography variant="body1" color="text.secondary">
-                                        Acceso continuo a la plataforma LogOS para monitorear, analizar y gestionar tus
-                                        operaciones de forma centralizada y segura.
+                                        {content.pricing.subscriptionDescription}
                                     </Typography>
 
                                     <Divider />
 
                                     <Stack spacing={2}>
-                                        {[
-                                            "Monitoreo cloud en tiempo real.",
-                                            "Sistema de alertas críticas.",
-                                            "2 usuarios activos incluidos.",
-                                            "6 meses de retención histórica de datos.",
-                                        ].map((feature, fIdx) => (
+                                        {content.pricing.subscriptionFeatures.map((feature, fIdx) => (
                                             <Typography
                                                 key={fIdx}
                                                 variant="body2"
@@ -238,7 +231,7 @@ export function PricingHero() {
                                                 py: 1.5,
                                             }}
                                         >
-                                            Contactar a Ventas
+                                            {content.pricing.subscriptionButton}
                                         </Button>
                                     </Link>
                                 </Box>
