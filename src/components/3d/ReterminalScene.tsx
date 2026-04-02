@@ -2,7 +2,6 @@
 
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
 import { Box } from "@mui/material";
 import { ReterminalModel } from "./ReterminalModel";
 
@@ -48,10 +47,10 @@ export function ReterminalScene() {
           */}
                     <ReterminalModel />
 
-                    <Environment preset="apartment" />
-
                     {/* Luces de la escena */}
                     <ambientLight intensity={0.7} />
+                    <hemisphereLight intensity={0.9} groundColor="#b9c6d8" />
+                    <directionalLight position={[-8, 6, 8]} intensity={1.2} />
                     <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1.5} castShadow />
                 </Suspense>
             </Canvas>

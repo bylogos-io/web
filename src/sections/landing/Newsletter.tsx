@@ -399,6 +399,82 @@ export function Newsletter() {
                         </Box>
                     </Grid>
                 </Grid>
+
+                <Box
+                    sx={(theme) => ({
+                        mt: 8,
+                        pt: 6,
+                        borderTop: `1px solid ${alpha(theme.palette.divider, 0.6)}`,
+                        textAlign: "center",
+                    })}
+                >
+                    <Typography
+                        variant="subtitle2"
+                        sx={{
+                            color: "text.secondary",
+                            fontWeight: 700,
+                            letterSpacing: 2,
+                            mb: 3,
+                            textTransform: "uppercase",
+                        }}
+                    >
+                        Apoyados por
+                    </Typography>
+
+                    <Stack
+                        direction={{ xs: "column", sm: "row" }}
+                        spacing={4}
+                        alignItems="center"
+                        justifyContent="center"
+                        useFlexGap
+                        sx={{ flexWrap: "wrap" }}
+                    >
+                        <Box
+                            component="a"
+                            href="https://elevenlabs.io/startup-grants"
+                            target="_blank"
+                            rel="noreferrer"
+                            sx={{ display: "inline-block" }}
+                        >
+                            <Box
+                                component="img"
+                                src="https://eleven-public-cdn.elevenlabs.io/payloadcms/cy7rxce8uki-IIElevenLabsGrants%201.webp"
+                                alt="ElevenLabs"
+                                sx={{
+                                    width: { xs: 220, sm: 250 },
+                                    maxWidth: "100%",
+                                    height: "auto",
+                                }}
+                            />
+                        </Box>
+
+                        <Box
+                            component="img"
+                            src="https://miro.medium.com/1*-7Kx8b_-GrH6FDnIOJFIAQ.png"
+                            alt="AWS"
+                            sx={{
+                                width: { xs: 120, sm: 140 },
+                                maxWidth: "100%",
+                                height: "auto",
+                                filter: "brightness(0) invert(1)",
+                                display: "block",
+                            }}
+                        />
+
+                        <Box
+                            component="img"
+                            src="https://wordlift.io/blog/en/wp-content/uploads/sites/3/2025/06/CloudforStartups-3.png"
+                            alt="Partner logo"
+                            sx={{
+                                width: { xs: 120, sm: 140 },
+                                maxWidth: "100%",
+                                height: "auto",
+                                filter: "brightness(0) invert(1)",
+                                display: "block",
+                            }}
+                        />
+                    </Stack>
+                </Box>
             </Container>
         </Box>
     );
