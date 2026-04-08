@@ -27,7 +27,7 @@ export async function generateMetadata({
 	}
 
 	const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://bylogos.io";
-	const fallbackOgUrl = `${baseUrl}/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description || "")}&category=Noticias&ext=.png`;
+	const fallbackOgUrl = `${baseUrl}/assets/news/default.png`;
 	const coverUrl = post.cover ? (post.cover.startsWith("http") ? post.cover : `${baseUrl}${post.cover}`) : null;
 
 	const imageUrl = coverUrl || fallbackOgUrl;

@@ -12,12 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Noticias y Blog | LogOS',
     description: 'Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT de la mano de LogOS.',
+    url: 'https://bylogos.io/news',
     images: [
       {
-        url: "/opengraph-image.jpg",
+        url: 'https://bylogos.io/assets/news/default.png',
         width: 1200,
         height: 630,
-        alt: "Noticias y Blog | LogOS",
+        alt: 'Noticias y Blog | LogOS',
       },
     ],
   },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Noticias y Blog | LogOS',
     description: 'Mantente informado con las últimas noticias sobre tecnología industrial, IA e IoT de la mano de LogOS.',
-    images: ['/twitter-image.jpg'],
+    images: ['https://bylogos.io/assets/news/default.png'],
   },
 };
 

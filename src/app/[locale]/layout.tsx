@@ -62,7 +62,7 @@ export async function generateMetadata({
             description: content.seo.layout.openGraphDescription,
             images: [
                 {
-                    url: "/opengraph-image.jpg",
+                    url: `https://bylogos.io/api/og?title=${encodeURIComponent(content.seo.layout.openGraphTitle)}&description=${encodeURIComponent(content.seo.layout.openGraphDescription)}&category=Home&ext=.png`,
                     width: 1200,
                     height: 630,
                     alt: content.seo.layout.openGraphImageAlt,
@@ -75,7 +75,7 @@ export async function generateMetadata({
             creator: "@javiervargas",
             title: content.seo.layout.twitterTitle,
             description: content.seo.layout.twitterDescription,
-            images: ["/twitter-image.jpg"],
+            images: [`https://bylogos.io/api/og?title=${encodeURIComponent(content.seo.layout.openGraphTitle)}&description=${encodeURIComponent(content.seo.layout.openGraphDescription)}&category=Home&ext=.png`],
         },
         icons: {
             icon: [
