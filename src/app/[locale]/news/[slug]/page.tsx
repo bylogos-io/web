@@ -33,12 +33,17 @@ export async function generateMetadata({
 			title: `${post.title} | LogOS`,
 			description: post.description,
 			images: [
-				{
-					url: post.cover || "/opengraph-image.jpg",
-					width: 1200,
-					height: 630,
-					alt: post.title,
-				},
+				post.cover
+					? {
+							url: post.cover,
+							alt: post.title,
+					  }
+					: {
+							url: "/opengraph-image.jpg",
+							width: 1200,
+							height: 630,
+							alt: post.title,
+					  },
 			],
 			type: "article",
 			publishedTime: post.date,

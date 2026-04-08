@@ -107,6 +107,7 @@ const siteContent = {
                 },
                 { label: "Planes y Precios", href: "/pricing" },
                 { label: "Manifiesto", href: "/about" },
+                { label: "Noticias", href: "/news" },
             ],
         },
         footer: {
@@ -861,6 +862,7 @@ const siteContent = {
                 },
                 { label: "Plans & Pricing", href: "/pricing" },
                 { label: "Manifesto", href: "/about" },
+                { label: "News", href: "/news" },
             ],
         },
         footer: {
@@ -1595,6 +1597,7 @@ const siteContent = {
                 },
                 { label: "Planos e Preços", href: "/pricing" },
                 { label: "Manifesto", href: "/about" },
+                { label: "Notícias", href: "/news" },
             ],
         },
         footer: {

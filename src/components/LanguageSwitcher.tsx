@@ -81,12 +81,13 @@ export function LanguageSwitcher() {
                         sx={{
                             lineHeight: 1,
                             color: "text.secondary",
+                            whiteSpace: "nowrap",
                             display: { xs: "none", md: "block" },
                         }}
                     >
                         {content.languageSwitcher.currentLanguageLabel}
                     </Typography>
-                    <Typography variant="body2" sx={{ fontWeight: 700, lineHeight: 1.2 }}>
+                    <Typography variant="body2" sx={{ fontWeight: 700, lineHeight: 1.2, whiteSpace: "nowrap" }}>
                         <Box component="span" sx={{ display: { xs: "inline", md: "none" } }}>
                             {currentLocale.shortLabel}
                         </Box>

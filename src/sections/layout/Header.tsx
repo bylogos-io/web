@@ -312,7 +312,6 @@ export function Header() {
                                     gap: 2
                                 })}
                             >
-                                <LanguageSwitcher />
                                 <Button
                                     component={Link}
                                     href="/#newsletter"
@@ -335,6 +334,7 @@ export function Header() {
                                 >
                                     {content.header.contactCta}
                                 </Button>
+                                <LanguageSwitcher />
                             </Box>
                         </Box>
 

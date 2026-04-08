@@ -32,7 +32,7 @@ export function DemoVideo() {
     const locale = useLocale();
     const content = getSiteContent(locale);
     const theme = useTheme();
-    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const videoContainerRef = useRef<HTMLDivElement | null>(null);
     const playerRef = useRef<Player | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
@@ -40,11 +40,20 @@ export function DemoVideo() {
     const [duration, setDuration] = useState(0);
     const src = useMemo(() => `https://stream.mux.com/${muxPlaybackId}.m3u8`, []);
     useEffect(() => {
-        if (!videoRef.current || playerRef.current) {
+        if (!videoContainerRef.current) {
             return;
         }
 
-        const player = videojs(videoRef.current, {
+        if (playerRef.current) {
+            return;
+        }
+
+        const videoElement = document.createElement("video");
+        videoElement.classList.add("video-js");
+        videoElement.setAttribute("playsinline", "true");
+        videoContainerRef.current.appendChild(videoElement);
+
+        const player = videojs(videoElement, {
             autoplay: false,
             controls: false,
             preload: "auto",
@@ -270,7 +279,7 @@ export function DemoVideo() {
                         }}
                     >
                         <div data-vjs-player>
-                            <video ref={videoRef} className="video-js" playsInline />
+                            <div ref={videoContainerRef} />
                         </div>
 
                         {!isPlaying && (
@@ -279,7 +288,7 @@ export function DemoVideo() {
                                     position: "absolute",
                                     inset: 0,
                                     zIndex: 2,
-                                    display: "flex",
+                                    display: { xs: "none", md: "flex" },
                                     alignItems: "center",
                                     justifyContent: "center",
                                     pointerEvents: "none",

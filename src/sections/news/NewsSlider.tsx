@@ -192,7 +192,11 @@ export function NewsSlider({
                       maxWidth: 700,
                       lineHeight: 1.5,
                       mb: 3,
-                      display: { xs: 'none', md: 'block' },
+                      display: '-webkit-box',
+                      WebkitLineClamp: { xs: 2, md: 3 },
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      fontSize: { xs: '0.875rem', md: '1rem' }
                     }}
                   >
                     {posts[currentIndex].description}

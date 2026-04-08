@@ -8,13 +8,13 @@ import { getSiteContent } from "@/i18n/siteContent";
 
 const CLIENTS = [
     { name: "Seeed Studio", src: "/seeed.webp" },
-    { name: "UC Facultad de Ingeniería", src: "/uc-facultad-ingenieria.webp", height: 52 },
+    { name: "UC Facultad de Ingeniería", src: "/uc-facultad-ingenieria.svg", height: 52 },
     { name: "Client 3", src: "/Mesa_de_trabajo_3.svg" },
     { name: "Client 4", src: "/Mesa_de_trabajo_4.svg" },
     { name: "Client 5", src: "/Mesa_de_trabajo_5.svg" },
     { name: "Client 6", src: "/Mesa_de_trabajo_6.svg" },
     { name: "Rodar", src: "/rodar_registrado.svg" },
-    { name: "FS Curtis", src: "/fscurtis.png", height: 100 },
+    { name: "FS Curtis", src: "/fscurtis.svg", height: 100 },
 ];
 
 const scrollRight = keyframes`
