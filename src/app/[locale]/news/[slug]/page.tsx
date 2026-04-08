@@ -26,24 +26,27 @@ export async function generateMetadata({
 		};
 	}
 
+	const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://bylogos.io";
+	const fallbackOgUrl = `${baseUrl}/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description || "")}&category=Noticias&ext=.png`;
+	const coverUrl = post.cover ? (post.cover.startsWith("http") ? post.cover : `${baseUrl}${post.cover}`) : null;
+
+	const imageUrl = coverUrl || fallbackOgUrl;
+
 	return {
 		title: post.title,
 		description: post.description,
 		openGraph: {
 			title: `${post.title} | LogOS`,
 			description: post.description,
+			url: `${baseUrl}/news/${resolvedParams.slug}`,
+			siteName: "LogOS",
 			images: [
-				post.cover
-					? {
-							url: post.cover,
-							alt: post.title,
-					  }
-					: {
-							url: "/opengraph-image.jpg",
-							width: 1200,
-							height: 630,
-							alt: post.title,
-					  },
+				{
+					url: imageUrl,
+					width: 1200,
+					height: 630,
+					alt: post.title,
+				},
 			],
 			type: "article",
 			publishedTime: post.date,
@@ -52,7 +55,7 @@ export async function generateMetadata({
 			card: "summary_large_image",
 			title: `${post.title} | LogOS`,
 			description: post.description,
-			images: [post.cover || "/twitter-image.jpg"],
+			images: [imageUrl],
 		},
 	};
 }
