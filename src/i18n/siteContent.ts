@@ -199,15 +199,14 @@ const siteContent = {
                         subtitle: "Panel de Control Interactivo",
                         description:
                             "Terminal industrial con pantalla táctil integrada para control directo y visualización en tiempo real con sistema LogOS pre-instalado.",
-                        features: ['Pantalla táctil 10.1"', "Cámara integrada", "WiFi 6 + Bluetooth 5.0", "PoE+ alimentación"],
-                        specs: [
-                            "Resolución 1280x800",
-                            "IP65 clasificación",
-                            "Serial RS485",
-                            "IEC 61850 compatible",
+                        features: [
+                            'Pantalla táctil 10.1"',
+                            "Cámara integrada",
+                            "WiFi 6 + Bluetooth 5.0",
+                            "PoE+ alimentación",
                         ],
-                        useCase:
-                            "Ideal para salas de control, cabinas de operador y puntos de supervisión local.",
+                        specs: ["Resolución 1280x800", "IP65 clasificación", "Serial RS485", "IEC 61850 compatible"],
+                        useCase: "Ideal para salas de control, cabinas de operador y puntos de supervisión local.",
                         highlight: "Interfaz Local",
                     },
                     {
@@ -220,12 +219,7 @@ const siteContent = {
                             "Ethernet Gigabit x2",
                             "ARM Cortex-A72 Quad-core",
                         ],
-                        specs: [
-                            "8GB RAM DDR4",
-                            "Sin ventiladores",
-                            "Riel DIN para montaje",
-                            "Temperaturas críticas",
-                        ],
+                        specs: ["8GB RAM DDR4", "Sin ventiladores", "Riel DIN para montaje", "Temperaturas críticas"],
                         useCase:
                             "Perfecto para despliegues locales, edge computing y servidores locales de alta disponibilidad.",
                         highlight: "Comunicación",
@@ -321,20 +315,17 @@ const siteContent = {
                 items: [
                     {
                         industry: "Medicina",
-                        quote:
-                            "LogOS nos ha permitido reducir el tiempo de respuesta ante emergencias. La integración con nuestros sistemas legacy fue perfecta.",
+                        quote: "LogOS nos ha permitido reducir el tiempo de respuesta ante emergencias. La integración con nuestros sistemas legacy fue perfecta.",
                         metrics: "Reacción 60% más rápida.",
                     },
                     {
                         industry: "Alimentos",
-                        quote:
-                            "Con LogOS podemos monitorear el consumo energético en cada proceso de producción y optimizarlo para reducir el desperdicio.",
+                        quote: "Con LogOS podemos monitorear el consumo energético en cada proceso de producción y optimizarlo para reducir el desperdicio.",
                         metrics: "Consumo energético optimizado.",
                     },
                     {
                         industry: "Energía Renovable",
-                        quote:
-                            "La SUITE de desarrollo de LogOS es impecable, nos facilita la creación de soluciones para nuestros clientes.",
+                        quote: "La SUITE de desarrollo de LogOS es impecable, nos facilita la creación de soluciones para nuestros clientes.",
                         metrics: "Desarrollo 50% más rápido.",
                     },
                 ],
@@ -363,8 +354,7 @@ const siteContent = {
                 benefits: [
                     {
                         title: "Actualizaciones técnicas",
-                        description:
-                            "Nuevas funcionalidades, protocolos soportados y mejoras de rendimiento de LogOS.",
+                        description: "Nuevas funcionalidades, protocolos soportados y mejoras de rendimiento de LogOS.",
                     },
                     {
                         title: "Casos de uso industriales",
@@ -391,10 +381,7 @@ const siteContent = {
                 "Entendemos el desafío y temor a probar nuevas tecnologías en áreas críticas; por eso creamos LogOS, operando desde Hispanoamérica, como una solución amigable que se integra fácilmente a tu infraestructura sin interrumpir lo que funciona. Aportamos lo necesario para que la industria se atreva a dar el salto hacia la IA.",
             ],
             foundersTitle: "Nuestros fundadores",
-            founders: [
-                { role: "Co-Founder & President" },
-                { role: "Co-Founder & CEO / CTO" },
-            ],
+            founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
         },
         industries: {
             sliderTitle: "Industrias Inteligentes",
@@ -421,11 +408,7 @@ const siteContent = {
                     title: "Centros de Datos",
                     description:
                         "Supervisión continua de infraestructura crítica (cooling, energía, ambiente) para maximizar la disponibilidad integrando sistemas legacy.",
-                    points: [
-                        "Monitoreo de PUE",
-                        "Integración BMS legacy",
-                        "Alertas de prevención de caídas",
-                    ],
+                    points: ["Monitoreo de PUE", "Integración BMS legacy", "Alertas de prevención de caídas"],
                 },
                 {
                     title: "Aguas y Saneamiento",
@@ -444,7 +427,7 @@ const siteContent = {
                     points: [
                         "Infraestructura legacy a la nube",
                         "Analítica de eficiencia energética",
-                        "Monitoreo preventivo continuo",
+                        "Monitoreo predictivo continuo",
                     ],
                 },
                 {
@@ -556,7 +539,8 @@ const siteContent = {
         privacy: {
             backHome: "Volver al inicio",
             title: "Política de Privacidad",
-            contactIntro: "Para cualquier pregunta o comentario sobre esta política de privacidad, por favor contáctanos a:",
+            contactIntro:
+                "Para cualquier pregunta o comentario sobre esta política de privacidad, por favor contáctanos a:",
             sections: [
                 {
                     title: "Responsabilidad del tratamiento de datos",
@@ -952,12 +936,7 @@ const siteContent = {
                         description:
                             "Industrial terminal with an integrated touchscreen for direct control and real-time visualization, preloaded with LogOS.",
                         features: ['10.1" touchscreen', "Integrated camera", "WiFi 6 + Bluetooth 5.0", "PoE+ power"],
-                        specs: [
-                            "1280x800 resolution",
-                            "IP65 rating",
-                            "RS485 serial",
-                            "IEC 61850 compatible",
-                        ],
+                        specs: ["1280x800 resolution", "IP65 rating", "RS485 serial", "IEC 61850 compatible"],
                         useCase: "Ideal for control rooms, operator cabinets, and local supervision points.",
                         highlight: "Local Interface",
                     },
@@ -972,8 +951,7 @@ const siteContent = {
                             "ARM Cortex-A72 Quad-core",
                         ],
                         specs: ["8GB DDR4 RAM", "Fanless", "DIN rail mount", "Critical temperatures"],
-                        useCase:
-                            "Perfect for local deployments, edge computing, and highly available on-site servers.",
+                        useCase: "Perfect for local deployments, edge computing, and highly available on-site servers.",
                         highlight: "Connectivity",
                     },
                     {
@@ -992,8 +970,7 @@ const siteContent = {
                             "DIN rail or wall mount",
                             "Industrial environments",
                         ],
-                        useCase:
-                            "Ideal for advanced local processing and real-time video or image analytics.",
+                        useCase: "Ideal for advanced local processing and real-time video or image analytics.",
                         highlight: "AI Core",
                     },
                 ],
@@ -1055,8 +1032,7 @@ const siteContent = {
                 eyebrow: "SUCCESS STORIES",
                 titleStart: "Results that speak",
                 titleAccent: "for themselves",
-                description:
-                    "Leading companies trust LogOS to manage their most critical electrical infrastructure.",
+                description: "Leading companies trust LogOS to manage their most critical electrical infrastructure.",
                 keyResultLabel: "Key result:",
                 stats: [
                     { value: "10", label: "Months of monitoring" },
@@ -1067,20 +1043,17 @@ const siteContent = {
                 items: [
                     {
                         industry: "Healthcare",
-                        quote:
-                            "LogOS has helped us cut emergency response time. The integration with our legacy systems was seamless.",
+                        quote: "LogOS has helped us cut emergency response time. The integration with our legacy systems was seamless.",
                         metrics: "60% faster response.",
                     },
                     {
                         industry: "Food",
-                        quote:
-                            "With LogOS we can monitor energy use in every production stage and optimize it to reduce waste.",
+                        quote: "With LogOS we can monitor energy use in every production stage and optimize it to reduce waste.",
                         metrics: "Energy consumption optimized.",
                     },
                     {
                         industry: "Renewable Energy",
-                        quote:
-                            "The LogOS development suite is outstanding. It makes building solutions for our customers much faster.",
+                        quote: "The LogOS development suite is outstanding. It makes building solutions for our customers much faster.",
                         metrics: "50% faster development.",
                     },
                 ],
@@ -1109,18 +1082,15 @@ const siteContent = {
                 benefits: [
                     {
                         title: "Technical updates",
-                        description:
-                            "New features, supported protocols, and LogOS performance improvements.",
+                        description: "New features, supported protocols, and LogOS performance improvements.",
                     },
                     {
                         title: "Industrial use cases",
-                        description:
-                            "Real deployments, optimized configurations, and field-proven best practices.",
+                        description: "Real deployments, optimized configurations, and field-proven best practices.",
                     },
                     {
                         title: "Industry trends",
-                        description:
-                            "Market analysis, new IEC standards, and the evolution of the electrical sector.",
+                        description: "Market analysis, new IEC standards, and the evolution of the electrical sector.",
                     },
                     {
                         title: "Security alerts",
@@ -1186,18 +1156,13 @@ const siteContent = {
                     title: "Food & Beverage",
                     description:
                         "Ensure quality and efficiency by connecting shop-floor sensors directly to monitoring and analytics tools.",
-                    points: [
-                        "Full variable traceability",
-                        "Automated 24/7 control",
-                        "Compliance and KPI reporting",
-                    ],
+                    points: ["Full variable traceability", "Automated 24/7 control", "Compliance and KPI reporting"],
                 },
             ],
             sliderItems: [
                 {
                     title: "Oil & Gas",
-                    description:
-                        "Bring AI and cloud connectivity into high-availability, high-demand environments.",
+                    description: "Bring AI and cloud connectivity into high-availability, high-demand environments.",
                 },
                 {
                     title: "Data",
@@ -1211,8 +1176,7 @@ const siteContent = {
                 },
                 {
                     title: "Energy",
-                    description:
-                        "Connect legacy generation infrastructure for visibility, prediction, and control.",
+                    description: "Connect legacy generation infrastructure for visibility, prediction, and control.",
                 },
                 {
                     title: "Production",
@@ -1687,15 +1651,14 @@ const siteContent = {
                         subtitle: "Painel de Controle Interativo",
                         description:
                             "Terminal industrial com tela sensível ao toque integrada para controle direto e visualização em tempo real, com o LogOS pré-instalado.",
-                        features: ['Tela touch de 10,1"', "Câmera integrada", "WiFi 6 + Bluetooth 5.0", "Alimentação PoE+"],
-                        specs: [
-                            "Resolução 1280x800",
-                            "Classificação IP65",
-                            "Serial RS485",
-                            "Compatível com IEC 61850",
+                        features: [
+                            'Tela touch de 10,1"',
+                            "Câmera integrada",
+                            "WiFi 6 + Bluetooth 5.0",
+                            "Alimentação PoE+",
                         ],
-                        useCase:
-                            "Ideal para salas de controle, cabines de operador e pontos de supervisão local.",
+                        specs: ["Resolução 1280x800", "Classificação IP65", "Serial RS485", "Compatível com IEC 61850"],
+                        useCase: "Ideal para salas de controle, cabines de operador e pontos de supervisão local.",
                         highlight: "Interface Local",
                     },
                     {
@@ -1729,8 +1692,7 @@ const siteContent = {
                             "Trilho DIN ou montagem em parede",
                             "Ambientes industriais",
                         ],
-                        useCase:
-                            "Ideal para processamento local avançado e análise de vídeo ou imagens em tempo real.",
+                        useCase: "Ideal para processamento local avançado e análise de vídeo ou imagens em tempo real.",
                         highlight: "Núcleo de IA",
                     },
                 ],
@@ -1804,20 +1766,17 @@ const siteContent = {
                 items: [
                     {
                         industry: "Saúde",
-                        quote:
-                            "A LogOS nos ajudou a reduzir o tempo de resposta a emergências. A integração com nossos sistemas legados foi perfeita.",
+                        quote: "A LogOS nos ajudou a reduzir o tempo de resposta a emergências. A integração com nossos sistemas legados foi perfeita.",
                         metrics: "Resposta 60% mais rápida.",
                     },
                     {
                         industry: "Alimentos",
-                        quote:
-                            "Com a LogOS, podemos monitorar o consumo de energia em cada etapa da produção e otimizá-lo para reduzir desperdícios.",
+                        quote: "Com a LogOS, podemos monitorar o consumo de energia em cada etapa da produção e otimizá-lo para reduzir desperdícios.",
                         metrics: "Consumo de energia otimizado.",
                     },
                     {
                         industry: "Energia Renovável",
-                        quote:
-                            "A suíte de desenvolvimento da LogOS é excelente. Ela acelera a criação de soluções para nossos clientes.",
+                        quote: "A suíte de desenvolvimento da LogOS é excelente. Ela acelera a criação de soluções para nossos clientes.",
                         metrics: "Desenvolvimento 50% mais rápido.",
                     },
                 ],
@@ -1846,13 +1805,11 @@ const siteContent = {
                 benefits: [
                     {
                         title: "Atualizações técnicas",
-                        description:
-                            "Novos recursos, protocolos suportados e melhorias de desempenho da LogOS.",
+                        description: "Novos recursos, protocolos suportados e melhorias de desempenho da LogOS.",
                     },
                     {
                         title: "Casos de uso industriais",
-                        description:
-                            "Implantações reais, configurações otimizadas e melhores práticas de campo.",
+                        description: "Implantações reais, configurações otimizadas e melhores práticas de campo.",
                     },
                     {
                         title: "Tendências do setor",
@@ -1901,11 +1858,7 @@ const siteContent = {
                     title: "Data Centers",
                     description:
                         "Monitoramento contínuo de infraestrutura crítica, como refrigeração, energia e ambiente, para maximizar a disponibilidade com integração de sistemas legados.",
-                    points: [
-                        "Monitoramento de PUE",
-                        "Integração com BMS legado",
-                        "Alertas preventivos de queda",
-                    ],
+                    points: ["Monitoramento de PUE", "Integração com BMS legado", "Alertas predictivos de queda"],
                 },
                 {
                     title: "Água e Saneamento",
@@ -1924,7 +1877,7 @@ const siteContent = {
                     points: [
                         "Infraestrutura legada para a nuvem",
                         "Análises de eficiência energética",
-                        "Monitoramento preventivo contínuo",
+                        "Monitoramento predictivo contínuo",
                     ],
                 },
                 {
@@ -2036,7 +1989,8 @@ const siteContent = {
         privacy: {
             backHome: "Voltar ao início",
             title: "Política de Privacidade",
-            contactIntro: "Se você tiver qualquer dúvida ou comentário sobre esta política de privacidade, fale conosco em:",
+            contactIntro:
+                "Se você tiver qualquer dúvida ou comentário sobre esta política de privacidade, fale conosco em:",
             sections: [
                 {
                     title: "Responsabilidade pelo tratamento de dados",
