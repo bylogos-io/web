@@ -1,4 +1,4 @@
-import { getAgent } from "./src/services/RagAgent";
+import { getAgent } from "../src/services/RagAgent";
 
 async function testAgent() {
     try {

@@ -43,6 +43,7 @@
     ".velite"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "scratch"
   ]
 }
