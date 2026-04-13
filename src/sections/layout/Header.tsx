@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { useRouter, usePathname, Link } from "@/i18n/routing";
 import Image from "next/image";
 import LogosIcon from "@public/isologo.svg";
@@ -35,22 +34,12 @@ import {
 } from "@mui/material";
 
 export function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [expandedItem, setExpandedItem] = useState<string | null>(null);
     const router = useRouter();
     const pathname = usePathname();
     const locale = useLocale();
     const content = getSiteContent(locale);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     const navigationItems = content.header.navigation as Array<{
         label: string;
@@ -86,11 +75,10 @@ export function Header() {
                 sx={{ position: "relative" }}
             >
                 <Box
-                    component={item.href && !item.href.startsWith("#") ? motion.create(Link) : motion.button}
+                    component={item.href && !item.href.startsWith("#") ? Link : "button"}
                     {...(item.href && !item.href.startsWith("#") ? { href: item.href } : {})}
                     aria-haspopup={item.submenu ? "true" : undefined}
                     aria-expanded={item.submenu ? isOpen : undefined}
-                    whileHover={{ y: -2 }}
                     onClick={() => item.href && handleNavigation(item.href as string)}
                     sx={{
                         background: "none",
@@ -119,14 +107,8 @@ export function Header() {
                     )}
                 </Box>
 
-                <AnimatePresence>
                     {isOpen && item.submenu && (
                         <Box
-                            component={motion.div}
-                            initial={{ opacity: 0, y: 15, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                            transition={{ duration: 0.2, ease: "easeOut" }}
                             sx={{
                                 position: "absolute",
                                 top: "100%",
@@ -198,7 +180,6 @@ export function Header() {
                             </Box>
                         </Box>
                     )}
-                </AnimatePresence>
             </Box>
         );
     }
@@ -206,34 +187,18 @@ export function Header() {
     return (
         <>
             <Box
-                component={motion.header}
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.6 }}
+                component="header"
                 sx={(theme: Theme) => ({
                     position: "fixed",
                     top: 0,
                     left: 0,
                     right: 0,
                     zIndex: 1100,
-                    transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                    py: { xs: 1, lg: isScrolled ? 1 : 2 },
-                    backgroundColor: {
-                        xs: theme.palette.background.default,
-                        lg: isScrolled ? alpha(theme.palette.background.default, 0.7) : "transparent",
-                    },
-                    backdropFilter: {
-                        xs: "blur(20px) saturate(180%)",
-                        lg: isScrolled ? "blur(20px) saturate(180%)" : "none",
-                    },
-                    borderBottom: {
-                        xs: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                        lg: isScrolled ? `1px solid ${alpha(theme.palette.divider, 0.1)}` : "1px solid transparent",
-                    },
-                    boxShadow: {
-                        xs: `0 10px 30px ${alpha(theme.palette.common.black, 0.2)}`,
-                        lg: isScrolled ? `0 10px 30px ${alpha(theme.palette.common.black, 0.2)}` : "none",
-                    },
+                    py: 1,
+                    backgroundColor: theme.palette.background.default,
+                    backdropFilter: "blur(20px) saturate(180%)",
+                    borderBottom: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+                    boxShadow: `0 10px 30px ${alpha(theme.palette.common.black, 0.2)}`,
                 })}
             >
                 <Container maxWidth="lg">
@@ -247,11 +212,10 @@ export function Header() {
                     >
                         {/* Logo */}
                         <Box sx={{ flex: 1, display: "flex", justifyContent: "flex-start" }}>
-                            <Box
-                                component={motion.create(Link)}
+                        <Box
+                                component={Link}
                                 href="/"
                                 aria-label={content.header.logoAriaLabel}
-                                whileHover={{ scale: 1.05 }}
                                 sx={{
                                     display: "flex",
                                     alignItems: "center",
