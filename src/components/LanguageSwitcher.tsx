@@ -55,17 +55,16 @@ export function LanguageSwitcher() {
                 endIcon={<KeyboardArrowDownRoundedIcon />}
                 sx={(theme) => ({
                     minWidth: "auto",
-                    px: { xs: 1.25, sm: 1.5 },
-                    py: 0.85,
+                    px: { xs: 1, sm: 1.5 },
+                    py: 0.5,
                     borderRadius: 999,
                     color: "text.primary",
                     textTransform: "none",
-                    border: `1px solid ${alpha(theme.palette.divider, 0.12)}`,
-                    backgroundColor: alpha(theme.palette.background.paper, 0.65),
-                    backdropFilter: "blur(12px)",
-                    boxShadow: `0 8px 24px ${alpha(theme.palette.common.black, 0.08)}`,
+                    border: "none",
+                    backgroundColor: "transparent",
                     "&:hover": {
-                        backgroundColor: alpha(theme.palette.background.paper, 0.9),
+                        backgroundColor: "transparent",
+                        color: "primary.main",
                     },
                     "& .MuiButton-startIcon, & .MuiButton-endIcon": {
                         margin: 0,

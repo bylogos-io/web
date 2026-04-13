@@ -98,16 +98,38 @@ export function AboutHero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    sx={{ textAlign: "center", mt: 6, mb: 12 }}
+                    sx={{ mt: 8, mb: 12 }}
                 >
                     <Box sx={{ mb: 6 }}>
-                        <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.6 }}>
+                        <Typography
+                            variant="h6"
+                            color="text.primary"
+                            sx={{
+                                fontWeight: 400,
+                                lineHeight: 1.8,
+                                textAlign: "justify",
+                                hyphens: "auto",
+                                opacity: 0.9,
+                                fontSize: { xs: "1rem", md: "1.25rem" },
+                            }}
+                        >
                             {content.about.paragraphs[0]}
                         </Typography>
                     </Box>
 
                     <Box sx={{ mb: 6 }}>
-                        <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, lineHeight: 1.6 }}>
+                        <Typography
+                            variant="h6"
+                            color="text.primary"
+                            sx={{
+                                fontWeight: 400,
+                                lineHeight: 1.8,
+                                textAlign: "justify",
+                                hyphens: "auto",
+                                opacity: 0.9,
+                                fontSize: { xs: "1rem", md: "1.25rem" },
+                            }}
+                        >
                             {content.about.paragraphs[1]}
                         </Typography>
                     </Box>

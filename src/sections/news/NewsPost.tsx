@@ -39,10 +39,13 @@ export function NewsPost({ post }: NewsPostProps) {
       <Box
         sx={{
           position: "relative",
-          height: { xs: 300, md: 500 },
+          height: { xs: "auto", md: 500 },
+          minHeight: { xs: 400, md: 500 },
           width: "100%",
           display: "flex",
           alignItems: "flex-end",
+          pt: { xs: 12, md: 15 }, // Clearance for sticky header
+          pb: { xs: 4, md: 0 },
           mb: 8,
         }}
       >
@@ -90,7 +93,14 @@ export function NewsPost({ post }: NewsPostProps) {
             </Stack>
           </Link>
 
-          <Stack direction="row" spacing={1} sx={{ mb: 3 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+              mb: 3,
+            }}
+          >
             {post.tags?.map((tag) => (
               <Chip
                 key={tag}
@@ -100,7 +110,7 @@ export function NewsPost({ post }: NewsPostProps) {
                 sx={{ fontWeight: 700 }}
               />
             ))}
-          </Stack>
+          </Box>
 
           <Typography
             variant="h1"

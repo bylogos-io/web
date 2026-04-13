@@ -61,19 +61,16 @@ export function NewsSlider({
     enter: (direction: number) => ({
       x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 1.1,
     }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
-      scale: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? '100%' : '-100%',
       opacity: 0,
-      scale: 0.9,
     }),
   };
 
@@ -105,9 +102,8 @@ export function NewsSlider({
               animate='center'
               exit='exit'
               transition={{
-                x: { type: 'spring', stiffness: 300, damping: 30 },
-                opacity: { duration: 0.4 },
-                scale: { duration: 0.6 },
+                x: { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }, // Cinematic smooth ease
+                opacity: { duration: 0.6 },
               }}
               style={{
                 position: 'absolute',
@@ -123,17 +119,18 @@ export function NewsSlider({
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundImage: `url(${posts[currentIndex].cover || '/images/news-placeholder.webp'})`,
-                  filter: 'brightness(0.7)',
+                  filter: 'blur(7px) brightness(0.6)',
+                  transform: 'scale(1.1)', // Scale up slightly to prevent blur edges from showing
                 }}
               />
 
               {/* Overlay Gradient */}
               <Box
-                sx={(theme) => ({
+                sx={{
                   position: 'absolute',
                   inset: 0,
-                  background: `linear-gradient(to top, ${alpha(theme.palette.background.default, 0.9)} 0%, transparent 60%)`,
-                })}
+                  background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.9) 100%)',
+                }}
               />
 
               {/* Content */}
@@ -150,11 +147,7 @@ export function NewsSlider({
                   alignItems: 'flex-start',
                 }}
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                >
+                <Box>
                   <Typography
                     variant='overline'
                     sx={{
@@ -181,6 +174,10 @@ export function NewsSlider({
                       letterSpacing: '-0.02em',
                       mb: 2,
                       color: 'common.white',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
                     }}
                   >
                     {posts[currentIndex].title}
@@ -216,7 +213,7 @@ export function NewsSlider({
                   >
                     {posts[currentIndex].redirectUrl ? 'Ver Noticia Externa' : 'Leer Artículo'}
                   </Button>
-                </motion.div>
+                </Box>
               </Box>
             </motion.div>
           </AnimatePresence>

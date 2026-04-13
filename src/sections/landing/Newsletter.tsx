@@ -335,6 +335,7 @@ export function Newsletter() {
                                     sx={{ display: "flex", flexDirection: "column", gap: 3 }}
                                 >
                                     <TextField
+                                        id="newsletter-name"
                                         fullWidth
                                         label={content.home.newsletter.nameLabel}
                                         variant="outlined"
@@ -343,6 +344,7 @@ export function Newsletter() {
                                         required
                                     />
                                     <TextField
+                                        id="newsletter-email"
                                         fullWidth
                                         label={content.home.newsletter.emailLabel}
                                         type="email"

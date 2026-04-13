@@ -34,9 +34,9 @@ interface NewsPostsProps {
 export function NewsPosts({ posts }: NewsPostsProps) {
   return (
     <Box sx={{ py: 10, backgroundColor: 'background.default' }}>
-      <Container maxWidth='lg'>
+      <Container maxWidth='xl'>
         <Box sx={{ mb: 8, textAlign: 'center' }}>
-          <Typography variant='h2' fontWeight={800} sx={{ mb: 2 }}>
+          <Typography variant='h3' fontWeight={800} sx={{ mb: 2 }}>
             Últimas Publicaciones
           </Typography>
           <Typography
@@ -48,11 +48,11 @@ export function NewsPosts({ posts }: NewsPostsProps) {
           </Typography>
         </Box>
 
-        <Grid2 container spacing={4}>
+        <Grid2 container spacing={2}>
           {posts.map((post, index) => (
             <Grid2
               key={post.slug}
-              size={{ xs: 12, md: index === 0 ? 12 : 6, lg: 4 }}
+              size={{ xs: 12, md: 6, lg: 4 }}
             >
               <Card
                 sx={(theme) => ({
@@ -162,10 +162,18 @@ export function NewsPosts({ posts }: NewsPostsProps) {
                     </Stack>
 
                     <Typography
-                      variant='h5'
+                      variant='h6'
                       component='h3'
                       fontWeight={800}
-                      sx={{ mb: 2, lineHeight: 1.3 }}
+                      sx={{
+                        mb: 1.5,
+                        lineHeight: 1.3,
+                        fontSize: '1.1rem',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden',
+                      }}
                     >
                       {post.title}
                     </Typography>
@@ -174,11 +182,12 @@ export function NewsPosts({ posts }: NewsPostsProps) {
                       variant='body2'
                       color='text.secondary'
                       sx={{
-                        mb: 3,
+                        mb: 2,
                         display: '-webkit-box',
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: 'vertical',
                         overflow: 'hidden',
+                        fontSize: '0.85rem'
                       }}
                     >
                       {post.description}

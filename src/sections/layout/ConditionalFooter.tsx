@@ -9,7 +9,7 @@ export function ConditionalFooter() {
   const currentPath = pathname ?? "";
 
   // List of paths where the footer should NOT be shown
-  const excludedPaths = ["/chat", "/docs", "/terms", "/privacy"];
+  const excludedPaths = ["/docs", "/terms", "/privacy"];
 
   const shouldExclude = excludedPaths.some(
     (path) => currentPath === path || currentPath.startsWith(`${path}/`),

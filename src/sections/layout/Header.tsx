@@ -217,17 +217,23 @@ export function Header() {
                     right: 0,
                     zIndex: 1100,
                     transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                    py: isScrolled ? 1 : 2,
-                    ...(isScrolled && {
-                        backgroundColor: alpha(theme.palette.background.default, 0.7),
-                        backdropFilter: "blur(20px) saturate(180%)",
-                        borderBottom: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                        boxShadow: `0 10px 30px ${alpha(theme.palette.common.black, 0.2)}`,
-                    }),
-                    ...(!isScrolled && {
-                        backgroundColor: "transparent",
-                        borderBottom: "1px solid transparent",
-                    }),
+                    py: { xs: 1, lg: isScrolled ? 1 : 2 },
+                    backgroundColor: {
+                        xs: theme.palette.background.default,
+                        lg: isScrolled ? alpha(theme.palette.background.default, 0.7) : "transparent",
+                    },
+                    backdropFilter: {
+                        xs: "blur(20px) saturate(180%)",
+                        lg: isScrolled ? "blur(20px) saturate(180%)" : "none",
+                    },
+                    borderBottom: {
+                        xs: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+                        lg: isScrolled ? `1px solid ${alpha(theme.palette.divider, 0.1)}` : "1px solid transparent",
+                    },
+                    boxShadow: {
+                        xs: `0 10px 30px ${alpha(theme.palette.common.black, 0.2)}`,
+                        lg: isScrolled ? `0 10px 30px ${alpha(theme.palette.common.black, 0.2)}` : "none",
+                    },
                 })}
             >
                 <Container maxWidth="lg">
@@ -299,43 +305,10 @@ export function Header() {
                                 flex: 1,
                                 alignItems: "center",
                                 justifyContent: "flex-end",
-                                gap: 1.5,
+                                gap: 4,
                             }}
                         >
-                            <Box
-                                sx={(theme: Theme) => ({
-                                    ml: 2,
-                                    borderLeft: `1px solid ${theme.palette.divider}`,
-                                    pl: 2,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 2
-                                })}
-                            >
-                                <Button
-                                    component={Link}
-                                    href="/#newsletter"
-                                    variant="contained"
-                                    size="medium"
-                                    sx={(theme) => ({
-                                        fontWeight: 800,
-                                        textTransform: "none",
-                                        px: 3.5,
-                                        borderRadius: "50px",
-                                        background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${alpha(theme.palette.primary.main, 0.8)} 100%)`,
-                                        boxShadow: `0 8px 20px ${alpha(theme.palette.primary.main, 0.25)}`,
-                                        transition: "all 0.3s ease",
-                                        "&:hover": {
-                                            transform: "translateY(-2px)",
-                                            boxShadow: `0 12px 25px ${alpha(theme.palette.primary.main, 0.4)}`,
-                                            background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.main} 100%)`,
-                                        },
-                                    })}
-                                >
-                                    {content.header.contactCta}
-                                </Button>
-                                <LanguageSwitcher />
-                            </Box>
+                            <LanguageSwitcher />
                         </Box>
 
                         {/* Mobile Menu Button */}

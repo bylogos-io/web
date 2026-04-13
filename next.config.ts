@@ -21,6 +21,15 @@ const nextConfig: NextConfig = {
                 source: "/ingest/:path*",
                 destination: "https://us.i.posthog.com/:path*",
             },
+            // Soporte para rutas localizadas (evita 404 con next-intl)
+            {
+                source: "/:locale(es|en|pt)/ingest/static/:path*",
+                destination: "https://us-assets.i.posthog.com/static/:path*",
+            },
+            {
+                source: "/:locale(es|en|pt)/ingest/:path*",
+                destination: "https://us.i.posthog.com/:path*",
+            },
         ];
     },
     skipTrailingSlashRedirect: true,

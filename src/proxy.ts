@@ -82,7 +82,7 @@ function detectLocaleFromRequest(request: NextRequest) {
   return 'en';
 }
 
-export default function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   if (request.nextUrl.pathname === '/' && !request.cookies.get('NEXT_LOCALE')?.value) {
     const locale = detectLocaleFromRequest(request);
     const url = request.nextUrl.clone();

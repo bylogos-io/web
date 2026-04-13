@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { ConditionalHeader } from "@/sections/layout/ConditionalHeader";
 import { ConditionalFooter } from "@/sections/layout/ConditionalFooter";
-import { ChatBubble } from "@/components/ChatBubble";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -149,7 +148,6 @@ export default async function RootLayout({
                     <MuiRootProvider>
                         <ConditionalHeader />
                         {children}
-                        <ChatBubble />
                         <ConditionalFooter />
                     </MuiRootProvider>
                 </NextIntlClientProvider>

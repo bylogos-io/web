@@ -27,9 +27,9 @@ export function Footer() {
             })}
         >
             <Container maxWidth="lg" sx={{ pt: 10 }}>
-                <Grid container spacing={4}>
+                <Grid container spacing={8}>
                     {/* Brand */}
-                    <Grid size={{ xs: 12, md: 6, lg: 4 }}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Box
                             component={motion.div}
                             initial={{ opacity: 0, y: 20 }}
@@ -70,76 +70,12 @@ export function Footer() {
                                         <social.icon sx={{ fontSize: 22 }} />
                                     </IconButton>
                                 ))}
-                                {/* <Button
-                  variant="ghost"
-                  size="icon"
-                  component="a"
-                  href="https://www.linkedin.com/company/bylogos/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": { color: "text.primary" },
-                  }}
-                >
-                  <LinkedinIcon sx={{ fontSize: 18 }} />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  component="a"
-                  href="https://www.instagram.com/bylogos.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": { color: "text.primary" },
-                  }}
-                >
-                  <InstagramIcon sx={{ fontSize: 18 }} />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  component="a"
-                  href="https://github.com/bylogos-io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    color: "text.secondary",
-                    "&:hover": { color: "text.primary" },
-                  }}
-                >
-                  <GithubIcon sx={{ fontSize: 18 }} />
-                </Button> */}
-                            </Stack>
-                        </Box>
-                    </Grid>
-
-                    {/* Protocols & Standards */}
-                    <Grid size={{ xs: 12, md: 6, lg: 4 }}>
-                        <Box
-                            component={motion.div}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            viewport={{ once: true }}
-                        >
-                            <Typography variant="h6" color="text.primary" sx={{ mb: 2, fontWeight: 600 }}>
-                                {content.footer.protocolsTitle}
-                            </Typography>
-                            <Stack spacing={1}>
-                                {content.footer.protocols.map((protocol, idx) => (
-                                    <Typography key={idx} variant="body2" color="text.secondary">
-                                        • {protocol}
-                                    </Typography>
-                                ))}
                             </Stack>
                         </Box>
                     </Grid>
 
                     {/* Contact */}
-                    <Grid size={{ xs: 12, md: 6, lg: 4 }}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                         <Box
                             component={motion.div}
                             initial={{ opacity: 0, y: 20 }}
