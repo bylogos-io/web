@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from 'react';
 import { useLocale } from 'next-intl';
+import posthog from 'posthog-js';
 
 interface ChatContextType {
   messages: any[];
@@ -34,7 +35,11 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'X-POSTHOG-DISTINCT-ID': posthog.get_distinct_id() ?? 'anonymous',
+          ...(posthog.get_session_id() ? { 'X-POSTHOG-SESSION-ID': posthog.get_session_id()! } : {}),
+        },
         body: JSON.stringify({
           messages: [...messages, userMessage].map((m) => ({
             id: m.id || crypto.randomUUID(),

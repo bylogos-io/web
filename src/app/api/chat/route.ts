@@ -1,9 +1,13 @@
 import { getAgent } from '@/services/RagAgent';
 import { HumanMessage, AIMessage } from '@langchain/core/messages';
+import { getPostHogClient } from '@/lib/posthog-server';
 
 export const maxDuration = 60;
 
 export async function POST(req: Request) {
+  const distinctId = req.headers.get('X-POSTHOG-DISTINCT-ID') ?? 'anonymous';
+  const sessionId = req.headers.get('X-POSTHOG-SESSION-ID') ?? undefined;
+
   try {
     const body = await req.json();
     const { messages, context, locale } = body;
@@ -59,6 +63,18 @@ export async function POST(req: Request) {
           ? lastMessage.content.map((p: any) => p.text || '').join('')
           : '';
 
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId,
+      event: 'chat_api_completed',
+      properties: {
+        locale,
+        message_count: messages.length,
+        has_context: !!context,
+        ...(sessionId && { $session_id: sessionId }),
+      },
+    });
+
     // Devolvemos el mensaje en un formato que el frontend pueda procesar.
     return new Response(
       JSON.stringify({
@@ -73,6 +89,16 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     console.error('❌ [Server Action] Error in chat API:', error);
+
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId,
+      event: 'chat_api_error',
+      properties: {
+        error: error instanceof Error ? error.message : String(error),
+      },
+    });
+
     return new Response(JSON.stringify({ error: 'Error processing request' }), {
       status: 500,
     });

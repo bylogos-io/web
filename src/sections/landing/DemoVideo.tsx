@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import posthog from "posthog-js";
 import { motion } from "framer-motion";
 import videojs from "video.js";
 import type Player from "video.js/dist/types/player";
@@ -96,6 +97,9 @@ export function DemoVideo() {
         }
 
         if (player.paused()) {
+            posthog.capture("demo_video_played", {
+                current_time: player.currentTime() || 0,
+            });
             void player.play();
             return;
         }

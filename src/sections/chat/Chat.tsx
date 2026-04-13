@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import posthog from "posthog-js";
 // MUI Icons - Outlined version
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
@@ -245,9 +246,17 @@ const Chat = () => {
     const handleSend = () => {
         if (!input.trim() || isLoading) return;
 
+        posthog.capture("chat_message_sent", {
+            source: "full_page",
+            message_length: input.length,
+        });
+
         sendMessage({ text: input })
             .then(() => setInput(""))
-            .catch((error: any) => console.error("❌ [Server Action] Error in chat.tsx:", error));
+            .catch((error: any) => {
+                console.error("❌ [Server Action] Error in chat.tsx:", error);
+                posthog.captureException(error);
+            });
     };
 
     return (

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useChatContext } from "@/providers/ChatProvider";
 import { usePathname } from "next/navigation";
+import posthog from "posthog-js";
 
 // MUI Icons - Outlined version to match Lucide aesthetic
 import OpenInFullOutlinedIcon from "@mui/icons-material/OpenInFullOutlined";
@@ -51,10 +52,16 @@ export function ChatWidget() {
         const currentInput = input;
         setInput("");
 
+        posthog.capture("chat_message_sent", {
+            source: "widget",
+            message_length: currentInput.length,
+        });
+
         try {
             await sendMessage({ text: currentInput });
         } catch (error) {
             console.error("Error sending message:", error);
+            posthog.captureException(error);
         }
     };
 
@@ -445,7 +452,10 @@ export function ChatWidget() {
                         exit={{ scale: 0.7, opacity: 0, transition: { duration: 0.15, ease: [0.4, 0, 1, 1] } }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => setIsOpen(true)}
+                        onClick={() => {
+                            setIsOpen(true);
+                            posthog.capture("chat_widget_opened");
+                        }}
                         sx={(theme) => ({
                             width: 56,
                             height: 56,
