@@ -704,7 +704,6 @@ const siteContent = {
                 { label: "Tiempo de respuesta", value: "45ms", status: "success" },
             ],
         },
-
     },
     en: {
         seo: {
@@ -2072,7 +2071,6 @@ const siteContent = {
                 { label: "Protocolo", value: "HTTPS", status: "success" },
                 { label: "Tempo de resposta", value: "45ms", status: "success" },
             ],
-        },
         },
     },
 };
