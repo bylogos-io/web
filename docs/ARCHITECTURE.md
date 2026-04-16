@@ -8,6 +8,9 @@
 - `src/data`: Static data and configuration.
 - `src/theme`: MUI theme configuration.
 
+## Design Principles
+The project follows a strictly defined design language documented in [DESIGN.md](../DESIGN.md). All new UI components must adhere to these guidelines to maintain consistency.
+
 ## Technologies
 - **Framework**: Next.js (App Router)
 - **UI Library**: Material UI (MUI)
