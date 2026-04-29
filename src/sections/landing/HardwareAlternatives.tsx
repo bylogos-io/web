@@ -9,6 +9,7 @@ import { Box, Container, Grid2 as Grid, Typography, Stack, alpha, Chip, Card, Bu
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { Link } from "@/i18n/routing";
+import { monoFont } from "@/theme";
 
 export function HardwareAlternatives() {
     const locale = useLocale();
@@ -27,51 +28,45 @@ export function HardwareAlternatives() {
     }));
 
     return (
-        <Box component="section" id="hardware" sx={{ py: 8 }}>
-            <Container maxWidth="xl">
+        <Box component="section" id="hardware" sx={{ py: { xs: 10, md: 14 } }}>
+            <Container maxWidth="lg">
                 <Box
                     component={motion.div}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    sx={{ textAlign: "center", mb: 6 }}
+                    sx={{ textAlign: "center", maxWidth: 720, mx: "auto", mb: { xs: 5, md: 7 } }}
                 >
                     <Typography
-                        variant="h2"
                         sx={{
-                            fontSize: { xs: "2rem", md: "3rem" },
+                            fontFamily: monoFont,
+                            fontSize: "0.75rem",
+                            letterSpacing: "0.18em",
+                            color: "primary.main",
                             mb: 2,
-                            fontWeight: 800,
-                            lineHeight: 1.2,
                         }}
                     >
+                        {(content.home.hardware as any).eyebrow ?? "HARDWARE"}
+                    </Typography>
+                    <Typography
+                        variant="h2"
+                        sx={{ mb: 2, fontWeight: 600, letterSpacing: "-0.025em", textWrap: "balance" as any }}
+                    >
+                        {content.home.hardware.titleStart}{" "}
                         <Box
                             component="span"
                             sx={(theme) => ({
-                                background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
+                                background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
                                 backgroundClip: "text",
                                 WebkitBackgroundClip: "text",
                                 color: "transparent",
                             })}
                         >
-                            {content.home.hardware.titleStart}
-                        </Box>{" "}
-                        <Box component="span" sx={{ color: "primary.main" }}>
                             {content.home.hardware.titleAccent}
                         </Box>
                     </Typography>
-                    <Typography
-                        variant="h5"
-                        color="text.secondary"
-                        sx={{
-                            maxWidth: 800,
-                            mx: "auto",
-                            fontWeight: 400,
-                            fontSize: "1.125rem",
-                            lineHeight: 1.6,
-                        }}
-                    >
+                    <Typography sx={{ color: "text.secondary", textWrap: "balance" as any }}>
                         {content.home.hardware.description}
                     </Typography>
                 </Box>

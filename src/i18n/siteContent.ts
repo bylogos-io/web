@@ -106,8 +106,8 @@ const siteContent = {
         },
         home: {
             hero: {
-                title: "La mejor integración de IA para el IoT Industrial",
-                subtitle: "PROCESOS INTELIGENTES, INDUSTRIA EFICIENTE.",
+                title: "El futuro industrial está en el borde.",
+                subtitle: "GEMELOS DIGITALES, IIOT E INDUSTRIAL AI.",
             },
             clientsMarqueeLabel: "Confían en nosotros",
             demoVideo: {
@@ -116,6 +116,26 @@ const siteContent = {
                 brand: "LogOS",
                 description:
                     "Revisa el flujo completo de monitoreo, visualización y operación asistida por IA desde una sola plataforma.",
+            },
+            edgeArchitecture: {
+                label: "ARQUITECTURA",
+                titleStart: "Edge Computing e",
+                titleAccent: "Industrial AI",
+                nodes: {
+                    field: { title: "Campo OT", subtitle: "Sensores, PLCs, etc." },
+                    edge: { title: "Edge", subtitle: "LogOS" },
+                    user: { title: "Usuario", subtitle: "Operación & Decisión" },
+                },
+                paragraphs: [
+                    {
+                        title: "Eficiencia y baja latencia",
+                        body: "Procesamos los datos donde se generan. Las decisiones de control y los modelos de IA se ejecutan localmente, sin depender de Internet ni de servicios cloud que añaden retardo y costos por tráfico.",
+                    },
+                    {
+                        title: "Gobernanza y seguridad",
+                        body: "Tus datos operacionales nunca salen de tu planta. Mantienes la propiedad y el control total sobre la información sensible, cumpliendo políticas de seguridad industrial y regulaciones locales.",
+                    },
+                ],
             },
             features: {
                 titleStart: "Funcionamiento",
@@ -167,10 +187,11 @@ const siteContent = {
                 ],
             },
             hardware: {
+                eyebrow: "¿NO TIENES INFRAESTRUCTURA?",
                 titleStart: "Hardware",
                 titleAccent: "Industrial",
                 description:
-                    "Soluciones de hardware especializadas de Seeed Studio, optimizadas para ejecutar LogOS en entornos industriales exigentes con la mayor estabilidad.",
+                    "Si tu planta aún no tiene los equipos para correr LogOS, te ofrecemos hardware industrial pre-instalado y validado. Llave en mano, listo para conectar.",
                 vatExcluded: "IVA NO INCLUIDO",
                 technicalSpecs: "ESPECIFICACIONES TÉCNICAS",
                 useCaseLabel: "Caso de uso:",
@@ -355,6 +376,233 @@ const siteContent = {
                             "Vulnerabilidades, parches críticos y recomendaciones proactivas de ciberseguridad industrial.",
                     },
                 ],
+            },
+            landingV2: {
+                hero: {
+                    eyebrow: "ADIÓS AL MONITOREO LEGACY",
+                    titleLead: "Conecta tu industria con la",
+                    titleEmphasis: "IA.",
+                    sub: "LogOS es la infraestructura que digitaliza tu campo existente sin reemplazarlo.",
+                    subSecondary: "Datos y decisiones en el borde, monitoreo donde estés.",
+                    subTertiary: "Preparamos tu industria para la era de la IA: gemelos digitales como visualizaciones 3D en tiempo real con asistencia inteligente — no una tabla de Excel.",
+                    audience: "Para plantas con 20+ equipos OT en monitoreo manual, Excel o SCADA aislado.",
+                    highlight: "Incluye Gemelo Digital 3D · Monitoreo en vivo",
+                    ctaPrimary: "Solicitar demo técnica",
+                    ctaSecondary: "Ver cómo funciona",
+                    ctaPrimaryHref: "#newsletter",
+                    ctaSecondaryHref: "#demo-video",
+                    callouts: [
+                        { label: "LATENCIA", value: "<1s" },
+                        { label: "ARQUITECTURA", value: "Edge Native" },
+                        { label: "PROTOCOLOS", value: "Modbus, OPC, MQTT..." },
+                        { label: "DESPLIEGUE EN", value: "7 días" },
+                    ],
+                },
+                integrations: {
+                    label: "INTEGRACIONES NATIVAS",
+                    sub: "Hardware-agnostic. Conecta cualquier infraestructura sin reemplazar.",
+                    protocolsLabel: "PROTOCOLOS",
+                    protocols: ["Modbus RTU/TCP", "OPC-UA", "MQTT / MQTT-SN", "Profibus", "Telnet", "IEC 61850"],
+                    vendorsLabel: "FABRICANTES",
+                    vendors: ["Siemens", "Allen-Bradley", "Schneider", "Rockwell", "ABB", "Phoenix Contact"],
+                },
+                pillars: {
+                    eyebrow: "ARQUITECTURA",
+                    title: "Cuatro pilares. Una plataforma.",
+                    sub: "El stack mínimo para cerrar la brecha entre tu campo OT y tu IT.",
+                    items: [
+                        {
+                            n: "01",
+                            title: "Conecta lo legacy",
+                            claim: "Modbus, OPC UA, MQTT, IEC 61850 y 40+ familias de PLC soportadas.",
+                            outcome: "Sin reemplazar tu infraestructura. Sin parar la operación.",
+                        },
+                        {
+                            n: "02",
+                            title: "Decide en el borde",
+                            claim: "IA local, retención 6+ meses, opera sin internet.",
+                            outcome: "Tus datos no salen de la planta. Soberanía y baja latencia.",
+                        },
+                        {
+                            n: "03",
+                            title: "Opera donde estés",
+                            claim: "Dashboards web, alertas WhatsApp/Telegram, reportes automáticos.",
+                            outcome: "Tu planta en el bolsillo. Reduce tiempos de respuesta a minutos.",
+                        },
+                        {
+                            n: "04",
+                            title: "Predice antes de fallar",
+                            claim: "Modelos predictivos sobre el histórico del activo.",
+                            outcome: "Mantenimiento basado en condición. Menos paradas no planificadas.",
+                        },
+                    ],
+                },
+                beforeAfter: {
+                    eyebrow: "ANTES / DESPUÉS",
+                    title: "De Excel a inteligencia operativa.",
+                    sub: "Lo que cambia el día que LogOS se pone en marcha.",
+                    before: {
+                        label: "INFRAESTRUCTURA TRADICIONAL",
+                        items: [
+                            { title: "SCADA aislado", body: "Datos atrapados en la sala de control." },
+                            { title: "Reportes manuales en Excel", body: "Horas-hombre que no aportan valor." },
+                            { title: "Alertas vía radio o teléfono", body: "Tiempo de respuesta en horas." },
+                            {
+                                title: "Mantenimiento reactivo",
+                                body: "Fallas que se descubren cuando ya pararon la planta.",
+                            },
+                            {
+                                title: "Sin trazabilidad histórica",
+                                body: "Auditorías dependientes de la memoria del operador.",
+                            },
+                        ],
+                    },
+                    after: {
+                        label: "OPERACIÓN CON LOGOS",
+                        items: [
+                            {
+                                title: "Datos unificados en tiempo real",
+                                body: "Una sola fuente de verdad para campo, IT y dirección.",
+                            },
+                            { title: "Reportes generados solos", body: "PDF semanal en tu correo. Sin Excel manual." },
+                            {
+                                title: "Alertas en WhatsApp/Telegram",
+                                body: "Tiempo de respuesta en minutos, desde donde estés.",
+                            },
+                            {
+                                title: "Mantenimiento predictivo",
+                                body: "IA que anticipa fallas antes de que detengan la línea.",
+                            },
+                            {
+                                title: "Histórico auditable 6+ meses",
+                                body: "Tendencias, cumplimiento y aprendizaje continuo.",
+                            },
+                        ],
+                    },
+                },
+                edge: {
+                    eyebrow: "ARQUITECTURA EDGE",
+                    titleStart: "Edge computing e",
+                    titleAccent: "Industrial AI.",
+                    sub: "Datos donde se generan. Decisiones donde importan.",
+                    nodes: {
+                        field: {
+                            title: "Campo OT",
+                            tag: "01 · ENTRADA",
+                            lines: [
+                                "Sensores 4-20mA / RS485",
+                                "PLCs Siemens, AB, Schneider",
+                                "Modbus, OPC UA, IEC 61850",
+                            ],
+                        },
+                        edge: {
+                            title: "LogOS Edge",
+                            tag: "02 · CÓMPUTO",
+                            lines: ["IA local sin internet", "Retención 6 meses", "Procesamiento sub-segundo"],
+                        },
+                        user: {
+                            title: "Usuario",
+                            tag: "03 · SALIDA",
+                            lines: [
+                                "Dashboards web responsivos",
+                                "Alertas WhatsApp / Telegram",
+                                "Reportes PDF automáticos",
+                            ],
+                        },
+                    },
+                    benefits: [
+                        {
+                            title: "Baja latencia operativa",
+                            body: "Decisiones de control e inferencia de IA corren localmente. Sub-segundo extremo a extremo.",
+                        },
+                        {
+                            title: "Soberanía de datos",
+                            body: "Tu data operativa nunca sale de la planta sin tu autorización. Cumplimiento por diseño.",
+                        },
+                    ],
+                },
+                verticals: {
+                    eyebrow: "INDUSTRIAS",
+                    title: "Diseñado para infraestructura crítica.",
+                    sub: "Seis verticales en producción. Y la tuya, sea cual sea.",
+                    items: [
+                        {
+                            tag: "OIL & GAS",
+                            title: "Petróleo y Gas",
+                            line: "Telemetría remota 24/7 sobre SCADA legacy.",
+                        },
+                        {
+                            tag: "DATACENTER",
+                            title: "Centros de Datos",
+                            line: "PUE, BMS legacy y prevención de caídas.",
+                        },
+                        {
+                            tag: "AGUAS",
+                            title: "Aguas y Saneamiento",
+                            line: "Telemetría confiable para redes distribuidas.",
+                        },
+                        {
+                            tag: "ENERGÍA",
+                            title: "Generación y Distribución",
+                            line: "Activos aislados conectados a la nube de forma segura.",
+                        },
+                        {
+                            tag: "F&B",
+                            title: "Alimentos y Bebidas",
+                            line: "Trazabilidad y KPIs de planta automatizados.",
+                        },
+                        {
+                            tag: "MANUFACTURA",
+                            title: "Manufactura",
+                            line: "OEE, control de proceso y trazabilidad en líneas de producción.",
+                        },
+                        {
+                            tag: "TU INDUSTRIA",
+                            title: "¿La tuya no aparece?",
+                            line: "LogOS es agnóstico a la industria. Si tienes campo OT, lo conectamos.",
+                            agnostic: true,
+                        },
+                    ],
+                    cta: "Ver todos los casos",
+                    ctaHref: "/industries",
+                },
+                heroCase: {
+                    eyebrow: "CASO ESTRELLA",
+                    quote: "LogOS reemplazó nuestros reportes manuales y nos dio visibilidad sobre 99% de los activos. Reaccionamos un 60% más rápido a emergencias.",
+                    cite: "Equipo de Operaciones",
+                    role: "Redsalud · Sector Salud",
+                    inProductionSince: "2025-03-01",
+                    inProductionLabel: "En producción",
+                    monthsUnit: "meses",
+                    yearsUnit: "años",
+                    metrics: [
+                        { value: "60%", label: "Reacción más rápida" },
+                        { value: "99%", label: "Disponibilidad monitoreada" },
+                        { value: "1.036M+", label: "Registros procesados" },
+                    ],
+                },
+                security: {
+                    eyebrow: "SEGURIDAD POR DISEÑO",
+                    title: "Cumplimiento industrial sin fricción.",
+                    sub: "Edge soberano, comunicación cifrada, control de acceso por rol.",
+                    badges: [
+                        { name: "IEC 62443", tag: "Ciberseguridad industrial" },
+                        { name: "ISO 27001", tag: "Gestión de seguridad" },
+                        { name: "Soberanía datos", tag: "Edge local, sin cloud forzado" },
+                        { name: "RBAC + 2FA", tag: "Control de acceso granular" },
+                    ],
+                },
+                founder: {
+                    eyebrow: "DESDE EL CAMPO",
+                    line: "Nacimos en planta. Vimos a técnicos perder horas haciendo reportes en Excel mientras la IA esperaba. LogOS arregla eso.",
+                },
+                newsletterCompact: {
+                    title: "Mantente al borde.",
+                    sub: "Updates de producto, casos de campo y alertas de ciberseguridad industrial.",
+                    placeholder: "email@empresa.com",
+                    cta: "Suscribirse",
+                    privacy: "Sin spam. Cancela cuando quieras.",
+                },
             },
         },
         about: {
@@ -804,8 +1052,8 @@ const siteContent = {
         },
         home: {
             hero: {
-                title: "The smartest AI integration for the Industrial IoT",
-                subtitle: "SMART PROCESSES, EFFICIENT INDUSTRY.",
+                title: "The industrial future is Edge.",
+                subtitle: "DIGITAL TWINS, IIOT & INDUSTRIAL AI.",
             },
             clientsMarqueeLabel: "Trusted by industry leaders",
             demoVideo: {
@@ -814,6 +1062,26 @@ const siteContent = {
                 brand: "LogOS works",
                 description:
                     "Explore the full monitoring, visualization, and AI-assisted operations flow from a single platform.",
+            },
+            edgeArchitecture: {
+                label: "ARCHITECTURE",
+                titleStart: "Edge Computing &",
+                titleAccent: "Industrial AI",
+                nodes: {
+                    field: { title: "OT Field", subtitle: "Sensors, PLCs, etc." },
+                    edge: { title: "Edge", subtitle: "LogOS" },
+                    user: { title: "User", subtitle: "Operation & Decision" },
+                },
+                paragraphs: [
+                    {
+                        title: "Efficiency and low latency",
+                        body: "Data is processed where it's generated. Control decisions and AI models run locally, with no dependency on Internet or cloud services that add delay and traffic-based costs.",
+                    },
+                    {
+                        title: "Governance and security",
+                        body: "Operational data never leaves your plant. You retain ownership and full control over sensitive information, complying with industrial security policies and local regulations.",
+                    },
+                ],
             },
             features: {
                 titleStart: "Modular",
@@ -862,10 +1130,11 @@ const siteContent = {
                 ],
             },
             hardware: {
-                titleStart: "Industrial",
-                titleAccent: "Hardware",
+                eyebrow: "NO INFRASTRUCTURE?",
+                titleStart: "No problem.",
+                titleAccent: "We provide it.",
                 description:
-                    "Specialized Seeed Studio hardware solutions optimized to run LogOS reliably in demanding industrial environments.",
+                    "If your plant doesn't have the equipment to run LogOS yet, we ship pre-installed and validated industrial hardware. Turnkey, ready to connect.",
                 vatExcluded: "VAT NOT INCLUDED",
                 technicalSpecs: "TECHNICAL SPECIFICATIONS",
                 useCaseLabel: "Use case:",
@@ -1040,6 +1309,209 @@ const siteContent = {
                             "Vulnerabilities, critical patches, and proactive industrial cybersecurity recommendations.",
                     },
                 ],
+            },
+            landingV2: {
+                hero: {
+                    eyebrow: "GOODBYE LEGACY MONITORING",
+                    titleLead: "Bring AI to your",
+                    titleEmphasis: "industry.",
+                    sub: "LogOS is the infrastructure that digitizes your existing field without replacing it.",
+                    subSecondary: "Data and decisions at the edge, monitoring wherever you are.",
+                    subTertiary: "We prepare your industry for the AI era: digital twins as real-time 3D visualizations with intelligent assistance — not an Excel spreadsheet.",
+                    audience:
+                        "Built for plants with 20+ OT assets running on manual monitoring, Excel or isolated SCADA.",
+                    highlight: "Includes 3D Digital Twin · Live monitoring",
+                    ctaPrimary: "Request technical demo",
+                    ctaSecondary: "See how it works",
+                    ctaPrimaryHref: "#newsletter",
+                    ctaSecondaryHref: "#demo-video",
+                    callouts: [
+                        { label: "LATENCY", value: "<1s" },
+                        { label: "ARCHITECTURE", value: "Edge Native" },
+                        { label: "PROTOCOLS", value: "Modbus, OPC UA, MQTT" },
+                        { label: "DEPLOYMENT", value: "7 days" },
+                    ],
+                },
+                integrations: {
+                    label: "NATIVE INTEGRATIONS",
+                    sub: "Hardware-agnostic. Connect without replacing.",
+                    protocolsLabel: "PROTOCOLS",
+                    protocols: ["Modbus RTU/TCP", "OPC-UA", "MQTT / MQTT-SN", "Profibus", "Telnet", "IEC 61850"],
+                    vendorsLabel: "VENDORS",
+                    vendors: ["Siemens", "Allen-Bradley", "Schneider", "Rockwell", "ABB", "Phoenix Contact"],
+                },
+                pillars: {
+                    eyebrow: "ARCHITECTURE",
+                    title: "Four pillars. One platform.",
+                    sub: "The minimum stack to close the gap between your OT field and your IT.",
+                    items: [
+                        {
+                            n: "01",
+                            title: "Connect the legacy",
+                            claim: "Modbus, OPC UA, MQTT, IEC 61850 and 40+ supported PLC families.",
+                            outcome: "No rip-and-replace. No operational downtime.",
+                        },
+                        {
+                            n: "02",
+                            title: "Decide at the edge",
+                            claim: "Local AI, 6+ months retention, runs offline.",
+                            outcome: "Your data never leaves the plant. Sovereignty and low latency.",
+                        },
+                        {
+                            n: "03",
+                            title: "Operate from anywhere",
+                            claim: "Web dashboards, WhatsApp/Telegram alerts, automated reports.",
+                            outcome: "Your plant in your pocket. Cut response time to minutes.",
+                        },
+                        {
+                            n: "04",
+                            title: "Predict before failure",
+                            claim: "Predictive models over your asset's historical data.",
+                            outcome: "Condition-based maintenance. Fewer unplanned stops.",
+                        },
+                    ],
+                },
+                beforeAfter: {
+                    eyebrow: "BEFORE / AFTER",
+                    title: "From Excel to operational intelligence.",
+                    sub: "What changes the day LogOS goes live.",
+                    before: {
+                        label: "TRADITIONAL STACK",
+                        items: [
+                            { title: "Isolated SCADA", body: "Data trapped in the control room." },
+                            { title: "Manual Excel reports", body: "Wasted labor hours that add no value." },
+                            { title: "Radio or phone alerts", body: "Response time measured in hours." },
+                            { title: "Reactive maintenance", body: "Failures discovered after the line is down." },
+                            { title: "No historical traceability", body: "Audits that depend on operator memory." },
+                        ],
+                    },
+                    after: {
+                        label: "WITH LOGOS",
+                        items: [
+                            {
+                                title: "Unified real-time data",
+                                body: "One source of truth for field, IT and leadership.",
+                            },
+                            {
+                                title: "Auto-generated reports",
+                                body: "Weekly PDF in your inbox. No more manual Excel.",
+                            },
+                            { title: "WhatsApp/Telegram alerts", body: "Response in minutes, from anywhere." },
+                            { title: "Predictive maintenance", body: "AI flags failures before they stop the line." },
+                            {
+                                title: "Auditable 6+ month history",
+                                body: "Trends, compliance and continuous learning.",
+                            },
+                        ],
+                    },
+                },
+                edge: {
+                    eyebrow: "EDGE ARCHITECTURE",
+                    titleStart: "Edge computing &",
+                    titleAccent: "Industrial AI.",
+                    sub: "Data where it's generated. Decisions where they matter.",
+                    nodes: {
+                        field: {
+                            title: "OT Field",
+                            tag: "01 · INPUT",
+                            lines: [
+                                "4-20mA / RS485 sensors",
+                                "PLCs Siemens, AB, Schneider",
+                                "Modbus, OPC UA, IEC 61850",
+                            ],
+                        },
+                        edge: {
+                            title: "LogOS Edge",
+                            tag: "02 · COMPUTE",
+                            lines: ["Local AI without internet", "6 months retention", "Sub-second processing"],
+                        },
+                        user: {
+                            title: "User",
+                            tag: "03 · OUTPUT",
+                            lines: ["Responsive web dashboards", "WhatsApp / Telegram alerts", "Automated PDF reports"],
+                        },
+                    },
+                    benefits: [
+                        {
+                            title: "Operational low-latency",
+                            body: "Control decisions and AI inference run locally. Sub-second end-to-end.",
+                        },
+                        {
+                            title: "Data sovereignty",
+                            body: "Your operational data never leaves the plant without authorization. Compliance by design.",
+                        },
+                    ],
+                },
+                verticals: {
+                    eyebrow: "INDUSTRIES",
+                    title: "Built for critical infrastructure.",
+                    sub: "Six verticals in production. Plus yours, whatever it is.",
+                    items: [
+                        { tag: "OIL & GAS", title: "Oil & Gas", line: "24/7 remote telemetry over legacy SCADA." },
+                        { tag: "DATACENTER", title: "Data Centers", line: "PUE, legacy BMS and outage prevention." },
+                        {
+                            tag: "WATER",
+                            title: "Water & Sanitation",
+                            line: "Reliable telemetry for distributed networks.",
+                        },
+                        {
+                            tag: "ENERGY",
+                            title: "Generation & Distribution",
+                            line: "Isolated assets safely connected to cloud.",
+                        },
+                        { tag: "F&B", title: "Food & Beverage", line: "Plant traceability and automated KPIs." },
+                        {
+                            tag: "MANUFACTURING",
+                            title: "Manufacturing",
+                            line: "OEE, process control and traceability across production lines.",
+                        },
+                        {
+                            tag: "YOUR INDUSTRY",
+                            title: "Yours not listed?",
+                            line: "LogOS is industry-agnostic. If you have an OT field, we connect it.",
+                            agnostic: true,
+                        },
+                    ],
+                    cta: "See all use cases",
+                    ctaHref: "/industries",
+                },
+                heroCase: {
+                    eyebrow: "FLAGSHIP CASE",
+                    quote: "LogOS replaced our manual reporting and gave us visibility over 99% of our assets. We respond 60% faster to emergencies.",
+                    cite: "Operations team",
+                    role: "Redsalud · Healthcare",
+                    inProductionSince: "2025-03-01",
+                    inProductionLabel: "In production",
+                    monthsUnit: "months",
+                    yearsUnit: "years",
+                    metrics: [
+                        { value: "60%", label: "Faster response" },
+                        { value: "99%", label: "Monitored uptime" },
+                        { value: "1.036M+", label: "Records processed" },
+                    ],
+                },
+                security: {
+                    eyebrow: "SECURE BY DESIGN",
+                    title: "Industrial compliance, no friction.",
+                    sub: "Sovereign edge, encrypted comms, role-based access control.",
+                    badges: [
+                        { name: "IEC 62443", tag: "Industrial cybersecurity" },
+                        { name: "ISO 27001", tag: "Information security" },
+                        { name: "Data sovereignty", tag: "Local edge, no forced cloud" },
+                        { name: "RBAC + 2FA", tag: "Granular access control" },
+                    ],
+                },
+                founder: {
+                    eyebrow: "FROM THE FIELD",
+                    line: "We were born on the plant floor. We watched technicians waste hours on Excel reports while AI sat idle. LogOS fixes that.",
+                },
+                newsletterCompact: {
+                    title: "Stay at the edge.",
+                    sub: "Product updates, field cases and industrial cybersecurity alerts.",
+                    placeholder: "email@company.com",
+                    cta: "Subscribe",
+                    privacy: "No spam. Unsubscribe anytime.",
+                },
             },
         },
         about: {
@@ -1478,8 +1950,8 @@ const siteContent = {
         },
         home: {
             hero: {
-                title: "A integração de IA mais inteligente para o IoT Industrial",
-                subtitle: "PROCESSOS INTELIGENTES, INDÚSTRIA EFICIENTE.",
+                title: "O futuro industrial está na borda.",
+                subtitle: "GÊMEOS DIGITAIS, IIOT E IA INDUSTRIAL.",
             },
             clientsMarqueeLabel: "Confiam em nós",
             demoVideo: {
@@ -1488,6 +1960,26 @@ const siteContent = {
                 brand: "LogOS funciona",
                 description:
                     "Explore todo o fluxo de monitoramento, visualização e operação assistida por IA em uma única plataforma.",
+            },
+            edgeArchitecture: {
+                label: "ARQUITETURA",
+                titleStart: "Edge Computing e",
+                titleAccent: "IA Industrial",
+                nodes: {
+                    field: { title: "Campo OT", subtitle: "Sensores, CLPs, etc." },
+                    edge: { title: "Edge", subtitle: "LogOS" },
+                    user: { title: "Usuário", subtitle: "Operação & Decisão" },
+                },
+                paragraphs: [
+                    {
+                        title: "Eficiência e baixa latência",
+                        body: "Os dados são processados onde são gerados. As decisões de controle e os modelos de IA rodam localmente, sem depender da Internet nem de serviços cloud que adicionam atraso e custos por tráfego.",
+                    },
+                    {
+                        title: "Governança e segurança",
+                        body: "Seus dados operacionais nunca saem da planta. Você mantém a propriedade e o controle total sobre a informação sensível, cumprindo políticas de segurança industrial e regulamentações locais.",
+                    },
+                ],
             },
             features: {
                 titleStart: "Operação",
@@ -1537,10 +2029,11 @@ const siteContent = {
                 ],
             },
             hardware: {
-                titleStart: "Hardware",
-                titleAccent: "Industrial",
+                eyebrow: "SEM INFRAESTRUTURA?",
+                titleStart: "Sem problema.",
+                titleAccent: "Nós fornecemos.",
                 description:
-                    "Soluções especializadas de hardware da Seeed Studio, otimizadas para executar o LogOS com confiabilidade em ambientes industriais exigentes.",
+                    "Se sua planta ainda não tem os equipamentos para rodar a LogOS, entregamos hardware industrial pré-instalado e validado. Turnkey, pronto para conectar.",
                 vatExcluded: "IVA NÃO INCLUÍDO",
                 technicalSpecs: "ESPECIFICAÇÕES TÉCNICAS",
                 useCaseLabel: "Caso de uso:",
@@ -1723,6 +2216,220 @@ const siteContent = {
                             "Vulnerabilidades, patches críticos e recomendações proativas de cibersegurança industrial.",
                     },
                 ],
+            },
+            landingV2: {
+                hero: {
+                    eyebrow: "ADEUS AO MONITORAMENTO LEGADO",
+                    titleLead: "Conecte sua indústria à",
+                    titleEmphasis: "IA.",
+                    sub: "A LogOS é a infraestrutura que digitaliza seu campo existente sem substituí-lo.",
+                    subSecondary: "Dados e decisões na borda, monitoramento onde você estiver.",
+                    subTertiary: "Preparamos sua indústria para a era da IA: gêmeos digitais como visualizações 3D em tempo real com assistência inteligente — não uma planilha de Excel.",
+                    audience: "Para plantas com 20+ ativos OT em monitoramento manual, Excel ou SCADA isolado.",
+                    highlight: "Inclui Gêmeo Digital 3D · Monitoramento ao vivo",
+                    ctaPrimary: "Solicitar demo técnica",
+                    ctaSecondary: "Ver como funciona",
+                    ctaPrimaryHref: "#newsletter",
+                    ctaSecondaryHref: "#demo-video",
+                    callouts: [
+                        { label: "LATÊNCIA", value: "<1s" },
+                        { label: "ARQUITETURA", value: "Edge Native" },
+                        { label: "PROTOCOLOS", value: "Modbus, OPC UA, MQTT" },
+                        { label: "IMPLANTAÇÃO", value: "7 dias" },
+                    ],
+                },
+                integrations: {
+                    label: "INTEGRAÇÕES NATIVAS",
+                    sub: "Hardware-agnostic. Conecta sem substituir.",
+                    protocolsLabel: "PROTOCOLOS",
+                    protocols: ["Modbus RTU/TCP", "OPC-UA", "MQTT / MQTT-SN", "Profibus", "Telnet", "IEC 61850"],
+                    vendorsLabel: "FABRICANTES",
+                    vendors: ["Siemens", "Allen-Bradley", "Schneider", "Rockwell", "ABB", "Phoenix Contact"],
+                },
+                pillars: {
+                    eyebrow: "ARQUITETURA",
+                    title: "Quatro pilares. Uma plataforma.",
+                    sub: "O stack mínimo para fechar a lacuna entre seu campo OT e seu TI.",
+                    items: [
+                        {
+                            n: "01",
+                            title: "Conecta o legado",
+                            claim: "Modbus, OPC UA, MQTT, IEC 61850 e mais de 40 famílias de PLC.",
+                            outcome: "Sem substituir sua infraestrutura. Sem parar a operação.",
+                        },
+                        {
+                            n: "02",
+                            title: "Decide na borda",
+                            claim: "IA local, retenção 6+ meses, opera sem internet.",
+                            outcome: "Seus dados não saem da planta. Soberania e baixa latência.",
+                        },
+                        {
+                            n: "03",
+                            title: "Opera de qualquer lugar",
+                            claim: "Dashboards web, alertas WhatsApp/Telegram, relatórios automáticos.",
+                            outcome: "Sua planta no bolso. Reduza o tempo de resposta a minutos.",
+                        },
+                        {
+                            n: "04",
+                            title: "Antecipa falhas",
+                            claim: "Modelos preditivos sobre o histórico do ativo.",
+                            outcome: "Manutenção baseada em condição. Menos paradas não planejadas.",
+                        },
+                    ],
+                },
+                beforeAfter: {
+                    eyebrow: "ANTES / DEPOIS",
+                    title: "De Excel à inteligência operacional.",
+                    sub: "O que muda no dia em que a LogOS entra em operação.",
+                    before: {
+                        label: "INFRAESTRUTURA TRADICIONAL",
+                        items: [
+                            { title: "SCADA isolado", body: "Dados presos na sala de controle." },
+                            { title: "Relatórios manuais em Excel", body: "Horas-homem sem valor agregado." },
+                            { title: "Alertas por rádio ou telefone", body: "Tempo de resposta em horas." },
+                            { title: "Manutenção reativa", body: "Falhas descobertas quando a planta já parou." },
+                            {
+                                title: "Sem rastreabilidade histórica",
+                                body: "Auditorias dependentes da memória do operador.",
+                            },
+                        ],
+                    },
+                    after: {
+                        label: "OPERAÇÃO COM LOGOS",
+                        items: [
+                            {
+                                title: "Dados unificados em tempo real",
+                                body: "Fonte única para campo, TI e diretoria.",
+                            },
+                            { title: "Relatórios gerados sozinhos", body: "PDF semanal no e-mail. Sem Excel manual." },
+                            { title: "Alertas no WhatsApp/Telegram", body: "Tempo de resposta em minutos." },
+                            { title: "Manutenção preditiva", body: "IA antecipa falhas antes da parada." },
+                            {
+                                title: "Histórico auditável 6+ meses",
+                                body: "Tendências, conformidade e aprendizado contínuo.",
+                            },
+                        ],
+                    },
+                },
+                edge: {
+                    eyebrow: "ARQUITETURA EDGE",
+                    titleStart: "Edge computing e",
+                    titleAccent: "Industrial AI.",
+                    sub: "Dados onde são gerados. Decisões onde importam.",
+                    nodes: {
+                        field: {
+                            title: "Campo OT",
+                            tag: "01 · ENTRADA",
+                            lines: [
+                                "Sensores 4-20mA / RS485",
+                                "PLCs Siemens, AB, Schneider",
+                                "Modbus, OPC UA, IEC 61850",
+                            ],
+                        },
+                        edge: {
+                            title: "LogOS Edge",
+                            tag: "02 · COMPUTAÇÃO",
+                            lines: ["IA local sem internet", "Retenção 6 meses", "Processamento subsegundo"],
+                        },
+                        user: {
+                            title: "Usuário",
+                            tag: "03 · SAÍDA",
+                            lines: [
+                                "Dashboards web responsivos",
+                                "Alertas WhatsApp / Telegram",
+                                "Relatórios PDF automáticos",
+                            ],
+                        },
+                    },
+                    benefits: [
+                        {
+                            title: "Baixa latência operacional",
+                            body: "Decisões de controle e inferência rodam localmente. Sub-segundo ponta a ponta.",
+                        },
+                        {
+                            title: "Soberania de dados",
+                            body: "Seus dados operacionais nunca saem da planta sem autorização. Conformidade por design.",
+                        },
+                    ],
+                },
+                verticals: {
+                    eyebrow: "SETORES",
+                    title: "Projetado para infraestrutura crítica.",
+                    sub: "Seis verticais em produção. E a sua, seja qual for.",
+                    items: [
+                        {
+                            tag: "OIL & GAS",
+                            title: "Petróleo e Gás",
+                            line: "Telemetria remota 24/7 sobre SCADA legado.",
+                        },
+                        { tag: "DATACENTER", title: "Data Centers", line: "PUE, BMS legado e prevenção de quedas." },
+                        {
+                            tag: "ÁGUAS",
+                            title: "Águas e Saneamento",
+                            line: "Telemetria confiável para redes distribuídas.",
+                        },
+                        {
+                            tag: "ENERGIA",
+                            title: "Geração e Distribuição",
+                            line: "Ativos isolados conectados à nuvem com segurança.",
+                        },
+                        {
+                            tag: "F&B",
+                            title: "Alimentos e Bebidas",
+                            line: "Rastreabilidade e KPIs de planta automatizados.",
+                        },
+                        {
+                            tag: "MANUFATURA",
+                            title: "Manufatura",
+                            line: "OEE, controle de processo e rastreabilidade em linhas de produção.",
+                        },
+                        {
+                            tag: "SUA INDÚSTRIA",
+                            title: "A sua não aparece?",
+                            line: "A LogOS é agnóstica à indústria. Se você tem um campo OT, conectamos.",
+                            agnostic: true,
+                        },
+                    ],
+                    cta: "Ver todos os casos",
+                    ctaHref: "/industries",
+                },
+                heroCase: {
+                    eyebrow: "CASO DESTAQUE",
+                    quote: "A LogOS substituiu nossos relatórios manuais e nos deu visibilidade sobre 99% dos ativos. Reagimos 60% mais rápido a emergências.",
+                    cite: "Equipe de operações",
+                    role: "Redsalud · Saúde",
+                    inProductionSince: "2025-03-01",
+                    inProductionLabel: "Em produção",
+                    monthsUnit: "meses",
+                    yearsUnit: "anos",
+                    metrics: [
+                        { value: "60%", label: "Resposta mais rápida" },
+                        { value: "99%", label: "Disponibilidade" },
+                        { value: "1.036M+", label: "Registros processados" },
+                    ],
+                },
+                security: {
+                    eyebrow: "SEGURANÇA POR DESIGN",
+                    title: "Conformidade industrial sem fricção.",
+                    sub: "Edge soberano, comunicação criptografada, controle de acesso por papel.",
+                    badges: [
+                        { name: "IEC 62443", tag: "Cibersegurança industrial" },
+                        { name: "ISO 27001", tag: "Gestão de segurança" },
+                        { name: "Soberania de dados", tag: "Edge local, sem nuvem forçada" },
+                        { name: "RBAC + 2FA", tag: "Controle de acesso granular" },
+                    ],
+                },
+                founder: {
+                    eyebrow: "DESDE O CAMPO",
+                    line: "Nascemos no chão de fábrica. Vimos técnicos perderem horas em planilhas enquanto a IA esperava. A LogOS resolve isso.",
+                },
+                newsletterCompact: {
+                    title: "Fique na borda.",
+                    sub: "Atualizações de produto, casos de campo e alertas de cibersegurança industrial.",
+                    placeholder: "email@empresa.com",
+                    cta: "Inscrever",
+                    privacy: "Sem spam. Cancele quando quiser.",
+                },
             },
         },
         about: {

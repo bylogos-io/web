@@ -141,8 +141,11 @@ export default async function RootLayout({
     const messages = await getMessages();
 
     return (
-        <html lang={locale} suppressHydrationWarning>
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <html lang={locale} suppressHydrationWarning style={{ backgroundColor: "#070707", colorScheme: "dark" }}>
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                style={{ backgroundColor: "#070707", color: "#fff", margin: 0 }}
+            >
                 <InitColorSchemeScript attribute="class" defaultMode="dark" />
                 <NextIntlClientProvider messages={messages}>
                     <MuiRootProvider>

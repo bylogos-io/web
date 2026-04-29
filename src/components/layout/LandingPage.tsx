@@ -2,12 +2,16 @@
 
 import { Box } from "@mui/material";
 import { Hero } from "@/sections/landing/Hero";
+import { IntegrationsBar } from "@/sections/landing/IntegrationsBar";
+import { Pillars } from "@/sections/landing/Pillars";
+import { BeforeAfter } from "@/sections/landing/BeforeAfter";
+import { EdgeArchitecture } from "@/sections/landing/EdgeArchitecture";
+import { VerticalsSnapshot } from "@/sections/landing/VerticalsSnapshot";
 import { DemoVideo } from "@/sections/landing/DemoVideo";
-import { Features } from "@/sections/landing/Features";
+import { HeroCase } from "@/sections/landing/HeroCase";
+import { SecurityBand } from "@/sections/landing/SecurityBand";
 import { HardwareAlternatives } from "@/sections/landing/HardwareAlternatives";
-import { Comparison } from "@/sections/landing/Comparison";
-import { Testimonials } from "@/sections/landing/Testimonials";
-import { Newsletter } from "@/sections/landing/Newsletter";
+import { NewsletterCompact } from "@/sections/landing/NewsletterCompact";
 
 export function LandingPage() {
     return (
@@ -21,16 +25,19 @@ export function LandingPage() {
             <Box sx={{ position: "relative", zIndex: 10 }}>
                 <Box sx={{ backgroundColor: "background.default" }}>
                     <Hero />
+                    <IntegrationsBar />
+                    <Pillars />
+                    <BeforeAfter />
+                    <EdgeArchitecture />
+                    <VerticalsSnapshot />
                     <DemoVideo />
-                    <Features />
+                    <HeroCase />
+                    <SecurityBand />
                     <HardwareAlternatives />
-                    <Comparison />
-                    <Testimonials />
-                    <Newsletter />
+                    <NewsletterCompact />
                 </Box>
             </Box>
 
-            {/* Spacer para el efecto de revelación del footer */}
             <Box
                 sx={{
                     height: { xs: 700, md: 360 },
