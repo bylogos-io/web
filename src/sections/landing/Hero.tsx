@@ -192,9 +192,9 @@ export function Hero() {
                                     size="lg"
                                     startIcon={<PlayArrowRoundedIcon />}
                                     sx={(theme) => ({
-                                        backgroundColor: theme.palette.background.paper,
+                                        backgroundColor: "transparent",
                                         color: theme.palette.text.primary,
-                                        "&:hover": { backgroundColor: theme.palette.background.default },
+                                        "&:hover": { backgroundColor: alpha(theme.palette.text.primary, 0.04) },
                                     })}
                                 >
                                     {data.ctaSecondary}

@@ -56,7 +56,7 @@ export function PartnersBenefits() {
                                 <Typography
                                     variant="h5"
                                     sx={{
-                                        fontWeight: 600,
+                                        fontWeight: 400,
                                         letterSpacing: "-0.015em",
                                         color: "common.white",
                                         mb: 1.5,

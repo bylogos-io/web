@@ -67,7 +67,7 @@ function Cell({ icon, title, description, visual, span = { xs: 12, md: 6 }, dela
                 </Stack>
                 <Typography
                     variant="h5"
-                    sx={{ fontWeight: 600, letterSpacing: "-0.015em", mb: 1, color: "common.white" }}
+                    sx={{ fontWeight: 400, letterSpacing: "-0.015em", mb: 1, color: "common.white" }}
                 >
                     {title}
                 </Typography>

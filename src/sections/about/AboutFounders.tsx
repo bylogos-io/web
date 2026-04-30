@@ -69,7 +69,7 @@ export function AboutFounders() {
                                     />
                                     <Typography
                                         variant="h4"
-                                        sx={{ color: "text.primary", fontWeight: 600, letterSpacing: "-0.015em", mb: 1 }}
+                                        sx={{ color: "text.primary", fontWeight: 400, letterSpacing: "-0.015em", mb: 1 }}
                                     >
                                         {founder.name}
                                     </Typography>

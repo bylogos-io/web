@@ -1,130 +1,160 @@
 "use client";
-import { Box, Container, Typography, useTheme, alpha } from "@mui/material";
+
+import { Box, Container, Typography, Stack, alpha } from "@mui/material";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { monoFont } from "@/theme";
 
 export function AboutHero() {
-    const theme = useTheme();
     const locale = useLocale();
     const content = getSiteContent(locale);
+    const c = content.about as any;
 
     return (
-        <Box component="section" sx={{ width: "100%" }}>
+        <Box
+            component="section"
+            sx={{
+                position: "relative",
+                width: "100%",
+                minHeight: { xs: "70vh", md: "82vh" },
+                overflow: "hidden",
+                backgroundColor: "background.default",
+                display: "flex",
+                alignItems: "center",
+                pt: { xs: 18, md: 16 },
+                pb: { xs: 8, md: 10 },
+            }}
+        >
+            <Box
+                sx={(theme) => ({
+                    position: "absolute",
+                    inset: 0,
+                    backgroundImage: `radial-gradient(circle at 20% 30%, ${alpha(theme.palette.primary.main, 0.12)} 0%, transparent 45%), radial-gradient(circle at 80% 70%, ${alpha(theme.palette.primary.main, 0.08)} 0%, transparent 45%)`,
+                    pointerEvents: "none",
+                })}
+            />
+            <Box
+                sx={(theme) => ({
+                    position: "absolute",
+                    inset: 0,
+                    backgroundImage: `linear-gradient(${alpha(theme.palette.text.primary, 0.04)} 1px, transparent 1px), linear-gradient(90deg, ${alpha(theme.palette.text.primary, 0.04)} 1px, transparent 1px)`,
+                    backgroundSize: "80px 80px",
+                    maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+                    WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+                    pointerEvents: "none",
+                })}
+            />
             <Box
                 sx={{
-                    position: "relative",
-                    width: "100%",
-                    height: { xs: "55vh", md: "70vh" },
-                    overflow: "hidden",
-                    backgroundColor: "background.default",
+                    position: "absolute",
+                    inset: 0,
+                    backgroundImage: `url(/isologo.svg)`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    opacity: 0.1,
+                    pointerEvents: "none",
                 }}
-            >
-                <Box
-                    sx={{
-                        position: "absolute",
-                        inset: 0,
-                        backgroundSize: "contain",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center",
-                        backgroundImage: `url(/isologo.svg)`,
-                        opacity: 0.12,
-                        filter: "brightness(0.8)",
-                    }}
-                />
-                <Box
-                    sx={{
-                        position: "absolute",
-                        inset: 0,
-                        background: `linear-gradient(to bottom,
-              ${alpha(theme.palette.background.default, 0.5)} 0%,
-              transparent 30%,
-              transparent 40%,
-              ${theme.palette.background.default} 100%)`,
-                        zIndex: 2,
-                    }}
-                />
-                <Box
-                    sx={{
-                        position: "absolute",
-                        top: "55%",
-                        left: 0,
-                        right: 0,
-                        transform: "translateY(-50%)",
-                        zIndex: 3,
-                        textAlign: "center",
-                        px: { xs: 4, md: 8 },
-                    }}
-                >
-                    <Typography
-                        component={motion.div}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        sx={{
-                            fontFamily: monoFont,
-                            fontSize: "0.75rem",
-                            letterSpacing: "0.18em",
-                            color: "primary.main",
-                            mb: 2,
-                        }}
-                    >
-                        {content.about.heroEyebrow}
-                    </Typography>
-                    <Typography
-                        component={motion.h1}
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.1 }}
-                        variant="h1"
-                        sx={{
-                            fontWeight: 600,
-                            letterSpacing: "-0.03em",
-                            textWrap: "balance" as any,
-                        }}
-                    >
-                        <Box
-                            component="span"
-                            sx={{
-                                background: `linear-gradient(to right, ${theme.palette.text.primary}, ${theme.palette.text.primary}, ${theme.palette.primary.main})`,
-                                backgroundClip: "text",
-                                WebkitBackgroundClip: "text",
-                                color: "transparent",
-                            }}
-                        >
-                            {content.about.heroTitle}
-                        </Box>
-                    </Typography>
-                </Box>
-            </Box>
+            />
 
-            <Container maxWidth="md">
-                <Box
+            <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+                <Typography
                     component={motion.div}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7 }}
-                    sx={{ mt: { xs: 6, md: 10 }, mb: { xs: 8, md: 12 } }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    sx={{
+                        fontFamily: monoFont,
+                        fontSize: "0.75rem",
+                        letterSpacing: "0.22em",
+                        color: "primary.main",
+                        mb: 3,
+                    }}
                 >
-                    {content.about.paragraphs.map((p, idx) => (
-                        <Typography
-                            key={idx}
-                            variant="body1"
-                            sx={{
-                                color: "text.primary",
-                                opacity: 0.9,
-                                lineHeight: 1.8,
-                                fontSize: { xs: "1rem", md: "1.125rem" },
-                                mb: idx === content.about.paragraphs.length - 1 ? 0 : 4,
-                                textWrap: "balance" as any,
-                            }}
-                        >
-                            {p}
-                        </Typography>
+                    {c.heroEyebrow}
+                </Typography>
+
+                <Typography
+                    component={motion.h1}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.1 }}
+                    variant="h1"
+                    sx={{
+                        fontWeight: 400,
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1.05,
+                        color: "common.white",
+                        maxWidth: 1100,
+                        textWrap: "balance" as any,
+                        fontSize: { xs: "2.5rem", md: "4.5rem", lg: "5rem" },
+                        mb: { xs: 3, md: 4 },
+                    }}
+                >
+                    {c.heroHeadline}
+                </Typography>
+                <Typography
+                    component={motion.p}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
+                    sx={{
+                        color: "text.secondary",
+                        maxWidth: 720,
+                        fontSize: { xs: "1rem", md: "1.125rem" },
+                        lineHeight: 1.6,
+                        mb: { xs: 6, md: 8 },
+                    }}
+                >
+                    {c.heroSub}
+                </Typography>
+
+                <Stack
+                    direction={{ xs: "column", sm: "row" }}
+                    spacing={{ xs: 2, sm: 0 }}
+                    component={motion.div}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    sx={(theme) => ({
+                        borderTop: `1px solid ${theme.palette.divider}`,
+                        pt: 3,
+                        flexWrap: "wrap",
+                        gap: { sm: 6 },
+                    })}
+                >
+                    {[
+                        { k: "ARQUITECTURA", v: "Edge Native" },
+                        { k: "ENFOQUE", v: "Industrial AI" },
+                        { k: "BASE", v: "Hispanoamérica" },
+                        { k: "VERTICALES", v: "7 en producción" },
+                    ].map((stat) => (
+                        <Box key={stat.k}>
+                            <Typography
+                                sx={{
+                                    fontFamily: monoFont,
+                                    fontSize: "0.65rem",
+                                    letterSpacing: "0.22em",
+                                    color: "text.disabled",
+                                    mb: 0.5,
+                                }}
+                            >
+                                {stat.k}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontFamily: monoFont,
+                                    fontSize: "0.95rem",
+                                    color: "common.white",
+                                    letterSpacing: "0.02em",
+                                }}
+                            >
+                                {stat.v}
+                            </Typography>
+                        </Box>
                     ))}
-                </Box>
+                </Stack>
             </Container>
         </Box>
     );

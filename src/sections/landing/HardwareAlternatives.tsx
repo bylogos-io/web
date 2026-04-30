@@ -309,14 +309,26 @@ export function HardwareAlternatives() {
                                         </Box>
 
                                         <Box sx={{ mt: "auto" }}>
-                                            <Link href="/#newsletter" style={{ textDecoration: "none" }}>
+                                            <Link href="/contact" style={{ textDecoration: "none" }}>
                                                 <Button
-                                                    variant="contained"
                                                     fullWidth
                                                     sx={(theme) => ({
                                                         py: 1.5,
-                                                        fontWeight: 700,
-                                                        boxShadow: `0 8px 16px ${alpha(theme.palette.primary.main, 0.2)}`,
+                                                        fontFamily: monoFont,
+                                                        fontSize: "0.8rem",
+                                                        fontWeight: 500,
+                                                        letterSpacing: "0.18em",
+                                                        textTransform: "uppercase",
+                                                        color: theme.palette.primary.main,
+                                                        backgroundColor: "transparent",
+                                                        border: `1px solid ${theme.palette.primary.main}`,
+                                                        boxShadow: "none",
+                                                        transition: "background-color 0.15s ease",
+                                                        "&:hover": {
+                                                            backgroundColor: alpha(theme.palette.primary.main, 0.08),
+                                                            boxShadow: "none",
+                                                            transform: "none",
+                                                        },
                                                     })}
                                                 >
                                                     {content.home.hardware.quoteButton}

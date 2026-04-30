@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Box } from "@mui/material";
 import { AboutHero } from "@/sections/about/AboutHero";
+import { AboutWhy } from "@/sections/about/AboutWhy";
 import { AboutPrinciples } from "@/sections/about/AboutPrinciples";
 import { AboutFounders } from "@/sections/about/AboutFounders";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
@@ -49,6 +50,7 @@ export default function Nosotros() {
             }}
         >
             <AboutHero />
+            <AboutWhy />
             <AboutPrinciples />
             <AboutFounders />
         </Box>

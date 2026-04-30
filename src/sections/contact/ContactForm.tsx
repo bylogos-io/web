@@ -381,7 +381,7 @@ export function ContactForm() {
                                 backgroundColor: alpha(theme.palette.success.main, 0.08),
                             })}
                         >
-                            <Typography fontWeight={600}>{c.successTitle}</Typography>
+                            <Typography fontWeight={400}>{c.successTitle}</Typography>
                             <Typography sx={{ fontSize: "0.9rem", opacity: 0.9 }}>{c.successDescription}</Typography>
                         </Alert>
                     )}
@@ -395,7 +395,7 @@ export function ContactForm() {
                                 backgroundColor: alpha(theme.palette.error.main, 0.08),
                             })}
                         >
-                            <Typography fontWeight={600}>{c.errorTitle}</Typography>
+                            <Typography fontWeight={400}>{c.errorTitle}</Typography>
                             <Typography sx={{ fontSize: "0.9rem", opacity: 0.9 }}>{c.errorDescription}</Typography>
                         </Alert>
                     )}

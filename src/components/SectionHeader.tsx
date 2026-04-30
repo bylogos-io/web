@@ -45,9 +45,9 @@ export function SectionHeader({
                     sx={{
                         fontFamily: monoFont,
                         fontSize: "0.75rem",
-                        letterSpacing: "0.18em",
+                        letterSpacing: "0.22em",
                         color: "primary.main",
-                        mb: 2,
+                        mb: 3,
                     }}
                 >
                     {eyebrow}
@@ -57,9 +57,14 @@ export function SectionHeader({
                 variant={isH1 ? "h1" : "h2"}
                 sx={{
                     mb: description ? 2 : 0,
-                    fontWeight: 600,
-                    letterSpacing: isH1 ? "-0.03em" : "-0.025em",
+                    fontWeight: 400,
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.1,
+                    color: "common.white",
                     textWrap: "balance" as any,
+                    fontSize: isH1
+                        ? { xs: "2.25rem", md: "3.75rem" }
+                        : { xs: "1.75rem", md: "2.5rem" },
                 }}
             >
                 {accent ? (

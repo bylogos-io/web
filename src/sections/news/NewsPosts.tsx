@@ -152,7 +152,7 @@ export function NewsPosts({ posts }: NewsPostsProps) {
                       sx={{ mb: 2, color: 'text.disabled' }}
                     >
                       <CalendarTodayIcon sx={{ fontSize: 14 }} />
-                      <Typography variant='caption' fontWeight={600}>
+                      <Typography variant='caption' fontWeight={400}>
                         {new Date(post.date).toLocaleDateString('es-ES', {
                           year: 'numeric',
                           month: 'long',

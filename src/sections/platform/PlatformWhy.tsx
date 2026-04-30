@@ -36,7 +36,7 @@ function EdgeVsCloud({ data }: { data: any }) {
     return (
         <Box>
             <MonoLabel>{data.eyebrow}</MonoLabel>
-            <Typography variant="h3" sx={{ fontWeight: 600, letterSpacing: "-0.02em", mt: 1.5, mb: 1.5, color: "common.white" }}>
+            <Typography variant="h3" sx={{ fontWeight: 400, letterSpacing: "-0.02em", mt: 1.5, mb: 1.5, color: "common.white" }}>
                 {data.title}
             </Typography>
             <Typography sx={{ color: "text.secondary", maxWidth: 720, mb: 5 }}>{data.sub}</Typography>
@@ -74,7 +74,7 @@ function EdgeVsCloud({ data }: { data: any }) {
                         </Stack>
                         <Typography
                             variant="h5"
-                            sx={{ fontWeight: 600, color: "common.white", mb: 3, textTransform: "none" }}
+                            sx={{ fontWeight: 400, color: "common.white", mb: 3, textTransform: "none" }}
                         >
                             {data.onPremTitle}
                         </Typography>
@@ -121,7 +121,7 @@ function EdgeVsCloud({ data }: { data: any }) {
                         </Stack>
                         <Typography
                             variant="h5"
-                            sx={{ fontWeight: 600, color: "text.primary", mb: 3, textTransform: "none" }}
+                            sx={{ fontWeight: 400, color: "text.primary", mb: 3, textTransform: "none" }}
                         >
                             {data.cloudTitle}
                         </Typography>
@@ -155,7 +155,7 @@ function AllInOne({ data }: { data: any }) {
     return (
         <Box>
             <MonoLabel>{data.eyebrow}</MonoLabel>
-            <Typography variant="h3" sx={{ fontWeight: 600, letterSpacing: "-0.02em", mt: 1.5, mb: 1.5, color: "common.white" }}>
+            <Typography variant="h3" sx={{ fontWeight: 400, letterSpacing: "-0.02em", mt: 1.5, mb: 1.5, color: "common.white" }}>
                 {data.title}
             </Typography>
             <Typography sx={{ color: "text.secondary", maxWidth: 720, mb: 5 }}>{data.sub}</Typography>
@@ -291,7 +291,7 @@ function SiloChip({ silo, from, delay }: { silo: { label: string; note: string }
                 },
             })}
         >
-            <Typography sx={{ fontWeight: 600, color: "common.white", fontSize: "0.95rem", textTransform: "none" }}>
+            <Typography sx={{ fontWeight: 400, color: "common.white", fontSize: "0.95rem", textTransform: "none" }}>
                 {silo.label}
             </Typography>
             <Typography
@@ -314,7 +314,7 @@ function BeforeAfter({ data }: { data: any }) {
     return (
         <Box>
             <MonoLabel>{data.eyebrow}</MonoLabel>
-            <Typography variant="h3" sx={{ fontWeight: 600, letterSpacing: "-0.02em", mt: 1.5, mb: 4, color: "common.white" }}>
+            <Typography variant="h3" sx={{ fontWeight: 400, letterSpacing: "-0.02em", mt: 1.5, mb: 4, color: "common.white" }}>
                 {data.title}
             </Typography>
 
@@ -373,7 +373,7 @@ function BeforeAfter({ data }: { data: any }) {
                         })}
                     >
                         <Grid size={{ xs: 12, sm: 4 }} sx={{ p: 2.5 }}>
-                            <Typography sx={{ fontWeight: 600, color: "common.white", textTransform: "none" }}>
+                            <Typography sx={{ fontWeight: 400, color: "common.white", textTransform: "none" }}>
                                 {row.topic}
                             </Typography>
                         </Grid>

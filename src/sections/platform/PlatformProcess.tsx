@@ -70,7 +70,7 @@ export function PlatformProcess() {
                             <Typography
                                 variant="h2"
                                 sx={{
-                                    fontWeight: 600,
+                                    fontWeight: 400,
                                     letterSpacing: "-0.025em",
                                     lineHeight: 1.05,
                                     color: "common.white",
@@ -129,7 +129,7 @@ export function PlatformProcess() {
                                             </Box>
                                             <Typography
                                                 sx={{
-                                                    fontWeight: 600,
+                                                    fontWeight: 400,
                                                     color: isActive ? "common.white" : "text.secondary",
                                                     fontSize: "0.95rem",
                                                     transition: "color 0.3s ease",
@@ -213,7 +213,7 @@ export function PlatformProcess() {
                                             sx={{
                                                 fontFamily: monoFont,
                                                 fontSize: "5rem",
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 letterSpacing: "-0.05em",
                                                 lineHeight: 1,
                                                 color: "primary.main",
@@ -226,7 +226,7 @@ export function PlatformProcess() {
                                         <Typography
                                             variant="h3"
                                             sx={{
-                                                fontWeight: 600,
+                                                fontWeight: 400,
                                                 letterSpacing: "-0.02em",
                                                 color: "common.white",
                                                 mb: 2.5,

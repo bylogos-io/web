@@ -134,7 +134,7 @@ export function NewsPost({ post }: NewsPostProps) {
           >
             <Stack direction="row" spacing={1} alignItems="center">
               <CalendarTodayIcon sx={{ fontSize: 18 }} />
-              <Typography variant="subtitle1" fontWeight={600}>
+              <Typography variant="subtitle1" fontWeight={400}>
                 {new Date(post.date).toLocaleDateString("es-ES", {
                   weekday: "long",
                   year: "numeric",

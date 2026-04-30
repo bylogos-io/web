@@ -252,7 +252,7 @@ function AccordionRow({
                             <Typography
                                 sx={{
                                     fontSize: { xs: "1.25rem", md: "1.5rem" },
-                                    fontWeight: 600,
+                                    fontWeight: 400,
                                     letterSpacing: "-0.015em",
                                     color: "common.white",
                                     mb: 2,

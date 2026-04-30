@@ -201,13 +201,14 @@ export const theme = createTheme(getDesignTokens(), {
         {
           props: { variant: 'default' },
           style: ({ theme }: { theme: any }) => ({
-            backgroundColor: theme.palette.primary.main,
-            color: theme.palette.primary.contrastText,
-            boxShadow: `0 0 0 1px ${alpha(brand[500], 0.4)}, 0 8px 24px ${alpha(brand[500], 0.28)}`,
+            backgroundColor: 'transparent',
+            color: theme.palette.primary.main,
+            border: `1px solid ${theme.palette.primary.main}`,
+            boxShadow: 'none',
             '&:hover': {
-              backgroundColor: theme.palette.primary.dark,
-              boxShadow: `0 0 0 1px ${alpha(brand[500], 0.5)}, 0 12px 32px ${alpha(brand[500], 0.36)}`,
-              transform: 'translateY(-1px)',
+              backgroundColor: alpha(theme.palette.primary.main, 0.08),
+              boxShadow: 'none',
+              transform: 'none',
             },
           }),
         },
@@ -234,13 +235,28 @@ export const theme = createTheme(getDesignTokens(), {
           fontFamily: 'inherit',
           border: `1px solid ${theme.palette.divider}`,
         }),
-        containedPrimary: {
-          boxShadow: `0 0 0 1px ${alpha(brand[500], 0.4)}, 0 8px 24px ${alpha(brand[500], 0.28)}`,
+        contained: ({ theme }: { theme: any }) => ({
+          backgroundColor: 'transparent',
+          color: theme.palette.primary.main,
+          border: `1px solid ${theme.palette.primary.main}`,
+          boxShadow: 'none',
           '&:hover': {
-            boxShadow: `0 0 0 1px ${alpha(brand[500], 0.5)}, 0 12px 32px ${alpha(brand[500], 0.36)}`,
-            transform: 'translateY(-1px)',
+            backgroundColor: alpha(theme.palette.primary.main, 0.08),
+            boxShadow: 'none',
+            transform: 'none',
           },
-        },
+        }),
+        containedPrimary: ({ theme }: { theme: any }) => ({
+          backgroundColor: 'transparent',
+          color: theme.palette.primary.main,
+          border: `1px solid ${theme.palette.primary.main}`,
+          boxShadow: 'none',
+          '&:hover': {
+            backgroundColor: alpha(theme.palette.primary.main, 0.08),
+            boxShadow: 'none',
+            transform: 'none',
+          },
+        }),
       },
     },
     MuiCard: {

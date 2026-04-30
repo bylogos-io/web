@@ -54,7 +54,7 @@ function Plan({ eyebrow, title, price, period, subtitle, description, features, 
             >
                 {eyebrow}
             </Typography>
-            <Typography variant="h4" sx={{ fontWeight: 600, letterSpacing: "-0.015em", mb: 1 }}>
+            <Typography variant="h4" sx={{ fontWeight: 400, letterSpacing: "-0.015em", mb: 1 }}>
                 {title}
             </Typography>
             <Typography sx={{ color: "text.secondary", mb: 4, fontSize: "0.95rem" }}>
@@ -64,7 +64,7 @@ function Plan({ eyebrow, title, price, period, subtitle, description, features, 
             <Stack direction="row" alignItems="baseline" spacing={1} sx={{ mb: 3 }}>
                 <Typography
                     variant="h2"
-                    sx={{ fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1 }}
+                    sx={{ fontWeight: 400, letterSpacing: "-0.025em", lineHeight: 1 }}
                 >
                     {price}
                 </Typography>

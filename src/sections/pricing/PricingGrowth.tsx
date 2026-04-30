@@ -64,7 +64,7 @@ export function PricingGrowth() {
                                 </Typography>
                                 <Typography
                                     variant="h4"
-                                    sx={{ fontWeight: 600, letterSpacing: "-0.015em", mb: 1.5 }}
+                                    sx={{ fontWeight: 400, letterSpacing: "-0.015em", mb: 1.5 }}
                                 >
                                     {card.title}
                                 </Typography>

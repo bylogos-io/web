@@ -358,9 +358,9 @@ export default function ERR404() {
                                     sx={(theme) => ({
                                         flex: 1,
                                         height: 48,
-                                        backgroundColor: theme.palette.background.paper,
+                                        backgroundColor: "transparent",
                                         color: theme.palette.text.primary,
-                                        "&:hover": { backgroundColor: theme.palette.background.default },
+                                        "&:hover": { backgroundColor: "rgba(255,255,255,0.04)" },
                                     })}
                                     onClick={() => window.history.back()}
                                 >

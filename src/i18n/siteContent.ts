@@ -406,7 +406,7 @@ const siteContent = {
                     highlight: "Incluye Gemelo Digital 3D · Monitoreo en vivo",
                     ctaPrimary: "Solicitar demo técnica",
                     ctaSecondary: "Ver cómo funciona",
-                    ctaPrimaryHref: "#newsletter",
+                    ctaPrimaryHref: "/contact",
                     ctaSecondaryHref: "#demo-video",
                     callouts: [
                         { label: "LATENCIA", value: "<1s" },
@@ -628,8 +628,13 @@ const siteContent = {
             },
         },
         about: {
-            heroEyebrow: "ABOUT",
+            heroEyebrow: "MANIFESTO",
             heroTitle: "¿Por qué LogOS?",
+            heroHeadline: "El futuro de la industria está en el edge",
+            heroSub: "Modernizamos infraestructura industrial sin reemplazar lo que ya funciona. Procesamos donde se generan los datos, mantenemos el control en planta y llevamos IA al campo, no a la nube. Construido desde Hispanoamérica para operaciones que no pueden permitirse caer.",
+            heroBadgeLabel: "EST. 2024 · LATAM",
+            whyEyebrow: "POR QUÉ",
+            whyKicker: "Cerramos la brecha entre IT y OT.",
             paragraphs: [
                 "Estamos cerrando la brecha entre el IT y el OT en la infraestructura industrial que sostiene el mundo moderno. La industria opera con PLCs y sistemas legacy que no permiten la recolección, el análisis de datos ni la correcta implementación de la IA. LogOS conecta este entorno para entregar monitoreo, predicción y análisis operativo en tiempo real respecto a los datos aprovechados de campo, aplicando herramientas digitales en entornos analógicos. Entregamos herramientas modernas al O&M, aumentando considerablemente la productividad.",
                 "Entendemos el desafío y temor a probar nuevas tecnologías en áreas críticas; por eso creamos LogOS, operando desde Hispanoamérica, como una solución amigable que se integra fácilmente a tu infraestructura sin interrumpir lo que funciona. Aportamos lo necesario para que la industria se atreva a dar el salto hacia la IA.",
@@ -1680,7 +1685,7 @@ const siteContent = {
                     highlight: "Includes 3D Digital Twin · Live monitoring",
                     ctaPrimary: "Request technical demo",
                     ctaSecondary: "See how it works",
-                    ctaPrimaryHref: "#newsletter",
+                    ctaPrimaryHref: "/contact",
                     ctaSecondaryHref: "#demo-video",
                     callouts: [
                         { label: "LATENCY", value: "<1s" },
@@ -1877,8 +1882,13 @@ const siteContent = {
             },
         },
         about: {
-            heroEyebrow: "ABOUT",
+            heroEyebrow: "MANIFESTO",
             heroTitle: "Why LogOS?",
+            heroHeadline: "The future of industry runs on the edge",
+            heroSub: "We modernize industrial infrastructure without replacing what already works. We process where data is generated, keep control on plant, and bring AI to the field — not to the cloud. Built in Latin America for operations that cannot afford to go down.",
+            heroBadgeLabel: "EST. 2024 · LATAM",
+            whyEyebrow: "WHY",
+            whyKicker: "We close the gap between IT and OT.",
             paragraphs: [
                 "We are closing the gap between IT and OT across the industrial infrastructure that supports the modern world. Industry still relies on PLCs and legacy systems that do not enable data collection, analytics, or proper AI adoption. LogOS connects that environment to deliver real-time monitoring, prediction, and operational analysis from field data, bringing digital tools into analog environments. We put modern tools in the hands of O&M teams and significantly increase productivity.",
                 "We understand the challenge and hesitation that comes with trying new technologies in critical environments. That is why we created LogOS from Latin America as a friendly solution that integrates easily into your infrastructure without disrupting what already works. We provide what industry needs to confidently take the leap into AI.",
@@ -2894,7 +2904,7 @@ const siteContent = {
                     highlight: "Inclui Gêmeo Digital 3D · Monitoramento ao vivo",
                     ctaPrimary: "Solicitar demo técnica",
                     ctaSecondary: "Ver como funciona",
-                    ctaPrimaryHref: "#newsletter",
+                    ctaPrimaryHref: "/contact",
                     ctaSecondaryHref: "#demo-video",
                     callouts: [
                         { label: "LATÊNCIA", value: "<1s" },
@@ -3103,8 +3113,13 @@ const siteContent = {
             },
         },
         about: {
-            heroEyebrow: "ABOUT",
+            heroEyebrow: "MANIFESTO",
             heroTitle: "Por que LogOS?",
+            heroHeadline: "O futuro da indústria está no edge",
+            heroSub: "Modernizamos a infraestrutura industrial sem substituir o que já funciona. Processamos onde os dados são gerados, mantemos o controle na planta e levamos a IA ao campo — não à nuvem. Construído desde a América Latina para operações que não podem cair.",
+            heroBadgeLabel: "EST. 2024 · LATAM",
+            whyEyebrow: "POR QUÊ",
+            whyKicker: "Fechamos a lacuna entre TI e TO.",
             paragraphs: [
                 "Estamos fechando a lacuna entre TI e TO na infraestrutura industrial que sustenta o mundo moderno. A indústria ainda opera com PLCs e sistemas legados que não permitem coleta de dados, análise ou adoção correta de IA. A LogOS conecta esse ambiente para entregar monitoramento, previsão e análise operacional em tempo real a partir de dados de campo, levando ferramentas digitais para ambientes analógicos. Colocamos ferramentas modernas nas mãos das equipes de O&M e aumentamos significativamente a produtividade.",
                 "Entendemos o desafio e a hesitação em testar novas tecnologias em áreas críticas. Por isso criamos a LogOS, operando a partir da Hispano-América, como uma solução amigável que se integra facilmente à sua infraestrutura sem interromper o que já funciona. Entregamos o necessário para que a indústria dê o salto para a IA com confiança.",

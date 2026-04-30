@@ -22,7 +22,7 @@ export function IndustryFooter() {
       >
         <Typography
           variant="h4"
-          sx={{ fontWeight: 600, letterSpacing: "-0.015em", mb: 1.5, textWrap: "balance" as any }}
+          sx={{ fontWeight: 400, letterSpacing: "-0.015em", mb: 1.5, textWrap: "balance" as any }}
         >
           {content.industries.footerTitle}
         </Typography>

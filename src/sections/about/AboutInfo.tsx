@@ -18,7 +18,7 @@ export function AboutInfo() {
                         variant="h2"
                         sx={{
                             color: "text.primary",
-                            fontWeight: 600,
+                            fontWeight: 400,
                             mb: 4,
                         }}
                     >

@@ -207,7 +207,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
                 >
                     <Typography
                         variant="h1"
-                        fontWeight={600}
+                        fontWeight={400}
                         sx={{
                             fontSize: { xs: "3rem", md: "5.5rem" },
                             letterSpacing: "-0.02em",
@@ -280,7 +280,7 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
                         >
                             <Typography
                                 variant="h3"
-                                fontWeight={600}
+                                fontWeight={400}
                                 sx={{ letterSpacing: "-0.02em", lineHeight: 1.1 }}
                             >
                                 {industries[currentIndex].title}

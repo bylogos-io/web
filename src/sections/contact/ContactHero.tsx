@@ -4,6 +4,7 @@ import { Box, Container, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
+import { monoFont } from "@/theme";
 
 export function ContactHero() {
     const locale = useLocale();
@@ -20,20 +21,37 @@ export function ContactHero() {
                 pb: { xs: 4, md: 6 },
             }}
         >
-            <Container maxWidth="md" sx={{ textAlign: "center" }}>
+            <Container maxWidth="lg" sx={{ textAlign: "center" }}>
+                <Typography
+                    component={motion.div}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    sx={{
+                        fontFamily: monoFont,
+                        fontSize: "0.75rem",
+                        letterSpacing: "0.22em",
+                        color: "primary.main",
+                        mb: 3,
+                    }}
+                >
+                    {c.heroEyebrow}
+                </Typography>
                 <Typography
                     component={motion.h1}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.7, delay: 0.1 }}
                     variant="h1"
                     sx={{
                         fontWeight: 400,
                         letterSpacing: "-0.02em",
-                        lineHeight: 1.05,
+                        lineHeight: 1.1,
                         color: "common.white",
-                        mb: 3,
-                        fontSize: { xs: "2.75rem", md: "4.25rem" },
+                        maxWidth: 920,
+                        mx: "auto",
+                        textWrap: "balance" as any,
+                        fontSize: { xs: "2.25rem", md: "3.75rem" },
                     }}
                 >
                     {c.heroTitle}
@@ -42,12 +60,13 @@ export function ContactHero() {
                     component={motion.p}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
                     sx={{
+                        mt: 3,
                         color: "text.secondary",
-                        maxWidth: 540,
+                        maxWidth: 640,
                         mx: "auto",
-                        fontSize: "1.05rem",
+                        fontSize: "1rem",
                         lineHeight: 1.6,
                     }}
                 >
