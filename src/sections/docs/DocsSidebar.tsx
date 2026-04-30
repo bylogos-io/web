@@ -87,7 +87,7 @@ export function DocsSidebar({ docs }: { docs: Doc[] }) {
                                     sx={(theme) => ({
                                         px: 2,
                                         py: 1.25,
-                                        borderRadius: 1.5,
+                                        borderRadius: 1,
                                         fontSize: "0.875rem",
                                         transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
                                         bgcolor: isActive ? alpha(theme.palette.primary.main, 0.1) : "transparent",

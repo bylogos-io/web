@@ -30,7 +30,7 @@ function NodeCard({ icon: Icon, title, tag, lines, accent }: NodeData) {
                 width: "100%",
                 minWidth: 0,
                 p: { xs: 2.5, md: 3 },
-                borderRadius: 2.5,
+                borderRadius: 1,
                 border: "1px solid",
                 borderColor: accent
                     ? alpha(theme.palette.primary.main, 0.5)
@@ -52,7 +52,7 @@ function NodeCard({ icon: Icon, title, tag, lines, accent }: NodeData) {
                         sx={(theme) => ({
                             width: 36,
                             height: 36,
-                            borderRadius: 1.5,
+                            borderRadius: 1,
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -204,7 +204,7 @@ export function EdgeArchitecture() {
                     sx={(theme) => ({
                         position: "relative",
                         p: { xs: 2.5, md: 4 },
-                        borderRadius: 3.5,
+                        borderRadius: 1,
                         border: `1px solid ${theme.palette.divider}`,
                         backgroundColor: alpha(theme.palette.background.paper, 0.3),
                         backdropFilter: "blur(16px)",
@@ -296,7 +296,7 @@ export function EdgeArchitecture() {
                                                 flexShrink: 0,
                                                 width: 40,
                                                 height: 40,
-                                                borderRadius: 1.5,
+                                                borderRadius: 1,
                                                 display: "flex",
                                                 alignItems: "center",
                                                 justifyContent: "center",

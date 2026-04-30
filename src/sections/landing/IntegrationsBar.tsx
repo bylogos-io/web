@@ -25,7 +25,7 @@ function Chips({ items }: { items: string[] }) {
                         px: 1.5,
                         py: 0.6,
                         border: `1px solid ${theme.palette.divider}`,
-                        borderRadius: 999,
+                        borderRadius: 1,
                         fontFamily: monoFont,
                         fontSize: "0.72rem",
                         color: "text.secondary",

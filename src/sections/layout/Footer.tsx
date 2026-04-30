@@ -119,7 +119,7 @@ export function Footer() {
                             </Stack>
 
                             <Box sx={{ mt: 3 }}>
-                                <Link href="/#newsletter" style={{ textDecoration: "none" }}>
+                                <Link href="/contact" style={{ textDecoration: "none" }}>
                                     <Button variant="default" sx={{ width: "100%", gap: 1 }}>
                                         <MailIcon sx={{ fontSize: 18 }} />
                                         {content.footer.contactButton}

@@ -137,7 +137,7 @@ const getDesignTokens = (): any => ({
     },
     caption: { letterSpacing: '0.01em' },
   },
-  shape: { borderRadius: 8 },
+  shape: { borderRadius: 6 },
 });
 
 export const theme = createTheme(getDesignTokens(), {
@@ -194,6 +194,7 @@ export const theme = createTheme(getDesignTokens(), {
             padding: 0,
             height: 'auto',
             minWidth: 0,
+            border: 'none',
             '&:hover': { backgroundColor: 'transparent', textDecoration: 'underline' },
           }),
         },
@@ -220,18 +221,19 @@ export const theme = createTheme(getDesignTokens(), {
         },
         {
           props: { size: 'icon' },
-          style: { width: 40, height: 40, minWidth: 0, padding: 0, borderRadius: 8 },
+          style: { width: 40, height: 40, minWidth: 0, padding: 0, borderRadius: 6 },
         },
       ],
       styleOverrides: {
-        root: {
+        root: ({ theme }: { theme: any }) => ({
           textTransform: 'none',
-          borderRadius: 999, // pill buttons, premium
+          borderRadius: 6,
           fontWeight: 500,
           letterSpacing: '0.005em',
           transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
           fontFamily: 'inherit',
-        },
+          border: `1px solid ${theme.palette.divider}`,
+        }),
         containedPrimary: {
           boxShadow: `0 0 0 1px ${alpha(brand[500], 0.4)}, 0 8px 24px ${alpha(brand[500], 0.28)}`,
           '&:hover': {
@@ -244,7 +246,7 @@ export const theme = createTheme(getDesignTokens(), {
     MuiCard: {
       styleOverrides: {
         root: ({ theme }: { theme: any }) => ({
-          borderRadius: 14,
+          borderRadius: 6,
           border: `1px solid ${theme.palette.divider}`,
           backgroundImage: 'none',
           backgroundColor: alpha(theme.palette.background.paper, 0.55),
@@ -268,7 +270,7 @@ export const theme = createTheme(getDesignTokens(), {
     MuiInputBase: {
       styleOverrides: {
         root: ({ theme }: { theme: any }) => ({
-          borderRadius: 10,
+          borderRadius: 6,
           backgroundColor: alpha(theme.palette.background.paper, 0.6),
           border: `1px solid ${theme.palette.divider}`,
           transition: theme.transitions.create(['border-color', 'box-shadow']),

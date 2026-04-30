@@ -7,6 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
+import { SectionHeader } from "@/components/SectionHeader";
 
 export function AboutFounders() {
     const locale = useLocale();
@@ -17,24 +18,9 @@ export function AboutFounders() {
     }));
 
     return (
-        <Box component="section" sx={{ py: 12, mb: 10 }}>
+        <Box component="section" sx={{ py: { xs: 10, md: 16 } }}>
             <Container maxWidth="lg">
-                <Typography
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    variant="h4"
-                    sx={{
-                        color: "text.primary",
-                        fontWeight: 800,
-                        textAlign: "center",
-                        mb: 6,
-                        letterSpacing: "-0.02em",
-                    }}
-                >
-                    {content.about.foundersTitle}
-                </Typography>
+                <SectionHeader eyebrow="TEAM" title={content.about.foundersTitle} />
 
                 <Grid container spacing={4} justifyContent="center">
                     {founders.map((founder, index) => (
@@ -58,7 +44,7 @@ export function AboutFounders() {
                                         textAlign: "center",
                                         backgroundColor: "transparent",
                                         border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
-                                        borderRadius: 4,
+                                        borderRadius: 1,
                                         transition: "all 0.3s ease",
                                         "&:hover": {
                                             borderColor: alpha(theme.palette.primary.main, 0.4),
@@ -82,23 +68,20 @@ export function AboutFounders() {
                                         }}
                                     />
                                     <Typography
-                                        variant="h5"
-                                        fontWeight={800}
-                                        gutterBottom
-                                        sx={{ color: "text.primary", letterSpacing: "-0.02em" }}
+                                        variant="h4"
+                                        sx={{ color: "text.primary", fontWeight: 600, letterSpacing: "-0.015em", mb: 1 }}
                                     >
                                         {founder.name}
                                     </Typography>
                                     <Typography
-                                        variant="subtitle2"
-                                        sx={{
-                                            color: "primary.main",
-                                            fontWeight: 700,
+                                        sx={(theme) => ({
+                                            fontFamily: "var(--font-geist-mono)",
+                                            color: theme.palette.primary.main,
+                                            fontSize: "0.75rem",
+                                            letterSpacing: "0.18em",
                                             mb: 4,
                                             flexGrow: 1,
-                                            textTransform: "uppercase",
-                                            letterSpacing: 1,
-                                        }}
+                                        })}
                                     >
                                         {founder.role}
                                     </Typography>

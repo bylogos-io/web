@@ -70,7 +70,7 @@ export function VerticalsSnapshot() {
                             sx={(theme) => ({
                                 px: 2.5,
                                 py: 1.25,
-                                borderRadius: 999,
+                                borderRadius: 1,
                                 border: `1px solid ${theme.palette.divider}`,
                                 color: "text.primary",
                                 fontFamily: monoFont,
@@ -89,11 +89,18 @@ export function VerticalsSnapshot() {
                     </Link>
                 </Stack>
 
+                {(() => {
+                    const normalCount = data.items.filter((it) => !it.agnostic).length;
+                    const mdRemainder = normalCount % 3;
+                    const mdAgnosticSpan = mdRemainder === 0 ? 12 : (3 - mdRemainder) * 4;
+                    const smRemainder = normalCount % 2;
+                    const smAgnosticSpan = smRemainder === 0 ? 12 : 6;
+                    return (
                 <Grid container spacing={{ xs: 1.5, md: 2 }}>
                     {data.items.map((item, idx) => {
                         const isAgnostic = Boolean(item.agnostic);
                         const colSize = isAgnostic
-                            ? { xs: 12, sm: 12, md: 12 }
+                            ? { xs: 12, sm: smAgnosticSpan, md: mdAgnosticSpan }
                             : { xs: 12, sm: 6, md: 4 };
                         return (
                             <Grid key={item.tag} size={colSize}>
@@ -106,7 +113,7 @@ export function VerticalsSnapshot() {
                                     sx={(theme) => ({
                                         height: "100%",
                                         p: 3,
-                                        borderRadius: 2.5,
+                                        borderRadius: 1,
                                         border: `1px solid ${
                                             isAgnostic
                                                 ? alpha(theme.palette.primary.main, 0.4)
@@ -203,6 +210,8 @@ export function VerticalsSnapshot() {
                         );
                     })}
                 </Grid>
+                    );
+                })()}
             </Container>
         </Box>
     );

@@ -174,7 +174,7 @@ export function HardwareAlternatives() {
                                             }}
                                         >
                                             <Box>
-                                                <Typography variant="h5" sx={{ fontWeight: 800, mb: 0.5 }}>
+                                                <Typography variant="h5" sx={{ fontWeight: 600, mb: 0.5 }}>
                                                     {hardware.name}
                                                 </Typography>
                                                 <Typography
@@ -189,7 +189,7 @@ export function HardwareAlternatives() {
                                                 </Typography>
                                             </Box>
                                             <Box sx={{ textAlign: "right" }}>
-                                                <Typography variant="h5" color="primary.main" sx={{ fontWeight: 800 }}>
+                                                <Typography variant="h5" color="primary.main" sx={{ fontWeight: 600 }}>
                                                     {hardware.price}
                                                 </Typography>
                                                 <Typography
@@ -224,7 +224,7 @@ export function HardwareAlternatives() {
                                                                 color: "primary.main",
                                                                 backgroundColor: alpha(theme.palette.primary.main, 0.1),
                                                                 p: 0.75,
-                                                                borderRadius: 1.5,
+                                                                borderRadius: 1,
                                                             })}
                                                         >
                                                             <feature.icon sx={{ fontSize: 18 }} />
@@ -293,7 +293,7 @@ export function HardwareAlternatives() {
                                                 alignItems: "center",
                                                 justifyContent: "center",
                                                 border: "1px solid",
-                                                borderRadius: 2,
+                                                borderRadius: 1,
                                                 borderColor: alpha(theme.palette.secondary.main, 0.1),
                                             })}
                                         >
@@ -343,7 +343,7 @@ export function HardwareAlternatives() {
                         sx={(theme) => ({
                             backgroundColor: alpha(theme.palette.background.paper, 0.5),
                             border: `1px solid ${theme.palette.divider}`,
-                            borderRadius: 2,
+                            borderRadius: 1,
                             p: 4,
                             textAlign: "center",
                             mx: "auto",

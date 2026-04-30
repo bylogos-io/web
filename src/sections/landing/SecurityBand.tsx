@@ -73,7 +73,7 @@ export function SecurityBand() {
                                         transition={{ duration: 0.4, delay: idx * 0.06 }}
                                         sx={(theme) => ({
                                             p: 2.5,
-                                            borderRadius: 2.5,
+                                            borderRadius: 1,
                                             border: `1px solid ${theme.palette.divider}`,
                                             backgroundColor: alpha(theme.palette.background.paper, 0.5),
                                             display: "flex",
@@ -89,7 +89,7 @@ export function SecurityBand() {
                                             sx={(theme) => ({
                                                 width: 38,
                                                 height: 38,
-                                                borderRadius: 1.5,
+                                                borderRadius: 1,
                                                 display: "flex",
                                                 alignItems: "center",
                                                 justifyContent: "center",

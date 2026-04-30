@@ -5,7 +5,7 @@ export const INDUSTRY_CARDS_DATA = [
         description:
             "Moderniza sistemas de extracción y refinería legacy integrando telemetría en la nube sin interrumpir la operación actual.",
         points: ["Integración con PLCs y SCADA", "Monitoreo remoto 24/7", "Detección temprana de fallas con IA"],
-        image: "/industries/oilgas.webp",
+        image: "/industries/oil.jpg",
     },
     {
         tag: "Data Centers",
@@ -13,7 +13,7 @@ export const INDUSTRY_CARDS_DATA = [
         description:
             "Supervisión continua de infraestructura crítica (cooling, energía, ambiente) para maximizar la disponibilidad integrando sistemas legacy.",
         points: ["Monitoreo de PUE", "Integración BMS legacy", "Alertas de prevención de caídas"],
-        image: "/industries/data.webp",
+        image: "/industries/datacenter.jpeg",
     },
     {
         tag: "Water",
@@ -25,7 +25,7 @@ export const INDUSTRY_CARDS_DATA = [
             "Alertas y prevención de fugas",
             "Dashboards operativos en tiempo real",
         ],
-        image: "/industries/water.webp",
+        image: "/industries/waters.jpg",
     },
     {
         tag: "Power",
@@ -37,7 +37,7 @@ export const INDUSTRY_CARDS_DATA = [
             "Analítica de eficiencia energética",
             "Monitoreo preventivo continuo",
         ],
-        image: "/industries/energy.webp",
+        image: "/industries/energy.jpg",
     },
     {
         tag: "Food & Beverage",
@@ -45,7 +45,23 @@ export const INDUSTRY_CARDS_DATA = [
         description:
             "Asegura la calidad y la eficiencia conectando los sensores de piso directamente a herramientas de monitoreo y análisis.",
         points: ["Trazabilidad completa de variables", "Control automatizado 24/7", "Cumplimiento y reportes de KPIs"],
-        image: "/industries/foodbeverage.webp",
+        image: "/industries/foods.jpg",
+    },
+    {
+        tag: "Manufacturing",
+        title: "Manufactura",
+        description:
+            "OEE, control de proceso y trazabilidad en líneas de producción mixtas. Integración con PLCs heterogéneos y sistemas legacy de planta.",
+        points: ["OEE y eficiencia operativa", "Trazabilidad de lotes y turnos", "Integración multi-marca de PLCs"],
+        image: "/industries/foods.jpg",
+    },
+    {
+        tag: "HVAC",
+        title: "Climatización",
+        description:
+            "Control y monitoreo de sistemas HVAC en edificios e instalaciones críticas. Optimiza consumo energético y confort sin reemplazar equipos existentes.",
+        points: ["Optimización de consumo energético", "Monitoreo de temperatura y humedad", "Control supervisado remoto"],
+        image: "/industries/climation.jpg",
     },
 ];
 
@@ -55,32 +71,44 @@ export const INDUSTRY_SLIDER_DATA = [
         subtitle: "Oil & Gas",
         description:
             "Lleva la inteligencia artificial y conectividad cloud a entornos de alta disponibilidad y exigencia.",
-        image: "/industries/oilgas.webp",
+        image: "/industries/oil.jpg",
     },
     {
         title: "Datos",
         subtitle: "Data Centers",
         description:
             "Supervisión continua de infraestructura crítica para garantizar disponibilidad y eficiencia operativa (PUE).",
-        image: "/industries/data.webp",
+        image: "/industries/datacenter.jpeg",
     },
     {
         title: "Aguas",
         subtitle: "Water",
         description:
             "Optimiza la gestión hídrica integrando telemetría y monitoreo centralizado de activos distribuidos.",
-        image: "/industries/water.webp",
+        image: "/industries/waters.jpg",
     },
     {
         title: "Energía",
         subtitle: "Power",
         description: "Conecta infraestructura de generación legacy para lograr visibilidad, predicción y control.",
-        image: "/industries/energy.webp",
+        image: "/industries/energy.jpg",
     },
     {
         title: "Producción",
         subtitle: "Food & Beverage",
         description: "Trazabilidad, calidad y control garantizado al unir los datos del piso de producción con el IT.",
-        image: "/industries/foodbeverage.webp",
+        image: "/industries/foods.jpg",
+    },
+    {
+        title: "Manufactura",
+        subtitle: "Manufacturing",
+        description: "OEE, control de proceso y trazabilidad en líneas mixtas con PLCs heterogéneos.",
+        image: "/industries/foods.jpg",
+    },
+    {
+        title: "Climatización",
+        subtitle: "HVAC",
+        description: "Control y monitoreo de sistemas HVAC para optimizar consumo energético y confort.",
+        image: "/industries/climation.jpg",
     },
 ];

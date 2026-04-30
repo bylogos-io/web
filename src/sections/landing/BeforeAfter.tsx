@@ -24,7 +24,7 @@ function Column({
                 position: "relative",
                 height: "100%",
                 p: { xs: 3, md: 4 },
-                borderRadius: 3,
+                borderRadius: 1,
                 border: `1px solid ${accent ? alpha(theme.palette.primary.main, 0.4) : theme.palette.divider}`,
                 background: accent
                     ? `linear-gradient(180deg, ${alpha(theme.palette.primary.main, 0.06)} 0%, ${alpha(theme.palette.background.paper, 0.4)} 100%)`

@@ -57,7 +57,7 @@ export function LanguageSwitcher() {
                     minWidth: "auto",
                     px: { xs: 1, sm: 1.5 },
                     py: 0.5,
-                    borderRadius: 999,
+                    borderRadius: 1,
                     color: "text.primary",
                     textTransform: "none",
                     border: "none",

@@ -47,7 +47,7 @@ export default function DocsIndex() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <Typography variant="h2" sx={{ fontWeight: 800, mb: 4, letterSpacing: -1 }}>
+                <Typography variant="h2" sx={{ fontWeight: 600, mb: 4, letterSpacing: -1 }}>
                     Guía de Estilo & Iconos
                 </Typography>
                 <Typography variant="h5" color="text.secondary" sx={{ mb: 8, fontWeight: 400, lineHeight: 1.6 }}>
@@ -69,7 +69,7 @@ export default function DocsIndex() {
                             whileHover={{ x: 8 }}
                             sx={(theme) => ({
                                 p: 3,
-                                borderRadius: 3,
+                                borderRadius: 1,
                                 bgcolor: alpha(theme.palette.secondary.main, 0.04),
                                 border: "1px solid",
                                 borderColor: "divider",
@@ -82,7 +82,7 @@ export default function DocsIndex() {
                             <Box
                                 sx={(theme) => ({
                                     p: 1.5,
-                                    borderRadius: 2,
+                                    borderRadius: 1,
                                     bgcolor: alpha(theme.palette.primary.main, 0.1),
                                     color: "primary.main",
                                     display: "flex",
@@ -106,7 +106,7 @@ export default function DocsIndex() {
                     sx={(theme) => ({
                         mt: 10,
                         p: 4,
-                        borderRadius: 4,
+                        borderRadius: 1,
                         bgcolor: alpha(theme.palette.primary.main, 0.05),
                         border: "1px dashed",
                         borderColor: "primary.main",
@@ -115,7 +115,7 @@ export default function DocsIndex() {
                     <Stack direction="row" spacing={3} alignItems="center">
                         <MenuBookOutlinedIcon sx={{ fontSize: 32, color: "primary.main" }} />
                         <Box>
-                            <Typography variant="h6" fontWeight={800}>
+                            <Typography variant="h6" fontWeight={600}>
                                 ¿Necesitas más información?
                             </Typography>
                             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>

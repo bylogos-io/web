@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import logoImage from "@public/isologo.svg";
 import { Box, Container, Typography, Stack, Grid2 as Grid, alpha, Chip, Card, Button } from "@mui/material";
+import { JoinedButtonGroup } from "@/components/JoinedButtonGroup";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { useRouter } from "@/i18n/routing";
@@ -298,7 +299,7 @@ export default function ERR404() {
                                                     className="suggestion-icon"
                                                     sx={(theme) => ({
                                                         p: 1.5,
-                                                        borderRadius: 2,
+                                                        borderRadius: 1,
                                                         backgroundColor: alpha(theme.palette.primary.main, 0.1),
                                                         transition: "all 0.3s ease",
                                                     })}
@@ -337,13 +338,12 @@ export default function ERR404() {
                             </Stack>
 
                             {/* Primary actions */}
-                            <Stack
-                                direction={{ xs: "column", sm: "row" }}
-                                spacing={2}
+                            <JoinedButtonGroup
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.8 }}
+                                sx={{ width: "100%" }}
                             >
                                 <Button
                                     variant="contained"
@@ -354,14 +354,20 @@ export default function ERR404() {
                                     {content.notFound.goHome}
                                 </Button>
                                 <Button
-                                    variant="outlined"
-                                    sx={{ flex: 1, height: 48 }}
+                                    variant="contained"
+                                    sx={(theme) => ({
+                                        flex: 1,
+                                        height: 48,
+                                        backgroundColor: theme.palette.background.paper,
+                                        color: theme.palette.text.primary,
+                                        "&:hover": { backgroundColor: theme.palette.background.default },
+                                    })}
                                     onClick={() => window.history.back()}
                                 >
                                     <ArrowLeftIcon sx={{ fontSize: 18, mr: 1 }} />
                                     {content.notFound.previousPage}
                                 </Button>
-                            </Stack>
+                            </JoinedButtonGroup>
                         </Grid>
                     </Grid>
 

@@ -3,6 +3,7 @@ import { Box, Container, Typography, useTheme, alpha } from "@mui/material";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
+import { monoFont } from "@/theme";
 
 export function AboutHero() {
     const theme = useTheme();
@@ -10,8 +11,7 @@ export function AboutHero() {
     const content = getSiteContent(locale);
 
     return (
-        <Box sx={{ width: "100%", mb: 0 }}>
-            {/* ── Hero image ── */}
+        <Box component="section" sx={{ width: "100%" }}>
             <Box
                 sx={{
                     position: "relative",
@@ -25,18 +25,14 @@ export function AboutHero() {
                     sx={{
                         position: "absolute",
                         inset: 0,
-                        width: "100%",
-                        height: "100%",
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
                         backgroundImage: `url(/isologo.svg)`,
-                        opacity: 0.15,
+                        opacity: 0.12,
                         filter: "brightness(0.8)",
                     }}
                 />
-
-                {/* Gradient overlay: dark top for header → transparent → dark bottom */}
                 <Box
                     sx={{
                         position: "absolute",
@@ -49,8 +45,6 @@ export function AboutHero() {
                         zIndex: 2,
                     }}
                 />
-
-                {/* ── Centered text: label + gradient title ── */}
                 <Box
                     sx={{
                         position: "absolute",
@@ -60,20 +54,34 @@ export function AboutHero() {
                         transform: "translateY(-50%)",
                         zIndex: 3,
                         textAlign: "center",
-                        px: { xs: 5, md: 10 },
+                        px: { xs: 4, md: 8 },
                     }}
                 >
                     <Typography
-                        variant="h1"
-                        fontWeight={900}
                         component={motion.div}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
                         sx={{
-                            fontSize: { xs: "3rem", md: "6rem" },
-                            letterSpacing: "-0.02em",
-                            lineHeight: 1.1,
+                            fontFamily: monoFont,
+                            fontSize: "0.75rem",
+                            letterSpacing: "0.18em",
+                            color: "primary.main",
+                            mb: 2,
+                        }}
+                    >
+                        {content.about.heroEyebrow}
+                    </Typography>
+                    <Typography
+                        component={motion.h1}
+                        initial={{ opacity: 0, y: 16 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.1 }}
+                        variant="h1"
+                        sx={{
+                            fontWeight: 600,
+                            letterSpacing: "-0.03em",
+                            textWrap: "balance" as any,
                         }}
                     >
                         <Box
@@ -91,48 +99,31 @@ export function AboutHero() {
                 </Box>
             </Box>
 
-            {/* ── Double-block mission description ── */}
             <Container maxWidth="md">
                 <Box
                     component={motion.div}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    sx={{ mt: 8, mb: 12 }}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    sx={{ mt: { xs: 6, md: 10 }, mb: { xs: 8, md: 12 } }}
                 >
-                    <Box sx={{ mb: 6 }}>
+                    {content.about.paragraphs.map((p, idx) => (
                         <Typography
-                            variant="h6"
-                            color="text.primary"
+                            key={idx}
+                            variant="body1"
                             sx={{
-                                fontWeight: 400,
-                                lineHeight: 1.8,
-                                textAlign: "justify",
-                                hyphens: "auto",
+                                color: "text.primary",
                                 opacity: 0.9,
-                                fontSize: { xs: "1rem", md: "1.25rem" },
+                                lineHeight: 1.8,
+                                fontSize: { xs: "1rem", md: "1.125rem" },
+                                mb: idx === content.about.paragraphs.length - 1 ? 0 : 4,
+                                textWrap: "balance" as any,
                             }}
                         >
-                            {content.about.paragraphs[0]}
+                            {p}
                         </Typography>
-                    </Box>
-
-                    <Box sx={{ mb: 6 }}>
-                        <Typography
-                            variant="h6"
-                            color="text.primary"
-                            sx={{
-                                fontWeight: 400,
-                                lineHeight: 1.8,
-                                textAlign: "justify",
-                                hyphens: "auto",
-                                opacity: 0.9,
-                                fontSize: { xs: "1rem", md: "1.25rem" },
-                            }}
-                        >
-                            {content.about.paragraphs[1]}
-                        </Typography>
-                    </Box>
+                    ))}
                 </Box>
             </Container>
         </Box>

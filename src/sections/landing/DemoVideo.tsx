@@ -175,7 +175,7 @@ export function DemoVideo() {
                         sx={{
                             fontSize: { xs: "2rem", md: "3rem" },
                             mb: 2,
-                            fontWeight: 800,
+                            fontWeight: 600,
                             lineHeight: 1.15,
                         }}
                     >
@@ -218,7 +218,7 @@ export function DemoVideo() {
                     sx={(theme) => ({
                         position: "relative",
                         p: { xs: 1, md: 1.5 },
-                        borderRadius: 6,
+                        borderRadius: 1,
                         border: `1px solid ${alpha(theme.palette.common.white, 0.08)}`,
                         background: `linear-gradient(180deg, ${alpha(theme.palette.background.paper, 0.86)} 0%, ${alpha(theme.palette.background.default, 0.94)} 100%)`,
                         boxShadow: `0 30px 90px ${alpha(theme.palette.common.black, 0.28)}`,
@@ -238,7 +238,7 @@ export function DemoVideo() {
                             position: "absolute",
                             inset: 0,
                             fontFamily: "inherit",
-                            borderRadius: theme.spacing(4),
+                            borderRadius: '6px',
                             overflow: "hidden",
                             backgroundColor: theme.palette.common.black,
                             width: "100% !important",
@@ -257,7 +257,7 @@ export function DemoVideo() {
                             inset: 0,
                         },
                         "& .video-js .vjs-tech, & .video-js .vjs-poster": {
-                            borderRadius: theme.spacing(4),
+                            borderRadius: '6px',
                             width: "100% !important",
                             height: "100% !important",
                             objectFit: "cover",
@@ -344,7 +344,7 @@ export function DemoVideo() {
                                 gap: 1.5,
                                 px: { xs: 1.25, md: 1.5 },
                                 py: 1,
-                                borderRadius: 999,
+                                borderRadius: 1,
                                 backgroundColor: alpha(theme.palette.background.default, 0.62),
                                 border: `1px solid ${alpha(theme.palette.common.white, 0.08)}`,
                                 backdropFilter: "blur(16px)",

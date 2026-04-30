@@ -54,7 +54,7 @@ const siteContent = {
                     "LogOS crea el puente entre el mundo analógico OT y el área IT. Solución mixta para modernizar infraestructura, reducir pérdidas en HH y revolucionar la toma de decisiones con AI.",
             },
             about: {
-                title: "Manifiesto",
+                title: "About",
                 description:
                     "LogOS nace para resolver la brecha entre el mundo analógico y la IA. Nuestra misión es facilitar la vida de los técnicos y reducir pérdidas en HH mediante tecnología mixta de vanguardia.",
             },
@@ -67,6 +67,21 @@ const siteContent = {
                 title: "Planes y Precios",
                 description:
                     "Invierte en eficiencia. Conoce nuestros planes para digitalizar tu infraestructura, reducir pérdidas en HH y automatizar reportes con LogOS.",
+            },
+            platform: {
+                title: "Plataforma",
+                description:
+                    "Monitoreo en tiempo real, IA, gemelos digitales y reportes automáticos sobre la misma capa edge. Conoce la plataforma LogOS.",
+            },
+            partners: {
+                title: "Partners",
+                description:
+                    "Programa de partners LogOS para integradores, EPCs y consultoras OT. Certificación, soporte de ingeniería y margen recurrente.",
+            },
+            contact: {
+                title: "Contacto",
+                description:
+                    "Conversemos sobre tu operación. Demo, partnership o consulta técnica: te respondemos en menos de 24 horas hábiles.",
             },
         },
         common: {
@@ -87,10 +102,12 @@ const siteContent = {
             contactCta: "Contacto",
             navigation: [
                 { label: "Inicio", href: "/" },
-                { label: "Industrias", href: "/industries" },
-                { label: "Planes y Precios", href: "/pricing" },
-                { label: "Manifiesto", href: "/about" },
-                { label: "Noticias", href: "/news" },
+                { label: "Plataforma", href: "/platform" },
+                { label: "Casos de uso", href: "/industries" },
+                { label: "Insights", href: "/news" },
+                { label: "Partners", href: "/partners" },
+                { label: "About", href: "/about" },
+                { label: "Contacto", href: "/contact" },
             ],
         },
         footer: {
@@ -385,7 +402,7 @@ const siteContent = {
                     sub: "LogOS es la infraestructura que digitaliza tu campo existente sin reemplazarlo.",
                     subSecondary: "Datos y decisiones en el borde, monitoreo donde estés.",
                     subTertiary: "Preparamos tu industria para la era de la IA: gemelos digitales como visualizaciones 3D en tiempo real con asistencia inteligente — no una tabla de Excel.",
-                    audience: "Para plantas con 20+ equipos OT en monitoreo manual, Excel o SCADA aislado.",
+                    audience: "Para plantas con equipos OT en monitoreo manual, Excel o SCADA aislado.",
                     highlight: "Incluye Gemelo Digital 3D · Monitoreo en vivo",
                     ctaPrimary: "Solicitar demo técnica",
                     ctaSecondary: "Ver cómo funciona",
@@ -524,7 +541,7 @@ const siteContent = {
                 verticals: {
                     eyebrow: "INDUSTRIAS",
                     title: "Diseñado para infraestructura crítica.",
-                    sub: "Seis verticales en producción. Y la tuya, sea cual sea.",
+                    sub: "Siete verticales en producción. Y la tuya, sea cual sea.",
                     items: [
                         {
                             tag: "OIL & GAS",
@@ -555,6 +572,11 @@ const siteContent = {
                             tag: "MANUFACTURA",
                             title: "Manufactura",
                             line: "OEE, control de proceso y trazabilidad en líneas de producción.",
+                        },
+                        {
+                            tag: "HVAC",
+                            title: "Climatización",
+                            line: "Control y monitoreo HVAC para optimizar consumo energético y confort.",
                         },
                         {
                             tag: "TU INDUSTRIA",
@@ -606,15 +628,49 @@ const siteContent = {
             },
         },
         about: {
+            heroEyebrow: "ABOUT",
             heroTitle: "¿Por qué LogOS?",
             paragraphs: [
                 "Estamos cerrando la brecha entre el IT y el OT en la infraestructura industrial que sostiene el mundo moderno. La industria opera con PLCs y sistemas legacy que no permiten la recolección, el análisis de datos ni la correcta implementación de la IA. LogOS conecta este entorno para entregar monitoreo, predicción y análisis operativo en tiempo real respecto a los datos aprovechados de campo, aplicando herramientas digitales en entornos analógicos. Entregamos herramientas modernas al O&M, aumentando considerablemente la productividad.",
                 "Entendemos el desafío y temor a probar nuevas tecnologías en áreas críticas; por eso creamos LogOS, operando desde Hispanoamérica, como una solución amigable que se integra fácilmente a tu infraestructura sin interrumpir lo que funciona. Aportamos lo necesario para que la industria se atreva a dar el salto hacia la IA.",
             ],
+            principlesTitle: "Lo que nos mueve",
+            principlesDescription:
+                "Tres principios guían cada decisión técnica y de producto en LogOS.",
+            principles: [
+                {
+                    title: "Operación primero",
+                    description:
+                        "Nuestro punto de partida es siempre el técnico de planta. Si una solución no le simplifica la vida, no la construimos.",
+                },
+                {
+                    title: "Soberanía del dato",
+                    description:
+                        "Tus datos operacionales son tuyos. Procesamos en el edge y nunca obligamos a sacar información sensible de tu planta.",
+                },
+                {
+                    title: "Pragmatismo industrial",
+                    description:
+                        "Trabajamos sobre lo que ya existe. Modernizamos sin reemplazar PLCs ni interrumpir procesos que funcionan.",
+                },
+            ],
             foundersTitle: "Nuestros fundadores",
             founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
         },
         industries: {
+            heroEyebrow: "CASOS DE USO",
+            heroTitle: "Operaciones críticas en industrias exigentes",
+            heroDescription: "Energía, infraestructura crítica, agua, manufactura y más.",
+            featuredEyebrow: "CASOS DESTACADOS",
+            featuredCaption: "FOTO: Planta industrial",
+            featuredChallengeLabel: "DESAFÍO",
+            featuredSolutionLabel: "SOLUCIÓN",
+            featuredImpactLabel: "IMPACTO OPERATIVO",
+            othersEyebrow: "LISTADO DE CASOS",
+            othersTitle: "Listado de casos",
+            othersDescription:
+                "Cómo aplicamos LogOS en distintos sectores: desde misión crítica hasta despliegues a escala. Algunos clientes no son revelados públicamente por NDA.",
+            kpisLabel: "MÉTRICAS",
             sliderTitle: "Industrias Inteligentes",
             previousAriaLabel: "Anterior",
             nextAriaLabel: "Siguiente",
@@ -671,6 +727,26 @@ const siteContent = {
                         "Cumplimiento y reportes de KPIs",
                     ],
                 },
+                {
+                    title: "Manufactura",
+                    description:
+                        "OEE, control de proceso y trazabilidad en líneas mixtas con PLCs heterogéneos y sistemas legacy de planta.",
+                    points: [
+                        "OEE y eficiencia operativa",
+                        "Trazabilidad de lotes y turnos",
+                        "Integración multi-marca de PLCs",
+                    ],
+                },
+                {
+                    title: "Climatización",
+                    description:
+                        "Control y monitoreo de sistemas HVAC en edificios e instalaciones críticas. Optimiza consumo energético y confort sin reemplazar equipos.",
+                    points: [
+                        "Optimización de consumo energético",
+                        "Monitoreo de temperatura y humedad",
+                        "Control supervisado remoto",
+                    ],
+                },
             ],
             sliderItems: [
                 {
@@ -697,6 +773,16 @@ const siteContent = {
                     title: "Producción",
                     description:
                         "Trazabilidad, calidad y control garantizado al unir los datos del piso de producción con el IT.",
+                },
+                {
+                    title: "Manufactura",
+                    description:
+                        "OEE, control de proceso y trazabilidad en líneas mixtas con PLCs heterogéneos.",
+                },
+                {
+                    title: "Climatización",
+                    description:
+                        "Control y monitoreo de sistemas HVAC para optimizar consumo energético y confort.",
                 },
             ],
         },
@@ -952,6 +1038,246 @@ const siteContent = {
                 { label: "Tiempo de respuesta", value: "45ms", status: "success" },
             ],
         },
+        platform: {
+            heroEyebrow: "PLATAFORMA",
+            heroTitleStart: "Una plataforma para",
+            heroTitleAccent: "operar tu industria",
+            heroDescription:
+                "LogOS unifica monitoreo, control, IA y gemelos digitales sobre tu infraestructura existente. Software modular que se adapta a tu operación, no al revés.",
+            heroCtaPrimary: "Solicitar demo",
+            heroCtaSecondary: "Ver casos de uso",
+            modulesTitle: "Módulos del software",
+            modulesDescription:
+                "Combina los módulos que necesitas. Cada uno se conecta sobre la misma capa edge y comparte datos, alertas y contexto.",
+            modules: [
+                {
+                    title: "Monitoreo en tiempo real",
+                    description:
+                        "Visualiza variables eléctricas, mecánicas y de proceso con latencia menor a 1 segundo desde cualquier dispositivo.",
+                },
+                {
+                    title: "Diagramas unilineales",
+                    description:
+                        "Esquemas interactivos que reflejan dinámicamente el estado de la instalación y permiten navegar la planta como un mapa vivo.",
+                },
+                {
+                    title: "Registro histórico",
+                    description:
+                        "Acceso completo a series de tiempo con análisis de tendencias, comparación de períodos y exportación.",
+                },
+                {
+                    title: "Alarmas inteligentes",
+                    description:
+                        "Reglas, eventos y predicciones con IA para anticipar fallas y enrutar notificaciones a quien corresponde.",
+                },
+                {
+                    title: "Integraciones",
+                    description:
+                        "WhatsApp, Telegram, correo y APIs abiertas. La operación llega donde está tu equipo, sin obligar a abrir un dashboard.",
+                },
+                {
+                    title: "Reportes automáticos",
+                    description:
+                        "Reportes técnicos y ejecutivos generados solos, listos para auditoría y para conversación con dirección.",
+                },
+                {
+                    title: "Asistente de IA",
+                    description:
+                        "Copiloto entrenado en tu operación: responde preguntas sobre cargas, fallas y comportamiento histórico en lenguaje natural.",
+                },
+                {
+                    title: "Gemelo digital",
+                    description:
+                        "Réplica funcional de tu instalación para simular escenarios, ensayar cambios y validar decisiones antes del campo.",
+                },
+                {
+                    title: "Acceso multi-dispositivo",
+                    description:
+                        "Información sincronizada en web y móvil, con permisos granulares por planta, área y rol.",
+                },
+            ],
+            architectureTitle: "Edge primero, cloud cuando importa",
+            architectureDescription:
+                "Procesamos los datos donde se generan. Tu información operacional queda en planta y solo viaja lo que tú decides exponer.",
+            architecturePoints: [
+                "Latencia local sub-segundo para control y alarmas críticas.",
+                "Cumplimiento con políticas de seguridad industrial y regulaciones locales.",
+                "Sin dependencia de Internet para mantener la planta operando.",
+            ],
+            ctaTitle: "¿Listo para verlo en tu planta?",
+            ctaDescription: "Te mostramos LogOS corriendo sobre un caso real similar al tuyo en menos de 30 minutos.",
+            ctaButton: "Agendar demo técnica",
+            process: {
+                eyebrow: "CÓMO FUNCIONA",
+                title: "Cómo es el proceso de integración",
+                sub: "Tres pasos para llevar tu planta legacy a operación con LogOS.",
+                steps: [
+                    {
+                        title: "Diagnóstico operativo",
+                        body: "Visitamos tu planta, mapeamos PLCs, SCADAs y protocolos en uso. Definimos puntos críticos de monitoreo, control y reporte. Sin tocar lo que ya funciona.",
+                        items: ["Levantamiento OT", "Mapeo de protocolos", "Plan de despliegue"],
+                    },
+                    {
+                        title: "Despliegue Edge",
+                        body: "Instalamos LogOS sobre hardware industrial certificado. Conectamos OPC UA, Modbus, MQTT y APIs internas. Validamos telemetría en sitio antes de pasar a producción.",
+                        items: ["Hardware llave en mano", "Integración no intrusiva", "Validación en sitio"],
+                    },
+                    {
+                        title: "Operación con IA",
+                        body: "Activamos dashboards, alarmas predictivas, reportes automáticos y el copiloto de IA. Tu equipo opera con visibilidad total y soporte continuo de ingeniería.",
+                        items: ["Dashboards en vivo", "Alarmas predictivas", "Asistente de IA"],
+                    },
+                ],
+                ctaHint: "Al final del proceso →",
+            },
+            why: {
+                eyebrow: "FUNDAMENTOS",
+                title: "¿Por qué LogOS?",
+                sub: "Tres razones por las que la industria elige LogOS sobre soluciones tradicionales.",
+                edge: {
+                    eyebrow: "EDGE / CLOUD",
+                    title: "¿Por qué Edge Computing?",
+                    sub: "El control no puede depender de Internet. LogOS corre primero en el edge, no en la nube.",
+                    onPremTitle: "LogOS · Edge Computing",
+                    onPremTag: "ON-PREMISE",
+                    onPremPoints: [
+                        "Latencia sub-segundo para control y alarmas críticas",
+                        "Tu data operacional se queda en planta",
+                        "Funciona aunque caiga Internet",
+                        "Cumple políticas industriales de seguridad",
+                    ],
+                    cloudTitle: "Otros · Cloud Computing",
+                    cloudTag: "DEPENDIENTE",
+                    cloudPoints: [
+                        "Latencia atada al ancho de banda",
+                        "Data sensible viaja fuera de tu red",
+                        "Sin Internet la planta está ciega",
+                        "Costo y throughput escalan con el tráfico",
+                    ],
+                },
+                allInOne: {
+                    eyebrow: "PLATAFORMA UNIFICADA",
+                    title: "Todo en una sola plataforma",
+                    sub: "SCADA, gemelo digital, monitoreo y control conviven en LogOS. Sin silos, sin integraciones rotas.",
+                    hubLabel: "LogOS",
+                    silos: [
+                        { label: "SCADA", note: "Supervisión y control" },
+                        { label: "Gemelo digital", note: "Réplica funcional" },
+                        { label: "Monitoreo", note: "Telemetría y KPIs" },
+                        { label: "Alarmas + IA", note: "Predictivo y reactivo" },
+                    ],
+                    outcomeLabel: "RESULTADO",
+                    outcome: "Una sola fuente de verdad para tu operación. Cero fricción entre datos, decisión y acción.",
+                },
+                comparison: {
+                    eyebrow: "ANTES Y DESPUÉS",
+                    title: "Lo que cambia con LogOS",
+                    beforeLabel: "ANTES",
+                    afterLabel: "CON LogOS",
+                    rows: [
+                        {
+                            topic: "Visibilidad",
+                            before: "Reportes manuales semanales",
+                            after: "Dashboards en tiempo real",
+                        },
+                        {
+                            topic: "Reacción ante fallas",
+                            before: "Detección post-evento",
+                            after: "Alertas predictivas con IA",
+                        },
+                        {
+                            topic: "Integración",
+                            before: "Silos por marca y protocolo",
+                            after: "Una capa sobre PLCs, SCADA y MQTT",
+                        },
+                        {
+                            topic: "Reportería",
+                            before: "Horas-hombre repetitivas",
+                            after: "Reportes automáticos auditables",
+                        },
+                        {
+                            topic: "Escalabilidad",
+                            before: "Re-cableado por cada cambio",
+                            after: "Software-defined, despliegue remoto",
+                        },
+                    ],
+                },
+            },
+        },
+        partners: {
+            heroEyebrow: "PARTNERS",
+            heroTitleStart: "Crece con nosotros",
+            heroTitleAccent: "instalando LogOS",
+            heroDescription:
+                "Buscamos integradores, EPCs y consultoras OT que quieran ofrecer LogOS como parte de su portafolio. Te entrenamos, certificamos y compartimos pipeline.",
+            heroCta: "Postular como partner",
+            benefitsTitle: "Beneficios del programa",
+            benefits: [
+                {
+                    title: "Margen recurrente",
+                    description: "Comisión sobre instalaciones y suscripciones activas mientras el cliente esté con nosotros.",
+                },
+                {
+                    title: "Certificación técnica",
+                    description: "Entrenamiento en arquitectura edge, integraciones OT y mejores prácticas de despliegue.",
+                },
+                {
+                    title: "Soporte de ingeniería",
+                    description: "Acceso directo a nuestro equipo para diseño de soluciones, RFPs y casos complejos.",
+                },
+                {
+                    title: "Co-marketing",
+                    description: "Casos de éxito conjuntos, eventos y leads cualificados de tu región.",
+                },
+            ],
+            tiersTitle: "Tipos de partner",
+            tiers: [
+                {
+                    title: "Integrador certificado",
+                    description: "Instala, configura y soporta LogOS en clientes finales bajo tu marca o co-branding.",
+                },
+                {
+                    title: "Distribuidor regional",
+                    description: "Cubre territorio exclusivo con metas de adopción, soporte local y stock de hardware certificado.",
+                },
+                {
+                    title: "Partner tecnológico",
+                    description: "Integra tu producto o servicio sobre LogOS vía APIs y SDK para llegar a clientes industriales.",
+                },
+            ],
+            ctaTitle: "Conversemos",
+            ctaDescription: "Cuéntanos qué industrias atiendes y dónde operas. Te respondemos con la ruta de partnership correcta.",
+            ctaButton: "Quiero ser partner",
+        },
+        contact: {
+            heroEyebrow: "CONTACTO",
+            heroTitle: "Hablemos",
+            heroDescription:
+                "Demo, partnership, prensa o solo curiosidad técnica. Escríbenos y te respondemos en menos de 24 horas hábiles.",
+            form: {
+                firstNameLabel: "NOMBRE",
+                lastNameLabel: "APELLIDO",
+                emailLabel: "EMAIL",
+                companyLabel: "EMPRESA",
+                commentLabel: "COMENTARIO",
+                firstNamePlaceholder: "Tu nombre",
+                lastNamePlaceholder: "Tu apellido",
+                emailPlaceholder: "email@empresa.com",
+                companyPlaceholder: "Nombre de la empresa",
+                commentPlaceholder: "¿Algo que debamos saber?",
+                submit: "Enviar mensaje",
+                submitting: "Enviando...",
+                successTitle: "Mensaje enviado",
+                successDescription: "Recibimos tu mensaje. Te contactamos pronto.",
+                errorTitle: "No pudimos enviar el mensaje",
+                errorDescription: "Intenta de nuevo en unos minutos o escríbenos directamente a contact@bylogos.io.",
+                requiredError: "Este campo es obligatorio.",
+                emailError: "Ingresa un email válido.",
+            },
+            altContactTitle: "Otros canales",
+            altContactDescription:
+                "Si prefieres email directo, escríbenos a contact@bylogos.io. Para soporte técnico de clientes activos, usa el canal dedicado en la plataforma.",
+        },
     },
     en: {
         seo: {
@@ -1000,7 +1326,7 @@ const siteContent = {
                     "LogOS bridges the analog OT world and the IT layer. A hybrid solution to modernize infrastructure, reduce labor-hour losses, and transform decision-making with AI.",
             },
             about: {
-                title: "Manifesto",
+                title: "About",
                 description:
                     "LogOS was created to close the gap between the analog world and AI. Our mission is to make technicians' lives easier and reduce labor-hour losses through cutting-edge hybrid technology.",
             },
@@ -1013,6 +1339,21 @@ const siteContent = {
                 title: "Plans and Pricing",
                 description:
                     "Invest in efficiency. Explore our plans to digitize your infrastructure, reduce labor-hour losses, and automate reporting with LogOS.",
+            },
+            platform: {
+                title: "Platform",
+                description:
+                    "Real-time monitoring, AI, digital twins, and automated reports on the same edge layer. Meet the LogOS platform.",
+            },
+            partners: {
+                title: "Partners",
+                description:
+                    "LogOS partner program for integrators, EPCs, and OT consultancies. Certification, engineering support, and recurring margin.",
+            },
+            contact: {
+                title: "Contact",
+                description:
+                    "Let's talk about your operation. Demo, partnership, or technical question — we'll get back within one business day.",
             },
         },
         common: {
@@ -1033,10 +1374,12 @@ const siteContent = {
             contactCta: "Contact",
             navigation: [
                 { label: "Home", href: "/" },
-                { label: "Industries", href: "/industries" },
-                { label: "Plans & Pricing", href: "/pricing" },
-                { label: "Manifesto", href: "/about" },
-                { label: "News", href: "/news" },
+                { label: "Platform", href: "/platform" },
+                { label: "Use cases", href: "/industries" },
+                { label: "Insights", href: "/news" },
+                { label: "Partners", href: "/partners" },
+                { label: "About", href: "/about" },
+                { label: "Contact", href: "/contact" },
             ],
         },
         footer: {
@@ -1319,7 +1662,7 @@ const siteContent = {
                     subSecondary: "Data and decisions at the edge, monitoring wherever you are.",
                     subTertiary: "We prepare your industry for the AI era: digital twins as real-time 3D visualizations with intelligent assistance — not an Excel spreadsheet.",
                     audience:
-                        "Built for plants with 20+ OT assets running on manual monitoring, Excel or isolated SCADA.",
+                        "Built for plants with OT assets running on manual monitoring, Excel or isolated SCADA.",
                     highlight: "Includes 3D Digital Twin · Live monitoring",
                     ctaPrimary: "Request technical demo",
                     ctaSecondary: "See how it works",
@@ -1445,7 +1788,7 @@ const siteContent = {
                 verticals: {
                     eyebrow: "INDUSTRIES",
                     title: "Built for critical infrastructure.",
-                    sub: "Six verticals in production. Plus yours, whatever it is.",
+                    sub: "Seven verticals in production. Plus yours, whatever it is.",
                     items: [
                         { tag: "OIL & GAS", title: "Oil & Gas", line: "24/7 remote telemetry over legacy SCADA." },
                         { tag: "DATACENTER", title: "Data Centers", line: "PUE, legacy BMS and outage prevention." },
@@ -1464,6 +1807,11 @@ const siteContent = {
                             tag: "MANUFACTURING",
                             title: "Manufacturing",
                             line: "OEE, process control and traceability across production lines.",
+                        },
+                        {
+                            tag: "HVAC",
+                            title: "HVAC",
+                            line: "HVAC control and monitoring to optimize energy use and comfort.",
                         },
                         {
                             tag: "YOUR INDUSTRY",
@@ -1515,15 +1863,48 @@ const siteContent = {
             },
         },
         about: {
+            heroEyebrow: "ABOUT",
             heroTitle: "Why LogOS?",
             paragraphs: [
                 "We are closing the gap between IT and OT across the industrial infrastructure that supports the modern world. Industry still relies on PLCs and legacy systems that do not enable data collection, analytics, or proper AI adoption. LogOS connects that environment to deliver real-time monitoring, prediction, and operational analysis from field data, bringing digital tools into analog environments. We put modern tools in the hands of O&M teams and significantly increase productivity.",
                 "We understand the challenge and hesitation that comes with trying new technologies in critical environments. That is why we created LogOS from Latin America as a friendly solution that integrates easily into your infrastructure without disrupting what already works. We provide what industry needs to confidently take the leap into AI.",
             ],
+            principlesTitle: "What drives us",
+            principlesDescription: "Three principles guide every technical and product decision at LogOS.",
+            principles: [
+                {
+                    title: "Operations first",
+                    description:
+                        "Our starting point is always the plant technician. If a solution doesn't make their life easier, we don't build it.",
+                },
+                {
+                    title: "Data sovereignty",
+                    description:
+                        "Your operational data is yours. We process at the edge and never force sensitive information off your plant.",
+                },
+                {
+                    title: "Industrial pragmatism",
+                    description:
+                        "We work on top of what already exists. We modernize without replacing PLCs or interrupting processes that work.",
+                },
+            ],
             foundersTitle: "Our founders",
             founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
         },
         industries: {
+            heroEyebrow: "USE CASES",
+            heroTitle: "Mission-critical operations across demanding industries",
+            heroDescription: "Energy, critical infrastructure, water, manufacturing, and more.",
+            featuredEyebrow: "FEATURED CASES",
+            featuredCaption: "PHOTO: Industrial plant",
+            featuredChallengeLabel: "CHALLENGE",
+            featuredSolutionLabel: "SOLUTION",
+            featuredImpactLabel: "OPERATIONAL IMPACT",
+            othersEyebrow: "CASE LIST",
+            othersTitle: "Case list",
+            othersDescription:
+                "How we apply LogOS across sectors: from mission-critical operations to large-scale rollouts. Some customers are not publicly disclosed due to NDAs.",
+            kpisLabel: "METRICS",
             sliderTitle: "Intelligent Industries",
             previousAriaLabel: "Previous",
             nextAriaLabel: "Next",
@@ -1572,6 +1953,26 @@ const siteContent = {
                         "Ensure quality and efficiency by connecting shop-floor sensors directly to monitoring and analytics tools.",
                     points: ["Full variable traceability", "Automated 24/7 control", "Compliance and KPI reporting"],
                 },
+                {
+                    title: "Manufacturing",
+                    description:
+                        "OEE, process control, and traceability across mixed production lines with heterogeneous PLCs and legacy plant systems.",
+                    points: [
+                        "OEE and operational efficiency",
+                        "Batch and shift traceability",
+                        "Multi-vendor PLC integration",
+                    ],
+                },
+                {
+                    title: "HVAC",
+                    description:
+                        "Control and monitoring of HVAC systems in critical buildings and facilities. Optimize energy use and comfort without replacing equipment.",
+                    points: [
+                        "Energy consumption optimization",
+                        "Temperature and humidity monitoring",
+                        "Remote supervisory control",
+                    ],
+                },
             ],
             sliderItems: [
                 {
@@ -1596,6 +1997,14 @@ const siteContent = {
                     title: "Production",
                     description:
                         "Guarantee traceability, quality, and control by connecting production-floor data with IT.",
+                },
+                {
+                    title: "Manufacturing",
+                    description: "OEE, process control, and traceability across mixed production lines with heterogeneous PLCs.",
+                },
+                {
+                    title: "HVAC",
+                    description: "Control and monitoring of HVAC systems to optimize energy use and comfort.",
                 },
             ],
         },
@@ -1850,6 +2259,217 @@ const siteContent = {
                 { label: "Response time", value: "45ms", status: "success" },
             ],
         },
+        platform: {
+            heroEyebrow: "PLATFORM",
+            heroTitleStart: "One platform to",
+            heroTitleAccent: "run your industry",
+            heroDescription:
+                "LogOS unifies monitoring, control, AI, and digital twins on top of your existing infrastructure. Modular software that adapts to your operation, not the other way around.",
+            heroCtaPrimary: "Request a demo",
+            heroCtaSecondary: "See use cases",
+            modulesTitle: "Software modules",
+            modulesDescription:
+                "Mix the modules you need. Each one runs on the same edge layer and shares data, alerts, and context.",
+            modules: [
+                {
+                    title: "Real-time monitoring",
+                    description: "View electrical, mechanical, and process variables with sub-second latency from any device.",
+                },
+                {
+                    title: "Single-line diagrams",
+                    description: "Interactive schematics that reflect plant state in real time and let you navigate the facility as a living map.",
+                },
+                {
+                    title: "Historical records",
+                    description: "Full time-series access with trend analysis, period comparison, and export.",
+                },
+                {
+                    title: "Smart alarms",
+                    description: "Rules, events, and AI-driven predictions that anticipate failures and route notifications to the right person.",
+                },
+                {
+                    title: "Integrations",
+                    description: "WhatsApp, Telegram, email, and open APIs. Operations reach your team without forcing them to open a dashboard.",
+                },
+                {
+                    title: "Automated reporting",
+                    description: "Technical and executive reports generated automatically, audit-ready and fit for leadership conversations.",
+                },
+                {
+                    title: "AI assistant",
+                    description: "A copilot trained on your operation: answers questions about loads, faults, and historical behavior in natural language.",
+                },
+                {
+                    title: "Digital twin",
+                    description: "Functional replica of your facility to simulate scenarios, rehearse changes, and validate decisions before the field.",
+                },
+                {
+                    title: "Multi-device access",
+                    description: "Information synced across web and mobile, with granular permissions per plant, area, and role.",
+                },
+            ],
+            architectureTitle: "Edge first, cloud when it matters",
+            architectureDescription:
+                "We process data where it is generated. Your operational information stays on site and only what you choose to expose travels out.",
+            architecturePoints: [
+                "Sub-second local latency for control and critical alarms.",
+                "Compliance with industrial security policies and local regulations.",
+                "No internet dependency to keep the plant running.",
+            ],
+            ctaTitle: "Ready to see it on your plant?",
+            ctaDescription: "We will show LogOS running on a real case similar to yours in under 30 minutes.",
+            ctaButton: "Schedule a technical demo",
+            process: {
+                eyebrow: "HOW IT WORKS",
+                title: "The integration process",
+                sub: "Three steps to take your legacy plant into LogOS operation.",
+                steps: [
+                    {
+                        title: "Operational diagnosis",
+                        body: "We visit your plant, map PLCs, SCADAs, and protocols in use. We define critical monitoring, control, and reporting points without touching what already works.",
+                        items: ["OT survey", "Protocol mapping", "Deployment plan"],
+                    },
+                    {
+                        title: "Edge deployment",
+                        body: "We install LogOS on certified industrial hardware. We connect OPC UA, Modbus, MQTT, and internal APIs. Telemetry is validated on site before going to production.",
+                        items: ["Turnkey hardware", "Non-intrusive integration", "On-site validation"],
+                    },
+                    {
+                        title: "AI-powered operation",
+                        body: "We activate dashboards, predictive alarms, automated reports, and the AI copilot. Your team operates with full visibility and continuous engineering support.",
+                        items: ["Live dashboards", "Predictive alarms", "AI assistant"],
+                    },
+                ],
+                ctaHint: "End of process →",
+            },
+            why: {
+                eyebrow: "FUNDAMENTALS",
+                title: "Why LogOS?",
+                sub: "Three reasons industry chooses LogOS over traditional stacks.",
+                edge: {
+                    eyebrow: "EDGE / CLOUD",
+                    title: "Why Edge Computing?",
+                    sub: "Control cannot depend on the internet. LogOS runs at the edge first, not in the cloud.",
+                    onPremTitle: "LogOS · Edge-first",
+                    onPremTag: "ON-PREMISE",
+                    onPremPoints: [
+                        "Sub-second latency for control and critical alarms",
+                        "Operational data stays on your plant",
+                        "Works even if internet drops",
+                        "Aligned with industrial security policies",
+                    ],
+                    cloudTitle: "Traditional cloud-only",
+                    cloudTag: "DEPENDENT",
+                    cloudPoints: [
+                        "Latency tied to bandwidth",
+                        "Sensitive data leaves your network",
+                        "No internet, plant goes blind",
+                        "Cost and throughput scale with traffic",
+                    ],
+                },
+                allInOne: {
+                    eyebrow: "UNIFIED PLATFORM",
+                    title: "Everything in one platform",
+                    sub: "SCADA, digital twin, monitoring, and control live in LogOS. No silos, no broken integrations.",
+                    hubLabel: "LogOS",
+                    silos: [
+                        { label: "SCADA", note: "Supervision and control" },
+                        { label: "Digital twin", note: "Functional replica" },
+                        { label: "Monitoring", note: "Telemetry and KPIs" },
+                        { label: "Alarms + AI", note: "Predictive and reactive" },
+                    ],
+                    outcomeLabel: "OUTCOME",
+                    outcome: "Single source of truth for your operation. Zero friction between data, decision, and action.",
+                },
+                comparison: {
+                    eyebrow: "BEFORE / AFTER",
+                    title: "What changes with LogOS",
+                    beforeLabel: "BEFORE",
+                    afterLabel: "WITH LogOS",
+                    rows: [
+                        { topic: "Visibility", before: "Weekly manual reports", after: "Real-time dashboards" },
+                        { topic: "Failure response", before: "Post-event detection", after: "Predictive AI alerts" },
+                        { topic: "Integration", before: "Silos per vendor and protocol", after: "One layer over PLCs, SCADA, and MQTT" },
+                        { topic: "Reporting", before: "Repetitive labor hours", after: "Auditable automated reports" },
+                        { topic: "Scaling", before: "Re-cabling for every change", after: "Software-defined remote deploys" },
+                    ],
+                },
+            },
+        },
+        partners: {
+            heroEyebrow: "PARTNERS",
+            heroTitleStart: "Grow with us",
+            heroTitleAccent: "deploying LogOS",
+            heroDescription:
+                "We are looking for integrators, EPCs, and OT consultancies that want to offer LogOS as part of their portfolio. We train, certify, and share pipeline.",
+            heroCta: "Apply as a partner",
+            benefitsTitle: "Program benefits",
+            benefits: [
+                {
+                    title: "Recurring margin",
+                    description: "Commission on installs and active subscriptions for as long as the customer stays with us.",
+                },
+                {
+                    title: "Technical certification",
+                    description: "Training on edge architecture, OT integrations, and deployment best practices.",
+                },
+                {
+                    title: "Engineering support",
+                    description: "Direct access to our team for solution design, RFPs, and complex cases.",
+                },
+                {
+                    title: "Co-marketing",
+                    description: "Joint case studies, events, and qualified leads in your region.",
+                },
+            ],
+            tiersTitle: "Partner tiers",
+            tiers: [
+                {
+                    title: "Certified integrator",
+                    description: "Install, configure, and support LogOS at end customers under your brand or co-branding.",
+                },
+                {
+                    title: "Regional distributor",
+                    description: "Cover an exclusive territory with adoption goals, local support, and certified hardware stock.",
+                },
+                {
+                    title: "Technology partner",
+                    description: "Integrate your product or service on top of LogOS via APIs and SDK to reach industrial customers.",
+                },
+            ],
+            ctaTitle: "Let's talk",
+            ctaDescription: "Tell us which industries you serve and where you operate. We will reply with the right partnership path.",
+            ctaButton: "Become a partner",
+        },
+        contact: {
+            heroEyebrow: "CONTACT",
+            heroTitle: "Let's talk",
+            heroDescription:
+                "Demo, partnership, press, or pure technical curiosity. Drop us a line and we reply within one business day.",
+            form: {
+                firstNameLabel: "FIRST NAME",
+                lastNameLabel: "LAST NAME",
+                emailLabel: "EMAIL",
+                companyLabel: "COMPANY",
+                commentLabel: "COMMENT",
+                firstNamePlaceholder: "Your name",
+                lastNamePlaceholder: "Your last name",
+                emailPlaceholder: "email@company.com",
+                companyPlaceholder: "Company name",
+                commentPlaceholder: "Something we should know?",
+                submit: "Send message",
+                submitting: "Sending...",
+                successTitle: "Message sent",
+                successDescription: "We got your message. We'll be in touch soon.",
+                errorTitle: "We couldn't send the message",
+                errorDescription: "Try again in a few minutes or write us directly at contact@bylogos.io.",
+                requiredError: "This field is required.",
+                emailError: "Enter a valid email.",
+            },
+            altContactTitle: "Other channels",
+            altContactDescription:
+                "If you prefer direct email, write to contact@bylogos.io. For technical support of active customers, use the dedicated channel inside the platform.",
+        },
     },
     pt: {
         seo: {
@@ -1898,7 +2518,7 @@ const siteContent = {
                     "LogOS conecta o mundo analógico OT à camada de TI. Uma solução híbrida para modernizar a infraestrutura, reduzir perdas de horas-homem e transformar a tomada de decisão com IA.",
             },
             about: {
-                title: "Manifesto",
+                title: "About",
                 description:
                     "A LogOS nasceu para fechar a lacuna entre o mundo analógico e a IA. Nossa missão é facilitar a vida dos técnicos e reduzir perdas de horas-homem por meio de tecnologia híbrida de ponta.",
             },
@@ -1911,6 +2531,21 @@ const siteContent = {
                 title: "Planos e Preços",
                 description:
                     "Invista em eficiência. Conheça nossos planos para digitalizar sua infraestrutura, reduzir perdas de horas-homem e automatizar relatórios com a LogOS.",
+            },
+            platform: {
+                title: "Plataforma",
+                description:
+                    "Monitoramento em tempo real, IA, gêmeos digitais e relatórios automáticos sobre a mesma camada edge. Conheça a plataforma LogOS.",
+            },
+            partners: {
+                title: "Partners",
+                description:
+                    "Programa de partners da LogOS para integradores, EPCs e consultorias OT. Certificação, suporte de engenharia e margem recorrente.",
+            },
+            contact: {
+                title: "Contato",
+                description:
+                    "Vamos conversar sobre sua operação. Demonstração, parceria ou consulta técnica: respondemos em até um dia útil.",
             },
         },
         common: {
@@ -1931,10 +2566,12 @@ const siteContent = {
             contactCta: "Contato",
             navigation: [
                 { label: "Início", href: "/" },
-                { label: "Indústrias", href: "/industries" },
-                { label: "Planos e Preços", href: "/pricing" },
-                { label: "Manifesto", href: "/about" },
-                { label: "Notícias", href: "/news" },
+                { label: "Plataforma", href: "/platform" },
+                { label: "Casos de uso", href: "/industries" },
+                { label: "Insights", href: "/news" },
+                { label: "Partners", href: "/partners" },
+                { label: "About", href: "/about" },
+                { label: "Contato", href: "/contact" },
             ],
         },
         footer: {
@@ -2225,7 +2862,7 @@ const siteContent = {
                     sub: "A LogOS é a infraestrutura que digitaliza seu campo existente sem substituí-lo.",
                     subSecondary: "Dados e decisões na borda, monitoramento onde você estiver.",
                     subTertiary: "Preparamos sua indústria para a era da IA: gêmeos digitais como visualizações 3D em tempo real com assistência inteligente — não uma planilha de Excel.",
-                    audience: "Para plantas com 20+ ativos OT em monitoramento manual, Excel ou SCADA isolado.",
+                    audience: "Para plantas com ativos OT em monitoramento manual, Excel ou SCADA isolado.",
                     highlight: "Inclui Gêmeo Digital 3D · Monitoramento ao vivo",
                     ctaPrimary: "Solicitar demo técnica",
                     ctaSecondary: "Ver como funciona",
@@ -2355,7 +2992,7 @@ const siteContent = {
                 verticals: {
                     eyebrow: "SETORES",
                     title: "Projetado para infraestrutura crítica.",
-                    sub: "Seis verticais em produção. E a sua, seja qual for.",
+                    sub: "Sete verticais em produção. E a sua, seja qual for.",
                     items: [
                         {
                             tag: "OIL & GAS",
@@ -2382,6 +3019,11 @@ const siteContent = {
                             tag: "MANUFATURA",
                             title: "Manufatura",
                             line: "OEE, controle de processo e rastreabilidade em linhas de produção.",
+                        },
+                        {
+                            tag: "HVAC",
+                            title: "Climatização",
+                            line: "Controle e monitoramento HVAC para otimizar consumo energético e conforto.",
                         },
                         {
                             tag: "SUA INDÚSTRIA",
@@ -2433,15 +3075,48 @@ const siteContent = {
             },
         },
         about: {
+            heroEyebrow: "ABOUT",
             heroTitle: "Por que LogOS?",
             paragraphs: [
                 "Estamos fechando a lacuna entre TI e TO na infraestrutura industrial que sustenta o mundo moderno. A indústria ainda opera com PLCs e sistemas legados que não permitem coleta de dados, análise ou adoção correta de IA. A LogOS conecta esse ambiente para entregar monitoramento, previsão e análise operacional em tempo real a partir de dados de campo, levando ferramentas digitais para ambientes analógicos. Colocamos ferramentas modernas nas mãos das equipes de O&M e aumentamos significativamente a produtividade.",
                 "Entendemos o desafio e a hesitação em testar novas tecnologias em áreas críticas. Por isso criamos a LogOS, operando a partir da Hispano-América, como uma solução amigável que se integra facilmente à sua infraestrutura sem interromper o que já funciona. Entregamos o necessário para que a indústria dê o salto para a IA com confiança.",
             ],
+            principlesTitle: "O que nos move",
+            principlesDescription: "Três princípios orientam cada decisão técnica e de produto na LogOS.",
+            principles: [
+                {
+                    title: "Operação primeiro",
+                    description:
+                        "Nosso ponto de partida é sempre o técnico de planta. Se uma solução não simplifica a vida dele, não construímos.",
+                },
+                {
+                    title: "Soberania do dado",
+                    description:
+                        "Seus dados operacionais são seus. Processamos no edge e nunca obrigamos a tirar informação sensível da planta.",
+                },
+                {
+                    title: "Pragmatismo industrial",
+                    description:
+                        "Trabalhamos sobre o que já existe. Modernizamos sem substituir PLCs nem interromper processos que funcionam.",
+                },
+            ],
             foundersTitle: "Nossos fundadores",
             founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
         },
         industries: {
+            heroEyebrow: "CASOS DE USO",
+            heroTitle: "Operações de missão crítica em indústrias exigentes",
+            heroDescription: "Energia, infraestrutura crítica, água, manufatura e mais.",
+            featuredEyebrow: "CASOS EM DESTAQUE",
+            featuredCaption: "FOTO: Planta industrial",
+            featuredChallengeLabel: "DESAFIO",
+            featuredSolutionLabel: "SOLUÇÃO",
+            featuredImpactLabel: "IMPACTO OPERACIONAL",
+            othersEyebrow: "LISTA DE CASOS",
+            othersTitle: "Lista de casos",
+            othersDescription:
+                "Como aplicamos a LogOS em diferentes setores: de operações de missão crítica a implantações em escala. Alguns clientes não são divulgados publicamente por NDA.",
+            kpisLabel: "MÉTRICAS",
             sliderTitle: "Indústrias Inteligentes",
             previousAriaLabel: "Anterior",
             nextAriaLabel: "Próximo",
@@ -2498,6 +3173,26 @@ const siteContent = {
                         "Conformidade e relatórios de KPIs",
                     ],
                 },
+                {
+                    title: "Manufatura",
+                    description:
+                        "OEE, controle de processo e rastreabilidade em linhas mistas com PLCs heterogêneos e sistemas legados de planta.",
+                    points: [
+                        "OEE e eficiência operacional",
+                        "Rastreabilidade de lotes e turnos",
+                        "Integração multi-marca de PLCs",
+                    ],
+                },
+                {
+                    title: "Climatização",
+                    description:
+                        "Controle e monitoramento de sistemas HVAC em edifícios e instalações críticas. Otimize consumo energético e conforto sem substituir equipamentos.",
+                    points: [
+                        "Otimização do consumo energético",
+                        "Monitoramento de temperatura e umidade",
+                        "Controle supervisório remoto",
+                    ],
+                },
             ],
             sliderItems: [
                 {
@@ -2524,6 +3219,14 @@ const siteContent = {
                     title: "Produção",
                     description:
                         "Garanta rastreabilidade, qualidade e controle conectando dados do chão de fábrica à TI.",
+                },
+                {
+                    title: "Manufatura",
+                    description: "OEE, controle de processo e rastreabilidade em linhas mistas com PLCs heterogêneos.",
+                },
+                {
+                    title: "Climatização",
+                    description: "Controle e monitoramento de sistemas HVAC para otimizar consumo energético e conforto.",
                 },
             ],
         },
@@ -2778,6 +3481,217 @@ const siteContent = {
                 { label: "Protocolo", value: "HTTPS", status: "success" },
                 { label: "Tempo de resposta", value: "45ms", status: "success" },
             ],
+        },
+        platform: {
+            heroEyebrow: "PLATAFORMA",
+            heroTitleStart: "Uma plataforma para",
+            heroTitleAccent: "operar sua indústria",
+            heroDescription:
+                "A LogOS unifica monitoramento, controle, IA e gêmeos digitais sobre sua infraestrutura existente. Software modular que se adapta à sua operação, e não o contrário.",
+            heroCtaPrimary: "Solicitar demonstração",
+            heroCtaSecondary: "Ver casos de uso",
+            modulesTitle: "Módulos do software",
+            modulesDescription:
+                "Combine os módulos que precisa. Cada um roda sobre a mesma camada edge e compartilha dados, alertas e contexto.",
+            modules: [
+                {
+                    title: "Monitoramento em tempo real",
+                    description: "Visualize variáveis elétricas, mecânicas e de processo com latência sub-segundo em qualquer dispositivo.",
+                },
+                {
+                    title: "Diagramas unifilares",
+                    description: "Esquemas interativos que refletem o estado da planta em tempo real e permitem navegar a instalação como um mapa vivo.",
+                },
+                {
+                    title: "Registro histórico",
+                    description: "Acesso completo a séries temporais com análise de tendências, comparação de períodos e exportação.",
+                },
+                {
+                    title: "Alarmes inteligentes",
+                    description: "Regras, eventos e previsões com IA para antecipar falhas e direcionar notificações para a pessoa certa.",
+                },
+                {
+                    title: "Integrações",
+                    description: "WhatsApp, Telegram, e-mail e APIs abertas. A operação chega à sua equipe sem precisar abrir um dashboard.",
+                },
+                {
+                    title: "Relatórios automáticos",
+                    description: "Relatórios técnicos e executivos gerados sozinhos, prontos para auditoria e para a diretoria.",
+                },
+                {
+                    title: "Assistente de IA",
+                    description: "Copiloto treinado na sua operação: responde sobre cargas, falhas e comportamento histórico em linguagem natural.",
+                },
+                {
+                    title: "Gêmeo digital",
+                    description: "Réplica funcional da sua planta para simular cenários, ensaiar mudanças e validar decisões antes do campo.",
+                },
+                {
+                    title: "Acesso multi-dispositivo",
+                    description: "Informação sincronizada entre web e mobile, com permissões granulares por planta, área e função.",
+                },
+            ],
+            architectureTitle: "Edge primeiro, cloud quando importa",
+            architectureDescription:
+                "Processamos os dados onde são gerados. Sua informação operacional permanece na planta e só viaja o que você decide expor.",
+            architecturePoints: [
+                "Latência local sub-segundo para controle e alarmes críticos.",
+                "Conformidade com políticas de segurança industrial e regulações locais.",
+                "Sem dependência de internet para manter a planta operando.",
+            ],
+            ctaTitle: "Pronto para ver na sua planta?",
+            ctaDescription: "Mostramos a LogOS rodando em um caso real semelhante ao seu em menos de 30 minutos.",
+            ctaButton: "Agendar demonstração técnica",
+            process: {
+                eyebrow: "COMO FUNCIONA",
+                title: "Como é o processo de integração",
+                sub: "Três passos para levar sua planta legacy à operação com LogOS.",
+                steps: [
+                    {
+                        title: "Diagnóstico operacional",
+                        body: "Visitamos sua planta, mapeamos PLCs, SCADAs e protocolos em uso. Definimos pontos críticos de monitoramento, controle e relatório sem mexer no que já funciona.",
+                        items: ["Levantamento OT", "Mapeamento de protocolos", "Plano de implantação"],
+                    },
+                    {
+                        title: "Implantação no Edge",
+                        body: "Instalamos a LogOS sobre hardware industrial certificado. Conectamos OPC UA, Modbus, MQTT e APIs internas. Validamos telemetria no local antes de produção.",
+                        items: ["Hardware turnkey", "Integração não intrusiva", "Validação no local"],
+                    },
+                    {
+                        title: "Operação com IA",
+                        body: "Ativamos dashboards, alarmes preditivos, relatórios automáticos e o copiloto de IA. Sua equipe opera com visibilidade total e suporte contínuo de engenharia.",
+                        items: ["Dashboards em tempo real", "Alarmes preditivos", "Assistente de IA"],
+                    },
+                ],
+                ctaHint: "Fim do processo →",
+            },
+            why: {
+                eyebrow: "FUNDAMENTOS",
+                title: "Por que LogOS?",
+                sub: "Três razões pelas quais a indústria escolhe LogOS em vez de stacks tradicionais.",
+                edge: {
+                    eyebrow: "EDGE / CLOUD",
+                    title: "Por que Edge Computing?",
+                    sub: "O controle não pode depender da internet. A LogOS roda primeiro no edge, não na nuvem.",
+                    onPremTitle: "LogOS · Edge primeiro",
+                    onPremTag: "ON-PREMISE",
+                    onPremPoints: [
+                        "Latência sub-segundo para controle e alarmes críticos",
+                        "Seus dados operacionais ficam na planta",
+                        "Funciona mesmo sem internet",
+                        "Alinhado a políticas de segurança industrial",
+                    ],
+                    cloudTitle: "Cloud-only tradicional",
+                    cloudTag: "DEPENDENTE",
+                    cloudPoints: [
+                        "Latência atrelada à banda",
+                        "Dados sensíveis saem da rede",
+                        "Sem internet, planta cega",
+                        "Custo e throughput escalam com tráfego",
+                    ],
+                },
+                allInOne: {
+                    eyebrow: "PLATAFORMA UNIFICADA",
+                    title: "Tudo em uma só plataforma",
+                    sub: "SCADA, gêmeo digital, monitoramento e controle convivem na LogOS. Sem silos, sem integrações quebradas.",
+                    hubLabel: "LogOS",
+                    silos: [
+                        { label: "SCADA", note: "Supervisão e controle" },
+                        { label: "Gêmeo digital", note: "Réplica funcional" },
+                        { label: "Monitoramento", note: "Telemetria e KPIs" },
+                        { label: "Alarmes + IA", note: "Preditivo e reativo" },
+                    ],
+                    outcomeLabel: "RESULTADO",
+                    outcome: "Uma única fonte de verdade para sua operação. Zero atrito entre dado, decisão e ação.",
+                },
+                comparison: {
+                    eyebrow: "ANTES E DEPOIS",
+                    title: "O que muda com LogOS",
+                    beforeLabel: "ANTES",
+                    afterLabel: "COM LogOS",
+                    rows: [
+                        { topic: "Visibilidade", before: "Relatórios manuais semanais", after: "Dashboards em tempo real" },
+                        { topic: "Resposta a falhas", before: "Detecção pós-evento", after: "Alertas preditivos com IA" },
+                        { topic: "Integração", before: "Silos por marca e protocolo", after: "Uma camada sobre PLCs, SCADA e MQTT" },
+                        { topic: "Relatórios", before: "Horas-homem repetitivas", after: "Relatórios automáticos auditáveis" },
+                        { topic: "Escala", before: "Re-cabeamento a cada mudança", after: "Software-defined, deploy remoto" },
+                    ],
+                },
+            },
+        },
+        partners: {
+            heroEyebrow: "PARTNERS",
+            heroTitleStart: "Cresça conosco",
+            heroTitleAccent: "implantando LogOS",
+            heroDescription:
+                "Buscamos integradores, EPCs e consultorias OT que queiram oferecer a LogOS como parte do seu portfólio. Treinamos, certificamos e dividimos pipeline.",
+            heroCta: "Candidatar como partner",
+            benefitsTitle: "Benefícios do programa",
+            benefits: [
+                {
+                    title: "Margem recorrente",
+                    description: "Comissão sobre instalações e assinaturas ativas enquanto o cliente estiver com a gente.",
+                },
+                {
+                    title: "Certificação técnica",
+                    description: "Treinamento em arquitetura edge, integrações OT e melhores práticas de implantação.",
+                },
+                {
+                    title: "Suporte de engenharia",
+                    description: "Acesso direto ao nosso time para design de soluções, RFPs e casos complexos.",
+                },
+                {
+                    title: "Co-marketing",
+                    description: "Cases conjuntos, eventos e leads qualificados na sua região.",
+                },
+            ],
+            tiersTitle: "Tipos de partner",
+            tiers: [
+                {
+                    title: "Integrador certificado",
+                    description: "Instala, configura e dá suporte da LogOS em clientes finais sob sua marca ou co-branding.",
+                },
+                {
+                    title: "Distribuidor regional",
+                    description: "Cobre território exclusivo com metas de adoção, suporte local e estoque de hardware certificado.",
+                },
+                {
+                    title: "Partner tecnológico",
+                    description: "Integre seu produto ou serviço sobre a LogOS via APIs e SDK para alcançar clientes industriais.",
+                },
+            ],
+            ctaTitle: "Vamos conversar",
+            ctaDescription: "Conte-nos quais indústrias atende e onde opera. Respondemos com a rota de parceria certa.",
+            ctaButton: "Quero ser partner",
+        },
+        contact: {
+            heroEyebrow: "CONTATO",
+            heroTitle: "Vamos conversar",
+            heroDescription:
+                "Demonstração, parceria, imprensa ou só curiosidade técnica. Escreva e respondemos em até um dia útil.",
+            form: {
+                firstNameLabel: "NOME",
+                lastNameLabel: "SOBRENOME",
+                emailLabel: "EMAIL",
+                companyLabel: "EMPRESA",
+                commentLabel: "COMENTÁRIO",
+                firstNamePlaceholder: "Seu nome",
+                lastNamePlaceholder: "Seu sobrenome",
+                emailPlaceholder: "email@empresa.com",
+                companyPlaceholder: "Nome da empresa",
+                commentPlaceholder: "Algo que devemos saber?",
+                submit: "Enviar mensagem",
+                submitting: "Enviando...",
+                successTitle: "Mensagem enviada",
+                successDescription: "Recebemos sua mensagem. Entraremos em contato em breve.",
+                errorTitle: "Não foi possível enviar a mensagem",
+                errorDescription: "Tente novamente em alguns minutos ou escreva diretamente para contact@bylogos.io.",
+                requiredError: "Este campo é obrigatório.",
+                emailError: "Informe um e-mail válido.",
+            },
+            altContactTitle: "Outros canais",
+            altContactDescription:
+                "Se preferir e-mail direto, escreva para contact@bylogos.io. Para suporte técnico de clientes ativos, use o canal dedicado dentro da plataforma.",
         },
     },
 };

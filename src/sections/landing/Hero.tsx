@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Box, Button, Container, Grid2 as Grid, Stack, Typography, alpha } from "@mui/material";
+import { Box, Button, Container, Grid2 as Grid, Typography, alpha } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
+import { JoinedButtonGroup } from "@/components/JoinedButtonGroup";
 import { ReterminalScene } from "@/components/3d/ReterminalScene";
 import { ClientsMarquee } from "@/sections/landing/ClientsMarquee";
 import { useLocale } from "next-intl";
@@ -171,13 +172,11 @@ export function Hero() {
                             </Typography>
 
                             {/* CTAs */}
-                            <Stack
+                            <JoinedButtonGroup
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 12 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: 0.25 }}
-                                direction={{ xs: "column", sm: "row" }}
-                                spacing={1.5}
                             >
                                 <Button
                                     href={data.ctaPrimaryHref}
@@ -189,13 +188,18 @@ export function Hero() {
                                 </Button>
                                 <Button
                                     href={data.ctaSecondaryHref}
-                                    variant="outline"
+                                    variant="contained"
                                     size="lg"
                                     startIcon={<PlayArrowRoundedIcon />}
+                                    sx={(theme) => ({
+                                        backgroundColor: theme.palette.background.paper,
+                                        color: theme.palette.text.primary,
+                                        "&:hover": { backgroundColor: theme.palette.background.default },
+                                    })}
                                 >
                                     {data.ctaSecondary}
                                 </Button>
-                            </Stack>
+                            </JoinedButtonGroup>
                         </Box>
                     </Grid>
 
@@ -248,7 +252,7 @@ export function Hero() {
                     sx={(theme) => ({
                         mt: { xs: 6, md: 8 },
                         border: `1px solid ${theme.palette.divider}`,
-                        borderRadius: 2.5,
+                        borderRadius: 1,
                         backgroundColor: alpha(theme.palette.background.paper, 0.4),
                         backdropFilter: "blur(12px)",
                         overflow: "hidden",

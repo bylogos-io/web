@@ -65,7 +65,7 @@ export function Pillars() {
                                     position: "relative",
                                     height: "100%",
                                     p: { xs: 3, md: 4 },
-                                    borderRadius: 3,
+                                    borderRadius: 1,
                                     border: `1px solid ${theme.palette.divider}`,
                                     backgroundColor: alpha(theme.palette.background.paper, 0.4),
                                     backdropFilter: "blur(12px)",

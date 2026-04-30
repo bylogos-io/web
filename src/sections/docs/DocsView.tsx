@@ -24,7 +24,7 @@ export function DocsView({ doc }: DocsViewProps) {
                 maxWidth: "none",
                 "& h1": {
                     fontSize: { xs: "2.5rem", md: "3rem" },
-                    fontWeight: 800,
+                    fontWeight: 600,
                     mb: 4,
                     color: "primary.main",
                 },
@@ -72,7 +72,7 @@ export function DocsView({ doc }: DocsViewProps) {
                 "& pre": {
                     backgroundColor: secondaryAlpha20,
                     p: 3,
-                    borderRadius: 3,
+                    borderRadius: 1,
                     overflowX: "auto",
                     mb: 4,
                     border: "1px solid",
@@ -92,7 +92,7 @@ export function DocsView({ doc }: DocsViewProps) {
                     my: 4,
                     fontStyle: "italic",
                     backgroundColor: primaryAlpha05,
-                    borderRadius: "0 8px 8px 0",
+                    borderRadius: "0 6px 6px 0",
                 },
             }}
         >
@@ -101,7 +101,7 @@ export function DocsView({ doc }: DocsViewProps) {
                     variant="h1"
                     sx={{
                         fontSize: { xs: "2.5rem", md: "3.5rem" },
-                        fontWeight: 800,
+                        fontWeight: 600,
                         mb: 2,
                         lineHeight: 1.1,
                     }}

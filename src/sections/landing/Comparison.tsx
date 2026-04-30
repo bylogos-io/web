@@ -76,7 +76,7 @@ export function Comparison() {
                             variant="overline"
                             sx={{
                                 color: "primary.main",
-                                fontWeight: 800,
+                                fontWeight: 600,
                                 letterSpacing: 2,
                                 mb: 1,
                                 display: "block",
@@ -88,7 +88,7 @@ export function Comparison() {
                         <Typography
                             variant="h2"
                             sx={(theme) => ({
-                                fontWeight: 900,
+                                fontWeight: 600,
                                 fontSize: { xs: "2rem", md: "3.2rem" },
                                 lineHeight: 1.1,
                                 mb: 2,
@@ -119,7 +119,7 @@ export function Comparison() {
                     container
                     spacing={0}
                     alignItems="stretch"
-                    sx={{ borderRadius: 4, overflow: "hidden", border: "1px solid", borderColor: "divider" }}
+                    sx={{ borderRadius: 1, overflow: "hidden", border: "1px solid", borderColor: "divider" }}
                 >
                     {/* El Pasado (Antes) */}
                     <Grid size={{ xs: 12, md: 6 }}>
@@ -145,7 +145,7 @@ export function Comparison() {
                                     sx={{
                                         color: "text.secondary",
                                         mb: 4,
-                                        fontWeight: 800,
+                                        fontWeight: 600,
                                         display: "flex",
                                         alignItems: "center",
                                         gap: 1,
@@ -234,7 +234,7 @@ export function Comparison() {
                                     <Typography
                                         variant="caption"
                                         sx={{
-                                            fontWeight: 900,
+                                            fontWeight: 600,
                                             fontSize: "0.65rem",
                                             color: "white",
                                             letterSpacing: 1.5,
@@ -265,7 +265,7 @@ export function Comparison() {
                                                         <Typography
                                                             variant="subtitle2"
                                                             sx={{
-                                                                fontWeight: 800,
+                                                                fontWeight: 600,
                                                                 fontSize: "0.85rem",
                                                                 lineHeight: 1.2,
                                                             }}
@@ -295,7 +295,7 @@ export function Comparison() {
                                     <Box
                                         sx={{
                                             p: 2,
-                                            borderRadius: 2,
+                                            borderRadius: 1,
                                             backgroundColor: alpha(theme.palette.primary.main, 0.08),
                                             border: `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
                                             textAlign: "center",
@@ -303,7 +303,7 @@ export function Comparison() {
                                     >
                                         <Typography
                                             variant="subtitle1"
-                                            sx={{ color: "primary.main", fontWeight: 800, lineHeight: 1.2 }}
+                                            sx={{ color: "primary.main", fontWeight: 600, lineHeight: 1.2 }}
                                         >
                                             {content.home.comparison.savingsTitle}
                                         </Typography>

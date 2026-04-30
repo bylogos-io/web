@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Box } from "@mui/material";
 import { AboutHero } from "@/sections/about/AboutHero";
+import { AboutPrinciples } from "@/sections/about/AboutPrinciples";
+import { AboutFounders } from "@/sections/about/AboutFounders";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
 
 export async function generateMetadata({
@@ -47,6 +49,8 @@ export default function Nosotros() {
             }}
         >
             <AboutHero />
+            <AboutPrinciples />
+            <AboutFounders />
         </Box>
     );
 }

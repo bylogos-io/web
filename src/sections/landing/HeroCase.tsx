@@ -91,7 +91,7 @@ export function HeroCase() {
                     sx={(theme) => ({
                         position: "relative",
                         p: { xs: 4, md: 7 },
-                        borderRadius: 4,
+                        borderRadius: 1,
                         border: `1px solid ${theme.palette.divider}`,
                         background: `linear-gradient(135deg, ${alpha(theme.palette.background.paper, 0.7)} 0%, ${alpha(theme.palette.background.paper, 0.3)} 100%)`,
                         backdropFilter: "blur(16px)",

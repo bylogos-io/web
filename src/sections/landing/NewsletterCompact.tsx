@@ -86,7 +86,7 @@ export function NewsletterCompact() {
                         sx={(theme) => ({
                             textAlign: "center",
                             p: 3,
-                            borderRadius: 999,
+                            borderRadius: 1,
                             border: `1px solid ${alpha(theme.palette.primary.main, 0.4)}`,
                             backgroundColor: alpha(theme.palette.primary.main, 0.06),
                             color: "primary.main",
@@ -115,7 +115,7 @@ export function NewsletterCompact() {
                                 error={Boolean(error)}
                                 helperText={error || undefined}
                                 sx={{
-                                    "& .MuiInputBase-root": { borderRadius: 999, height: 52, px: 1 },
+                                    "& .MuiInputBase-root": { borderRadius: 1, height: 52, px: 1 },
                                 }}
                             />
                             <Button

@@ -57,7 +57,7 @@ export function Testimonials() {
                         sx={{
                             fontSize: { xs: "2rem", md: "3rem" },
                             mb: 2,
-                            fontWeight: 800,
+                            fontWeight: 600,
                             lineHeight: 1.2,
                         }}
                     >

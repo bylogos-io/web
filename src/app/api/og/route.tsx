@@ -55,7 +55,7 @@ export async function GET(req: NextRequest) {
             style={{
               display: 'flex',
               fontSize: 64,
-              fontWeight: 800,
+              fontWeight: 600,
               color: 'white',
               lineHeight: 1.2,
               marginBottom: '24px',

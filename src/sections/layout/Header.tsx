@@ -65,8 +65,18 @@ export function Header() {
 
     const socialLinks = SOCIAL_LINKS;
 
+    const isItemActive = (href: string | undefined) => {
+        if (!href || href.startsWith("#")) return false;
+        const current = pathname ?? "/";
+        if (href === "/") return current === "/";
+        return current === href || current.startsWith(`${href}/`);
+    };
+
     function NavDropdown({ item }: { item: any }) {
         const [isOpen, setIsOpen] = useState(false);
+        const isActive = isItemActive(item.href);
+        const hasSubActive = item.submenu?.some((s: any) => isItemActive(s.href));
+        const highlight = isActive || hasSubActive;
 
         return (
             <Box
@@ -79,13 +89,15 @@ export function Header() {
                     {...(item.href && !item.href.startsWith("#") ? { href: item.href } : {})}
                     aria-haspopup={item.submenu ? "true" : undefined}
                     aria-expanded={item.submenu ? isOpen : undefined}
+                    aria-current={isActive ? "page" : undefined}
                     onClick={() => item.href && handleNavigation(item.href as string)}
                     sx={{
+                        position: "relative",
                         background: "none",
                         border: "none",
                         textDecoration: "none",
                         cursor: "pointer",
-                        color: isOpen ? "primary.main" : "text.secondary",
+                        color: isOpen || highlight ? "primary.main" : "text.secondary",
                         fontSize: "0.9375rem",
                         fontWeight: 600,
                         display: "flex",
@@ -93,6 +105,20 @@ export function Header() {
                         gap: 0.5,
                         transition: "all 0.2s",
                         "&:hover": { color: "primary.main" },
+                        "&::after": {
+                            content: '""',
+                            position: "absolute",
+                            left: 0,
+                            right: 0,
+                            bottom: -6,
+                            height: 2,
+                            borderRadius: 1,
+                            backgroundColor: "primary.main",
+                            opacity: highlight ? 1 : 0,
+                            transform: highlight ? "scaleX(1)" : "scaleX(0.4)",
+                            transformOrigin: "center",
+                            transition: "all 0.25s ease",
+                        },
                     }}
                 >
                     {item.label}
@@ -123,7 +149,7 @@ export function Header() {
                                     width: 250,
                                     backgroundColor: alpha(theme.palette.background.default, 0.9),
                                     backdropFilter: "blur(20px)",
-                                    borderRadius: 2,
+                                    borderRadius: 1,
                                     border: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
                                     boxShadow: `0 20px 40px ${alpha(theme.palette.common.black, 0.4)}`,
                                     overflow: "hidden",
@@ -144,7 +170,7 @@ export function Header() {
                                             background: "none",
                                             border: "none",
                                             p: 1.5,
-                                            borderRadius: 2,
+                                            borderRadius: 1,
                                             cursor: "pointer",
                                             transition: "all 0.2s",
                                             "&:hover": {
@@ -317,7 +343,7 @@ export function Header() {
                         alignItems: "center",
                     }}
                 >
-                    <Typography variant="h6" fontWeight={800}>
+                    <Typography variant="h6" fontWeight={600}>
                         {content.header.menuTitle}
                     </Typography>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -336,6 +362,9 @@ export function Header() {
                     {navigationItems.map((item) => {
                         const isExpanded = expandedItem === item.label;
                         const hasSubmenu = Boolean(item.submenu);
+                        const isActive = isItemActive(item.href);
+                        const hasSubActive = item.submenu?.some((s: any) => isItemActive(s.href));
+                        const highlight = isActive || hasSubActive;
 
                         return (
                             <Box key={item.label} sx={{ mb: 1 }}>
@@ -343,6 +372,7 @@ export function Header() {
                                     <ListItemButton
                                         component={item.href && !item.href.startsWith("#") ? Link : "div"}
                                         href={item.href && !item.href.startsWith("#") ? item.href : undefined}
+                                        aria-current={isActive ? "page" : undefined}
                                         onClick={() => {
                                             if (hasSubmenu) {
                                                 setExpandedItem(isExpanded ? null : item.label);
@@ -351,24 +381,38 @@ export function Header() {
                                             }
                                         }}
                                         sx={(theme: Theme) => ({
-                                            borderRadius: 1.5,
+                                            position: "relative",
+                                            borderRadius: 1,
                                             py: 1.5,
                                             display: "flex",
                                             justifyContent: "space-between",
                                             alignItems: "center",
-                                            backgroundColor: isExpanded
-                                                ? alpha(theme.palette.primary.main, 0.08)
-                                                : "transparent",
+                                            backgroundColor:
+                                                isExpanded || highlight
+                                                    ? alpha(theme.palette.primary.main, 0.08)
+                                                    : "transparent",
                                             "&:hover": {
                                                 backgroundColor: alpha(theme.palette.primary.main, 0.12),
                                             },
+                                            "&::before": highlight
+                                                ? {
+                                                      content: '""',
+                                                      position: "absolute",
+                                                      left: 0,
+                                                      top: 8,
+                                                      bottom: 8,
+                                                      width: 3,
+                                                      borderRadius: 1,
+                                                      backgroundColor: theme.palette.primary.main,
+                                                  }
+                                                : undefined,
                                         })}
                                     >
                                         <Typography
                                             sx={{
-                                                fontWeight: 800,
+                                                fontWeight: 600,
                                                 fontSize: "1.25rem",
-                                                color: isExpanded ? "primary.main" : "text.primary",
+                                                color: isExpanded || highlight ? "primary.main" : "text.primary",
                                             }}
                                         >
                                             {item.label}
@@ -409,7 +453,7 @@ export function Header() {
                                                                 : handleNavigation(sub.href)
                                                         }
                                                         sx={(theme: Theme) => ({
-                                                            borderRadius: 2,
+                                                            borderRadius: 1,
                                                             py: 1.5,
                                                             pl: 3,
                                                             display: "flex",

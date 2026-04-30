@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Box } from "@mui/material";
-import { IndustrySlider } from "@/sections/industries/IndustrySlider";
-import { IndustryCards } from "@/sections/industries/IndustryCards";
-import { IndustryFooter } from "@/sections/industries/IndustryFooter";
+import { IndustryHero } from "@/sections/industries/IndustryHero";
+import { IndustryFeatured } from "@/sections/industries/IndustryFeatured";
+import { IndustryOthers } from "@/sections/industries/IndustryOthers";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
 
 export async function generateMetadata({
@@ -41,9 +41,9 @@ export async function generateMetadata({
 export default function Industrias() {
     return (
         <Box component="main">
-            <IndustrySlider />
-            <IndustryCards />
-            <IndustryFooter />
+            <IndustryHero />
+            <IndustryFeatured />
+            <IndustryOthers />
         </Box>
     );
 }

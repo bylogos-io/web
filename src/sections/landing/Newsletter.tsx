@@ -116,7 +116,7 @@ export function Newsletter() {
                                     <CheckCircleOutlineOutlinedIcon sx={{ fontSize: 64, color: "primary.main" }} />
                                 </Box>
                             </Box>
-                            <Typography variant="h3" sx={{ mb: 3, fontWeight: 800 }}>
+                            <Typography variant="h3" sx={{ mb: 3, fontWeight: 600 }}>
                                 {content.home.newsletter.successTitle}
                             </Typography>
                             <Typography
@@ -179,7 +179,7 @@ export function Newsletter() {
                         sx={{
                             fontSize: { xs: "2rem", md: "3rem" },
                             mb: 2,
-                            fontWeight: 800,
+                            fontWeight: 600,
                             lineHeight: 1.2,
                         }}
                     >
@@ -235,7 +235,7 @@ export function Newsletter() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <Typography variant="h4" sx={{ mb: 6, fontWeight: 800 }}>
+                            <Typography variant="h4" sx={{ mb: 6, fontWeight: 600 }}>
                                 {content.home.newsletter.benefitsTitle}
                             </Typography>
 
@@ -321,7 +321,7 @@ export function Newsletter() {
                                     >
                                         <MailOutlineIcon sx={{ fontSize: 40, color: "primary.main" }} />
                                     </Box>
-                                    <Typography variant="h4" sx={{ fontWeight: 800, mb: 1.5 }}>
+                                    <Typography variant="h4" sx={{ fontWeight: 600, mb: 1.5 }}>
                                         {content.home.newsletter.formTitle}
                                     </Typography>
                                     <Typography variant="body1" color="text.secondary" sx={{ fontWeight: 500 }}>

@@ -58,7 +58,7 @@ export function Features() {
                         sx={{
                             fontSize: { xs: "2rem", md: "3rem" },
                             mb: 2,
-                            fontWeight: 800,
+                            fontWeight: 600,
                             lineHeight: 1.2,
                         }}
                     >
@@ -138,7 +138,7 @@ export function Features() {
                                                 className="feature-icon-wrapper"
                                                 sx={(theme) => ({
                                                     p: 1.5,
-                                                    borderRadius: 2,
+                                                    borderRadius: 1,
                                                     backgroundColor: alpha(theme.palette.secondary.main, 0.08),
                                                     color: "primary.main",
                                                     display: "flex",
