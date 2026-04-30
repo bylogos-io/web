@@ -11,7 +11,6 @@ import { DemoVideo } from "@/sections/landing/DemoVideo";
 import { HeroCase } from "@/sections/landing/HeroCase";
 import { SecurityBand } from "@/sections/landing/SecurityBand";
 import { HardwareAlternatives } from "@/sections/landing/HardwareAlternatives";
-import { NewsletterCompact } from "@/sections/landing/NewsletterCompact";
 
 export function LandingPage() {
     return (
@@ -34,7 +33,6 @@ export function LandingPage() {
                     <HeroCase />
                     <SecurityBand />
                     <HardwareAlternatives />
-                    <NewsletterCompact />
                 </Box>
             </Box>
 
