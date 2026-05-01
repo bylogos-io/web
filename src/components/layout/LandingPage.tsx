@@ -8,6 +8,7 @@ import { BeforeAfter } from "@/sections/landing/BeforeAfter";
 import { EdgeArchitecture } from "@/sections/landing/EdgeArchitecture";
 import { VerticalsSnapshot } from "@/sections/landing/VerticalsSnapshot";
 import dynamic from "next/dynamic";
+import { LazyOnView } from "@/components/LazyOnView";
 const DemoVideo = dynamic(
     () => import("@/sections/landing/DemoVideo").then((m) => m.DemoVideo),
     {
@@ -36,7 +37,9 @@ export function LandingPage() {
                     <BeforeAfter />
                     <EdgeArchitecture />
                     <VerticalsSnapshot />
-                    <DemoVideo />
+                    <LazyOnView placeholder={<div style={{ minHeight: 480 }} />}>
+                        <DemoVideo />
+                    </LazyOnView>
                     <HeroCase />
                     <SecurityBand />
                     <HardwareAlternatives />

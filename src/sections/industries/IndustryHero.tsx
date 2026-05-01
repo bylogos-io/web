@@ -29,8 +29,8 @@ export function IndustryHero() {
                 muted
                 loop
                 playsInline
-                preload="auto"
-                poster="/industries/datacenter.jpeg"
+                preload="metadata"
+                poster="/industries/datacenter.webp"
                 sx={{
                     position: "absolute",
                     inset: 0,

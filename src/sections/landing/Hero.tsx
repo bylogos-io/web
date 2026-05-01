@@ -6,6 +6,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { JoinedButtonGroup } from "@/components/JoinedButtonGroup";
 import dynamic from "next/dynamic";
+import { IdleMount } from "@/components/IdleMount";
 const ReterminalScene = dynamic(
     () => import("@/components/3d/ReterminalScene").then((m) => m.ReterminalScene),
     {
@@ -244,7 +245,9 @@ export function Hero() {
                                 })}
                             />
                             <Box sx={{ position: "relative", zIndex: 1, width: "100%" }}>
-                                <ReterminalScene />
+                                <IdleMount placeholder={<div style={{ width: "100%", aspectRatio: "1/1", maxWidth: 450 }} />}>
+                                    <ReterminalScene />
+                                </IdleMount>
                             </Box>
                         </Box>
                     </Grid>
