@@ -1,7 +1,7 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { MailOutline as MailIcon } from "@mui/icons-material";
+import MailIcon from "@mui/icons-material/MailOutline";
 
 export const NAVIGATION_ITEMS = [
     {

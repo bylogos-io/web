@@ -2,15 +2,13 @@
 
 import { motion } from "framer-motion";
 // Eliminados imports de ./ui/*
-import {
-    HomeOutlined as HomeIcon,
-    ArrowBackOutlined as ArrowLeftIcon,
-    WarningAmberOutlined as AlertTriangleIcon,
-    ElectricBoltOutlined as ZapIcon,
-    QueryStatsOutlined as ActivityIcon,
-    SearchOutlined as SearchIcon,
-    MailOutlineOutlined as MailIcon,
-} from "@mui/icons-material";
+import HomeIcon from "@mui/icons-material/HomeOutlined";
+import ArrowLeftIcon from "@mui/icons-material/ArrowBackOutlined";
+import AlertTriangleIcon from "@mui/icons-material/WarningAmberOutlined";
+import ZapIcon from "@mui/icons-material/ElectricBoltOutlined";
+import ActivityIcon from "@mui/icons-material/QueryStatsOutlined";
+import SearchIcon from "@mui/icons-material/SearchOutlined";
+import MailIcon from "@mui/icons-material/MailOutlineOutlined";
 import Image from "next/image";
 import logoImage from "@public/isologo.svg";
 import { Box, Container, Typography, Stack, Grid2 as Grid, alpha, Chip, Card, Button } from "@mui/material";

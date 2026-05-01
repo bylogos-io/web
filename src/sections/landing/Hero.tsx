@@ -5,7 +5,14 @@ import { Box, Button, Container, Grid2 as Grid, Typography, alpha } from "@mui/m
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { JoinedButtonGroup } from "@/components/JoinedButtonGroup";
-import { ReterminalScene } from "@/components/3d/ReterminalScene";
+import dynamic from "next/dynamic";
+const ReterminalScene = dynamic(
+    () => import("@/components/3d/ReterminalScene").then((m) => m.ReterminalScene),
+    {
+        ssr: false,
+        loading: () => <div style={{ width: "100%", aspectRatio: "1/1", maxWidth: 450 }} />,
+    },
+);
 import { ClientsMarquee } from "@/sections/landing/ClientsMarquee";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";

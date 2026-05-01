@@ -7,7 +7,14 @@ import { Pillars } from "@/sections/landing/Pillars";
 import { BeforeAfter } from "@/sections/landing/BeforeAfter";
 import { EdgeArchitecture } from "@/sections/landing/EdgeArchitecture";
 import { VerticalsSnapshot } from "@/sections/landing/VerticalsSnapshot";
-import { DemoVideo } from "@/sections/landing/DemoVideo";
+import dynamic from "next/dynamic";
+const DemoVideo = dynamic(
+    () => import("@/sections/landing/DemoVideo").then((m) => m.DemoVideo),
+    {
+        ssr: false,
+        loading: () => <div style={{ minHeight: 480 }} />,
+    },
+);
 import { HeroCase } from "@/sections/landing/HeroCase";
 import { SecurityBand } from "@/sections/landing/SecurityBand";
 import { HardwareAlternatives } from "@/sections/landing/HardwareAlternatives";
