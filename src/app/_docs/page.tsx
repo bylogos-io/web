@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import Link from "next/link";
 
 // MUI Icons - Outlined version for consistent premium look

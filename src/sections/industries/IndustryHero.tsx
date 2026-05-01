@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, alpha } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { monoFont } from "@/theme";

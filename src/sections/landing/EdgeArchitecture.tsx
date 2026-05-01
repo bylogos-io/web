@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { Box, Container, Grid2 as Grid, Typography, Stack, alpha } from "@mui/material";
 import SensorsIcon from "@mui/icons-material/Sensors";
 import MemoryIcon from "@mui/icons-material/Memory";

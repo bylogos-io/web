@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { INDUSTRY_CARDS_DATA } from "@/data/industries";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";

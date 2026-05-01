@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, Button } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { getSiteContent } from "@/i18n/siteContent";

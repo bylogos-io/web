@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Typography, alpha } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { ReactNode } from "react";
 import { monoFont } from "@/theme";
 

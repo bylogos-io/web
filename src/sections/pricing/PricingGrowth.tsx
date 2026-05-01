@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, Grid2 as Grid, alpha } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { SectionHeader } from "@/components/SectionHeader";
 import { monoFont } from "@/theme";
 

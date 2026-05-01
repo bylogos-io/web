@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import videojs from "video.js";
 import type Player from "video.js/dist/types/player";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";

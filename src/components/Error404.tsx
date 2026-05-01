@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 // Eliminados imports de ./ui/*
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import ArrowLeftIcon from "@mui/icons-material/ArrowBackOutlined";

@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Typography, Container } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { monoFont } from "@/theme";
 
 export function NewsTitle() {

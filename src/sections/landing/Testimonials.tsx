@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { alpha, Box, Typography, Card, Grid2 as Grid, Container, Stack } from "@mui/material";
 
 // MUI Icons replacements

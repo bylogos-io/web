@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Container, Grid2 as Grid, Stack, Typography, alpha } from "@mui/material";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion-shim";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useLocale } from "next-intl";
@@ -15,18 +15,36 @@ export function PlatformProcess() {
     const process = (content.platform as any).process;
 
     const ref = useRef<HTMLDivElement | null>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end end"],
-    });
-
     const [active, setActive] = useState(0);
+    const [progress, setProgress] = useState(0);
 
-    useMotionValueEvent(scrollYProgress, "change", (v) => {
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
         const total = process?.steps?.length ?? 3;
-        const idx = Math.min(total - 1, Math.max(0, Math.floor(v * total - 0.0001)));
-        setActive(idx);
-    });
+        const onScroll = () => {
+            const rect = el.getBoundingClientRect();
+            const vh = window.innerHeight || 1;
+            // normalized 0..1 over the scroll range — matches framer's
+            // {target, offset: ["start start", "end end"]}.
+            const range = rect.height - vh;
+            if (range <= 0) {
+                setProgress(0);
+                setActive(0);
+                return;
+            }
+            const v = Math.min(1, Math.max(0, -rect.top / range));
+            setProgress(v);
+            setActive(Math.min(total - 1, Math.max(0, Math.floor(v * total - 0.0001))));
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+        };
+    }, [process?.steps?.length]);
 
     if (!process) return null;
     const steps = process.steps as Array<{ title: string; body: string; items: string[] }>;
@@ -154,13 +172,13 @@ export function PlatformProcess() {
                                     })}
                                 >
                                     <Box
-                                        component={motion.div}
-                                        style={{ scaleX: scrollYProgress }}
                                         sx={(theme) => ({
                                             position: "absolute",
                                             inset: 0,
                                             backgroundColor: theme.palette.primary.main,
                                             transformOrigin: "left",
+                                            transform: `scaleX(${progress})`,
+                                            transition: "transform 0.1s linear",
                                         })}
                                     />
                                 </Box>

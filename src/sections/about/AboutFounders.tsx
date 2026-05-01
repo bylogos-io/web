@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Grid2 as Grid, Typography, Card, Avatar, alpha, IconButton, Stack } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { ABOUT_FOUNDERS_DATA } from "@/data/about";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";

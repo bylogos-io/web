@@ -2,7 +2,7 @@
 
 import { Box, Container, Grid2 as Grid, Stack, Typography, alpha } from "@mui/material";
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { monoFont } from "@/theme";

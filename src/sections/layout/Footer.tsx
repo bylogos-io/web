@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import Image from "next/image";
 import logoImage from "@public/isologo.svg";
 import { SOCIAL_LINKS } from "@/data/layout";

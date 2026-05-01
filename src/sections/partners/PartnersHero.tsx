@@ -2,7 +2,7 @@
 
 import { Box, Container, Typography, Button, alpha } from "@mui/material";
 import { monoFont } from "@/theme";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";

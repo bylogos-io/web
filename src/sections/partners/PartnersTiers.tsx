@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, Stack, alpha } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";

@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, Grid2 as Grid, alpha, Stack } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import HubIcon from "@mui/icons-material/Hub";

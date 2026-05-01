@@ -21,9 +21,9 @@ const nextConfig: NextConfig = {
         optimizePackageImports: [
             "@mui/material",
             "@mui/icons-material",
-            "framer-motion",
             "@react-three/drei",
             "@react-three/fiber",
+            "animejs",
         ],
     },
 };

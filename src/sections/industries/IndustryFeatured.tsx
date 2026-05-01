@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Box, Container, Typography, Grid2 as Grid, alpha } from "@mui/material";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "@/lib/motion-shim";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";

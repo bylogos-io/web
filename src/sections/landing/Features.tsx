@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { Box, Container, Grid2 as Grid, Typography, alpha, Stack, Card } from "@mui/material";
 import { FEATURES_DATA } from "@/data/landing";
 import { useLocale } from "next-intl";

@@ -7,7 +7,7 @@ import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion-shim";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { SectionHeader } from "@/components/SectionHeader";
