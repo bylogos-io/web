@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import posthog from "posthog-js";
 
 // MUI Icons - Outlined version
 // MUI Icons - Outlined version
@@ -70,10 +69,8 @@ export function Newsletter() {
             setIsSubmitted(true);
             setEmail("");
             setName("");
-            posthog.capture("newsletter_subscribed", { locale });
         } catch (err) {
             setError(content.home.newsletter.subscribeError);
-            posthog.capture("newsletter_subscription_failed", { locale });
         } finally {
             setIsLoading(false);
         }
