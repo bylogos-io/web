@@ -660,7 +660,7 @@ const siteContent = {
                 },
             ],
             foundersTitle: "Nuestros fundadores",
-            founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
+            founders: [{ role: "Co-Founder & CEO / CTO" }, { role: "Co-Founder & Board Advisor" }],
         },
         industries: {
             heroEyebrow: "CASOS DE USO",
@@ -788,6 +788,47 @@ const siteContent = {
                     title: "Climatización",
                     description:
                         "Control y monitoreo de sistemas HVAC para optimizar consumo energético y confort.",
+                },
+            ],
+            usageEyebrow: "USO DEL SOFTWARE",
+            caseAriaLabel: "Caso",
+            solutions: [
+                "Conexión segura de PLCs/SCADA legacy con telemetría continua y modelos predictivos en el edge para anticipar fallas en tiempo real.",
+                "Capa unificada sobre BMS y sistemas de cooling. Telemetría sub-segundo y alarmas de prevención de caídas con IA.",
+                "Telemetría agnóstica al hardware sobre redes distribuidas. Monitoreo central con alertas tempranas de fugas y rendimiento.",
+                "Conectividad cloud sobre activos aislados. Analítica de eficiencia energética y monitoreo continuo del estado.",
+                "Datos del piso de planta unificados con IT. Trazabilidad de variables y reportes de KPIs automatizados.",
+                "OEE en tiempo real sobre líneas mixtas. Integración multi-marca de PLCs y trazabilidad por lote y turno.",
+                "Control supervisado de HVAC sobre equipos existentes. Optimización energética sin reemplazar infraestructura.",
+            ],
+            usageScenarios: [
+                {
+                    title: "Plataformas y refinerías sin pausa operativa",
+                    body: "LogOS se conecta a PLCs y SCADAs existentes mediante OPC UA, Modbus y MQTT. Los operadores ven flujos de pozo, presiones y niveles en dashboards en tiempo real. La IA detecta desviaciones tempranas y dispara alertas a campo por WhatsApp o radio. Reportes regulatorios se generan automáticamente.",
+                },
+                {
+                    title: "Visibilidad continua de PUE, cooling y energía",
+                    body: "LogOS unifica BMS legacy, UPS, chillers y sensores ambientales en una sola capa. Los equipos de O&M monitorean PUE en vivo, anticipan caídas con alertas predictivas y revisan tendencias por sala. Cumple políticas de seguridad sin sacar datos del sitio.",
+                },
+                {
+                    title: "Telemetría confiable sobre redes distribuidas",
+                    body: "Conectamos sensores de caudal, presión y calidad de plantas y elevadoras dispersas. LogOS consolida datos en una vista central, alerta sobre fugas y rebalses, y genera reportes operativos automáticos. Funciona aunque caiga la conectividad por el procesamiento en el edge.",
+                },
+                {
+                    title: "Activos de generación conectados sin tocar el control",
+                    body: "LogOS lee desde generadores, transformadores y subestaciones en tiempo real. Los analistas ven eficiencia energética, predicen mantenimientos y reciben alertas operativas. Integración no intrusiva sobre infraestructura existente, sin reemplazar el sistema de control.",
+                },
+                {
+                    title: "Trazabilidad y KPIs de planta automatizados",
+                    body: "Cada variable del piso de planta — temperatura, pH, dosificación, tiempos de ciclo — se registra y correlaciona en LogOS. Los reportes de calidad y cumplimiento se generan solos. Las alarmas inteligentes avisan antes de que el lote salga de especificación.",
+                },
+                {
+                    title: "OEE en vivo sobre líneas mixtas",
+                    body: "LogOS habla con PLCs de distintas marcas, ERPs y MES. El equipo de manufactura ve OEE por línea, turno y máquina. Los reportes de eficiencia y trazabilidad de lotes se exportan automáticamente. Cambios de receta y cuellos de botella se detectan en minutos, no en auditorías.",
+                },
+                {
+                    title: "HVAC supervisado y optimizado a distancia",
+                    body: "LogOS se conecta a controladores HVAC existentes, sensores de temperatura, humedad y CO₂. Optimiza setpoints automáticamente, detecta consumo anómalo y permite control remoto sobre múltiples edificios. La gestión energética se vuelve continua y comparable entre sitios.",
                 },
             ],
         },
@@ -1913,7 +1954,7 @@ const siteContent = {
                 },
             ],
             foundersTitle: "Our founders",
-            founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
+            founders: [{ role: "Co-Founder & CEO / CTO" }, { role: "Co-Founder & Board Advisor" }],
         },
         industries: {
             heroEyebrow: "USE CASES",
@@ -2029,6 +2070,47 @@ const siteContent = {
                 {
                     title: "HVAC",
                     description: "Control and monitoring of HVAC systems to optimize energy use and comfort.",
+                },
+            ],
+            usageEyebrow: "SOFTWARE IN USE",
+            caseAriaLabel: "Case",
+            solutions: [
+                "Secure connection to legacy PLCs/SCADAs with continuous telemetry and edge predictive models to anticipate failures in real time.",
+                "Unified layer over legacy BMS and cooling systems. Sub-second telemetry and AI-driven outage prevention alerts.",
+                "Hardware-agnostic telemetry across distributed networks. Central monitoring with early leak and performance alerts.",
+                "Cloud connectivity over isolated assets. Energy efficiency analytics and continuous condition monitoring.",
+                "Plant-floor data unified with IT. Variable traceability and automated KPI reporting.",
+                "Real-time OEE across mixed lines. Multi-vendor PLC integration and traceability per batch and shift.",
+                "Supervisory HVAC control over existing equipment. Energy optimization without replacing infrastructure.",
+            ],
+            usageScenarios: [
+                {
+                    title: "Platforms and refineries with no operational downtime",
+                    body: "LogOS connects to existing PLCs and SCADAs via OPC UA, Modbus, and MQTT. Operators see well flows, pressures, and levels in real-time dashboards. AI detects early deviations and triggers field alerts via WhatsApp or radio. Regulatory reports are generated automatically.",
+                },
+                {
+                    title: "Continuous visibility of PUE, cooling, and power",
+                    body: "LogOS unifies legacy BMS, UPS, chillers, and environmental sensors into a single layer. O&M teams monitor PUE live, anticipate outages with predictive alerts, and review trends per room. Complies with security policies without taking data offsite.",
+                },
+                {
+                    title: "Reliable telemetry over distributed networks",
+                    body: "We connect flow, pressure, and quality sensors across scattered plants and lift stations. LogOS consolidates data into a central view, alerts on leaks and overflows, and generates automatic operational reports. Keeps working through connectivity drops thanks to edge processing.",
+                },
+                {
+                    title: "Generation assets connected without touching control",
+                    body: "LogOS reads from generators, transformers, and substations in real time. Analysts see energy efficiency, predict maintenance, and receive operational alerts. Non-intrusive integration over existing infrastructure, without replacing the control system.",
+                },
+                {
+                    title: "Automated plant traceability and KPIs",
+                    body: "Every plant-floor variable — temperature, pH, dosing, cycle times — is logged and correlated in LogOS. Quality and compliance reports generate themselves. Smart alarms warn before a batch goes out of specification.",
+                },
+                {
+                    title: "Live OEE across mixed lines",
+                    body: "LogOS talks to PLCs from different vendors, ERPs, and MES. Manufacturing teams see OEE by line, shift, and machine. Efficiency and batch traceability reports export automatically. Recipe changes and bottlenecks are detected in minutes, not audits.",
+                },
+                {
+                    title: "HVAC supervised and optimized remotely",
+                    body: "LogOS connects to existing HVAC controllers, temperature, humidity, and CO₂ sensors. Optimizes setpoints automatically, detects abnormal consumption, and enables remote control across multiple buildings. Energy management becomes continuous and comparable across sites.",
                 },
             ],
         },
@@ -3144,7 +3226,7 @@ const siteContent = {
                 },
             ],
             foundersTitle: "Nossos fundadores",
-            founders: [{ role: "Co-Founder & President" }, { role: "Co-Founder & CEO / CTO" }],
+            founders: [{ role: "Co-Founder & CEO / CTO" }, { role: "Co-Founder & Board Advisor" }],
         },
         industries: {
             heroEyebrow: "CASOS DE USO",
@@ -3270,6 +3352,47 @@ const siteContent = {
                 {
                     title: "Climatização",
                     description: "Controle e monitoramento de sistemas HVAC para otimizar consumo energético e conforto.",
+                },
+            ],
+            usageEyebrow: "USO DO SOFTWARE",
+            caseAriaLabel: "Caso",
+            solutions: [
+                "Conexão segura com PLCs/SCADAs legados, telemetria contínua e modelos preditivos no edge para antecipar falhas em tempo real.",
+                "Camada unificada sobre BMS legados e sistemas de refrigeração. Telemetria sub-segundo e alertas preditivos de queda com IA.",
+                "Telemetria agnóstica ao hardware sobre redes distribuídas. Monitoramento central com alertas antecipados de vazamentos e desempenho.",
+                "Conectividade em nuvem sobre ativos isolados. Análises de eficiência energética e monitoramento contínuo de condição.",
+                "Dados do chão de fábrica unificados com a TI. Rastreabilidade de variáveis e relatórios automáticos de KPIs.",
+                "OEE em tempo real sobre linhas mistas. Integração multi-marca de PLCs e rastreabilidade por lote e turno.",
+                "Controle supervisório de HVAC sobre equipamentos existentes. Otimização energética sem substituir infraestrutura.",
+            ],
+            usageScenarios: [
+                {
+                    title: "Plataformas e refinarias sem pausa operacional",
+                    body: "A LogOS se conecta a PLCs e SCADAs existentes via OPC UA, Modbus e MQTT. Os operadores veem fluxos de poço, pressões e níveis em dashboards em tempo real. A IA detecta desvios precoces e dispara alertas em campo via WhatsApp ou rádio. Relatórios regulatórios são gerados automaticamente.",
+                },
+                {
+                    title: "Visibilidade contínua de PUE, refrigeração e energia",
+                    body: "A LogOS unifica BMS legados, UPS, chillers e sensores ambientais em uma única camada. Equipes de O&M monitoram PUE ao vivo, antecipam quedas com alertas preditivos e revisam tendências por sala. Cumpre políticas de segurança sem retirar dados do site.",
+                },
+                {
+                    title: "Telemetria confiável sobre redes distribuídas",
+                    body: "Conectamos sensores de vazão, pressão e qualidade de plantas e elevatórias dispersas. A LogOS consolida dados em uma visão central, alerta sobre vazamentos e transbordamentos, e gera relatórios operacionais automáticos. Continua funcionando mesmo com queda de conectividade pelo processamento no edge.",
+                },
+                {
+                    title: "Ativos de geração conectados sem tocar no controle",
+                    body: "A LogOS lê dados de geradores, transformadores e subestações em tempo real. Os analistas veem eficiência energética, preveem manutenções e recebem alertas operacionais. Integração não intrusiva sobre a infraestrutura existente, sem substituir o sistema de controle.",
+                },
+                {
+                    title: "Rastreabilidade e KPIs de planta automatizados",
+                    body: "Cada variável do chão de fábrica — temperatura, pH, dosagem, tempos de ciclo — é registrada e correlacionada na LogOS. Relatórios de qualidade e conformidade são gerados sozinhos. Alarmes inteligentes avisam antes que o lote saia de especificação.",
+                },
+                {
+                    title: "OEE ao vivo sobre linhas mistas",
+                    body: "A LogOS se comunica com PLCs de diferentes marcas, ERPs e MES. A equipe de manufatura vê OEE por linha, turno e máquina. Relatórios de eficiência e rastreabilidade de lotes são exportados automaticamente. Mudanças de receita e gargalos são detectados em minutos, não em auditorias.",
+                },
+                {
+                    title: "HVAC supervisionado e otimizado remotamente",
+                    body: "A LogOS se conecta a controladores HVAC existentes, sensores de temperatura, umidade e CO₂. Otimiza setpoints automaticamente, detecta consumo anômalo e permite controle remoto sobre múltiplos edifícios. A gestão energética se torna contínua e comparável entre sites.",
                 },
             ],
         },

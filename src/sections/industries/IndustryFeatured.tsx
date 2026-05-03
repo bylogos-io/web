@@ -14,26 +14,18 @@ import { monoFont } from "@/theme";
 
 const ROTATE_MS = 7000;
 
-const SOLUTIONS = [
-    "Conexión segura de PLCs/SCADA legacy con telemetría continua y modelos predictivos en el edge para anticipar fallas en tiempo real.",
-    "Capa unificada sobre BMS y sistemas de cooling. Telemetría sub-segundo y alarmas de prevención de caídas con IA.",
-    "Telemetría agnóstica al hardware sobre redes distribuidas. Monitoreo central con alertas tempranas de fugas y rendimiento.",
-    "Conectividad cloud sobre activos aislados. Analítica de eficiencia energética y monitoreo continuo del estado.",
-    "Datos del piso de planta unificados con IT. Trazabilidad de variables y reportes de KPIs automatizados.",
-    "OEE en tiempo real sobre líneas mixtas. Integración multi-marca de PLCs y trazabilidad por lote y turno.",
-    "Control supervisado de HVAC sobre equipos existentes. Optimización energética sin reemplazar infraestructura.",
-];
-
 export function IndustryFeatured() {
     const locale = useLocale();
     const content = getSiteContent(locale);
+    const solutions = (content.industries as any).solutions as string[] | undefined;
     const slides = INDUSTRY_CARDS_DATA.map((industry, idx) => ({
         ...industry,
         title: content.industries.cards[idx]?.title ?? industry.title,
         description: content.industries.cards[idx]?.description ?? industry.description,
         points: content.industries.cards[idx]?.points ?? industry.points,
-        solution: SOLUTIONS[idx] ?? SOLUTIONS[0],
+        solution: solutions?.[idx] ?? solutions?.[0] ?? "",
     }));
+    const caseLabel = (content.industries as any).caseAriaLabel ?? "Case";
 
     const [current, setCurrent] = useState(0);
     const total = slides.length;
@@ -233,7 +225,7 @@ export function IndustryFeatured() {
                                 key={idx}
                                 onClick={() => setCurrent(idx)}
                                 role="button"
-                                aria-label={`Caso ${idx + 1}`}
+                                aria-label={`${caseLabel} ${idx + 1}`}
                                 sx={(theme) => ({
                                     width: active ? 28 : 8,
                                     height: 8,

@@ -13,64 +13,28 @@ import { getSiteContent } from "@/i18n/siteContent";
 import { BracketedFrame } from "@/components/BracketedFrame";
 import { monoFont } from "@/theme";
 
-const SOLUTIONS = [
-    "Conexión segura de PLCs/SCADA legacy con telemetría continua y modelos predictivos en el edge para anticipar fallas en tiempo real.",
-    "Capa unificada sobre BMS y sistemas de cooling. Telemetría sub-segundo y alarmas de prevención de caídas con IA.",
-    "Telemetría agnóstica al hardware sobre redes distribuidas. Monitoreo central con alertas tempranas de fugas y rendimiento.",
-    "Conectividad cloud sobre activos aislados. Analítica de eficiencia energética y monitoreo continuo del estado.",
-    "Datos del piso de planta unificados con IT. Trazabilidad de variables y reportes de KPIs automatizados.",
-    "OEE en tiempo real sobre líneas mixtas. Integración multi-marca de PLCs y trazabilidad por lote y turno.",
-    "Control supervisado de HVAC sobre equipos existentes. Optimización energética sin reemplazar infraestructura.",
-];
-
-const USAGE_SCENARIOS = [
-    {
-        title: "Plataformas y refinerías sin pausa operativa",
-        body: "LogOS se conecta a PLCs y SCADAs existentes mediante OPC UA, Modbus y MQTT. Los operadores ven flujos de pozo, presiones y niveles en dashboards en tiempo real. La IA detecta desviaciones tempranas y dispara alertas a campo por WhatsApp o radio. Reportes regulatorios se generan automáticamente.",
-    },
-    {
-        title: "Visibilidad continua de PUE, cooling y energía",
-        body: "LogOS unifica BMS legacy, UPS, chillers y sensores ambientales en una sola capa. Los equipos de O&M monitorean PUE en vivo, anticipan caídas con alertas predictivas y revisan tendencias por sala. Cumple políticas de seguridad sin sacar datos del sitio.",
-    },
-    {
-        title: "Telemetría confiable sobre redes distribuidas",
-        body: "Conectamos sensores de caudal, presión y calidad de plantas y elevadoras dispersas. LogOS consolida datos en una vista central, alerta sobre fugas y rebalses, y genera reportes operativos automáticos. Funciona aunque caiga la conectividad por el procesamiento en el edge.",
-    },
-    {
-        title: "Activos de generación conectados sin tocar el control",
-        body: "LogOS lee desde generadores, transformadores y subestaciones en tiempo real. Los analistas ven eficiencia energética, predicen mantenimientos y reciben alertas operativas. Integración no intrusiva sobre infraestructura existente, sin reemplazar el sistema de control.",
-    },
-    {
-        title: "Trazabilidad y KPIs de planta automatizados",
-        body: "Cada variable del piso de planta — temperatura, pH, dosificación, tiempos de ciclo — se registra y correlaciona en LogOS. Los reportes de calidad y cumplimiento se generan solos. Las alarmas inteligentes avisan antes de que el lote salga de especificación.",
-    },
-    {
-        title: "OEE en vivo sobre líneas mixtas",
-        body: "LogOS habla con PLCs de distintas marcas, ERPs y MES. El equipo de manufactura ve OEE por línea, turno y máquina. Los reportes de eficiencia y trazabilidad de lotes se exportan automáticamente. Cambios de receta y cuellos de botella se detectan en minutos, no en auditorías.",
-    },
-    {
-        title: "HVAC supervisado y optimizado a distancia",
-        body: "LogOS se conecta a controladores HVAC existentes, sensores de temperatura, humedad y CO₂. Optimiza setpoints automáticamente, detecta consumo anómalo y permite control remoto sobre múltiples edificios. La gestión energética se vuelve continua y comparable entre sitios.",
-    },
-];
-
 export function IndustryOthers() {
     const locale = useLocale();
     const content = getSiteContent(locale);
+    const solutions = (content.industries as any).solutions as string[] | undefined;
+    const usageScenarios = (content.industries as any).usageScenarios as
+        | { title: string; body: string }[]
+        | undefined;
     const items = INDUSTRY_CARDS_DATA.map((industry, idx) => ({
         ...industry,
         title: content.industries.cards[idx]?.title ?? industry.title,
         description: content.industries.cards[idx]?.description ?? industry.description,
         points: content.industries.cards[idx]?.points ?? industry.points,
-        usage: USAGE_SCENARIOS[idx] ?? USAGE_SCENARIOS[0],
-        solution: SOLUTIONS[idx] ?? SOLUTIONS[0],
+        usage: usageScenarios?.[idx] ?? usageScenarios?.[0] ?? { title: "", body: "" },
+        solution: solutions?.[idx] ?? solutions?.[0] ?? "",
     }));
 
     const labels = {
-        challenge: (content.industries as any).featuredChallengeLabel ?? "DESAFÍO",
-        solution: (content.industries as any).featuredSolutionLabel ?? "SOLUCIÓN",
-        impact: (content.industries as any).featuredImpactLabel ?? "IMPACTO OPERATIVO",
+        challenge: (content.industries as any).featuredChallengeLabel ?? "CHALLENGE",
+        solution: (content.industries as any).featuredSolutionLabel ?? "SOLUTION",
+        impact: (content.industries as any).featuredImpactLabel ?? "OPERATIONAL IMPACT",
     };
+    const usageEyebrow = (content.industries as any).usageEyebrow ?? "SOFTWARE IN USE";
 
     return (
         <Box component="section" sx={(theme) => ({ py: { xs: 8, md: 14 }, borderTop: `1px solid ${theme.palette.divider}` })}>
@@ -104,7 +68,14 @@ export function IndustryOthers() {
 
                 <Stack divider={<Divider />} spacing={0}>
                     {items.map((it, idx) => (
-                        <AccordionRow key={idx} index={idx + 1} total={items.length} item={it} labels={labels} />
+                        <AccordionRow
+                            key={idx}
+                            index={idx + 1}
+                            total={items.length}
+                            item={it}
+                            labels={labels}
+                            usageEyebrow={usageEyebrow}
+                        />
                     ))}
                 </Stack>
             </Container>
@@ -129,11 +100,13 @@ function AccordionRow({
     total,
     item,
     labels,
+    usageEyebrow,
 }: {
     index: number;
     total: number;
     item: any;
     labels: { challenge: string; solution: string; impact: string };
+    usageEyebrow: string;
 }) {
     const denom = String(total).padStart(2, "0");
     const [open, setOpen] = useState(false);
@@ -247,7 +220,7 @@ function AccordionRow({
                                     textTransform: "none",
                                 }}
                             >
-                                USO DEL SOFTWARE
+                                {usageEyebrow}
                             </Typography>
                             <Typography
                                 sx={{
