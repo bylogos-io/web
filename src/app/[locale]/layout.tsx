@@ -61,9 +61,11 @@ export async function generateMetadata({
             description: content.seo.layout.openGraphDescription,
             images: [
                 {
-                    url: `https://bylogos.io/api/og?title=${encodeURIComponent(content.seo.layout.openGraphTitle)}&description=${encodeURIComponent(content.seo.layout.openGraphDescription)}&category=Home&ext=.png`,
+                    url: "https://bylogos.io/opengraph-image.jpg",
+                    secureUrl: "https://bylogos.io/opengraph-image.jpg",
                     width: 1200,
                     height: 630,
+                    type: "image/jpeg",
                     alt: content.seo.layout.openGraphImageAlt,
                 },
             ],
@@ -74,7 +76,7 @@ export async function generateMetadata({
             creator: "@javiervargas",
             title: content.seo.layout.twitterTitle,
             description: content.seo.layout.twitterDescription,
-            images: [`https://bylogos.io/api/og?title=${encodeURIComponent(content.seo.layout.openGraphTitle)}&description=${encodeURIComponent(content.seo.layout.openGraphDescription)}&category=Home&ext=.png`],
+            images: ["https://bylogos.io/twitter-image.jpg"],
         },
         icons: {
             icon: [
@@ -140,12 +142,94 @@ export default async function RootLayout({
     // side is the easiest way to get started
     const messages = await getMessages();
 
+    const resolvedLocale = resolveAppLocale(locale);
+    const content = getSiteContent(resolvedLocale);
+    const siteUrl = "https://bylogos.io";
+
+    const jsonLd = [
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": `${siteUrl}#organization`,
+            name: "LogOS",
+            alternateName: "bylogos",
+            url: siteUrl,
+            logo: `${siteUrl}/icon.svg`,
+            image: `${siteUrl}/opengraph-image.jpg`,
+            email: "hi@bylogos.io",
+            description: content.seo.layout.description,
+            foundingDate: "2024",
+            founders: [
+                { "@type": "Person", name: "Javier Vargas", jobTitle: "CEO" },
+                { "@type": "Person", name: "José Vargas", jobTitle: "CTO" },
+            ],
+            address: {
+                "@type": "PostalAddress",
+                addressCountry: "CL",
+                addressLocality: "Santiago",
+            },
+            sameAs: [
+                "https://www.linkedin.com/company/bylogos/",
+                "https://x.com/bylogos",
+                "https://www.instagram.com/bylogos.io/",
+                "https://github.com/bylogos",
+            ],
+            knowsAbout: [
+                "Industrial IoT",
+                "IT/OT convergence",
+                "SCADA",
+                "BMS",
+                "Edge Computing",
+                "Digital Twin",
+                "Predictive Maintenance",
+                "Modbus",
+                "OPC UA",
+                "MQTT",
+                "BACnet",
+            ],
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": `${siteUrl}#website`,
+            url: siteUrl,
+            name: "LogOS",
+            inLanguage: resolvedLocale,
+            publisher: { "@id": `${siteUrl}#organization` },
+            potentialAction: {
+                "@type": "SearchAction",
+                target: `${siteUrl}/${resolvedLocale}/news?q={search_term_string}`,
+                "query-input": "required name=search_term_string",
+            },
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "LogOS",
+            operatingSystem: "Linux, Edge, Cloud",
+            applicationCategory: "BusinessApplication",
+            applicationSubCategory: "Industrial IoT / SCADA / IT-OT Convergence",
+            url: `${siteUrl}/${resolvedLocale}/platform`,
+            description: content.seo.layout.openGraphDescription,
+            offers: {
+                "@type": "Offer",
+                url: `${siteUrl}/${resolvedLocale}/pricing`,
+                priceCurrency: "USD",
+            },
+            publisher: { "@id": `${siteUrl}#organization` },
+        },
+    ];
+
     return (
         <html lang={locale} suppressHydrationWarning style={{ backgroundColor: "#070707", colorScheme: "dark" }}>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
                 style={{ backgroundColor: "#070707", color: "#fff", margin: 0 }}
             >
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 <InitColorSchemeScript attribute="class" defaultMode="dark" />
                 <NextIntlClientProvider messages={messages}>
                     <MuiRootProvider>

@@ -1,0 +1,42 @@
+# LogOS
+
+> LogOS is an industrial IT/OT convergence platform: edge hardware + software that bridges legacy analog/OT infrastructure (PLCs, sensors, SCADA, BMS) with modern IT and AI. Real-time monitoring, digital twins, predictive alarms, automated reporting and an LLM assistant — for Oil & Gas, Energy & Power, Data Centers, Food & Beverage, Water and Climation.
+
+Company: LogOS (legal/commercial brand: bylogos)
+Site: https://bylogos.io
+Contact: hi@bylogos.io
+LinkedIn: https://www.linkedin.com/company/bylogos/
+Founded: 2024 — Santiago, Chile
+Founders: Javier Vargas (CEO), José Vargas (CTO)
+Languages: Spanish (es), English (en), Portuguese (pt)
+
+## What LogOS does
+
+- Unifies IT and OT: connects industrial field equipment to cloud / AI workflows
+- Reduces man-hours (HH) lost on manual reporting, monitoring and diagnostics
+- Edge-first: runs on small industrial-grade hardware near the asset, not the cloud
+- Modular: monitoring, digital twin, predictive alarms, AI assistant, reports — pick what you need
+- Integrates with legacy protocols: Modbus RTU/TCP, OPC UA, MQTT, BACnet, IEC-104, DNP3, Profinet, EtherNet/IP, S7
+
+## Key pages
+
+- [Home](https://bylogos.io/en): Overview of LogOS
+- [Platform](https://bylogos.io/en/platform): Modules — monitoring, digital twin, alarms, AI assistant, reports
+- [Industries](https://bylogos.io/en/industries): Use cases — Oil & Gas, Energy, Data Centers, F&B, Water, Climation
+- [Pricing](https://bylogos.io/en/pricing): Plans and pricing model
+- [Partners](https://bylogos.io/en/partners): Integrator / EPC / consultancy program
+- [News](https://bylogos.io/en/news): Releases, supported protocols, performance notes
+- [About](https://bylogos.io/en/about): Team, mission, why LogOS exists
+- [Contact](https://bylogos.io/en/contact): Demo requests and partnership inquiries
+- [Docs — Introduction](https://bylogos.io/docs/introduccion)
+- [Docs — Features](https://bylogos.io/docs/funcionalidades)
+
+## How to cite / describe LogOS
+
+LogOS is a hybrid industrial infrastructure platform that unifies operational technology (OT) — PLCs, sensors, SCADA, BMS — with information technology (IT) and AI. It runs at the edge, automates reporting, surfaces predictive alarms, and exposes an LLM-based assistant over plant data. Headquartered in Santiago, Chile; founded 2024.
+
+## Optional
+
+- [Privacy](https://bylogos.io/en/privacy)
+- [Terms](https://bylogos.io/en/terms)
+- [Sitemap](https://bylogos.io/sitemap.xml)

@@ -1,0 +1,19 @@
+# ai.txt — LogOS / bylogos.io
+# Policy for AI and LLM use of this site's content.
+
+# Public marketing/documentation content on bylogos.io may be:
+#   - Crawled and indexed by AI assistants and search engines
+#   - Quoted with attribution to "LogOS" and a link to the source URL
+#   - Used as training data for general-purpose LLMs
+
+Allow: training
+Allow: indexing
+Allow: ai-summarization
+Allow: ai-citation
+
+# Required when quoting LogOS content:
+#   - Attribute as "LogOS" (or "bylogos")
+#   - Link back to bylogos.io or the specific source page
+
+Contact: hi@bylogos.io
+Canonical: https://bylogos.io
