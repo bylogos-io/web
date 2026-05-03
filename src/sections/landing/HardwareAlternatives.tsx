@@ -3,7 +3,6 @@
 import { motion } from "@/lib/motion-shim";
 import Image from "next/image";
 
-import seeed from "@public/seeed.webp";
 import { HARDWARE_OPTIONS } from "@/data/landing";
 import { Box, Container, Grid2 as Grid, Typography, Stack, alpha, Chip, Card, Button } from "@mui/material";
 import { useLocale } from "next-intl";
@@ -362,15 +361,52 @@ export function HardwareAlternatives() {
                             boxShadow: theme.shadows[1],
                         })}
                     >
-                        <Box sx={{ mb: 3, display: "flex", justifyContent: "center" }}>
-                            <Image
-                                src={seeed}
-                                alt="Seeed Studio"
-                                width={220}
-                                height={50}
-                                style={{ objectFit: "contain" }}
-                                unoptimized
-                            />
+                        <Box
+                            sx={{
+                                mb: 3,
+                                display: "flex",
+                                justifyContent: "center",
+                                "& .seeed-stack": {
+                                    position: "relative",
+                                    width: 220,
+                                    height: 50,
+                                    cursor: "default",
+                                },
+                                "& .seeed-layer": {
+                                    position: "absolute",
+                                    inset: 0,
+                                    width: "100%",
+                                    height: "100%",
+                                    WebkitMaskImage: "url(/seeed.webp)",
+                                    maskImage: "url(/seeed.webp)",
+                                    WebkitMaskRepeat: "no-repeat",
+                                    maskRepeat: "no-repeat",
+                                    WebkitMaskPosition: "center",
+                                    maskPosition: "center",
+                                    WebkitMaskSize: "contain",
+                                    maskSize: "contain",
+                                    transition: "opacity 0.2s ease",
+                                },
+                                "& .seeed-gray": {
+                                    backgroundColor: "#9e9e9e",
+                                    opacity: 1,
+                                },
+                                "& .seeed-orange": {
+                                    backgroundColor: "#e16e09",
+                                    opacity: 0,
+                                },
+                                "&:hover .seeed-gray": { opacity: 0 },
+                                "&:hover .seeed-orange": { opacity: 1 },
+                            }}
+                        >
+                            <Box
+                                className="seeed-stack"
+                                role="img"
+                                aria-label="Seeed Studio"
+                            >
+                                <Box className="seeed-layer seeed-gray" />
+                                <Box className="seeed-layer seeed-orange" />
+                            </Box>
                         </Box>
                         <Typography
                             variant="body1"
