@@ -96,6 +96,32 @@ export function HeroCase() {
                         background: `linear-gradient(135deg, ${alpha(theme.palette.background.paper, 0.7)} 0%, ${alpha(theme.palette.background.paper, 0.3)} 100%)`,
                         backdropFilter: "blur(16px)",
                         overflow: "hidden",
+                        isolation: "isolate",
+                        "&::before": {
+                            content: '""',
+                            position: "absolute",
+                            inset: 0,
+                            backgroundImage: "url(/redsalud-bg-study.png)",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                            opacity: 0.35,
+                            mixBlendMode: "screen",
+                            WebkitMaskImage:
+                                "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%)",
+                            maskImage:
+                                "radial-gradient(ellipse 80% 70% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%)",
+                            zIndex: -1,
+                            pointerEvents: "none",
+                        },
+                        "&::after": {
+                            content: '""',
+                            position: "absolute",
+                            inset: 0,
+                            background: `radial-gradient(ellipse at center, transparent 35%, ${alpha(theme.palette.background.paper, 0.55)} 100%), linear-gradient(135deg, ${alpha(theme.palette.background.paper, 0.55)} 0%, ${alpha(theme.palette.background.paper, 0.25)} 100%)`,
+                            zIndex: -1,
+                            pointerEvents: "none",
+                        },
                     })}
                 >
                     <Box

@@ -187,18 +187,6 @@ export function HardwareAlternatives() {
                                                     {hardware.subtitle.toUpperCase()}
                                                 </Typography>
                                             </Box>
-                                            <Box sx={{ textAlign: "right" }}>
-                                                <Typography variant="h5" color="primary.main" sx={{ fontWeight: 600 }}>
-                                                    {hardware.price}
-                                                </Typography>
-                                                <Typography
-                                                    variant="caption"
-                                                    color="text.secondary"
-                                                    sx={{ fontWeight: 500 }}
-                                                >
-                                                    {content.home.hardware.vatExcluded}
-                                                </Typography>
-                                            </Box>
                                         </Box>
 
                                         <Typography
@@ -340,83 +328,6 @@ export function HardwareAlternatives() {
                         </Grid>
                     ))}
                 </Grid>
-
-                {/* Partnership info */}
-                <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.4 }}
-                    viewport={{ once: true }}
-                    sx={{ mt: 6 }}
-                >
-                    <Box
-                        sx={(theme) => ({
-                            backgroundColor: alpha(theme.palette.background.paper, 0.5),
-                            border: `1px solid ${theme.palette.divider}`,
-                            borderRadius: 1,
-                            p: 4,
-                            textAlign: "center",
-                            mx: "auto",
-                            boxShadow: theme.shadows[1],
-                        })}
-                    >
-                        <Box
-                            sx={{
-                                mb: 3,
-                                display: "flex",
-                                justifyContent: "center",
-                                "& .seeed-stack": {
-                                    position: "relative",
-                                    width: 220,
-                                    height: 50,
-                                    cursor: "default",
-                                },
-                                "& .seeed-layer": {
-                                    position: "absolute",
-                                    inset: 0,
-                                    width: "100%",
-                                    height: "100%",
-                                    WebkitMaskImage: "url(/seeed.webp)",
-                                    maskImage: "url(/seeed.webp)",
-                                    WebkitMaskRepeat: "no-repeat",
-                                    maskRepeat: "no-repeat",
-                                    WebkitMaskPosition: "center",
-                                    maskPosition: "center",
-                                    WebkitMaskSize: "contain",
-                                    maskSize: "contain",
-                                    transition: "opacity 0.2s ease",
-                                },
-                                "& .seeed-gray": {
-                                    backgroundColor: "#9e9e9e",
-                                    opacity: 1,
-                                },
-                                "& .seeed-orange": {
-                                    backgroundColor: "#e16e09",
-                                    opacity: 0,
-                                },
-                                "&:hover .seeed-gray": { opacity: 0 },
-                                "&:hover .seeed-orange": { opacity: 1 },
-                            }}
-                        >
-                            <Box
-                                className="seeed-stack"
-                                role="img"
-                                aria-label="Seeed Studio"
-                            >
-                                <Box className="seeed-layer seeed-gray" />
-                                <Box className="seeed-layer seeed-orange" />
-                            </Box>
-                        </Box>
-                        <Typography
-                            variant="body1"
-                            color="text.secondary"
-                            sx={{ maxWidth: 900, mx: "auto", lineHeight: 1.8 }}
-                        >
-                            {content.home.hardware.partnership}
-                        </Typography>
-                    </Box>
-                </Box>
             </Container>
         </Box>
     );

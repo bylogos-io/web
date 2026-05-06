@@ -54,23 +54,68 @@ export function Hero() {
                 pb: { xs: 6, md: 8 },
             }}
         >
-            {/* Vercel-style grid backdrop */}
+            {/* Background video */}
             <Box
-                sx={(theme) => ({
+                sx={{
                     position: "absolute",
                     inset: 0,
-                    backgroundImage: `
-                        linear-gradient(${alpha(theme.palette.text.primary, 0.07)} 1px, transparent 1px),
-                        linear-gradient(90deg, ${alpha(theme.palette.text.primary, 0.07)} 1px, transparent 1px)
-                    `,
-                    backgroundSize: "48px 48px",
-                    maskImage:
-                        "radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 100%)",
-                    WebkitMaskImage:
-                        "radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 100%)",
+                    overflow: "hidden",
                     pointerEvents: "none",
-                })}
-            />
+                    zIndex: 0,
+                    backgroundColor: "#000",
+                }}
+            >
+                <Box
+                    component="video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster="/redsalud-bg-study.png"
+                    aria-hidden
+                    sx={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        opacity: 0.35,
+                        filter: "saturate(0.85) contrast(1.05)",
+                    }}
+                >
+                    <source src="/hero.webm" type="video/webm" />
+                    <source src="/hero.mp4" type="video/mp4" />
+                </Box>
+                {/* Vignette */}
+                <Box
+                    sx={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                            "radial-gradient(ellipse 90% 75% at 50% 45%, transparent 0%, transparent 45%, rgba(0,0,0,0.55) 85%, rgba(0,0,0,0.85) 100%)",
+                    }}
+                />
+                {/* Fade bottom into page */}
+                <Box
+                    sx={(theme) => ({
+                        position: "absolute",
+                        inset: 0,
+                        background: `linear-gradient(180deg, ${alpha(theme.palette.background.default, 0.35)} 0%, ${alpha(theme.palette.background.default, 0.15)} 35%, ${alpha(theme.palette.background.default, 0.55)} 70%, ${theme.palette.background.default} 100%)`,
+                    })}
+                />
+                {/* Top fade for nav legibility */}
+                <Box
+                    sx={(theme) => ({
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: 160,
+                        background: `linear-gradient(180deg, ${theme.palette.background.default} 0%, transparent 100%)`,
+                    })}
+                />
+            </Box>
             {/* Soft glow on right */}
             <Box
                 sx={(theme) => ({
