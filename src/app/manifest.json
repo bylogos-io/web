@@ -1,15 +1,25 @@
 {
-    "name": "LogOS",
+    "id": "/es",
+    "name": "LogOS — Industrial IT/OT Platform",
     "short_name": "LogOS",
-    "description": "Mejora tu eficiencia usando nuestro sistema de gestión inteligente. SCADA, BMS, AI + IIoT",
-    "start_url": "/",
+    "description": "Industrial IT/OT convergence platform: SCADA, BMS, AI + IIoT for Oil & Gas, Energy, Data Centers, F&B, Water and Climation.",
+    "start_url": "/es",
+    "scope": "/",
     "display": "standalone",
-    "background_color": "#0f0f0f",
+    "display_override": ["standalone", "minimal-ui", "browser"],
+    "background_color": "#070707",
     "theme_color": "#e16e09",
     "orientation": "any",
     "lang": "es-CL",
     "dir": "ltr",
+    "categories": ["business", "productivity", "utilities"],
     "icons": [
+        {
+            "src": "/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
         {
             "src": "/apple-icon.png",
             "sizes": "180x180",
@@ -26,6 +36,23 @@
             "src": "/favicon.ico",
             "sizes": "any",
             "type": "image/x-icon"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Platform",
+            "short_name": "Platform",
+            "url": "/es/platform"
+        },
+        {
+            "name": "Industries",
+            "short_name": "Industries",
+            "url": "/es/industries"
+        },
+        {
+            "name": "Contact",
+            "short_name": "Contact",
+            "url": "/es/contact"
         }
     ]
 }

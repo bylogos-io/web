@@ -1,0 +1,22 @@
+/* TEAM */
+Founder & CEO: Javier Vargas
+Contact: hi@bylogos.io
+Twitter: @javiervargas
+Location: Santiago, Chile
+
+Co-founder & CTO: José Vargas
+Contact: hi@bylogos.io
+Location: Santiago, Chile
+
+/* SITE */
+Last update: 2026/05/06
+Language: Spanish, English, Portuguese
+Doctype: HTML5
+IDE: Cursor, VS Code
+Standards: HTML5, CSS3, ES2022, RFC 9116
+
+/* COMPANY */
+Name: LogOS (bylogos)
+Founded: 2024
+Site: https://bylogos.io
+Mission: Bridge OT and IT for industrial infrastructure with edge AI.

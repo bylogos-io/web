@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
+import { buildPageMetadata } from "@/lib/seo";
 
 const descriptions = {
     es: "Consulta cómo protegemos tus datos y los de tu infraestructura en LogOS.",
@@ -15,23 +16,13 @@ export async function generateMetadata({
     const { locale } = await params;
     const resolvedLocale = resolveAppLocale(locale);
     const content = getSiteContent(resolvedLocale);
-    const description = descriptions[resolvedLocale];
 
-    return {
+    return buildPageMetadata({
+        locale: resolvedLocale,
+        path: "/privacy",
         title: content.privacy.title,
-        description,
-        openGraph: {
-            title: `${content.privacy.title} | LogOS`,
-            description,
-            images: ["/opengraph-image.jpg"],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${content.privacy.title} | LogOS`,
-            description,
-            images: ["/twitter-image.jpg"],
-        },
-    };
+        description: descriptions[resolvedLocale],
+    });
 }
 
 export default function PrivacyLayout({

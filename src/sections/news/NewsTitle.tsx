@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, Typography, Container } from "@mui/material";
-import { motion } from "@/lib/motion-shim";
 import { monoFont } from "@/theme";
 
 export function NewsTitle() {
@@ -17,10 +16,6 @@ export function NewsTitle() {
         >
             <Container maxWidth="lg" sx={{ textAlign: "center" }}>
                 <Typography
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
                     sx={{
                         fontFamily: monoFont,
                         fontSize: "0.75rem",
@@ -32,10 +27,7 @@ export function NewsTitle() {
                     INSIGHTS
                 </Typography>
                 <Typography
-                    component={motion.h1}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
+                    component="h1"
                     variant="h1"
                     sx={{
                         fontWeight: 400,
@@ -51,10 +43,7 @@ export function NewsTitle() {
                     Novedades y blog
                 </Typography>
                 <Typography
-                    component={motion.p}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
+                    component="p"
                     sx={{
                         mt: 3,
                         color: "text.secondary",

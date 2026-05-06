@@ -1,7 +1,6 @@
 "use client";
 
 import { Box, Container, Typography, Stack, alpha } from "@mui/material";
-import { motion } from "@/lib/motion-shim";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
 import { monoFont } from "@/theme";
@@ -60,10 +59,6 @@ export function AboutHero() {
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
                 <Typography
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
                     sx={{
                         fontFamily: monoFont,
                         fontSize: "0.75rem",
@@ -76,10 +71,7 @@ export function AboutHero() {
                 </Typography>
 
                 <Typography
-                    component={motion.h1}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
+                    component="h1"
                     variant="h1"
                     sx={{
                         fontWeight: 400,
@@ -95,10 +87,7 @@ export function AboutHero() {
                     {c.heroHeadline}
                 </Typography>
                 <Typography
-                    component={motion.p}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
+                    component="p"
                     sx={{
                         color: "text.secondary",
                         maxWidth: 720,
@@ -113,10 +102,6 @@ export function AboutHero() {
                 <Stack
                     direction={{ xs: "column", sm: "row" }}
                     spacing={{ xs: 2, sm: 0 }}
-                    component={motion.div}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
                     sx={(theme) => ({
                         borderTop: `1px solid ${theme.palette.divider}`,
                         pt: 3,

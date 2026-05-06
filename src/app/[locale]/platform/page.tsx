@@ -7,6 +7,8 @@ import { PlatformArchitecture } from "@/sections/platform/PlatformArchitecture";
 import { PlatformProcess } from "@/sections/platform/PlatformProcess";
 import { PlatformCta } from "@/sections/platform/PlatformCta";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
+import { buildPageMetadata } from "@/lib/seo";
+import { breadcrumbList } from "@/lib/jsonLd";
 
 export async function generateMetadata({
     params,
@@ -17,39 +19,42 @@ export async function generateMetadata({
     const resolvedLocale = resolveAppLocale(locale);
     const content = getSiteContent(resolvedLocale);
 
-    return {
+    return buildPageMetadata({
+        locale: resolvedLocale,
+        path: "/platform",
         title: content.seo.platform.title,
         description: content.seo.platform.description,
-        openGraph: {
-            title: `${content.seo.platform.title} | LogOS`,
-            description: content.seo.platform.description,
-            images: [
-                {
-                    url: "/opengraph-image.jpg",
-                    width: 1200,
-                    height: 630,
-                    alt: `${content.seo.platform.title} | LogOS`,
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${content.seo.platform.title} | LogOS`,
-            description: content.seo.platform.description,
-            images: ["/twitter-image.jpg"],
-        },
-    };
+    });
 }
 
-export default function PlatformPage() {
+export default async function PlatformPage({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    const resolvedLocale = resolveAppLocale(locale);
+    const content = getSiteContent(resolvedLocale);
+
+    const crumbs = breadcrumbList(resolvedLocale, [
+        { name: content.seo.home.title, path: "" },
+        { name: content.seo.platform.title, path: "/platform" },
+    ]);
+
     return (
-        <Box component="main">
-            <PlatformHero />
-            <PlatformModules />
-            <PlatformWhy />
-            <PlatformArchitecture />
-            <PlatformProcess />
-            <PlatformCta />
-        </Box>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }}
+            />
+            <Box component="main">
+                <PlatformHero />
+                <PlatformModules />
+                <PlatformWhy />
+                <PlatformArchitecture />
+                <PlatformProcess />
+                <PlatformCta />
+            </Box>
+        </>
     );
 }

@@ -2,7 +2,6 @@
 
 import { Box, Container, Typography, Button, alpha } from "@mui/material";
 import { monoFont } from "@/theme";
-import { motion } from "@/lib/motion-shim";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
@@ -24,10 +23,6 @@ export function PartnersHero() {
         >
             <Container maxWidth="lg" sx={{ textAlign: "center" }}>
                 <Typography
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
                     sx={{
                         fontFamily: monoFont,
                         fontSize: "0.75rem",
@@ -39,10 +34,7 @@ export function PartnersHero() {
                     {c.heroEyebrow}
                 </Typography>
                 <Typography
-                    component={motion.h1}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
+                    component="h1"
                     variant="h1"
                     sx={{
                         fontWeight: 400,
@@ -58,10 +50,7 @@ export function PartnersHero() {
                     {c.heroTitleStart} {c.heroTitleAccent}
                 </Typography>
                 <Typography
-                    component={motion.p}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
+                    component="p"
                     sx={{
                         mt: 3,
                         mb: 5,
@@ -74,13 +63,7 @@ export function PartnersHero() {
                 >
                     {c.heroDescription}
                 </Typography>
-                <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    sx={{ display: "flex", justifyContent: "center" }}
-                >
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <Button
                         component={Link}
                         href="/contact"

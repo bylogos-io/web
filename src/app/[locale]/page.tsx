@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { LandingPage } from "@/components/layout/LandingPage";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
+import { buildPageMetadata } from "@/lib/seo";
+import { breadcrumbList } from "@/lib/jsonLd";
 
 export async function generateMetadata({
     params,
@@ -12,35 +14,37 @@ export async function generateMetadata({
     const content = getSiteContent(resolvedLocale);
 
     return {
-        title: {
-            absolute: content.seo.home.title,
-        },
-        description: content.seo.home.description,
-        openGraph: {
+        ...buildPageMetadata({
+            locale: resolvedLocale,
+            path: "",
             title: content.seo.home.title,
             description: content.seo.home.description,
-            url: `https://bylogos.io/${resolvedLocale}`,
-            siteName: "LogOS",
-            images: [
-                {
-                    url: "/opengraph-image.jpg",
-                    width: 1200,
-                    height: 630,
-                    alt: content.seo.layout.openGraphImageAlt,
-                },
-            ],
-            locale: content.seo.ogLocale,
-            type: "website",
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: content.seo.home.title,
-            description: content.seo.home.description,
-            images: ["/twitter-image.jpg"],
-        },
+            keywords: content.seo.layout.keywords,
+        }),
+        title: { absolute: content.seo.home.title },
     };
 }
 
-export default function Home() {
-    return <LandingPage />;
+export default async function Home({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    const resolvedLocale = resolveAppLocale(locale);
+    const content = getSiteContent(resolvedLocale);
+
+    const crumbs = breadcrumbList(resolvedLocale, [
+        { name: content.seo.home.title, path: "" },
+    ]);
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }}
+            />
+            <LandingPage />
+        </>
+    );
 }

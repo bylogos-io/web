@@ -23,6 +23,12 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
 User-agent: anthropic-ai
 Allow: /
 
@@ -36,6 +42,18 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: GoogleOther
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Bingbot
 Allow: /
 
 User-agent: Applebot
@@ -56,6 +74,9 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
+User-agent: Meta-ExternalFetcher
+Allow: /
+
 User-agent: FacebookBot
 Allow: /
 
@@ -66,6 +87,9 @@ User-agent: cohere-training-data-crawler
 Allow: /
 
 User-agent: DuckAssistBot
+Allow: /
+
+User-agent: DuckDuckBot
 Allow: /
 
 User-agent: MistralAI-User
@@ -80,5 +104,39 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+User-agent: Timpibot
+Allow: /
+
+User-agent: Kagibot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: SlackImageProxy
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
 Sitemap: https://bylogos.io/sitemap.xml
+Sitemap: https://bylogos.io/feed.xml
 Host: https://bylogos.io

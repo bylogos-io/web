@@ -1,0 +1,5 @@
+Contact: mailto:hi@bylogos.io
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: es, en, pt
+Canonical: https://bylogos.io/.well-known/security.txt
+Policy: https://bylogos.io/en/privacy

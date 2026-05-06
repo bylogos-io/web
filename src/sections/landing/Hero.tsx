@@ -1,19 +1,9 @@
 "use client";
 
-import { motion } from "@/lib/motion-shim";
 import { Box, Button, Container, Grid2 as Grid, Typography, alpha } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import { JoinedButtonGroup } from "@/components/JoinedButtonGroup";
-import dynamic from "next/dynamic";
-import { IdleMount } from "@/components/IdleMount";
-const ReterminalScene = dynamic(
-    () => import("@/components/3d/ReterminalScene").then((m) => m.ReterminalScene),
-    {
-        ssr: false,
-        loading: () => <div style={{ width: "100%", aspectRatio: "1/1", maxWidth: 450 }} />,
-    },
-);
 import { ClientsMarquee } from "@/sections/landing/ClientsMarquee";
 import { useLocale } from "next-intl";
 import { getSiteContent } from "@/i18n/siteContent";
@@ -116,31 +106,12 @@ export function Hero() {
                     })}
                 />
             </Box>
-            {/* Soft glow on right */}
-            <Box
-                sx={(theme) => ({
-                    position: "absolute",
-                    top: "30%",
-                    right: "5%",
-                    width: { xs: "90vw", md: "45vw" },
-                    height: { xs: 320, md: 480 },
-                    background: `radial-gradient(circle at 50% 50%, ${alpha(theme.palette.primary.main, 0.14)} 0%, transparent 65%)`,
-                    filter: "blur(80px)",
-                    pointerEvents: "none",
-                })}
-            />
 
             <Container maxWidth="lg" sx={{ position: "relative", zIndex: 10 }}>
-                <Grid container spacing={{ xs: 6, md: 4, lg: 6 }} alignItems="center">
-                    {/* LEFT — text block */}
-                    <Grid size={{ xs: 12, md: 7 }}>
-                        <Box sx={{ textAlign: "left", maxWidth: 640 }}>
+                <Box sx={{ textAlign: "left", maxWidth: 640 }}>
                             {/* Eyebrow */}
                             <Typography
-                                component={motion.p}
-                                initial={{ opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
+                                component="p"
                                 sx={{
                                     fontFamily: monoFont,
                                     fontSize: "0.75rem",
@@ -154,10 +125,7 @@ export function Hero() {
 
                             {/* Title */}
                             <Typography
-                                component={motion.h1}
-                                initial={{ opacity: 0, y: 16 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.05 }}
+                                component="h1"
                                 variant="h1"
                                 sx={{ mb: 4, textWrap: "balance" as any }}
                             >
@@ -177,10 +145,7 @@ export function Hero() {
 
                             {/* Primary paragraph — justified */}
                             <Typography
-                                component={motion.p}
-                                initial={{ opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.15 }}
+                                component="p"
                                 sx={{
                                     color: "text.primary",
                                     fontSize: { xs: "1rem", md: "1.08rem" },
@@ -197,10 +162,7 @@ export function Hero() {
 
                             {/* Mid separator — italic, no decorations */}
                             <Typography
-                                component={motion.p}
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
+                                component="p"
                                 sx={{
                                     color: "text.secondary",
                                     fontSize: { xs: "0.95rem", md: "1.02rem" },
@@ -225,12 +187,7 @@ export function Hero() {
                             </Typography>
 
                             {/* CTAs */}
-                            <JoinedButtonGroup
-                                component={motion.div}
-                                initial={{ opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.25 }}
-                            >
+                            <JoinedButtonGroup>
                                 <Button
                                     href={data.ctaPrimaryHref}
                                     variant="contained"
@@ -253,57 +210,10 @@ export function Hero() {
                                     {data.ctaSecondary}
                                 </Button>
                             </JoinedButtonGroup>
-                        </Box>
-                    </Grid>
-
-                    {/* RIGHT — 3D scene */}
-                    <Grid size={{ xs: 12, md: 5 }}>
-                        <Box
-                            component={motion.div}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
-                            sx={{
-                                position: "relative",
-                                width: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Box
-                                component={motion.div}
-                                animate={{ scale: [1, 1.04, 1], opacity: [0.5, 0.75, 0.5] }}
-                                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                                sx={(theme) => ({
-                                    position: "absolute",
-                                    top: "50%",
-                                    left: "50%",
-                                    width: { xs: "70vw", md: "100%" },
-                                    height: { xs: 320, md: 480 },
-                                    background: `radial-gradient(circle at 50% 50%, ${alpha(theme.palette.primary.main, 0.22)} 0%, transparent 65%)`,
-                                    filter: "blur(80px)",
-                                    borderRadius: "50%",
-                                    zIndex: 0,
-                                    pointerEvents: "none",
-                                    transform: "translate(-50%, -50%)",
-                                })}
-                            />
-                            <Box sx={{ position: "relative", zIndex: 1, width: "100%" }}>
-                                <IdleMount placeholder={<div style={{ width: "100%", aspectRatio: "1/1", maxWidth: 450 }} />}>
-                                    <ReterminalScene />
-                                </IdleMount>
-                            </Box>
-                        </Box>
-                    </Grid>
-                </Grid>
+                </Box>
 
                 {/* Callouts grid — full width below */}
                 <Box
-                    component={motion.div}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.45 }}
                     sx={(theme) => ({
                         mt: { xs: 6, md: 8 },
                         border: `1px solid ${theme.palette.divider}`,

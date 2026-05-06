@@ -4,6 +4,8 @@ import { PricingHero } from "@/sections/pricing/PricingHero";
 import { PricingModules } from "@/sections/pricing/PricingModules";
 import { PricingTitle } from "@/sections/pricing/PricingTitle";
 import { getSiteContent, resolveAppLocale } from "@/i18n/siteContent";
+import { buildPageMetadata } from "@/lib/seo";
+import { breadcrumbList } from "@/lib/jsonLd";
 
 export async function generateMetadata({
     params,
@@ -14,36 +16,39 @@ export async function generateMetadata({
     const resolvedLocale = resolveAppLocale(locale);
     const content = getSiteContent(resolvedLocale);
 
-    return {
+    return buildPageMetadata({
+        locale: resolvedLocale,
+        path: "/pricing",
         title: content.seo.pricing.title,
         description: content.seo.pricing.description,
-        openGraph: {
-            title: `${content.seo.pricing.title} | LogOS`,
-            description: content.seo.pricing.description,
-            images: [
-                {
-                    url: "/opengraph-image.jpg",
-                    width: 1200,
-                    height: 630,
-                    alt: `${content.seo.pricing.title} | LogOS`,
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: `${content.seo.pricing.title} | LogOS`,
-            description: content.seo.pricing.description,
-            images: ["/twitter-image.jpg"],
-        },
-    };
+    });
 }
 
-export default function Precios() {
+export default async function Precios({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+    const resolvedLocale = resolveAppLocale(locale);
+    const content = getSiteContent(resolvedLocale);
+
+    const crumbs = breadcrumbList(resolvedLocale, [
+        { name: content.seo.home.title, path: "" },
+        { name: content.seo.pricing.title, path: "/pricing" },
+    ]);
+
     return (
-        <Box component="main">
-            <PricingTitle />
-            <PricingHero />
-            <PricingModules />
-        </Box>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }}
+            />
+            <Box component="main">
+                <PricingTitle />
+                <PricingHero />
+                <PricingModules />
+            </Box>
+        </>
     );
 }
