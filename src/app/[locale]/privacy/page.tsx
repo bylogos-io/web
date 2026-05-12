@@ -41,19 +41,19 @@ export default async function Privacy({
       }}
     >
       <Container maxWidth='md'>
-        <Button
-          component={Link}
-          href='/'
-          startIcon={<ArrowBackIcon />}
-          sx={{
-            mb: 4,
-            textTransform: 'none',
-            color: 'text.secondary',
-            '&:hover': { color: 'primary.main' },
-          }}
-        >
-          {content.privacy.backHome}
-        </Button>
+        <Link href='/' style={{ textDecoration: 'none' }}>
+          <Button
+            startIcon={<ArrowBackIcon />}
+            sx={{
+              mb: 4,
+              textTransform: 'none',
+              color: 'text.secondary',
+              '&:hover': { color: 'primary.main' },
+            }}
+          >
+            {content.privacy.backHome}
+          </Button>
+        </Link>
 
         <Typography
           variant='h3'
