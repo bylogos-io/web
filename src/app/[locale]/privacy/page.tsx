@@ -1,14 +1,34 @@
-'use client';
-
+import type { Metadata } from 'next';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { Link } from '@/i18n/routing';
-import { useLocale } from 'next-intl';
-import { getSiteContent } from '@/i18n/siteContent';
+import { getSiteContent, resolveAppLocale } from '@/i18n/siteContent';
+import { buildPageMetadata } from '@/lib/seo';
 
-export default function Privacy() {
-  const locale = useLocale();
-  const content = getSiteContent(locale);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const resolved = resolveAppLocale(locale);
+  const content = getSiteContent(resolved);
+  return buildPageMetadata({
+    locale: resolved,
+    path: '/privacy',
+    title: content.privacy.title,
+    description: content.privacy.title,
+    noindex: false,
+  });
+}
+
+export default async function Privacy({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const content = getSiteContent(resolveAppLocale(locale));
   const sections = content.privacy.sections;
 
   return (
@@ -45,8 +65,8 @@ export default function Privacy() {
         </Typography>
 
         <Stack spacing={6}>
-          {sections.map((section, index) => (
-            <Box key={index}>
+          {sections.map((section) => (
+            <Box key={section.title}>
               <Typography
                 variant='h5'
                 component='h2'
@@ -61,8 +81,8 @@ export default function Privacy() {
 
               {Array.isArray(section.content) ? (
                 <Stack spacing={2}>
-                  {section.content.map((text, i) => (
-                    <Typography key={i} variant='body1' color='text.secondary'>
+                  {section.content.map((text) => (
+                    <Typography key={text} variant='body1' color='text.secondary'>
                       {text}
                     </Typography>
                   ))}
@@ -90,9 +110,9 @@ export default function Privacy() {
                     gap: 1.5,
                   }}
                 >
-                  {section.list.map((item, i) => (
+                  {section.list.map((item) => (
                     <Typography
-                      key={i}
+                      key={item}
                       component='li'
                       variant='body1'
                       color='text.secondary'

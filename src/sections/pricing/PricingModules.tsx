@@ -43,7 +43,7 @@ export function PricingModules() {
                     {items.map((mod, index) => {
                         const Icon = mod.icon;
                         return (
-                            <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
+                            <Grid key={mod.title} size={{ xs: 12, sm: 6, md: 4 }}>
                                 <Box
                                     component={motion.div}
                                     initial={{ opacity: 0, y: 16 }}

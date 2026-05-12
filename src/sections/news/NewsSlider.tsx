@@ -275,9 +275,9 @@ export function NewsSlider({
             mt: 4,
           }}
         >
-          {posts.map((_, index) => (
+          {posts.map((post, index) => (
             <Box
-              key={index}
+              key={post.slug}
               onClick={() => {
                 setDirection(index > currentIndex ? 1 : -1);
                 setCurrentIndex(index);

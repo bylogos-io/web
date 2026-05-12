@@ -22,7 +22,7 @@ export function PartnersBenefits() {
                 />
                 <Grid container spacing={{ xs: 2, md: 2.5 }}>
                     {c.benefits.map((b: any, idx: number) => (
-                        <Grid key={idx} size={{ xs: 12, sm: 6, md: 4 }}>
+                        <Grid key={b.title} size={{ xs: 12, sm: 6, md: 4 }}>
                             <Box
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 16 }}

@@ -109,7 +109,7 @@ function VisualWaveform() {
                 </defs>
                 {[...Array(8)].map((_, i) => (
                     <line
-                        key={i}
+                        key={`v-${i}`}
                         x1={i * 75}
                         x2={i * 75}
                         y1="0"
@@ -120,7 +120,7 @@ function VisualWaveform() {
                 ))}
                 {[...Array(5)].map((_, i) => (
                     <line
-                        key={i}
+                        key={`h-${i}`}
                         x1="0"
                         x2="600"
                         y1={i * 40}
@@ -177,7 +177,7 @@ function VisualAlert() {
                 { sev: "INFO", label: "Reporte diario generado", time: "5m", color: "rgba(255,255,255,0.4)" },
             ].map((a, i) => (
                 <Box
-                    key={i}
+                    key={a.label}
                     component={motion.div}
                     initial={{ opacity: 0, x: 8 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -249,7 +249,7 @@ function VisualIntegrations() {
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, width: "100%" }}>
             {items.map((it, i) => (
                 <Box
-                    key={i}
+                    key={it.label}
                     component={motion.div}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -283,7 +283,7 @@ function VisualReports() {
         <Box sx={{ width: "100%", position: "relative", height: 140 }}>
             {[0, 1, 2].map((i) => (
                 <Box
-                    key={i}
+                    key={`report-${i}`}
                     component={motion.div}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -315,7 +315,7 @@ function VisualReports() {
                     </Box>
                     {[80, 65, 90, 50].map((w, j) => (
                         <Box
-                            key={j}
+                            key={`bar-${j}`}
                             sx={(theme) => ({
                                 width: `${w}%`,
                                 height: 4,
@@ -340,7 +340,7 @@ function VisualAI() {
         <Stack spacing={1.25} sx={{ width: "100%" }}>
             {lines.map((l, i) => (
                 <Box
-                    key={i}
+                    key={l.text}
                     component={motion.div}
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -510,7 +510,7 @@ function VisualDevices() {
                 </Box>
                 {[60, 80, 45].map((w, i) => (
                     <Box
-                        key={i}
+                        key={`web-${w}`}
                         sx={(theme) => ({
                             width: `${w}%`,
                             height: 6,
@@ -558,7 +558,7 @@ function VisualDevices() {
                 />
                 {[80, 60, 70].map((w, i) => (
                     <Box
-                        key={i}
+                        key={`mob-${w}`}
                         sx={(theme) => ({
                             width: `${w}%`,
                             height: 4,

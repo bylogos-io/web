@@ -51,9 +51,9 @@ export function Footer() {
                                 {content.footer.tagline}
                             </Typography>
                             <Stack direction="row" spacing={1}>
-                                {socialLinks.map((social, idx) => (
+                                {socialLinks.map((social) => (
                                     <IconButton
-                                        key={idx}
+                                        key={social.href}
                                         component="a"
                                         href={social.href}
                                         target="_blank"

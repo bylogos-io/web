@@ -31,7 +31,7 @@ export function PlatformArchitecture() {
                 <Stack spacing={2} sx={{ maxWidth: 640, mx: "auto" }}>
                     {c.architecturePoints.map((p, idx) => (
                         <Box
-                            key={idx}
+                            key={p}
                             component={motion.div}
                             initial={{ opacity: 0, x: -16 }}
                             whileInView={{ opacity: 1, x: 0 }}

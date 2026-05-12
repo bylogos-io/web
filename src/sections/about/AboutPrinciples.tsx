@@ -30,7 +30,7 @@ export function AboutPrinciples() {
                 />
                 <Grid container spacing={{ xs: 2, md: 2.5 }}>
                     {c.principles.map((p, idx) => (
-                        <Grid key={idx} size={{ xs: 12, md: 4 }}>
+                        <Grid key={p.title} size={{ xs: 12, md: 4 }}>
                             <Box
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 16 }}

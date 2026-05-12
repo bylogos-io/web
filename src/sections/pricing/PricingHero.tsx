@@ -89,8 +89,8 @@ function Plan({ eyebrow, title, price, period, subtitle, description, features, 
             </Typography>
 
             <Stack spacing={1.5} sx={{ flex: 1 }}>
-                {features.map((f, idx) => (
-                    <Stack key={idx} direction="row" spacing={1.5} alignItems="flex-start">
+                {features.map((f) => (
+                    <Stack key={f} direction="row" spacing={1.5} alignItems="flex-start">
                         <Box
                             sx={(theme) => ({
                                 width: 5,

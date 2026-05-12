@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "@/lib/motion-shim";
 import videojs from "video.js";
 import type Player from "video.js/dist/types/player";
@@ -38,7 +38,7 @@ export function DemoVideo() {
     const [isMuted, setIsMuted] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
-    const src = useMemo(() => `https://stream.mux.com/${muxPlaybackId}.m3u8`, []);
+    const src = `https://stream.mux.com/${muxPlaybackId}.m3u8`;
     useEffect(() => {
         if (!videoContainerRef.current) {
             return;

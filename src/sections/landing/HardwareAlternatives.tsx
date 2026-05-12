@@ -73,7 +73,7 @@ export function HardwareAlternatives() {
                 <Grid container spacing={2} sx={{ mx: "auto", alignItems: "stretch" }}>
                     {hardwareOptions.map((hardware, index) => (
                         <Grid
-                            key={index}
+                            key={hardware.name}
                             size={{ xs: 12, md: 6, lg: 4 }}
                             sx={{ display: "flex", justifyContent: "center" }}
                         >

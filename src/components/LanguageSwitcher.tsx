@@ -20,7 +20,7 @@ import { getSiteContent, localeOptions } from "@/i18n/siteContent";
 export function LanguageSwitcher() {
     const locale = useLocale();
     const content = getSiteContent(locale);
-    const router = useRouter();
+    const { replace } = useRouter();
     const pathname = usePathname();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const availableLocales = localeOptions as ReadonlyArray<{
@@ -31,23 +31,23 @@ export function LanguageSwitcher() {
     const currentLocale =
         availableLocales.find((option) => option.code === locale) ?? availableLocales[0];
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const closeMenu = () => {
         setAnchorEl(null);
     };
 
-    const handleLocaleChange = (nextLocale: string) => {
-        handleClose();
-        router.replace(pathname, { locale: nextLocale });
+    const selectLocale = (nextLocale: string) => {
+        closeMenu();
+        replace(pathname, { locale: nextLocale });
     };
 
     return (
         <Box>
             <Button
-                onClick={handleClick}
+                onClick={openMenu}
                 aria-label={content.languageSwitcher.label}
                 aria-haspopup="menu"
                 aria-expanded={Boolean(anchorEl)}
@@ -100,7 +100,7 @@ export function LanguageSwitcher() {
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
-                onClose={handleClose}
+                onClose={closeMenu}
                 PaperProps={{
                     sx: {
                         mt: 1,
@@ -135,7 +135,7 @@ export function LanguageSwitcher() {
                     return (
                         <MenuItem
                             key={nextLocale}
-                            onClick={() => handleLocaleChange(nextLocale)}
+                            onClick={() => selectLocale(nextLocale)}
                             selected={locale === nextLocale}
                             sx={{ py: 1.1, display: "flex", alignItems: "center", gap: 1.5 }}
                         >

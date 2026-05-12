@@ -13,11 +13,11 @@
  */
 import {
     createElement,
-    forwardRef,
     useEffect,
     useRef,
     type CSSProperties,
     type ReactNode,
+    type Ref,
     type RefObject,
 } from "react";
 import { animate, type AnimationParams } from "animejs";
@@ -50,13 +50,14 @@ type Transition = {
 type Viewport = { once?: boolean; amount?: number };
 
 interface MotionProps {
-    initial?: AnimVals | false;
-    animate?: AnimVals;
-    whileInView?: AnimVals;
+    initial?: any;
+    animate?: any;
+    whileInView?: any;
     viewport?: Viewport;
-    transition?: Transition;
+    transition?: any;
     style?: CSSProperties;
     children?: ReactNode;
+    ref?: Ref<any>;
     [k: string]: any;
 }
 
@@ -97,8 +98,8 @@ function buildAnimeTarget(target: AnimVals, transition?: Transition): AnimationP
 
 function pathLengthAnimate(el: SVGPathElement, target: number, transition?: Transition) {
     const len = el.getTotalLength();
-    el.style.strokeDasharray = `${len}`;
-    el.style.strokeDashoffset = `${len * (1 - (target ?? 1))}`;
+    const off = len * (1 - (target ?? 1));
+    el.style.cssText += `;stroke-dasharray:${len};stroke-dashoffset:${off}`;
     animate(el as any, {
         strokeDashoffset: len * (1 - (target ?? 1)),
         duration: MS(transition?.duration, 1500),
@@ -111,7 +112,7 @@ const HAS_TRANSFORM = (v: AnimVals) =>
     v && (v.x != null || v.y != null || v.scale != null || v.rotate != null);
 
 function makeMotion(tag: string) {
-    const Component = forwardRef<any, MotionProps>(function MotionComponent(props, fwd) {
+    function MotionComponent(props: MotionProps) {
         const {
             initial,
             animate: animateTo,
@@ -120,6 +121,7 @@ function makeMotion(tag: string) {
             transition,
             style,
             children,
+            ref: fwd,
             ...rest
         } = props;
         const localRef = useRef<HTMLElement | null>(null);
@@ -187,9 +189,9 @@ function makeMotion(tag: string) {
         if (initialStyle) (finalStyle as any).willChange = "opacity, transform";
 
         return createElement(tag, { ref: setRef, style: finalStyle, ...rest }, children);
-    });
-    Component.displayName = `motion.${tag}`;
-    return Component;
+    }
+    MotionComponent.displayName = `motion.${tag}`;
+    return MotionComponent;
 }
 
 const tags = [

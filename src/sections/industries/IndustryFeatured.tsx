@@ -167,7 +167,7 @@ export function IndustryFeatured() {
                                     const Icon = col.icon;
                                     return (
                                         <Grid
-                                            key={idx}
+                                            key={col.label}
                                             size={{ xs: 12, md: 4 }}
                                             sx={(theme) => ({
                                                 p: { xs: 2.5, md: 3 },
@@ -218,11 +218,11 @@ export function IndustryFeatured() {
                 </AnimatePresence>
 
                 <Box sx={{ display: "flex", justifyContent: "center", gap: 1.25, mt: { xs: 3, md: 3 } }}>
-                    {slides.map((_, idx) => {
+                    {slides.map((s, idx) => {
                         const active = idx === current;
                         return (
                             <Box
-                                key={idx}
+                                key={s.title}
                                 onClick={() => setCurrent(idx)}
                                 role="button"
                                 aria-label={`${caseLabel} ${idx + 1}`}

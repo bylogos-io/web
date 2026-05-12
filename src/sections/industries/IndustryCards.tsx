@@ -40,7 +40,7 @@ export function IndustryCards() {
                 />
                 <Stack spacing={{ xs: 2, md: 2.5 }}>
                     {industryDetails.map((industry, index) => (
-                        <Box key={index} id={toSlug(industry.title)} sx={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}>
+                        <Box key={industry.title} id={toSlug(industry.title)} sx={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}>
                             <IndustryCard industry={industry} index={index} />
                         </Box>
                     ))}
@@ -151,8 +151,8 @@ function IndustryCard({ industry, index }: { industry: any; index: number }) {
                 </Typography>
 
                 <Stack spacing={1}>
-                    {industry.points.map((point: string, idx: number) => (
-                        <Stack key={idx} direction="row" spacing={1.25} alignItems="center">
+                    {industry.points.map((point: string) => (
+                        <Stack key={point} direction="row" spacing={1.25} alignItems="center">
                             <CheckCircleOutlineIcon sx={{ fontSize: 16, color: "primary.main" }} />
                             <Typography variant="body2" sx={{ color: "text.primary" }}>
                                 {point}

@@ -33,52 +33,27 @@ import {
     Theme,
 } from "@mui/material";
 
-export function Header() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [expandedItem, setExpandedItem] = useState<string | null>(null);
-    const router = useRouter();
-    const pathname = usePathname();
-    const locale = useLocale();
-    const content = getSiteContent(locale);
+type NavItem = {
+    label: string;
+    href: string;
+    submenu?: Array<{ label: string; href: string; description?: string }>;
+};
 
-    const navigationItems = content.header.navigation as Array<{
-        label: string;
-        href: string;
-        submenu?: Array<{ label: string; href: string; description?: string }>;
-    }>;
+function NavDropdown({
+    item,
+    isItemActive,
+    onNavigate,
+}: {
+    item: NavItem;
+    isItemActive: (href: string | undefined) => boolean;
+    onNavigate: (href: string) => void;
+}) {
+    const [isOpen, setIsOpen] = useState(false);
+    const isActive = isItemActive(item.href);
+    const hasSubActive = item.submenu?.some((s) => isItemActive(s.href));
+    const highlight = isActive || hasSubActive;
 
-    const handleNavigation = (href: string) => {
-        if (href.startsWith("#")) {
-            if (pathname === "/") {
-                const element = document.querySelector(href);
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                }
-            } else {
-                router.push("/" + href);
-            }
-        } else {
-            router.push(href);
-        }
-        setIsMobileMenuOpen(false);
-    };
-
-    const socialLinks = SOCIAL_LINKS;
-
-    const isItemActive = (href: string | undefined) => {
-        if (!href || href.startsWith("#")) return false;
-        const current = pathname ?? "/";
-        if (href === "/") return current === "/";
-        return current === href || current.startsWith(`${href}/`);
-    };
-
-    function NavDropdown({ item }: { item: any }) {
-        const [isOpen, setIsOpen] = useState(false);
-        const isActive = isItemActive(item.href);
-        const hasSubActive = item.submenu?.some((s: any) => isItemActive(s.href));
-        const highlight = isActive || hasSubActive;
-
-        return (
+    return (
             <Box
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
@@ -90,7 +65,7 @@ export function Header() {
                     aria-haspopup={item.submenu ? "true" : undefined}
                     aria-expanded={item.submenu ? isOpen : undefined}
                     aria-current={isActive ? "page" : undefined}
-                    onClick={() => item.href && handleNavigation(item.href as string)}
+                    onClick={() => item.href && onNavigate(item.href as string)}
                     sx={{
                         position: "relative",
                         background: "none",
@@ -156,12 +131,12 @@ export function Header() {
                                     p: 1,
                                 })}
                             >
-                                {item.submenu.map((sub: any, idx: number) => (
+                                {item.submenu.map((sub) => (
                                     <Box
-                                        key={idx}
+                                        key={sub.label}
                                         component={sub.href.startsWith("#") ? "button" : Link}
                                         href={sub.href.startsWith("#") ? undefined : sub.href}
-                                        onClick={() => sub.href.startsWith("#") && handleNavigation(sub.href as string)}
+                                        onClick={() => sub.href.startsWith("#") && onNavigate(sub.href as string)}
                                         sx={(theme: Theme) => ({
                                             display: "block",
                                             width: "100%",
@@ -208,7 +183,42 @@ export function Header() {
                     )}
             </Box>
         );
-    }
+}
+
+export function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [expandedItem, setExpandedItem] = useState<string | null>(null);
+    const { push } = useRouter();
+    const pathname = usePathname();
+    const locale = useLocale();
+    const content = getSiteContent(locale);
+
+    const navigationItems = content.header.navigation as NavItem[];
+
+    const handleNavigation = (href: string) => {
+        if (href.startsWith("#")) {
+            if (pathname === "/") {
+                const element = document.querySelector(href);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            } else {
+                push("/" + href);
+            }
+        } else {
+            push(href);
+        }
+        setIsMobileMenuOpen(false);
+    };
+
+    const socialLinks = SOCIAL_LINKS;
+
+    const isItemActive = (href: string | undefined) => {
+        if (!href || href.startsWith("#")) return false;
+        const current = pathname ?? "/";
+        if (href === "/") return current === "/";
+        return current === href || current.startsWith(`${href}/`);
+    };
 
     return (
         <>
@@ -283,8 +293,13 @@ export function Header() {
                                 gap: 5,
                             }}
                         >
-                            {navigationItems.map((item, index) => (
-                                <NavDropdown key={index} item={item} />
+                            {navigationItems.map((item) => (
+                                <NavDropdown
+                                    key={item.label}
+                                    item={item}
+                                    isItemActive={isItemActive}
+                                    onNavigate={handleNavigation}
+                                />
                             ))}
                         </Box>
 
@@ -363,7 +378,7 @@ export function Header() {
                         const isExpanded = expandedItem === item.label;
                         const hasSubmenu = Boolean(item.submenu);
                         const isActive = isItemActive(item.href);
-                        const hasSubActive = item.submenu?.some((s: any) => isItemActive(s.href));
+                        const hasSubActive = item.submenu?.some((s) => isItemActive(s.href));
                         const highlight = isActive || hasSubActive;
 
                         return (
@@ -442,7 +457,7 @@ export function Header() {
                                 {item.submenu && (
                                     <Collapse in={isExpanded} timeout="auto" unmountOnExit>
                                         <List component="div" disablePadding sx={{ mt: 1 }}>
-                                            {item.submenu.map((sub: any) => (
+                                            {item.submenu.map((sub) => (
                                                 <ListItem key={sub.label} disablePadding>
                                                     <ListItemButton
                                                         component={!sub.href.startsWith("#") ? Link : "div"}
@@ -530,9 +545,9 @@ export function Header() {
                         {content.header.followUs}
                     </Typography>
                     <Stack direction="row" spacing={3} justifyContent="center">
-                        {socialLinks.map((social, idx) => (
+                        {socialLinks.map((social) => (
                             <IconButton
-                                key={idx}
+                                key={social.href}
                                 component="a"
                                 href={social.href}
                                 target="_blank"

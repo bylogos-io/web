@@ -1,14 +1,34 @@
-'use client';
-
+import type { Metadata } from 'next';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { Link } from '@/i18n/routing';
-import { useLocale } from 'next-intl';
-import { getSiteContent } from '@/i18n/siteContent';
+import { getSiteContent, resolveAppLocale } from '@/i18n/siteContent';
+import { buildPageMetadata } from '@/lib/seo';
 
-export default function Terms() {
-  const locale = useLocale();
-  const content = getSiteContent(locale);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const resolved = resolveAppLocale(locale);
+  const content = getSiteContent(resolved);
+  return buildPageMetadata({
+    locale: resolved,
+    path: '/terms',
+    title: content.terms.title,
+    description: content.terms.title,
+    noindex: false,
+  });
+}
+
+export default async function Terms({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const content = getSiteContent(resolveAppLocale(locale));
   const sections = content.terms.sections;
 
   return (
@@ -45,8 +65,8 @@ export default function Terms() {
         </Typography>
 
         <Stack spacing={6}>
-          {sections.map((section, index) => (
-            <Box key={index}>
+          {sections.map((section) => (
+            <Box key={section.title}>
               <Typography
                 variant='h5'
                 component='h2'
@@ -80,9 +100,9 @@ export default function Terms() {
                     gap: 1.5,
                   }}
                 >
-                  {section.list.map((item, i) => (
+                  {section.list.map((item) => (
                     <Typography
-                      key={i}
+                      key={item}
                       component='li'
                       variant='body1'
                       color='text.secondary'

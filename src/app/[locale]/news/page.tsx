@@ -50,7 +50,7 @@ export default async function NewsPage({
     const { locale } = await params;
     const resolvedLocale = resolveAppLocale(locale);
 
-    const sortedPosts = [...news].sort((a, b) => {
+    const sortedPosts = news.toSorted((a, b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
 

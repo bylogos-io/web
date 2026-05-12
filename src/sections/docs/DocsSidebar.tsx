@@ -17,7 +17,7 @@ export function DocsSidebar({ docs }: { docs: Doc[] }) {
     const pathname = usePathname();
 
     // Ordenamos los documentos según el campo `order`
-    const sortedDocs = [...docs].sort((a, b) => a.order - b.order);
+    const sortedDocs = docs.toSorted((a, b) => a.order - b.order);
 
     return (
         <Box

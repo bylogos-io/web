@@ -108,7 +108,7 @@ export function PlatformProcess() {
                                     const isPast = idx < active;
                                     return (
                                         <Box
-                                            key={idx}
+                                            key={s.title}
                                             sx={(theme) => ({
                                                 display: "flex",
                                                 alignItems: "center",
@@ -265,8 +265,8 @@ export function PlatformProcess() {
                                             {steps[active].body}
                                         </Typography>
                                         <Stack spacing={1.25}>
-                                            {steps[active].items.map((it, i) => (
-                                                <Stack key={i} direction="row" spacing={1.25} alignItems="center">
+                                            {steps[active].items.map((it) => (
+                                                <Stack key={it} direction="row" spacing={1.25} alignItems="center">
                                                     <CheckCircleOutlineIcon
                                                         sx={{ color: "primary.main", fontSize: 18 }}
                                                     />

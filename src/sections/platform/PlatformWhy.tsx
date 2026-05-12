@@ -79,8 +79,8 @@ function EdgeVsCloud({ data }: { data: any }) {
                             {data.onPremTitle}
                         </Typography>
                         <Stack spacing={1.5}>
-                            {data.onPremPoints.map((p: string, i: number) => (
-                                <Stack key={i} direction="row" spacing={1.25} alignItems="flex-start">
+                            {data.onPremPoints.map((p: string) => (
+                                <Stack key={p} direction="row" spacing={1.25} alignItems="flex-start">
                                     <Box
                                         sx={(theme) => ({
                                             width: 5,
@@ -126,8 +126,8 @@ function EdgeVsCloud({ data }: { data: any }) {
                             {data.cloudTitle}
                         </Typography>
                         <Stack spacing={1.5}>
-                            {data.cloudPoints.map((p: string, i: number) => (
-                                <Stack key={i} direction="row" spacing={1.25} alignItems="flex-start">
+                            {data.cloudPoints.map((p: string) => (
+                                <Stack key={p} direction="row" spacing={1.25} alignItems="flex-start">
                                     <Box
                                         sx={(theme) => ({
                                             width: 5,
@@ -357,7 +357,7 @@ function BeforeAfter({ data }: { data: any }) {
 
                 {data.rows.map((row: any, i: number) => (
                     <Grid
-                        key={i}
+                        key={row.topic}
                         container
                         component={motion.div}
                         initial={{ opacity: 0 }}

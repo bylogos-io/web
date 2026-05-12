@@ -39,7 +39,7 @@ export function PartnersTiers() {
                 >
                     {c.ideas.map((idea: string, idx: number) => (
                         <Box
-                            key={idx}
+                            key={idea}
                             sx={(theme) => ({
                                 display: "flex",
                                 alignItems: "flex-start",

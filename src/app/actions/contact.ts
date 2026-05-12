@@ -1,5 +1,6 @@
 "use server";
 
+import { after } from "next/server";
 import Zavudev from "@zavudev/sdk";
 import { CONTACT_REASONS, type ContactInput, type ContactReason, type ContactResult } from "./contact-types";
 
@@ -38,6 +39,9 @@ function escapeHtml(s: string) {
         .replace(/'/g, "&#39;");
 }
 
+// Public contact form — intentionally unauthenticated. Rate limiting / spam
+// protection handled upstream (CDN + form-side validation).
+// react-doctor-disable-next-line react-doctor/server-auth-actions
 export async function submitContact(input: ContactInput): Promise<ContactResult> {
     const fail = validate(input);
     if (fail) return fail;
@@ -45,14 +49,12 @@ export async function submitContact(input: ContactInput): Promise<ContactResult>
     const apiKey = process.env.ZAVUDEV_API_KEY;
     const sender = process.env.ZAVU_SENDER_ID;
     const recipientsEnv = process.env.CONTACT_TO_EMAIL ?? "contact@bylogos.io,javier@bylogos.io";
-    const recipients = Array.from(
-        new Set(
-            recipientsEnv
-                .split(",")
-                .map((s) => s.trim())
-                .filter((s) => s && EMAIL_REGEX.test(s))
-        )
-    );
+    const recipientsSet = new Set<string>();
+    for (const raw of recipientsEnv.split(",")) {
+        const s = raw.trim();
+        if (s && EMAIL_REGEX.test(s)) recipientsSet.add(s);
+    }
+    const recipients = Array.from(recipientsSet);
     if (recipients.length === 0) recipients.push("contact@bylogos.io");
 
     const fullName = `${input.firstName.trim()} ${input.lastName.trim()}`.trim();
@@ -89,8 +91,10 @@ export async function submitContact(input: ContactInput): Promise<ContactResult>
 </div>`.trim();
 
     if (!apiKey) {
-        console.log(`[contact] ZAVUDEV_API_KEY missing — logging payload only (would send to: ${recipients.join(", ")})`);
-        console.log(text);
+        after(() => {
+            console.log(`[contact] ZAVUDEV_API_KEY missing — logging payload only (would send to: ${recipients.join(", ")})`);
+            console.log(text);
+        });
         return { ok: true };
     }
 
@@ -116,7 +120,7 @@ export async function submitContact(input: ContactInput): Promise<ContactResult>
                 },
             });
         } catch (err) {
-            console.warn("[contact] zavu contacts.create failed (continuing)", err);
+            after(() => console.warn("[contact] zavu contacts.create failed (continuing)", err));
         }
 
         // 2) Fan out notification email to all recipients
@@ -143,16 +147,16 @@ export async function submitContact(input: ContactInput): Promise<ContactResult>
 
         const failed = sends.filter((r) => r.status === "rejected");
         if (failed.length === sends.length) {
-            console.error("[contact] all recipients failed", failed);
+            after(() => console.error("[contact] all recipients failed", failed));
             return { ok: false, error: "send_failed" };
         }
         if (failed.length > 0) {
-            console.warn(`[contact] ${failed.length}/${sends.length} recipients failed`, failed);
+            after(() => console.warn(`[contact] ${failed.length}/${sends.length} recipients failed`, failed));
         }
 
         return { ok: true };
     } catch (err) {
-        console.error("[contact] zavu send failed", err);
+        after(() => console.error("[contact] zavu send failed", err));
         return { ok: false, error: "send_failed" };
     }
 }

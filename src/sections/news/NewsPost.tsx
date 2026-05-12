@@ -155,9 +155,9 @@ export function NewsPost({ post }: NewsPostProps) {
               Enlaces de Interés
             </Typography>
             <Stack spacing={2}>
-              {post.links.map((link, index) => (
+              {post.links.map((link) => (
                 <Box
-                  key={index}
+                  key={link.url}
                   component="a"
                   href={link.url}
                   target="_blank"

@@ -202,7 +202,7 @@ export function HeroCase() {
                             >
                                 {metrics.map((m, idx) => (
                                     <Box
-                                        key={idx}
+                                        key={m.label}
                                         component={motion.div}
                                         initial={{ opacity: 0, x: 12 }}
                                         whileInView={{ opacity: 1, x: 0 }}

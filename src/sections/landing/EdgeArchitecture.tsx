@@ -282,7 +282,7 @@ export function EdgeArchitecture() {
                     {ea.benefits.map((p, idx) => {
                         const Icon = benefitIcons[idx] ?? BoltOutlinedIcon;
                         return (
-                            <Grid key={idx} size={{ xs: 12, md: 6 }}>
+                            <Grid key={p.title} size={{ xs: 12, md: 6 }}>
                                 <Box
                                     component={motion.div}
                                     initial={{ opacity: 0, y: 16 }}

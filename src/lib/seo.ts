@@ -6,7 +6,7 @@ export const SITE_URL = "https://bylogos.io";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph-image.jpg`;
 export const DEFAULT_TWITTER_IMAGE = `${SITE_URL}/twitter-image.jpg`;
 
-export type PageImage = {
+type PageImage = {
     url: string;
     width?: number;
     height?: number;

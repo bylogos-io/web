@@ -100,8 +100,8 @@ export function Features() {
                     viewport={{ once: true }}
                 >
                     <Grid container spacing={2}>
-                        {features.map((feature, index) => (
-                            <Grid key={index} size={{ xs: 12, sm: 6, lg: 4 }}>
+                        {features.map((feature) => (
+                            <Grid key={feature.title} size={{ xs: 12, sm: 6, lg: 4 }}>
                                 <Box
                                     component={motion.div}
                                     variants={itemVariants}

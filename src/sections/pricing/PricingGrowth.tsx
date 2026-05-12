@@ -31,7 +31,7 @@ export function PricingGrowth() {
                 />
                 <Grid container spacing={{ xs: 2, md: 2.5 }}>
                     {cards.map((card, idx) => (
-                        <Grid key={idx} size={{ xs: 12, md: 4 }}>
+                        <Grid key={card.title} size={{ xs: 12, md: 4 }}>
                             <Box
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 16 }}
@@ -98,7 +98,7 @@ export function PricingGrowth() {
                         }}
                     >
                         Crecimiento mediante expansión dentro de clientes existentes y replicación del modelo en
-                        Venezuela, México, Colombia, Perú, Argentina y Brasil — donde grandes organizaciones operan
+                        Venezuela, México, Colombia, Perú, Argentina y Brasil: donde grandes organizaciones operan
                         cientos de instalaciones físicas que requieren monitoreo operativo y energético. Cada nuevo
                         edificio conectado aumenta permanentemente la base de ingresos recurrentes de la plataforma.
                     </Typography>

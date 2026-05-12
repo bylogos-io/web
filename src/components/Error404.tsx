@@ -20,7 +20,7 @@ import { useRouter } from "@/i18n/routing";
 export default function ERR404() {
     const locale = useLocale();
     const content = getSiteContent(locale);
-    const router = useRouter();
+    const { push } = useRouter();
     const diagnostics = content.notFound.diagnostics;
     const suggestions = content.notFound.suggestions.map((suggestion, index) => ({
         ...suggestion,
@@ -187,8 +187,8 @@ export default function ERR404() {
                                 </Stack>
 
                                 <Grid container spacing={3}>
-                                    {diagnostics.map((diag, index) => (
-                                        <Grid key={index} size={6}>
+                                    {diagnostics.map((diag) => (
+                                        <Grid key={diag.label} size={6}>
                                             <Box
                                                 sx={{
                                                     display: "flex",
@@ -257,7 +257,7 @@ export default function ERR404() {
                             <Stack spacing={2} sx={{ mb: 4 }}>
                                 {suggestions.map((suggestion, index) => (
                                     <Box
-                                        key={index}
+                                        key={suggestion.title}
                                         component={motion.div}
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ export default function ERR404() {
                                                     return;
                                                 }
 
-                                                router.push(suggestion.href);
+                                                push(suggestion.href);
                                             }}
                                         >
                                             <Stack direction="row" spacing={2} alignItems="center">
@@ -346,7 +346,7 @@ export default function ERR404() {
                                 <Button
                                     variant="contained"
                                     sx={{ flex: 1, height: 48 }}
-                                    onClick={() => router.push("/")}
+                                    onClick={() => push("/")}
                                 >
                                     <HomeIcon sx={{ fontSize: 18, mr: 1 }} />
                                     {content.notFound.goHome}

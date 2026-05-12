@@ -29,6 +29,16 @@ const textVariants = {
     exit: { opacity: 0, y: -8 },
 };
 
+const slideImageBase = {
+    position: "absolute" as const,
+    inset: 0,
+    width: "100%",
+    height: "100%",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    filter: "brightness(0.95)",
+};
+
 interface IndustrySliderProps {
     autoPlayInterval?: number;
 }
@@ -142,14 +152,8 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
                             opacity: { duration: 0.4 },
                         }}
                         style={{
-                            position: "absolute",
-                            inset: 0,
-                            width: "100%",
-                            height: "100%",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
+                            ...slideImageBase,
                             backgroundImage: `url(${industries[currentIndex].image})`,
-                            filter: "brightness(0.95)",
                         }}
                     />
                 </AnimatePresence>
@@ -241,9 +245,9 @@ export function IndustrySlider({ autoPlayInterval = 5000 }: IndustrySliderProps)
                         pb: 3,
                     }}
                 >
-                    {industries.map((_, index) => (
+                    {industries.map((industry, index) => (
                         <Box
-                            key={index}
+                            key={industry.title}
                             onClick={() => {
                                 setDirection(index > currentIndex ? 1 : -1);
                                 setCurrentIndex(index);

@@ -101,8 +101,8 @@ export function Testimonials() {
                     sx={{ mb: 6 }}
                 >
                     <Grid container spacing={4} sx={{ textAlign: "center" }}>
-                        {stats.map((stat, index) => (
-                            <Grid key={index} size={{ xs: 6, md: 3 }}>
+                        {stats.map((stat) => (
+                            <Grid key={stat.label} size={{ xs: 6, md: 3 }}>
                                 <Typography variant="h3" color="primary" sx={{ mb: 1, fontWeight: 700 }}>
                                     {stat.value}
                                 </Typography>
@@ -122,7 +122,7 @@ export function Testimonials() {
                 >
                     <Grid container spacing={4} justifyContent="center">
                         {testimonials.map((testimonial, index) => (
-                            <Grid key={index} size={{ xs: 12, lg: 4 }}>
+                            <Grid key={testimonial.company} size={{ xs: 12, lg: 4 }}>
                                 <Box
                                     component={motion.div}
                                     initial={{ opacity: 0, y: 20 }}

@@ -24,7 +24,7 @@ export function AboutFounders() {
 
                 <Grid container spacing={4} justifyContent="center">
                     {founders.map((founder, index) => (
-                        <Grid key={index} size={{ xs: 12, sm: 6, md: 5 }}>
+                        <Grid key={founder.name} size={{ xs: 12, sm: 6, md: 5 }}>
                             <Box
                                 component={motion.div}
                                 initial={{ opacity: 0, y: 30 }}

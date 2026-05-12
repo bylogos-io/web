@@ -75,9 +75,9 @@ export function AboutWhy() {
                     </Box>
 
                     <Stack spacing={{ xs: 3, md: 4 }} sx={{ maxWidth: 720 }}>
-                        {c.paragraphs.map((p: string, idx: number) => (
+                        {c.paragraphs.map((p: string) => (
                             <Typography
-                                key={idx}
+                                key={p}
                                 sx={{
                                     color: "text.secondary",
                                     fontSize: { xs: "1rem", md: "1.05rem" },

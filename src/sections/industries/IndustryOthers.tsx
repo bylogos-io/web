@@ -69,7 +69,7 @@ export function IndustryOthers() {
                 <Stack divider={<Divider />} spacing={0}>
                     {items.map((it, idx) => (
                         <AccordionRow
-                            key={idx}
+                            key={it.title}
                             index={idx + 1}
                             total={items.length}
                             item={it}
@@ -258,7 +258,7 @@ function AccordionRow({
                                 const Icon = col.icon;
                                 return (
                                     <Grid
-                                        key={idx}
+                                        key={col.label}
                                         size={{ xs: 12, md: 4 }}
                                         sx={(theme) => ({
                                             p: { xs: 3, md: 4 },

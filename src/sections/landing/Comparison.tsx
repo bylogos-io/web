@@ -157,8 +157,8 @@ export function Comparison() {
                                 </Typography>
 
                                 <Stack spacing={3}>
-                                    {beforeItems.map((item: any, idx: number) => (
-                                        <Box key={idx}>
+                                    {beforeItems.map((item: any) => (
+                                        <Box key={item.title}>
                                             <Stack direction="row" spacing={2} alignItems="flex-start">
                                                 <ErrorOutlineIcon
                                                     sx={{
@@ -245,8 +245,8 @@ export function Comparison() {
                                 </Box>
 
                                 <Grid container spacing={3.5}>
-                                    {afterFeatures.map((feature: any, idx: number) => (
-                                        <Grid key={idx} size={{ xs: 12, sm: 6 }}>
+                                    {afterFeatures.map((feature: any) => (
+                                        <Grid key={feature.title} size={{ xs: 12, sm: 6 }}>
                                             <Box>
                                                 <Stack direction="row" spacing={1.5} alignItems="flex-start">
                                                     <Box

@@ -46,7 +46,7 @@ function Column({
             <Stack spacing={2.5}>
                 {items.map((item, idx) => (
                     <Box
-                        key={idx}
+                        key={item.title}
                         component={motion.div}
                         initial={{ opacity: 0, x: accent ? 12 : -12 }}
                         whileInView={{ opacity: 1, x: 0 }}

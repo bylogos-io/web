@@ -1,7 +1,50 @@
 "use client";
 
 import { motion } from "@/lib/motion-shim";
-import { useState } from "react";
+import { useReducer } from "react";
+
+type FormState = {
+    name: string;
+    email: string;
+    isSubmitted: boolean;
+    isLoading: boolean;
+    error: string;
+};
+
+type FormAction =
+    | { type: "setName"; value: string }
+    | { type: "setEmail"; value: string }
+    | { type: "submitStart" }
+    | { type: "submitOk" }
+    | { type: "submitError"; message: string }
+    | { type: "reset" };
+
+const INITIAL_STATE: FormState = {
+    name: "",
+    email: "",
+    isSubmitted: false,
+    isLoading: false,
+    error: "",
+};
+
+function formReducer(state: FormState, action: FormAction): FormState {
+    switch (action.type) {
+        case "setName":
+            return { ...state, name: action.value };
+        case "setEmail":
+            return { ...state, email: action.value };
+        case "submitStart":
+            return { ...state, isLoading: true, error: "" };
+        case "submitOk":
+            return { ...state, isLoading: false, isSubmitted: true, name: "", email: "" };
+        case "submitError":
+            return { ...state, isLoading: false, error: action.message };
+        case "reset":
+            return INITIAL_STATE;
+        default:
+            return state;
+    }
+}
 
 // MUI Icons - Outlined version
 // MUI Icons - Outlined version
@@ -28,11 +71,8 @@ import {
 } from "@mui/material";
 
 export function Newsletter() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState("");
+    const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
+    const { name, email, isSubmitted, isLoading, error } = state;
 
     const locale = useLocale();
     const content = getSiteContent(locale);
@@ -43,22 +83,18 @@ export function Newsletter() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError("");
-        setIsLoading(true);
+        dispatch({ type: "submitStart" });
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            setError(content.home.newsletter.invalidEmail);
-            setIsLoading(false);
+            dispatch({ type: "submitError", message: content.home.newsletter.invalidEmail });
             return;
         }
 
         try {
             const response = await fetch("https://cloud.bylogos.com/webhook/email-catcher", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email }),
             });
 
@@ -66,13 +102,9 @@ export function Newsletter() {
                 throw new Error("Error al suscribirse");
             }
 
-            setIsSubmitted(true);
-            setEmail("");
-            setName("");
+            dispatch({ type: "submitOk" });
         } catch (err) {
-            setError(content.home.newsletter.subscribeError);
-        } finally {
-            setIsLoading(false);
+            dispatch({ type: "submitError", message: content.home.newsletter.subscribeError });
         }
     };
 
@@ -125,7 +157,7 @@ export function Newsletter() {
                             </Typography>
                             <Button
                                 variant="outlined"
-                                onClick={() => setIsSubmitted(false)}
+                                onClick={() => dispatch({ type: "reset" })}
                                 sx={{ px: 4, py: 1.25, fontWeight: 700 }}
                             >
                                 {content.home.newsletter.subscribeAnother}
@@ -239,7 +271,7 @@ export function Newsletter() {
                             <Stack spacing={5}>
                                 {benefits.map((benefit, index) => (
                                     <Box
-                                        key={index}
+                                        key={benefit.title}
                                         component={motion.div}
                                         initial={{ opacity: 0, y: 20 }}
                                         whileInView={{ opacity: 1, y: 0 }}
@@ -337,7 +369,7 @@ export function Newsletter() {
                                         label={content.home.newsletter.nameLabel}
                                         variant="outlined"
                                         value={name}
-                                        onChange={(e) => setName(e.target.value)}
+                                        onChange={(e) => dispatch({ type: "setName", value: e.target.value })}
                                         required
                                     />
                                     <TextField
@@ -347,7 +379,7 @@ export function Newsletter() {
                                         type="email"
                                         variant="outlined"
                                         value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={(e) => dispatch({ type: "setEmail", value: e.target.value })}
                                         required
                                     />
 

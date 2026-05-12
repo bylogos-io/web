@@ -72,9 +72,9 @@ export function PricingTable() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {features.map((feature, index) => (
+                            {features.map((feature) => (
                                 <TableRow
-                                    key={index}
+                                    key={feature.name}
                                     sx={(theme) => ({
                                         "&:last-child td, &:last-child th": { border: 0 },
                                         "& td, & th": {
@@ -89,9 +89,9 @@ export function PricingTable() {
                                     <TableCell component="th" scope="row" sx={{ color: "text.primary" }}>
                                         {feature.name}
                                     </TableCell>
-                                    <TableCell align="center">{renderValue(feature.edge)}</TableCell>
-                                    <TableCell align="center">{renderValue(feature.cloud)}</TableCell>
-                                    <TableCell align="center">{renderValue(feature.enterprise)}</TableCell>
+                                    <TableCell align="center"><FeatureValue value={feature.edge} /></TableCell>
+                                    <TableCell align="center"><FeatureValue value={feature.cloud} /></TableCell>
+                                    <TableCell align="center"><FeatureValue value={feature.enterprise} /></TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -102,7 +102,7 @@ export function PricingTable() {
     );
 }
 
-function renderValue(value: boolean | string) {
+function FeatureValue({ value }: { value: boolean | string }) {
     if (typeof value === "string") {
         return (
             <Typography sx={{ fontFamily: monoFont, fontSize: "0.8rem", color: "text.primary" }}>

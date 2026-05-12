@@ -8,6 +8,7 @@ import { join, extname } from "node:path";
 
 const ROOT = new URL("../public", import.meta.url).pathname;
 const SKIP = new Set(["favicon.ico", "icon.ico"]);
+const IMG_EXT = new Set([".png", ".jpg", ".jpeg"]);
 const MAX_W = 1600;
 const QUALITY = 78;
 
@@ -23,7 +24,7 @@ let total = 0;
 let saved = 0;
 for await (const p of walk(ROOT)) {
     const ext = extname(p).toLowerCase();
-    if (![".png", ".jpg", ".jpeg"].includes(ext)) continue;
+    if (!IMG_EXT.has(ext)) continue;
     if (SKIP.has(p.split("/").pop()!)) continue;
     const out = p.replace(/\.(png|jpg|jpeg)$/i, ".webp");
     try {
