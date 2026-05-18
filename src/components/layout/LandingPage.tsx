@@ -33,14 +33,6 @@ export function LandingPage() {
                     <HardwareAlternatives />
                 </Box>
             </Box>
-
-            <Box
-                sx={{
-                    height: { xs: 700, md: 360 },
-                    visibility: "hidden",
-                    pointerEvents: "none",
-                }}
-            />
         </Box>
     );
 }

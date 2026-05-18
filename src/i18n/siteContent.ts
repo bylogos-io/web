@@ -119,6 +119,8 @@ const siteContent = {
             privacy: "Política de privacidad",
             terms: "Términos de servicio",
             contactInfoLabel: "Email técnico",
+            nvidiaInceptionAlt: "Miembro del programa NVIDIA Inception",
+            partnersTitle: "Partners",
             protocols: ["Modbus RTU/TCP", "OPC UA (DA, AC, HDA)", "MQTT / MQTT-SN"],
         },
         home: {
@@ -1451,6 +1453,8 @@ const siteContent = {
             privacy: "Privacy policy",
             terms: "Terms of service",
             contactInfoLabel: "Technical email",
+            nvidiaInceptionAlt: "NVIDIA Inception Program member",
+            partnersTitle: "Partners",
             protocols: ["Modbus RTU/TCP", "OPC UA (DA, AC, HDA)", "MQTT / MQTT-SN"],
         },
         home: {
@@ -2703,6 +2707,8 @@ const siteContent = {
             privacy: "Política de privacidade",
             terms: "Termos de serviço",
             contactInfoLabel: "Email técnico",
+            nvidiaInceptionAlt: "Membro do programa NVIDIA Inception",
+            partnersTitle: "Partners",
             protocols: ["Modbus RTU/TCP", "OPC UA (DA, AC, HDA)", "MQTT / MQTT-SN"],
         },
         home: {

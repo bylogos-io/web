@@ -3,6 +3,8 @@
 import { motion } from "@/lib/motion-shim";
 import Image from "next/image";
 import logoImage from "@public/isologo.svg";
+import nvidiaInceptionBadge from "@public/nvidia-inception-program-badge-rgb-for-screen.svg";
+import seeedLogo from "@public/seeed.webp";
 import { SOCIAL_LINKS } from "@/data/layout";
 import { Box, Container, Grid2 as Grid, Typography, Divider, Stack, alpha, Button, IconButton } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
@@ -131,6 +133,74 @@ export function Footer() {
                 </Grid>
 
                 <Divider sx={{ my: 6 }} />
+
+                {/* Partners */}
+                <Box
+                    component={motion.div}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    sx={{ mb: 6 }}
+                >
+                    <Typography
+                        variant="overline"
+                        color="text.secondary"
+                        sx={{ letterSpacing: "0.12em", fontWeight: 600, display: "block", mb: 2 }}
+                    >
+                        {content.footer.partnersTitle}
+                    </Typography>
+                    <Stack direction="row" alignItems="center" spacing={2}>
+                        <Box
+                            component="a"
+                            href="https://www.nvidia.com/en-us/startups/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={content.footer.nvidiaInceptionAlt}
+                            sx={{ display: "inline-flex", lineHeight: 0 }}
+                        >
+                            <Image
+                                src={nvidiaInceptionBadge}
+                                alt={content.footer.nvidiaInceptionAlt}
+                                width={139}
+                                height={60}
+                                style={{ width: "auto", height: 56, objectFit: "fill", display: "block", margin: 0, padding: 0, border: 0 }}
+                                unoptimized
+                            />
+                        </Box>
+                        <Box
+                            component="a"
+                            href="https://www.seeedstudio.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Seeed Studio"
+                            sx={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                width: 116,
+                                height: 43,
+                                px: 1.5,
+                                backgroundColor: "#fff",
+                                border: "1px solid #000",
+                                borderRadius: 0,
+                                lineHeight: 0,
+                                boxSizing: "border-box",
+                            }}
+                        >
+                            <Image
+                                src={seeedLogo}
+                                alt="Seeed Studio"
+                                width={750}
+                                height={103}
+                                style={{ width: "100%", height: "auto", objectFit: "contain", display: "block", margin: 0, padding: 0, border: 0 }}
+                                unoptimized
+                            />
+                        </Box>
+                    </Stack>
+                </Box>
+
+                <Divider sx={{ mb: 6 }} />
 
                 {/* Bottom section */}
                 <Box
